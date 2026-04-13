@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="fr" class="dark">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Commander | SIVÀA Geneva — Siwak Naturel Suisse</title>
+    <meta name="description" content="Commandez votre Siwak naturel premium SIVÀA Geneva. Livraison Swiss Post 48h en Suisse." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Inter:wght@100;300;400;500;600;700;900&display=swap" rel="stylesheet" />
+    <!-- EmailJS SDK v4 (gratuit, 200 emails/mois) -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+    <style>
+        /* ═══════════════════════════════════════════════════════════
+           DESIGN TOKENS — identiques au reste du site SIVÀA
+        ═══════════════════════════════════════════════════════════ */
+        :root {
+            --bg:                #09160b;
+            --surface-lowest:    #0d1c0f;
+            --surface-low:       #111f13;
+            --surface-mid:       #162518;
+            --surface-high:      #1c2e1e;
+            --surface-highest:   #223525;
+            --primary:           #9dd75a;
+            --primary-fixed:     #b5e87a;
+            --primary-dim:       #2a3d1a;
+            --secondary:         #8db87a;
+            --secondary-container: #182d12;
+            --text:              #d7e7d4;
+            --text-variant:      #8c9e89;
+            --outline:           #424939;
+            --outline-variant:   #2e3a2c;
+            --dark-green:        #0a1f0c;
+            --danger:            #e05a5a;
+            --danger-dim:        #3d1a1a;
+            color-scheme: dark;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html   { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        body   { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; font-size: 0.875rem; min-height: 100vh; }
+        h1,h2,h3,h4 { font-family: 'Newsreader', serif; color: var(--text); }
+        a      { text-decoration: none; color: inherit; }
+        img    { display: block; max-width: 100%; }
+        ::selection { background: #9dd75a33; color: #d7e7d4; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #09160b; }
+        ::-webkit-scrollbar-thumb { background: #424939; border-radius: 3px; }
+
+        /* ═══ Utilitaires ═══ */
+        .label-sm  { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
+        em.accent  { font-style: normal; color: var(--primary); }
+
+        /* ═══════════════════════════════════════════════════════════
+           NAVBAR + SÉLECTEUR DE LANGUE
+        ═══════════════════════════════════════════════════════════ */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+            background: rgba(9,22,11,0.85); backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(66,73,57,0.3);
+        }
+        .nav-inner {
+            max-width: 1280px; margin: 0 auto; padding: 0 1.5rem;
+            height: 64px; display: flex; align-items: center; justify-content: space-between;
+        }
+        .nav-logo { font-family: 'Newsreader', serif; font-size: 1.25rem; font-weight: 300; letter-spacing: 0.08em; }
+        .nav-logo span { color: var(--primary); }
+        .nav-links { display: flex; align-items: center; gap: 1.5rem; }
+        .nav-links > a { font-size: 0.8rem; color: var(--text-variant); transition: color 0.2s; }
+        .nav-links > a:hover { color: var(--text); }
+        .nav-cta {
+            background: var(--primary) !important; color: var(--dark-green) !important;
+            font-weight: 600 !important; padding: 0.45rem 1.1rem; border-radius: 0.4rem; font-size: 0.8rem !important;
+            transition: background 0.2s;
+        }
+        .nav-cta:hover { background: var(--primary-fixed) !important; }
+        @media (max-width: 640px) { .nav-links > a:not(.nav-cta):not([data-lang-wrap]) { display: none; } }
+
+        /* — Sélecteur de langue — */
+        .lang-wrap { position: relative; }
+        .lang-btn {
+            display: flex; align-items: center; gap: 0.35rem;
+            background: var(--surface-high); border: 1px solid var(--outline-variant);
+            color: var(--text-variant); border-radius: 0.4rem;
+            padding: 0.35rem 0.7rem; font-size: 0.75rem;
+            cursor: pointer; font-family: 'Inter', sans-serif; transition: all 0.2s;
+        }
+        .lang-btn:hover { border-color: var(--outline); color: var(--text); }
+        .chevron { width: 0.75em; height: 0.75em; transition: transform 0.2s; }
+        .lang-wrap.open .chevron { transform: rotate(180deg); }
+        .lang-dropdown {
+            display: none; position: absolute; top: calc(100% + 6px); right: 0;
+            background: var(--surface-high); border: 1px solid var(--outline-variant);
+            border-radius: 0.5rem; overflow: hidden; min-width: 130px;
+            box-shadow: 0 12px 32px rgba(0,0,0,0.5); z-index: 200;
+        }
+        .lang-wrap.open .lang-dropdown { display: block; }
+        .lang-opt {
+            display: flex; align-items: center; gap: 0.6rem;
+            padding: 0.6rem 1rem; font-size: 0.78rem;
+            color: var(--text-variant); cursor: pointer; transition: all 0.15s;
+        }
+        .lang-opt:hover { background: var(--surface-highest); color: var(--text); }
+        .lang-opt.active { color: var(--primary); font-weight: 600; }
+
+        /* ═══════════════════════════════════════════════════════════
+           PAGE HEADER
+        ═══════════════════════════════════════════════════════════ */
+        .page-header { padding: 7rem 0 3rem; }
+        .page-header .label-sm { color: var(--primary); display: block; margin-bottom: 0.75rem; }
+        .page-header h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; }
+
+        /* ═══════════════════════════════════════════════════════════
+           GRILLE CHECKOUT
+        ═══════════════════════════════════════════════════════════ */
+        .checkout-grid { display: grid; gap: 3rem; padding-bottom: 6rem; }
+        @media (min-width: 1024px) { .checkout-grid { grid-template-columns: 1fr 400px; } }
+
+        /* ═══════════════════════════════════════════════════════════
+           FORMULAIRE
+        ═══════════════════════════════════════════════════════════ */
+        .form-block { margin-bottom: 2.5rem; }
+        .form-block-title {
+            font-family: 'Newsreader', serif; font-size: 1.2rem; font-weight: 400;
+            margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--outline-variant);
+        }
+        .form-row { display: grid; gap: 1rem; }
+        @media (min-width: 640px) { .form-row.cols-2 { grid-template-columns: 1fr 1fr; } }
+        .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+        .form-group label { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--outline); }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            background: var(--surface-low); border: 1px solid var(--outline-variant);
+            border-radius: 0.5rem; padding: 0.75rem 1rem; color: var(--text);
+            font-size: 0.875rem; font-family: 'Inter', sans-serif;
+            outline: none; transition: border-color 0.2s; width: 100%;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus { border-color: var(--primary); }
+        .form-group select option { background: var(--surface-mid); }
+
+        /* ═══ Étapes de paiement ═══ */
+        .steps-payment { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.5rem; }
+        .step-pay {
+            display: flex; gap: 0.875rem; align-items: flex-start;
+            padding: 1rem; background: var(--surface-mid);
+            border-radius: 0.5rem; border: 1px solid var(--outline-variant);
+        }
+        .step-num {
+            width: 1.6rem; height: 1.6rem; border-radius: 50%;
+            background: var(--primary-dim); border: 1px solid rgba(157,215,90,0.3);
+            color: var(--primary); font-size: 0.72rem; font-weight: 700;
+            display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+        }
+        .step-pay-content p    { font-size: 0.83rem; color: var(--text); font-weight: 500; margin-bottom: 0.15rem; }
+        .step-pay-content span { font-size: 0.72rem; color: var(--text-variant); }
+
+        /* ═══ Boutons paiement externe ═══ */
+        .btn-pay {
+            display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
+            width: 100%; padding: 0.9rem 1.25rem; border-radius: 0.5rem;
+            font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.9rem;
+            border: none; cursor: pointer; transition: all 0.2s; text-decoration: none;
+        }
+        .btn-pay-twint   { background: #00B4E6; color: #fff; }
+        .btn-pay-twint:hover   { background: #00c9ff; transform: translateY(-1px); box-shadow: 0 4px 14px rgba(0,180,230,0.3); }
+        .btn-pay-revolut { background: #191C33; color: #fff; border: 1px solid #3d3f5c; }
+        .btn-pay-revolut:hover { background: #252a50; transform: translateY(-1px); box-shadow: 0 4px 14px rgba(0,0,0,0.3); }
+
+        /* ═══ Zone upload preuve ═══ */
+        .upload-zone {
+            border: 2px dashed var(--outline-variant); border-radius: 0.75rem;
+            padding: 1.5rem; text-align: center; cursor: pointer;
+            transition: border-color 0.2s, background 0.2s; position: relative;
+        }
+        .upload-zone:hover { border-color: var(--outline); background: var(--surface-mid); }
+        .upload-zone.has-file { border-color: var(--primary); background: var(--primary-dim); }
+        .upload-zone input[type="file"] {
+            position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%;
+        }
+        .upload-icon     { font-size: 2rem; margin-bottom: 0.5rem; }
+        .upload-text     { font-size: 0.82rem; color: var(--text-variant); line-height: 1.5; }
+        .upload-text strong { color: var(--primary); }
+        .upload-filename {
+            margin-top: 0.5rem; font-size: 0.75rem; color: var(--primary);
+            font-weight: 500; display: none;
+        }
+        .upload-zone.has-file .upload-filename { display: block; }
+        .upload-zone.has-file .upload-hint     { display: none; }
+
+        /* ═══ Avertissement obligatoire ═══ */
+        .warning-mandatory {
+            display: flex; gap: 0.6rem; align-items: flex-start;
+            background: var(--danger-dim); border: 1px solid rgba(224,90,90,0.3);
+            border-radius: 0.5rem; padding: 0.875rem 1rem; margin-top: 1rem;
+        }
+        .warning-mandatory p    { font-size: 0.78rem; color: #f4a5a5; line-height: 1.5; }
+        .warning-mandatory strong { color: #e05a5a; }
+
+        /* ═══ Bouton CONFIRMER — surgical lock ═══ */
+        .btn-confirm {
+            display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+            width: 100%; padding: 1rem 1.5rem; border-radius: 0.5rem;
+            font-family: 'Inter', sans-serif; font-weight: 700; font-size: 1rem;
+            border: none; transition: all 0.35s; margin-top: 1rem;
+        }
+        .btn-confirm:disabled {
+            background: var(--surface-highest); color: var(--outline);
+            cursor: not-allowed; box-shadow: none;
+        }
+        .btn-confirm:not(:disabled) {
+            background: var(--primary); color: var(--dark-green); cursor: pointer;
+            box-shadow: 0 0 28px rgba(157,215,90,0.3);
+        }
+        .btn-confirm:not(:disabled):hover { background: var(--primary-fixed); }
+
+        /* ═══════════════════════════════════════════════════════════
+           SIDEBAR — RÉCAPITULATIF
+        ═══════════════════════════════════════════════════════════ */
+        .order-summary {
+            background: var(--surface-low); border-radius: 0.75rem;
+            padding: 2rem; height: fit-content;
+        }
+        @media (min-width: 1024px) { .order-summary { position: sticky; top: 80px; } }
+        .order-summary h3 { font-family: 'Newsreader', serif; font-size: 1.3rem; font-weight: 300; margin-bottom: 1.5rem; }
+
+        .cart-item { display: flex; gap: 1rem; padding: 0.75rem 0; border-bottom: 1px solid var(--outline-variant); }
+        .cart-item:last-of-type { border-bottom: none; }
+        .cart-item-img  { width: 56px; height: 56px; border-radius: 0.5rem; object-fit: cover; background: var(--surface-mid); flex-shrink: 0; }
+        .cart-item-body { flex: 1; }
+        .cart-item-name { font-size: 0.85rem; font-weight: 500; color: var(--text); margin-bottom: 0.25rem; }
+        .cart-item-sub  { font-size: 0.75rem; color: var(--text-variant); }
+        .cart-item-price { font-size: 0.9rem; font-weight: 600; color: var(--primary); white-space: nowrap; }
+
+        .qty-ctrl { display: inline-flex; align-items: center; background: var(--surface-mid); border-radius: 0.4rem; overflow: hidden; margin-top: 0.5rem; }
+        .qty-btn  { background: none; border: none; color: var(--text-variant); width: 28px; height: 28px; cursor: pointer; font-size: 0.9rem; transition: all 0.15s; }
+        .qty-btn:hover { background: var(--surface-high); color: var(--primary); }
+        .qty-val  { font-size: 0.8rem; color: var(--text); width: 28px; text-align: center; }
+
+        /* Upsell toggle */
+        .upsell-toggle {
+            display: flex; align-items: center; gap: 0.75rem;
+            padding: 0.875rem 1rem; background: var(--surface-mid);
+            border: 1px solid var(--outline-variant); border-radius: 0.5rem;
+            cursor: pointer; transition: all 0.2s; margin-bottom: 0.75rem;
+        }
+        .upsell-toggle:hover { border-color: var(--outline); }
+        .upsell-toggle.active { border-color: var(--primary); background: var(--primary-dim); }
+        .upsell-toggle input[type="checkbox"] { accent-color: var(--primary); width: 16px; height: 16px; flex-shrink: 0; cursor: pointer; }
+        .upsell-label { flex: 1; }
+        .upsell-label p    { font-size: 0.85rem; font-weight: 500; color: var(--text); }
+        .upsell-label span { font-size: 0.72rem; color: var(--text-variant); }
+
+        /* Lignes totaux */
+        .summary-divider { border: none; border-top: 1px solid var(--outline-variant); margin: 0.75rem 0; }
+        .summary-line { display: flex; justify-content: space-between; font-size: 0.82rem; color: var(--text-variant); padding: 0.4rem 0; }
+        .summary-total { display: flex; justify-content: space-between; align-items: center; }
+        .summary-total .lbl { font-family: 'Newsreader', serif; font-size: 1.1rem; }
+        .summary-total .amt { font-family: 'Newsreader', serif; font-size: 1.6rem; color: var(--primary); }
+
+        /* Code promo */
+        .promo-row { display: flex; gap: 0.5rem; margin-top: 1rem; }
+        .promo-row input { flex: 1; background: var(--surface-mid); border: 1px solid var(--outline-variant); border-radius: 0.4rem; padding: 0.6rem 0.875rem; color: var(--text); font-size: 0.8rem; font-family: 'Inter', sans-serif; outline: none; transition: border-color 0.2s; }
+        .promo-row input:focus { border-color: var(--primary); }
+        .promo-row button { background: var(--surface-highest); color: var(--text-variant); border: none; border-radius: 0.4rem; padding: 0.6rem 1rem; font-size: 0.8rem; cursor: pointer; transition: all 0.2s; white-space: nowrap; }
+        .promo-row button:hover { background: var(--primary); color: var(--dark-green); }
+
+        /* Trust chips */
+        .trust-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid var(--outline-variant); }
+        .trust-chip { display: flex; align-items: center; gap: 0.35rem; font-size: 0.7rem; color: var(--text-variant); }
+        .trust-chip svg { color: var(--primary); }
+
+        /* ═══════════════════════════════════════════════════════════
+           TOAST + SPINNER
+        ═══════════════════════════════════════════════════════════ */
+        .toast {
+            position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%) translateY(120px);
+            background: var(--surface-highest); border: 1px solid var(--outline);
+            color: var(--text); padding: 0.875rem 1.5rem; border-radius: 0.75rem;
+            font-size: 0.85rem; z-index: 9999; display: flex; align-items: center; gap: 0.6rem;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+            transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+            white-space: nowrap;
+        }
+        .toast.show    { transform: translateX(-50%) translateY(0); }
+        .toast.success { border-color: rgba(157,215,90,0.4); }
+        .toast.error   { border-color: rgba(224,90,90,0.4); }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .spinner {
+            width: 1.1em; height: 1.1em;
+            border: 2px solid rgba(10,31,12,0.3); border-top-color: var(--dark-green);
+            border-radius: 50%; animation: spin 0.7s linear infinite; display: none;
+        }
+
+        /* ═══════════════════════════════════════════════════════════
+           FOOTER
+        ═══════════════════════════════════════════════════════════ */
+        footer { background: var(--surface-lowest); border-top: 1px solid rgba(46,58,44,0.3); padding: 3rem 0 2rem; }
+        .footer-grid { display: grid; gap: 2rem; margin-bottom: 2.5rem; }
+        @media (min-width: 768px) { .footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr; } }
+        .footer-brand p { font-size: 0.78rem; color: var(--text-variant); line-height: 1.7; margin-top: 0.75rem; max-width: 20rem; }
+        .footer-col h4 { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text); margin-bottom: 1rem; font-family: 'Inter', sans-serif; }
+        .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+        .footer-col li a { font-size: 0.78rem; color: var(--text-variant); transition: color 0.2s; }
+        .footer-col li a:hover { color: var(--primary); }
+        .footer-bottom { border-top: 1px solid rgba(46,58,44,0.2); padding-top: 1.5rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; }
+        .footer-bottom p, .footer-bottom a { font-size: 0.72rem; color: var(--outline); }
+        .footer-bottom a:hover { color: var(--primary); }
+
+        /* WhatsApp */
+        .whatsapp-fab { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 50; display: flex; align-items: center; gap: 0.75rem; }
+        .whatsapp-tooltip { display: none; opacity: 0; background: var(--surface-highest); color: var(--text); font-size: 0.72rem; padding: 0.5rem 0.75rem; border-radius: 0.5rem; white-space: nowrap; box-shadow: 0 8px 32px rgba(9,22,11,0.6); transition: opacity 0.2s; pointer-events: none; }
+        @media (min-width: 640px) { .whatsapp-tooltip { display: block; } }
+        .whatsapp-fab:hover .whatsapp-tooltip { opacity: 1; }
+        .whatsapp-btn { width: 3.5rem; height: 3.5rem; border-radius: 50%; background: #25D366; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px rgba(0,0,0,0.4); transition: transform 0.2s; }
+        .whatsapp-btn:hover { transform: scale(1.1); }
+        .whatsapp-btn svg { width: 1.75rem; height: 1.75rem; fill: white; }
+
+        @keyframes fade-up { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fade-up { animation: fade-up 0.6s ease both; }
+    </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     NAVBAR + SÉLECTEUR DE LANGUE (FR / EN / DE)
+═══════════════════════════════════════════════════════════════ -->
+<nav>
+    <div class="nav-inner">
+        <a href="index.html" style="font-family:'Newsreader',serif;font-size:1.4rem;font-weight:300;letter-spacing:0.12em;color:#d7e7d4;text-decoration:none;">SIVÀA <span style="color:#9dd75a;font-size:0.9rem;letter-spacing:0.06em;">Geneva</span></a>
+        <div class="nav-links">
+            <a href="index.html" data-i18n="nav_home">Accueil</a>
+            <a href="blog.html"  data-i18n="nav_journal">Journal</a>
+            <a href="contact.html" data-i18n="nav_contact">Contact</a>
+
+            <!-- ── Sélecteur de langue ── -->
+            <div class="lang-wrap" id="langWrap">
+                <button class="lang-btn" id="langBtn" onclick="toggleLangMenu()" aria-haspopup="true" aria-expanded="false">
+                    <span id="langFlag">🇫🇷</span>
+                    <span id="langCode">FR</span>
+                    <svg class="chevron" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                        <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                </button>
+                <div class="lang-dropdown" role="menu">
+                    <div class="lang-opt active" data-lang="fr" onclick="switchLanguage('fr')" role="menuitem">🇫🇷 Français</div>
+                    <div class="lang-opt"       data-lang="en" onclick="switchLanguage('en')" role="menuitem">🇬🇧 English</div>
+                    <div class="lang-opt"       data-lang="de" onclick="switchLanguage('de')" role="menuitem">🇩🇪 Deutsch</div>
+                </div>
+            </div>
+
+            <a href="checkout.html" class="nav-cta" data-i18n="nav_order">Commander</a>
+        </div>
+    </div>
+</nav>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     EN-TÊTE DE PAGE
+═══════════════════════════════════════════════════════════════ -->
+<div class="page-header container animate-fade-up">
+    <span class="label-sm" data-i18n="page_label">Votre commande</span>
+    <h1 data-i18n="page_title">Commander votre <em class="accent">Siwak</em></h1>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     GRILLE CHECKOUT
+═══════════════════════════════════════════════════════════════ -->
+<div class="container">
+    <div class="checkout-grid">
+
+        <!-- ══════════════════════════════
+             COLONNE GAUCHE — FORMULAIRE
+        ══════════════════════════════ -->
+        <div class="animate-fade-up">
+
+            <!-- ■ BLOC 1 : COORDONNÉES ■ -->
+            <div class="form-block">
+                <p class="form-block-title" data-i18n="form_coords">Vos coordonnées</p>
+                <div class="form-row cols-2">
+                    <div class="form-group">
+                        <label for="prenom" data-i18n="form_firstname">Prénom</label>
+                        <input type="text" id="prenom" placeholder="Ahmad" oninput="checkFormLock()" />
+                    </div>
+                    <div class="form-group">
+                        <label for="nom" data-i18n="form_lastname">Nom</label>
+                        <input type="text" id="nom" placeholder="Al-Rashid" oninput="checkFormLock()" />
+                    </div>
+                </div>
+                <div class="form-row" style="margin-top:1rem;">
+                    <div class="form-group">
+                        <label for="email" data-i18n="form_email">Adresse e-mail</label>
+                        <input type="email" id="email" placeholder="votre@email.ch" oninput="checkFormLock()" />
+                    </div>
+                </div>
+                <div class="form-row" style="margin-top:1rem;">
+                    <div class="form-group">
+                        <label for="phone" data-i18n="form_phone">Téléphone (optionnel)</label>
+                        <input type="tel" id="phone" placeholder="+41 79 000 00 00" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- ■ BLOC 2 : ADRESSE DE LIVRAISON ■ -->
+            <div class="form-block">
+                <p class="form-block-title" data-i18n="form_shipping">Adresse de livraison</p>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="adresse" data-i18n="form_street">Rue et numéro</label>
+                        <input type="text" id="adresse" placeholder="Rue de la Corraterie 14" oninput="checkFormLock()" />
+                    </div>
+                </div>
+                <div class="form-row cols-2" style="margin-top:1rem;">
+                    <div class="form-group">
+                        <label for="npa" data-i18n="form_zip">NPA / Code postal</label>
+                        <input type="text" id="npa" placeholder="1204" oninput="checkFormLock()" />
+                    </div>
+                    <div class="form-group">
+                        <label for="ville" data-i18n="form_city">Ville</label>
+                        <input type="text" id="ville" placeholder="Genève" oninput="checkFormLock()" />
+                    </div>
+                </div>
+                <div class="form-row" style="margin-top:1rem;">
+                    <div class="form-group">
+                        <label for="pays" data-i18n="form_country">Pays</label>
+                        <select id="pays">
+                            <option value="CH" selected>🇨🇭 Suisse</option>
+                            <option value="FR">🇫🇷 France</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ■ BLOC 3 : ÉTAPES DE PAIEMENT ■ -->
+            <div class="form-block">
+                <p class="form-block-title" data-i18n="form_payment_title">Étapes de paiement obligatoires</p>
+
+                <!-- Étapes numérotées -->
+                <div class="steps-payment">
+                    <div class="step-pay">
+                        <div class="step-num">1</div>
+                        <div class="step-pay-content">
+                            <p data-i18n="step1_title">Effectuez votre paiement via Twint ou Revolut</p>
+                            <span data-i18n="step1_sub">Cliquez sur le bouton de votre choix ci-dessous</span>
+                        </div>
+                    </div>
+                    <div class="step-pay">
+                        <div class="step-num">2</div>
+                        <div class="step-pay-content">
+                            <p data-i18n="step2_title">Faites une capture d'écran de la confirmation</p>
+                            <span data-i18n="step2_sub">Depuis votre application Twint ou Revolut</span>
+                        </div>
+                    </div>
+                    <div class="step-pay">
+                        <div class="step-num">3</div>
+                        <div class="step-pay-content">
+                            <p data-i18n="step3_title">Joignez la capture ci-dessous, puis confirmez</p>
+                            <span data-i18n="step3_sub">Le bouton s'activera automatiquement</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Boutons Twint + Revolut -->
+                <div style="display:flex;flex-direction:column;gap:0.75rem;margin-bottom:1.75rem;">
+
+                    <!-- TWINT — lien téléphonique -->
+                    <a href="https://www.twint.ch/consumer/?phone=41779496504"
+                       target="_blank" rel="noopener noreferrer"
+                       class="btn-pay btn-pay-twint"
+                       onclick="markPayment('twint')">
+                        <!-- Icône Twint stylisée -->
+                        <svg width="22" height="22" viewBox="0 0 60 60" fill="none">
+                            <rect width="60" height="60" rx="12" fill="rgba(255,255,255,0.15)"/>
+                            <text x="50%" y="56%" dominant-baseline="middle" text-anchor="middle"
+                                  font-family="Inter,sans-serif" font-weight="900" font-size="34" fill="white">T</text>
+                        </svg>
+                        <span data-i18n="btn_twint">Payer via Twint · +41 77 949 65 04</span>
+                    </a>
+
+                    <!-- REVOLUT — lien direct -->
+                    <a href="https://revolut.me/jameskoff"
+                       target="_blank" rel="noopener noreferrer"
+                       class="btn-pay btn-pay-revolut"
+                       onclick="markPayment('revolut')">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
+                            <path d="M13.1 1H4v22h4.3v-7.8H12l4.1 7.8H21l-4.6-8.3c2.4-1 3.9-3.1 3.9-5.8C20.4 4.4 17.3 1 13.1 1zm-.2 10.3H8.3V4.9h4.6c1.9 0 3.3 1.2 3.3 3.2 0 1.9-1.4 3.2-3.3 3.2z"/>
+                        </svg>
+                        <span data-i18n="btn_revolut">Payer via Revolut · revolut.me/jameskoff</span>
+                    </a>
+                </div>
+
+                <!-- Upload capture d'écran -->
+                <div class="form-group" style="margin-bottom:0.75rem;">
+                    <label data-i18n="upload_label">
+                        Capture d'écran de votre confirmation de paiement
+                        <span style="color:var(--danger);margin-left:2px;">*</span>
+                    </label>
+                    <div class="upload-zone" id="uploadZone" style="margin-top:0.4rem;">
+                        <input type="file" id="paymentProof"
+                               accept="image/*,.pdf"
+                               onchange="handleFileUpload(this)" />
+                        <div class="upload-icon">📎</div>
+                        <div class="upload-text upload-hint">
+                            <strong data-i18n="upload_cta">Cliquez pour joindre votre preuve de paiement</strong><br>
+                            <span data-i18n="upload_formats" style="font-size:0.72rem;">JPG, PNG ou PDF — max 10 MB</span>
+                        </div>
+                        <p class="upload-filename" id="uploadFilename"></p>
+                    </div>
+                </div>
+
+                <!-- ⚠️ AVERTISSEMENT OBLIGATOIRE ⚠️ -->
+                <div class="warning-mandatory">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="color:var(--danger);flex-shrink:0;margin-top:1px;">
+                        <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
+                        <line x1="12" y1="9" x2="12" y2="13"/>
+                        <line x1="12" y1="17" x2="12.01" y2="17"/>
+                    </svg>
+                    <p data-i18n="warning_mandatory">
+                        <strong>⚠️ Étape obligatoire :</strong> Si vous ne joignez pas votre capture d'écran
+                        de paiement, votre achat sera ignoré et aucune expédition ne sera effectuée.
+                    </p>
+                </div>
+
+                <!-- Note optionnelle -->
+                <div class="form-group" style="margin-top:1.5rem;">
+                    <label for="note" data-i18n="form_note_label">
+                        Note <span style="color:var(--outline);font-size:0.75rem;">(optionnel)</span>
+                    </label>
+                    <textarea id="note" rows="2"
+                              placeholder="Ex : épaisseur souhaitée du bâton, message cadeau…"
+                              style="resize:vertical;margin-top:0.4rem;"></textarea>
+                </div>
+            </div>
+
+            <!-- ■ ÉTAT DU VERROU + BOUTON CONFIRMER ■ -->
+            <div id="lock-status" style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.5rem;font-size:0.75rem;color:var(--text-variant);">
+                <span id="lockIcon">🔒</span>
+                <span id="lockMsg" data-i18n="lock_default">Remplissez tous les champs et joignez votre preuve pour débloquer</span>
+            </div>
+
+            <button class="btn-confirm" id="btnConfirm" disabled onclick="submitOrder()">
+                <span id="btnLabel" data-i18n="btn_confirm">Confirmer ma commande · CHF </span>
+                <span id="btnTotal">22.00</span>
+                <div class="spinner" id="btnSpinner"></div>
+                <svg id="btnArrow" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </button>
+
+            <p style="text-align:center;color:var(--outline);font-size:0.72rem;margin-top:0.75rem;">
+                🔒 <span data-i18n="secure_note">Paiement sécurisé · Données protégées selon la LPD suisse</span>
+            </p>
+        </div>
+        <!-- /COLONNE GAUCHE -->
+
+
+        <!-- ══════════════════════════════════════
+             COLONNE DROITE — RÉCAPITULATIF PANIER
+        ══════════════════════════════════════ -->
+        <div>
+            <div class="order-summary">
+                <h3 data-i18n="summary_title">Votre panier</h3>
+
+                <!-- Article 1 : Siwak — 7 CHF / pièce -->
+                <div class="cart-item">
+                    <img class="cart-item-img"
+                         src="/img/siwak1.jpg"
+                         alt="Siwak Premium" />
+                    <div class="cart-item-body">
+                        <p class="cart-item-name" data-i18n="item_siwak_name">Bâton de Siwak Premium</p>
+                        <p class="cart-item-sub"  data-i18n="item_siwak_sub">Récolté à la main · Pakistan · CHF 7.00/pièce</p>
+                        <div class="qty-ctrl">
+                            <button class="qty-btn" onclick="updateQty('siwak',-1)">−</button>
+                            <span class="qty-val" id="qty-siwak">1</span>
+                            <button class="qty-btn" onclick="updateQty('siwak',1)">+</button>
+                        </div>
+                    </div>
+                    <span class="cart-item-price" id="price-siwak">CHF 7.00</span>
+                </div>
+
+                <!-- Article 2 : Allo Togo — 6 CHF / 5 pièces -->
+                <div class="cart-item">
+                    <img class="cart-item-img" src="/img/allo%20togo.png" alt="Allo Togo — Bâton naturel du Togo" />
+                    <div class="cart-item-body">
+                        <p class="cart-item-name" data-i18n="item_allotogo_name">Allo Togo</p>
+                        <p class="cart-item-sub"  data-i18n="item_allotogo_sub">5 pièces · CHF 6.00 le lot</p>
+                        <div class="qty-ctrl">
+                            <button class="qty-btn" onclick="updateQty('allotogo',-1)">−</button>
+                            <span class="qty-val" id="qty-allotogo">1</span>
+                            <button class="qty-btn" onclick="updateQty('allotogo',1)">+</button>
+                        </div>
+                    </div>
+                    <span class="cart-item-price" id="price-allotogo">CHF 6.00</span>
+                </div>
+
+                <!-- Séparateur + Upsell siwak supplémentaire -->
+                <div style="padding:0.875rem 0;border-bottom:1px solid var(--outline-variant);">
+                    <p style="font-size:0.68rem;color:var(--primary);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:0.5rem;" data-i18n="upsell_label">✦ Complétez votre rituel</p>
+                    <label class="upsell-toggle" id="upsellToggle" style="margin-bottom:0;">
+                        <input type="checkbox" id="upsellCheck" onchange="toggleUpsell()" />
+                        <div class="upsell-label">
+                            <p data-i18n="upsell_name">Bâton de Siwak supplémentaire</p>
+                            <span data-i18n="upsell_sub">Code SIVAASIWAK = offert pour<br> la 1ère commande 🎁</span>
+                        </div>
+                        <div style="text-align:right;">
+                            <div style="font-weight:700;color:var(--primary);font-size:0.9rem;" id="upsellPriceDisplay">CHF 7</div>
+                            <s style="color:var(--outline);font-size:0.7rem;display:none;" id="upsellOrigPrice">CHF 7</s>
+                        </div>
+                    </label>
+                </div>
+
+                <!-- Code promo -->
+                <div class="promo-row">
+                    <input type="text" id="promo-code" placeholder="SIVAASIWAK"
+                           oninput="this.value=this.value.toUpperCase()" />
+                    <button onclick="applyPromo()" data-i18n="btn_promo">Appliquer</button>
+                </div>
+                <p id="promo-feedback" style="font-size:0.72rem;margin-top:0.35rem;display:none;padding:0 0.25rem;"></p>
+
+                <hr class="summary-divider" style="margin-top:1.25rem;" />
+
+                <div class="summary-line">
+                    <span data-i18n="summary_subtotal">Sous-total</span>
+                    <span id="subtotal">CHF 13.00</span>
+                </div>
+                <div class="summary-line">
+                    <span data-i18n="summary_shipping">Livraison Swiss Post</span>
+                    <span>CHF 9.00</span>
+                </div>
+                <div class="summary-line" id="promo-line" style="display:none;color:var(--primary);">
+                    <span data-i18n="summary_promo">Code promo</span>
+                    <span id="promo-amount">− CHF 0.00</span>
+                </div>
+
+                <hr class="summary-divider" />
+
+                <div class="summary-total">
+                    <span class="lbl" data-i18n="summary_total">Total</span>
+                    <span class="amt" id="total-display">CHF 22.00</span>
+                </div>
+
+                <!-- Trust chips -->
+                <div class="trust-chips">
+                    <div class="trust-chip">
+                        <svg class="icon-sm" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 5v3h-7V8z"/>
+                            <circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
+                        </svg>
+                        <span data-i18n="trust_post">Swiss Post 48h</span>
+                    </div>
+                    <div class="trust-chip">
+                        <svg class="icon-sm" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>
+                        </svg>
+                        <span data-i18n="trust_secure">Paiement sécurisé</span>
+                    </div>
+                    <div class="trust-chip">
+                        <svg class="icon-sm" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <polyline points="9 22 9 12 15 12 15 22"/>
+                        </svg>
+                        <span data-i18n="trust_return">Retour 14 jours</span>
+                    </div>
+                    <div class="trust-chip">
+                        <svg class="icon-sm" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>
+                        </svg>
+                        <span data-i18n="trust_natural">100% Naturel</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Note info -->
+            <div style="background:var(--secondary-container);border-radius:0.75rem;padding:1.25rem;margin-top:1rem;display:flex;gap:0.75rem;align-items:flex-start;">
+                <svg width="16" height="16" style="color:var(--primary);flex-shrink:0;margin-top:2px;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/>
+                </svg>
+                <p style="font-size:0.78rem;color:var(--text-variant);line-height:1.6;" data-i18n="info_note">
+                    Après réception de votre preuve de paiement, nous validons manuellement votre commande
+                    sous 24h et procédons à l'expédition via Swiss Post.
+                </p>
+            </div>
+        </div>
+        <!-- /COLONNE DROITE -->
+
+    </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════════════════════════ -->
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" style="font-family:'Newsreader',serif;font-size:1.4rem;font-weight:300;letter-spacing:0.12em;color:#d7e7d4;text-decoration:none;">SIVÀA <span style="color:#9dd75a;font-size:0.9rem;letter-spacing:0.06em;">Geneva</span></a>
+                <p data-i18n="footer_brand">L'excellence suisse au service d'un rituel millénaire.</p>
+            </div>
+            <div class="footer-col">
+                <h4 data-i18n="footer_products">Produits</h4>
+                <ul>
+                    <li><a href="checkout.html" data-i18n="item_siwak_name">Bâton de Siwak Premium</a></li>
+                    <li><a href="checkout.html" data-i18n="item_allotogo_name">Allo Togo</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 data-i18n="footer_info">Informations</h4>
+                <ul>
+                    <li><a href="blog.html"    data-i18n="nav_journal">Journal</a></li>
+                    <li><a href="contact.html" data-i18n="nav_contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 data-i18n="footer_legal">Légal</h4>
+                <ul>
+                    <li><a href="#" data-i18n="footer_cgv">CGV</a></li>
+                    <li><a href="#" data-i18n="footer_privacy">Confidentialité</a></li>
+                    <li><a href="#" data-i18n="footer_returns">Retours</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 SIVÀA Geneva · Genève, Suisse</p>
+            <div style="display:flex;gap:1.25rem;">
+                <a href="#" data-i18n="footer_cgv">CGV</a>
+                <a href="#" data-i18n="footer_privacy">Confidentialité</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<!-- WhatsApp FAB -->
+<div class="whatsapp-fab">
+    <span class="whatsapp-tooltip" data-i18n="whatsapp_tip">Une question ? On répond vite 💬</span>
+    <a href="https://wa.me/41779496504?text=Bonjour%20SIVA%CC%80A%2C%20j%27ai%20une%20question%20sur%20ma%20commande%20%F0%9F%8C%BF"
+       target="_blank" rel="noopener noreferrer">
+        <button class="whatsapp-btn">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        </button>
+    </a>
+</div>
+
+
+<!-- Toast de notification -->
+<div class="toast" id="toast">
+    <span id="toastMsg">—</span>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     JAVASCRIPT — COMPLET ET COMMENTÉ
+     ─────────────────────────────────────────────────────────────
+     MISSIONS :
+       1. i18n FR/EN/DE     → switchLanguage()
+       2. Checkout dynamique → recalc(), updateQty(), applyPromo()
+       3. Surgical lock     → checkFormLock(), handleFileUpload()
+       4. EmailJS double    → submitOrder()
+═══════════════════════════════════════════════════════════════ -->
+<script>
+    /* ═══════════════════════════════════════════════════════════════════
+       ■ MISSION 1 — SYSTÈME I18N (FR / EN / DE)
+       ─────────────────────────────────────────────────────────────────
+       Objet translations : { clé: { fr, en, de } }
+       switchLanguage(lang) → parcourt tous les [data-i18n] et met à jour
+       ═══════════════════════════════════════════════════════════════ */
+    const T = {
+        /* Navbar */
+        nav_home:    { fr:'Accueil',   en:'Home',    de:'Startseite' },
+        nav_journal: { fr:'Journal',   en:'Journal', de:'Journal'    },
+        nav_contact: { fr:'Contact',   en:'Contact', de:'Kontakt'    },
+        nav_order:   { fr:'Commander', en:'Order',   de:'Bestellen'  },
+
+        /* Page header */
+        page_label: { fr:'Votre commande', en:'Your order',       de:'Ihre Bestellung'   },
+        page_title: {
+            fr:'Commander votre <em class="accent">Siwak</em>',
+            en:'Order your <em class="accent">Siwak</em>',
+            de:'Ihren <em class="accent">Siwak</em> bestellen',
+        },
+
+        /* Formulaire coordonnées */
+        form_coords:    { fr:'Vos coordonnées',       en:'Your details',       de:'Ihre Kontaktdaten'   },
+        form_firstname: { fr:'Prénom',                en:'First name',         de:'Vorname'             },
+        form_lastname:  { fr:'Nom',                   en:'Last name',          de:'Nachname'            },
+        form_email:     { fr:'Adresse e-mail',        en:'Email address',      de:'E-Mail-Adresse'      },
+        form_phone:     { fr:'Téléphone (optionnel)', en:'Phone (optional)',   de:'Telefon (optional)'  },
+
+        /* Formulaire livraison */
+        form_shipping: { fr:'Adresse de livraison', en:'Shipping address', de:'Lieferadresse'      },
+        form_street:   { fr:'Rue et numéro',        en:'Street & number',  de:'Straße und Hausnr.' },
+        form_zip:      { fr:'NPA / Code postal',    en:'ZIP code',         de:'Postleitzahl'       },
+        form_city:     { fr:'Ville',                en:'City',             de:'Stadt'              },
+        form_country:  { fr:'Pays',                 en:'Country',          de:'Land'               },
+        form_note_label: {
+            fr:'Note <span style="color:var(--outline);font-size:0.75rem;">(optionnel)</span>',
+            en:'Note <span style="color:var(--outline);font-size:0.75rem;">(optional)</span>',
+            de:'Notiz <span style="color:var(--outline);font-size:0.75rem;">(optional)</span>',
+        },
+
+        /* Étapes paiement */
+        form_payment_title: {
+            fr:'Étapes de paiement obligatoires',
+            en:'Mandatory payment steps',
+            de:'Pflichtschritte für die Zahlung',
+        },
+        step1_title: {
+            fr:'Effectuez votre paiement via Twint ou Revolut',
+            en:'Complete your payment via Twint or Revolut',
+            de:'Zahlen Sie per Twint oder Revolut',
+        },
+        step1_sub: {
+            fr:'Cliquez sur le bouton de votre choix ci-dessous',
+            en:'Click the button of your choice below',
+            de:'Klicken Sie unten auf die gewünschte Schaltfläche',
+        },
+        step2_title: {
+            fr:"Faites une capture d'écran de la confirmation",
+            en:'Take a screenshot of the payment confirmation',
+            de:'Machen Sie einen Screenshot der Zahlungsbestätigung',
+        },
+        step2_sub: {
+            fr:'Depuis votre application Twint ou Revolut',
+            en:'From your Twint or Revolut app',
+            de:'Aus Ihrer Twint- oder Revolut-App',
+        },
+        step3_title: {
+            fr:'Joignez la capture ci-dessous, puis confirmez',
+            en:'Attach the screenshot below, then confirm',
+            de:'Fügen Sie den Screenshot unten bei und bestätigen Sie',
+        },
+        step3_sub: {
+            fr:"Le bouton s'activera automatiquement",
+            en:'The button will activate automatically',
+            de:'Die Schaltfläche wird automatisch aktiviert',
+        },
+
+        /* Boutons paiement */
+        btn_twint:   { fr:'Payer via Twint · +41 77 949 65 04',   en:'Pay via Twint · +41 77 949 65 04',   de:'Bezahlen via Twint · +41 77 949 65 04'   },
+        btn_revolut: { fr:'Payer via Revolut · revolut.me/jameskoff', en:'Pay via Revolut · revolut.me/jameskoff', de:'Bezahlen via Revolut · revolut.me/jameskoff' },
+
+        /* Upload */
+        upload_label:   {
+            fr:"Capture d'écran de votre confirmation de paiement",
+            en:'Screenshot of your payment confirmation',
+            de:'Screenshot Ihrer Zahlungsbestätigung',
+        },
+        upload_cta:     { fr:'Cliquez pour joindre votre preuve de paiement', en:'Click to attach your proof of payment', de:'Klicken Sie zum Anhängen Ihres Zahlungsbelegs' },
+        upload_formats: { fr:'JPG, PNG ou PDF — max 10 MB', en:'JPG, PNG or PDF — max 10 MB', de:'JPG, PNG oder PDF — max. 10 MB' },
+
+        /* Avertissement */
+        warning_mandatory: {
+            fr:"<strong>⚠️ Étape obligatoire :</strong> Si vous ne joignez pas votre capture d'écran de paiement, votre achat sera ignoré et aucune expédition ne sera effectuée.",
+            en:'<strong>⚠️ Mandatory step:</strong> If you do not attach your payment screenshot, your order will be ignored and no shipment will be made.',
+            de:'<strong>⚠️ Pflichtschritt:</strong> Wenn Sie keinen Zahlungsscreenshot beifügen, wird Ihre Bestellung ignoriert und kein Versand durchgeführt.',
+        },
+
+        /* Verrou bouton */
+        lock_default: {
+            fr:"Remplissez tous les champs et joignez votre preuve pour débloquer",
+            en:'Fill in all fields and attach your proof to unlock',
+            de:'Füllen Sie alle Felder aus und fügen Sie Ihren Beleg bei, um zu entsperren',
+        },
+        lock_ready: {
+            fr:"✅ Tout est prêt — vous pouvez confirmer votre commande",
+            en:'✅ All set — you can confirm your order',
+            de:'✅ Alles bereit — Sie können Ihre Bestellung bestätigen',
+        },
+
+        /* Bouton confirmer */
+        btn_confirm: { fr:'Confirmer ma commande · CHF ', en:'Confirm my order · CHF ', de:'Bestellung bestätigen · CHF ' },
+
+        /* Récapitulatif */
+        summary_title:    { fr:'Votre panier',        en:'Your cart',           de:'Ihr Warenkorb'        },
+        item_allotogo_name: { fr:'Allo Togo',           en:'Allo Togo',           de:'Allo Togo'            },
+        item_allotogo_sub:  { fr:'5 pièces · CHF 6.00 le lot', en:'5 pieces · CHF 6.00/pack', de:'5 Stück · CHF 6.00/Pack' },
+        item_siwak_name:  { fr:'Bâton de Siwak Premium', en:'Premium Siwak Stick', de:'Premium Siwak-Stab'  },
+        item_siwak_sub:   { fr:'Récolté à la main · Pakistan · CHF 7.00/pièce', en:'Hand-harvested · Pakistan · CHF 7.00/piece', de:'Handgepflückt · Pakistan · CHF 7.00/Stück' },
+        upsell_label:     { fr:'✦ Complétez votre rituel', en:'✦ Complete your ritual', de:'✦ Vervollständigen Sie Ihr Ritual' },
+        upsell_name:      { fr:'Bâton de Siwak supplémentaire', en:'Additional Siwak stick', de:'Zusätzlicher Siwak-Stab' },
+        upsell_sub:       { fr:'Code SIVAASIWAK = offert 🎁', en:'Code SIVAASIWAK = free 🎁', de:'Code SIVAASIWAK = gratis 🎁' },
+        btn_promo:        { fr:'Appliquer', en:'Apply',  de:'Anwenden' },
+        summary_subtotal: { fr:'Sous-total',           en:'Subtotal',            de:'Zwischensumme'        },
+        summary_shipping: { fr:'Livraison Swiss Post', en:'Swiss Post Delivery', de:'Swiss Post Lieferung' },
+        summary_promo:    { fr:'Code promo',           en:'Promo code',          de:'Rabattcode'           },
+        summary_total:    { fr:'Total',                en:'Total',               de:'Gesamt'               },
+
+        /* Trust */
+        trust_post:    { fr:'Swiss Post 48h',     en:'Swiss Post 48h',    de:'Swiss Post 48h'     },
+        trust_secure:  { fr:'Paiement sécurisé',  en:'Secure payment',    de:'Sichere Zahlung'    },
+        trust_return:  { fr:'Retour 14 jours',    en:'14-day return',     de:'14 Tage Rückgabe'   },
+        trust_natural: { fr:'100% Naturel',       en:'100% Natural',      de:'100% Natürlich'     },
+        info_note: {
+            fr:"Après réception de votre preuve de paiement, nous validons manuellement votre commande sous 24h et procédons à l'expédition via Swiss Post.",
+            en:'Upon receipt of your proof of payment, we manually validate your order within 24h and ship via Swiss Post.',
+            de:'Nach Erhalt Ihres Zahlungsbelegs validieren wir Ihre Bestellung manuell innerhalb von 24 Stunden und versenden per Swiss Post.',
+        },
+        secure_note: {
+            fr:'Paiement sécurisé · Données protégées selon la LPD suisse',
+            en:'Secure payment · Data protected under Swiss DPA',
+            de:'Sichere Zahlung · Daten gemäß Schweizer DSG geschützt',
+        },
+
+        /* Footer */
+        footer_brand:    { fr:"L'excellence suisse au service d'un rituel millénaire.", en:"Swiss excellence serving a millennial ritual.", de:"Schweizer Exzellenz im Dienst eines uralten Rituals." },
+        footer_products: { fr:'Produits',        en:'Products',     de:'Produkte'    },
+        footer_info:     { fr:'Informations',    en:'Information',  de:'Informationen' },
+        footer_legal:    { fr:'Légal',           en:'Legal',        de:'Rechtliches' },
+        footer_cgv:      { fr:'CGV',             en:'T&C',          de:'AGB'         },
+        footer_privacy:  { fr:'Confidentialité', en:'Privacy',      de:'Datenschutz' },
+        footer_returns:  { fr:'Retours',         en:'Returns',      de:'Rückgabe'    },
+        whatsapp_tip:    { fr:'Une question ? On répond vite 💬', en:'A question? We reply fast 💬', de:'Eine Frage? Wir antworten schnell 💬' },
+
+        /* Toasts */
+        t_promo_ok:  { fr:'✅ Code appliqué — Siwak supplémentaire offert !', en:'✅ Code applied — Extra Siwak is free!', de:'✅ Code angewendet — Zusatz-Siwak ist kostenlos!' },
+        t_promo_bad: { fr:'❌ Code promo invalide',  en:'❌ Invalid promo code',  de:'❌ Ungültiger Rabattcode' },
+        t_file_ok:   { fr:'📎 Fichier joint avec succès', en:'📎 File attached successfully', de:'📎 Datei erfolgreich angehängt' },
+        t_sending:   { fr:'📤 Envoi de votre commande…', en:'📤 Sending your order…', de:'📤 Ihre Bestellung wird gesendet…' },
+        t_success:   { fr:'✅ Commande confirmée ! Vérifiez vos emails.', en:'✅ Order confirmed! Check your emails.', de:'✅ Bestellung bestätigt! Prüfen Sie Ihre E-Mails.' },
+        t_error:     { fr:'❌ Erreur d\'envoi. Réessayez ou contactez-nous via WhatsApp.', en:'❌ Send error. Please retry or contact us via WhatsApp.', de:'❌ Sendefehler. Bitte erneut versuchen oder über WhatsApp kontaktieren.' },
+        t_incomplete:{ fr:'⚠️ Veuillez remplir tous les champs obligatoires.', en:'⚠️ Please fill in all required fields.', de:'⚠️ Bitte füllen Sie alle Pflichtfelder aus.' },
+    };
+
+    /* Langue courante (auto-détectée au chargement) */
+    let LANG = 'fr';
+
+    /* Méta drapeaux */
+    const LANG_META = { fr: { flag:'🇫🇷', code:'FR' }, en: { flag:'🇬🇧', code:'EN' }, de: { flag:'🇩🇪', code:'DE' } };
+
+    /**
+     * switchLanguage(lang)
+     * Met à jour instantanément TOUT le texte traduit du document.
+     */
+    function switchLanguage(lang) {
+        if (!LANG_META[lang]) return;
+        LANG = lang;
+
+        /* Bouton navbar */
+        document.getElementById('langFlag').textContent = LANG_META[lang].flag;
+        document.getElementById('langCode').textContent = LANG_META[lang].code;
+
+        /* Options actives */
+        document.querySelectorAll('.lang-opt').forEach(el =>
+            el.classList.toggle('active', el.dataset.lang === lang)
+        );
+
+        /* Tous les éléments [data-i18n] */
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (T[key] && T[key][lang] !== undefined) {
+                el.innerHTML = T[key][lang];
+            }
+        });
+
+        /* Mettre à jour le bouton confirmer (contient le montant) */
+        refreshBtnConfirm();
+
+        closeLangMenu();
+        document.documentElement.lang = lang;
+    }
+
+    function toggleLangMenu() {
+        const w    = document.getElementById('langWrap');
+        const open = w.classList.toggle('open');
+        document.getElementById('langBtn').setAttribute('aria-expanded', open);
+    }
+    function closeLangMenu() {
+        document.getElementById('langWrap').classList.remove('open');
+        document.getElementById('langBtn').setAttribute('aria-expanded','false');
+    }
+    /* Fermeture au clic extérieur */
+    document.addEventListener('click', e => {
+        if (!document.getElementById('langWrap').contains(e.target)) closeLangMenu();
+    });
+
+
+    /* ═══════════════════════════════════════════════════════════════════
+       ■ MISSION 2 — CHECKOUT DYNAMIQUE
+       ─────────────────────────────────────────────────────────────────
+       Prix exacts (source fichier client) :
+         Allo Togo   : 6 CHF / lot de 5 pièces
+         Siwak pièce : 7 CHF / pièce
+         Upsell siwak: 7 CHF (0 CHF avec code SIVAASIWAK)
+       Livraison : 9 CHF
+       ═══════════════════════════════════════════════════════════════ */
+
+    const PRICE = { allotogo: 6, siwak: 7, upsell: 7 };
+    const QTY   = { allotogo: 1, siwak: 1, upsell: 0 };
+    let discount = 0; /* montant remise en CHF */
+
+    function updateQty(item, delta) {
+        QTY[item] = Math.max(0, QTY[item] + delta);
+        document.getElementById('qty-'   + item).textContent = QTY[item];
+        document.getElementById('price-' + item).textContent = 'CHF ' + (PRICE[item] * QTY[item]).toFixed(2);
+        recalc();
+    }
+
+    function toggleUpsell() {
+        const on = document.getElementById('upsellCheck').checked;
+        QTY.upsell = on ? 1 : 0;
+        document.getElementById('upsellToggle').classList.toggle('active', on);
+        recalc();
+    }
+
+    /**
+     * applyPromo
+     * Code SIVAASIWAK → offre le bâton supplémentaire (7 CHF)
+     */
+    function applyPromo() {
+        const code = document.getElementById('promo-code').value.trim().toUpperCase();
+        const fb   = document.getElementById('promo-feedback');
+
+        if (code === 'SIVAASIWAK') {
+            /* Activer l'upsell si pas déjà coché */
+            document.getElementById('upsellCheck').checked = true;
+            QTY.upsell = 1;
+            document.getElementById('upsellToggle').classList.add('active');
+
+            discount = PRICE.upsell; /* 7 CHF offerts */
+            document.getElementById('upsellPriceDisplay').textContent = 'CHF 0';
+            document.getElementById('upsellOrigPrice').style.display  = 'inline';
+            document.getElementById('promo-line').style.display  = 'flex';
+            document.getElementById('promo-amount').textContent = '− CHF ' + PRICE.upsell.toFixed(2);
+
+            fb.style.display = 'block';
+            fb.style.color   = 'var(--primary)';
+            fb.textContent   = T.t_promo_ok[LANG];
+            showToast(T.t_promo_ok[LANG], 'success');
+        } else {
+            discount = 0;
+            document.getElementById('upsellPriceDisplay').textContent = 'CHF ' + PRICE.upsell;
+            document.getElementById('upsellOrigPrice').style.display  = 'none';
+            document.getElementById('promo-line').style.display  = 'none';
+
+            fb.style.display = 'block';
+            fb.style.color   = 'var(--danger)';
+            fb.textContent   = code ? T.t_promo_bad[LANG] : '';
+            if (code) showToast(T.t_promo_bad[LANG], 'error');
+        }
+        recalc();
+    }
+
+    function recalc() {
+        const sub   = PRICE.allotogo * QTY.allotogo
+            + PRICE.siwak    * QTY.siwak
+            + PRICE.upsell   * QTY.upsell;
+        const total = sub + 9 - discount;
+        document.getElementById('subtotal').textContent     = 'CHF ' + sub.toFixed(2);
+        document.getElementById('total-display').textContent = 'CHF ' + total.toFixed(2);
+        refreshBtnConfirm(total);
+    }
+
+    function refreshBtnConfirm(total) {
+        if (total === undefined) {
+            const sub = PRICE.allotogo * QTY.allotogo + PRICE.siwak * QTY.siwak + PRICE.upsell * QTY.upsell;
+            total = sub + 9 - discount;
+        }
+        document.getElementById('btnLabel').innerHTML = T.btn_confirm[LANG];
+        document.getElementById('btnTotal').textContent = total.toFixed(2);
+    }
+
+
+    /* ═══════════════════════════════════════════════════════════════════
+       ■ MISSION 3 — SURGICAL LOCK (Verrouillage du bouton)
+       ─────────────────────────────────────────────────────────────────
+       Le bouton "Confirmer" reste DISABLED jusqu'à ce que :
+         1. Tous les champs OBLIGATOIRES soient remplis
+         2. Un fichier (preuve) soit sélectionné
+       ═══════════════════════════════════════════════════════════════ */
+
+    /* Champs obligatoires à remplir pour déverrouiller */
+    const REQUIRED = ['prenom','nom','email','adresse','npa','ville'];
+    let fileReady = false;
+
+    function handleFileUpload(input) {
+        const zone = document.getElementById('uploadZone');
+        const fn   = document.getElementById('uploadFilename');
+
+        if (input.files && input.files.length > 0) {
+            const f = input.files[0];
+            /* Vérification taille (10 MB max) */
+            if (f.size > 10 * 1024 * 1024) {
+                showToast('❌ Fichier trop lourd (max 10 MB)', 'error');
+                input.value = '';
+                fileReady = false;
+                zone.classList.remove('has-file');
+                fn.textContent = '';
+            } else {
+                fileReady = true;
+                zone.classList.add('has-file');
+                fn.textContent = '📎 ' + f.name + ' (' + (f.size / 1024).toFixed(0) + ' KB)';
+                showToast(T.t_file_ok[LANG], 'success');
+            }
+        } else {
+            fileReady = false;
+            zone.classList.remove('has-file');
+            fn.textContent = '';
+        }
+        checkFormLock();
+    }
+
+    function checkFormLock() {
+        const allFilled = REQUIRED.every(id => {
+            const el = document.getElementById(id);
+            return el && el.value.trim().length > 0;
+        });
+        const ready = allFilled && fileReady;
+
+        const btn  = document.getElementById('btnConfirm');
+        const icon = document.getElementById('lockIcon');
+        const msg  = document.getElementById('lockMsg');
+
+        btn.disabled = !ready;
+
+        if (ready) {
+            icon.textContent  = '🔓';
+            msg.innerHTML     = T.lock_ready[LANG];
+            msg.style.color   = 'var(--primary)';
+        } else {
+            icon.textContent  = '🔒';
+            msg.innerHTML     = T.lock_default[LANG];
+            msg.style.color   = 'var(--text-variant)';
+        }
+    }
+
+    /* Suivi moyen de paiement sélectionné */
+    let chosenPayment = '';
+    function markPayment(method) { chosenPayment = method; }
+
+
+    /* ═══════════════════════════════════════════════════════════════════
+       ■ MISSION 4 — EMAILJS : DOUBLE NOTIFICATION AUTOMATIQUE
+       ─────────────────────────────────────────────────────────────────
+       ╔══════════════════════════════════════════════════════════════╗
+       ║  GUIDE DE CONFIGURATION EMAILJS (GRATUIT · 200 emails/mois) ║
+       ╠══════════════════════════════════════════════════════════════╣
+       ║  1. Créez un compte sur https://www.emailjs.com              ║
+       ║  2. "Email Services" → Add Service (Gmail, Outlook, etc.)   ║
+       ║     → copiez le Service ID → remplacez SERVICE_ID ci-dessous ║
+       ║  3. "Email Templates" → Create Template                      ║
+       ║     — Template ADMIN (récap + preuve) :                       ║
+       ║       Subject: [SIVÀA] Commande {{order_id}} — CHF {{total}} ║
+       ║       Body: voir commentaire ci-dessous                       ║
+       ║       → copiez Template ID → TEMPLATE_ADMIN_ID               ║
+       ║     — Template CLIENT (confirmation) :                        ║
+       ║       Subject: ✅ Commande SIVÀA {{order_id}} reçue           ║
+       ║       Body: voir commentaire ci-dessous                       ║
+       ║       → copiez Template ID → TEMPLATE_CLIENT_ID              ║
+       ║  4. "Account" → Public Key → copiez → PUBLIC_KEY             ║
+       ║  5. Remplacez les 5 valeurs YOUR_*** ci-dessous              ║
+       ╠══════════════════════════════════════════════════════════════╣
+       ║  VARIABLES DISPONIBLES DANS LES TEMPLATES :                  ║
+       ║  {{order_id}}, {{to_name}}, {{to_email}}, {{customer_phone}} ║
+       ║  {{shipping}}, {{items}}, {{subtotal}}, {{delivery}},        ║
+       ║  {{discount}}, {{total}}, {{payment}}, {{note}}, {{date}}    ║
+       ║  {{proof_b64}} — image base64 (preuve de paiement)           ║
+       ╠══════════════════════════════════════════════════════════════╣
+       ║  EXEMPLE TEMPLATE ADMIN :                                     ║
+       ║  Nouvelle commande de {{to_name}} ({{to_email}})             ║
+       ║  Adresse : {{shipping}}                                       ║
+       ║  Articles : {{items}}                                         ║
+       ║  Total : {{total}} | Paiement : {{payment}}                  ║
+       ║  Note : {{note}}                                             ║
+       ║  (Si PJ image non supportée par votre plan gratuit,          ║
+       ║  incluez {{proof_b64}} dans le corps du template)            ║
+       ╠══════════════════════════════════════════════════════════════╣
+       ║  EXEMPLE TEMPLATE CLIENT :                                    ║
+       ║  Bonjour {{to_name}},                                        ║
+       ║  Merci pour votre commande ! N° : {{order_id}}               ║
+       ║  Total : {{total}} | Expédition : {{shipping}}               ║
+       ║  Votre commande sera validée après vérification humaine      ║
+       ║  de votre preuve de paiement (délai max : 24h).              ║
+       ║  — L'équipe SIVÀA Geneva 🌿                                   ║
+       ╚══════════════════════════════════════════════════════════════╝
+       ═══════════════════════════════════════════════════════════════ */
+
+    const EMAILJS = {
+        publicKey:       'YOUR_PUBLIC_KEY',        /* ← Remplacer */
+        serviceId:       'YOUR_SERVICE_ID',        /* ← Remplacer */
+        templateAdmin:   'YOUR_TEMPLATE_ADMIN_ID', /* ← Remplacer */
+        templateClient:  'YOUR_TEMPLATE_CLIENT_ID',/* ← Remplacer */
+        adminEmail:      'votre@email.com',        /* ← Votre email admin */
+    };
+
+    async function submitOrder() {
+        const btn = document.getElementById('btnConfirm');
+        if (btn.disabled) return;
+        if (!fileReady) { showToast(T.t_incomplete[LANG], 'error'); return; }
+
+        /* Lecture des valeurs du formulaire */
+        const prenom  = document.getElementById('prenom').value.trim();
+        const nom     = document.getElementById('nom').value.trim();
+        const email   = document.getElementById('email').value.trim();
+        const phone   = document.getElementById('phone').value.trim() || 'N/A';
+        const adresse = document.getElementById('adresse').value.trim();
+        const npa     = document.getElementById('npa').value.trim();
+        const ville   = document.getElementById('ville').value.trim();
+        const pays    = document.getElementById('pays').value;
+        const note    = document.getElementById('note').value.trim() || 'Aucune';
+
+        /* Validation email */
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            showToast('❌ Adresse email invalide', 'error'); return;
+        }
+
+        /* Génération numéro de commande */
+        const orderId = 'SIVAA-' + new Date().getFullYear()
+            + '-' + Math.floor(10000 + Math.random() * 90000);
+
+        /* Récapitulatif articles */
+        const items = [
+            QTY.allotogo > 0 ? `Allo Togo ×${QTY.allotogo} = CHF ${(PRICE.allotogo * QTY.allotogo).toFixed(2)}`   : null,
+            QTY.siwak    > 0 ? `Siwak Premium ×${QTY.siwak} = CHF ${(PRICE.siwak * QTY.siwak).toFixed(2)}`        : null,
+            QTY.upsell   > 0 ? `Siwak supplémentaire ×1 = CHF ${discount > 0 ? '0.00 (offert)' : PRICE.upsell.toFixed(2)}` : null,
+        ].filter(Boolean).join('\n');
+
+        const sub   = PRICE.allotogo * QTY.allotogo + PRICE.siwak * QTY.siwak + PRICE.upsell * QTY.upsell;
+        const total = (sub + 9 - discount).toFixed(2);
+        const shipping = `${adresse}, ${npa} ${ville}, ${pays}`;
+        const dateStr  = new Date().toLocaleString('fr-CH');
+
+        /* Paramètres partagés des deux templates */
+        const params = {
+            order_id:        orderId,
+            to_name:         prenom + ' ' + nom,
+            to_email:        email,
+            customer_phone:  phone,
+            shipping:        shipping,
+            items:           items,
+            subtotal:        'CHF ' + sub.toFixed(2),
+            delivery:        'CHF 9.00',
+            discount:        discount > 0 ? '− CHF ' + discount.toFixed(2) : 'Aucune',
+            total:           'CHF ' + total,
+            payment:         chosenPayment || 'Non précisé',
+            note:            note,
+            date:            dateStr,
+        };
+
+        /* Démarrer spinner */
+        btn.disabled = true;
+        document.getElementById('btnSpinner').style.display = 'inline-block';
+        document.getElementById('btnArrow').style.display   = 'none';
+        showToast(T.t_sending[LANG], 'info');
+
+        try {
+            /* Init EmailJS */
+            emailjs.init(EMAILJS.publicKey);
+
+            /* Convertir la preuve en base64 */
+            const fileInput = document.getElementById('paymentProof');
+            let proof_b64 = '';
+            if (fileInput.files[0]) {
+                proof_b64 = await fileToBase64(fileInput.files[0]);
+            }
+
+            /* ── Email 1 → ADMIN ──────────────────────────── */
+            await emailjs.send(EMAILJS.serviceId, EMAILJS.templateAdmin, {
+                ...params,
+                to_email:  EMAILJS.adminEmail,
+                proof_b64: proof_b64,
+                subject:   `[SIVÀA] Commande ${orderId} — CHF ${total} | ${prenom} ${nom}`,
+            });
+
+            /* ── Email 2 → CLIENT ─────────────────────────── */
+            await emailjs.send(EMAILJS.serviceId, EMAILJS.templateClient, {
+                ...params,
+                to_email: email,
+                subject:  `✅ Votre commande SIVÀA ${orderId} est bien reçue`,
+                /* Message de confirmation lisible */
+                confirmation_body:
+                    `Bonjour ${prenom},\n\n` +
+                    `Merci pour votre confiance ! Votre commande SIVÀA Geneva est enregistrée.\n\n` +
+                    `📦 Numéro : ${orderId}\n` +
+                    `💰 Total   : CHF ${total}\n` +
+                    `📍 Adresse : ${shipping}\n\n` +
+                    `Nous avons bien reçu votre preuve de paiement. ` +
+                    `Votre commande sera validée définitivement après vérification humaine ` +
+                    `(délai maximum : 24h ouvrées). ` +
+                    `Dès validation, votre colis sera expédié via Swiss Post.\n\n` +
+                    `Pour toute question : WhatsApp +41 77 949 65 04\n\n` +
+                    `L'équipe SIVÀA Geneva 🌿`,
+            });
+
+            /* ── Succès → redirection ─────────────────────── */
+            showToast(T.t_success[LANG], 'success');
+            setTimeout(() => {
+                window.location.href =
+                    `merci.html?order=${orderId}&total=${total}` +
+                    `&email=${encodeURIComponent(email)}&name=${encodeURIComponent(prenom)}`;
+            }, 1800);
+
+        } catch (err) {
+            console.error('EmailJS error:', err);
+            showToast(T.t_error[LANG], 'error');
+            /* Réactiver le bouton en cas d'échec */
+            btn.disabled = false;
+            document.getElementById('btnSpinner').style.display = 'none';
+            document.getElementById('btnArrow').style.display   = 'inline-block';
+            checkFormLock();
+        }
+    }
+
+    /** Convertit un File en base64 (sans le préfixe data:) */
+    function fileToBase64(file) {
+        return new Promise((res, rej) => {
+            const r = new FileReader();
+            r.onload  = () => res(r.result.split(',')[1]);
+            r.onerror = rej;
+            r.readAsDataURL(file);
+        });
+    }
+
+
+    /* ═══════════════════════════════════════════════════════════════════
+       ■ UTILITAIRES UI
+       ═══════════════════════════════════════════════════════════════ */
+
+    let toastTimer;
+    function showToast(msg, type = 'info') {
+        const el = document.getElementById('toast');
+        document.getElementById('toastMsg').textContent = msg;
+        el.className = 'toast ' + type + ' show';
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => el.classList.remove('show'), 4200);
+    }
+
+
+    /* ═══════════════════════════════════════════════════════════════════
+       ■ INITIALISATION
+       ═══════════════════════════════════════════════════════════════ */
+    document.addEventListener('DOMContentLoaded', () => {
+
+        /* Décommenter quand les clés EmailJS sont configurées :
+           emailjs.init(EMAILJS.publicKey);
+        */
+
+        /* Calcul initial */
+        recalc();
+        checkFormLock();
+
+        /* Détection langue navigateur */
+        const bl = (navigator.language || 'fr').split('-')[0];
+        if (['en','de'].includes(bl)) switchLanguage(bl);
+
+        /* Drag & drop sur la zone upload */
+        const zone = document.getElementById('uploadZone');
+        zone.addEventListener('dragover',  e => { e.preventDefault(); zone.style.borderColor = 'var(--primary)'; });
+        zone.addEventListener('dragleave', ()  => { zone.style.borderColor = ''; });
+        zone.addEventListener('drop', e => {
+            e.preventDefault();
+            zone.style.borderColor = '';
+            const fi = document.getElementById('paymentProof');
+            /* Simuler l'assignation des fichiers déposés */
+            const dt = new DataTransfer();
+            Array.from(e.dataTransfer.files).slice(0,1).forEach(f => dt.items.add(f));
+            fi.files = dt.files;
+            handleFileUpload(fi);
+        });
+    });
+</script>
+<script src="i18n.js"></script>
+</body>
+</html>

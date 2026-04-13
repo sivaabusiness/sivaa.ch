@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="fr" class="dark">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Politique de Confidentialité | SIVÀA Geneva</title>
+    <meta name="description" content="Politique de confidentialité de SIVÀA Geneva. Protection de vos données personnelles conformément à la LPD suisse et au RGPD européen." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Inter:wght@100;300;400;500;600;700;900&display=swap" rel="stylesheet" />
+    <style>
+        :root {
+            --bg:#09160b;--surface-lowest:#0d1c0f;--surface-low:#111f13;--surface-mid:#162518;
+            --primary:#9dd75a;--primary-fixed:#b5e87a;--primary-dim:#2a3d1a;--secondary-container:#182d12;
+            --text:#d7e7d4;--text-variant:#8c9e89;--outline:#424939;--outline-variant:#2e3a2c;--dark-green:#0a1f0c;
+            color-scheme:dark;
+        }
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+        html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;}
+        body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:0.875rem;min-height:100vh;}
+        h1,h2,h3,h4{font-family:'Newsreader',serif;color:var(--text);}
+        a{text-decoration:none;color:inherit;}
+        ::selection{background:#9dd75a33;color:#d7e7d4;}
+        ::-webkit-scrollbar{width:6px;}::-webkit-scrollbar-track{background:#09160b;}::-webkit-scrollbar-thumb{background:#424939;border-radius:3px;}
+
+        .container{max-width:800px;margin:0 auto;padding:0 1.5rem;}
+
+        nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(9,22,11,0.7);backdrop-filter:blur(20px);border-bottom:1px solid rgba(66,73,57,0.3);}
+        .nav-inner{max-width:1280px;margin:0 auto;padding:0 1.5rem;height:64px;display:flex;align-items:center;justify-content:space-between;}
+        .nav-logo{font-family:'Newsreader',serif;font-size:1.25rem;font-weight:300;letter-spacing:0.08em;color:var(--text);}
+        .nav-logo span{color:var(--primary);}
+        .nav-links{display:flex;align-items:center;gap:2rem;}
+        .nav-links a{font-size:0.8rem;color:var(--text-variant);transition:color 0.2s;}
+        .nav-links a:hover{color:var(--text);}
+        .nav-cta{background:var(--primary);color:var(--dark-green)!important;font-weight:600;padding:0.45rem 1.1rem;border-radius:0.4rem;}
+        @media(max-width:640px){.nav-links a:not(.nav-cta){display:none;}}
+
+        .page-header{padding:7rem 0 3rem;border-bottom:1px solid rgba(66,73,57,0.2);margin-bottom:3rem;}
+        .label-sm{font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--primary);display:block;margin-bottom:0.75rem;}
+
+        /* Commitment banner */
+        .commitment-banner{background:linear-gradient(135deg,var(--primary-dim),rgba(39,80,10,0.3));border:1px solid rgba(157,215,90,0.2);border-radius:1rem;padding:2rem;margin-bottom:3rem;position:relative;overflow:hidden;}
+        .commitment-banner::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#9dd75a,transparent);}
+        .commitment-banner h3{font-size:1.25rem;font-weight:300;margin-bottom:0.75rem;color:var(--text);}
+        .commitment-banner p{color:var(--secondary);font-size:0.875rem;line-height:1.7;}
+
+        .legal-section{margin-bottom:3rem;}
+        .legal-section h2{font-size:1.4rem;font-weight:300;margin-bottom:1.25rem;padding-bottom:0.75rem;border-bottom:1px solid rgba(66,73,57,0.2);}
+        .legal-section h3{color:var(--primary);margin-bottom:0.75rem;margin-top:1.5rem;font-family:'Inter',sans-serif;letter-spacing:0.05em;text-transform:uppercase;font-size:0.72rem;}
+        .legal-section p{color:var(--text-variant);line-height:1.8;margin-bottom:0.75rem;font-size:0.875rem;}
+        .legal-section a{color:var(--primary);transition:opacity 0.2s;}
+        .legal-section a:hover{opacity:0.8;}
+        .legal-section strong{color:var(--text);}
+        .legal-section ul{list-style:none;padding:0;margin-bottom:0.75rem;}
+        .legal-section ul li{display:flex;gap:0.75rem;color:var(--text-variant);font-size:0.875rem;line-height:1.7;padding:0.25rem 0;}
+        .legal-section ul li::before{content:'✦';color:var(--primary);font-size:0.6rem;margin-top:0.4rem;flex-shrink:0;}
+
+        .rights-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.25rem;}
+        @media(max-width:640px){.rights-grid{grid-template-columns:1fr;}}
+        .right-card{background:var(--surface-low);border-radius:0.5rem;padding:1rem;border:1px solid rgba(66,73,57,0.2);}
+        .right-card h4{font-size:0.8rem;font-weight:600;color:var(--text);margin-bottom:0.35rem;font-family:'Inter',sans-serif;}
+        .right-card p{font-size:0.75rem;color:var(--text-variant);line-height:1.5;margin:0;}
+
+        .info-block{background:var(--surface-low);border-radius:0.75rem;padding:1.5rem;margin-bottom:1.5rem;border-left:2px solid var(--primary);}
+        .info-block p{margin:0;color:var(--text-variant);font-size:0.875rem;line-height:1.7;}
+        .info-block strong{color:var(--text);}
+
+        footer{background:var(--surface-lowest);border-top:1px solid rgba(66,73,57,0.2);padding:2rem 0;margin-top:5rem;}
+        .footer-inner{max-width:1280px;margin:0 auto;padding:0 1.5rem;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem;}
+        .footer-inner p{font-size:0.72rem;color:var(--outline);}
+        .footer-inner a{font-size:0.72rem;color:var(--outline);transition:color 0.2s;}
+        .footer-inner a:hover{color:var(--primary);}
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a href="index.html" class="nav-logo">SIVÀA <span style="color:var(--text-variant);font-size:0.8rem;letter-spacing:0.06em;">geneva</span></a>
+        <div class="nav-links">
+            <a href="index.html">Accueil</a>
+            <a href="blog.html">Journal</a>
+            <a href="contact.html">Contact</a>
+            <a href="checkout.html" class="nav-cta">Commander</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="page-header">
+        <span class="label-sm">Protection & Transparence</span>
+        <h1 style="font-size:2.5rem;font-weight:300;">Politique de <em style="font-style:normal;color:var(--primary);">Confidentialité</em></h1>
+        <p style="color:var(--text-variant);margin-top:0.75rem;font-size:0.875rem;">Dernière mise à jour : Avril 2026 · Conforme à la LPD suisse & RGPD</p>
+    </div>
+
+    <!-- Engagement -->
+    <div class="commitment-banner">
+        <h3>🛡️ Notre engagement envers votre vie privée</h3>
+        <p>Chez SIVÀA Geneva, la protection de vos données personnelles est une priorité absolue. Nous collectons le strict minimum nécessaire au traitement de vos commandes, nous ne vendons jamais vos données à des tiers, et nous appliquons les normes de sécurité les plus exigeantes. Votre confiance est notre valeur la plus précieuse.</p>
+    </div>
+
+    <!-- Responsable -->
+    <div class="legal-section">
+        <h2>1. Responsable du traitement</h2>
+        <div class="info-block">
+            <p>
+                <strong>SIVÀA Geneva</strong><br/>
+                11 Avenue du Mail, 1205 Genève, Suisse<br/>
+                Email : <a href="/cdn-cgi/l/email-protection#4333312a3522203a03302a3522226d202b"><span class="__cf_email__" data-cfemail="cebebca7b8afadb78ebda7b8afafe0ada6">[email&#160;protected]</span></a><br/>
+                Téléphone : +41 77 949 65 04
+            </p>
+        </div>
+        <p>SIVÀA Geneva est responsable du traitement de vos données personnelles au sens de la Loi fédérale suisse sur la protection des données (LPD) et, dans la mesure applicable, du Règlement général sur la protection des données de l'UE (RGPD).</p>
+    </div>
+
+    <!-- Données collectées -->
+    <div class="legal-section">
+        <h2>2. Données collectées</h2>
+        <p>Nous collectons uniquement les données strictement nécessaires à la bonne exécution de nos services :</p>
+
+        <h3>Lors d'une commande</h3>
+        <ul>
+            <li>Prénom et nom</li>
+            <li>Adresse email</li>
+            <li>Adresse de livraison (rue, NPA, ville, pays)</li>
+            <li>Numéro de téléphone (optionnel)</li>
+            <li>Notes de commande (si renseignées)</li>
+        </ul>
+
+        <h3>Données de navigation</h3>
+        <ul>
+            <li>Adresse IP (anonymisée après 24h)</li>
+            <li>Type de navigateur et appareil</li>
+            <li>Pages visitées et durée de visite (analytique anonyme uniquement)</li>
+        </ul>
+
+        <h3>Ce que nous ne collectons JAMAIS</h3>
+        <ul>
+            <li>Données bancaires ou de carte de crédit (traitées directement par Twint et Revolut)</li>
+            <li>Données sensibles (santé, origine ethnique, opinions politiques)</li>
+            <li>Données de localisation en temps réel</li>
+        </ul>
+    </div>
+
+    <!-- Utilisation -->
+    <div class="legal-section">
+        <h2>3. Finalités du traitement</h2>
+        <p>Vos données sont traitées exclusivement pour les finalités suivantes :</p>
+        <ul>
+            <li>Traitement et expédition de vos commandes</li>
+            <li>Communication relative à votre commande (confirmation, suivi, retours)</li>
+            <li>Service client et réponse à vos demandes</li>
+            <li>Amélioration de notre site et de nos services (données agrégées et anonymisées)</li>
+            <li>Respect de nos obligations légales et comptables</li>
+        </ul>
+        <p>Nous n'utilisons jamais vos données à des fins publicitaires de tiers, ni ne les revendons, ni ne les partageons avec des partenaires commerciaux sans votre consentement explicite.</p>
+    </div>
+
+    <!-- Base légale -->
+    <div class="legal-section">
+        <h2>4. Base légale du traitement</h2>
+        <p>Le traitement de vos données repose sur les bases légales suivantes :</p>
+        <ul>
+            <li><strong>Exécution d'un contrat</strong> : traitement de vos commandes et livraisons</li>
+            <li><strong>Obligation légale</strong> : conservation des données comptables et fiscales conformément au droit suisse</li>
+            <li><strong>Intérêt légitime</strong> : amélioration de nos services et sécurité informatique</li>
+            <li><strong>Consentement</strong> : pour toute communication marketing (newsletter), uniquement si vous y avez expressément consenti</li>
+        </ul>
+    </div>
+
+    <!-- Conservation -->
+    <div class="legal-section">
+        <h2>5. Durée de conservation</h2>
+        <p>Nous conservons vos données aussi longtemps que nécessaire, selon les principes suivants :</p>
+        <ul>
+            <li>Données de commande : 10 ans (conformément aux obligations comptables suisses)</li>
+            <li>Données de communication client : 3 ans après le dernier contact</li>
+            <li>Données de navigation : 30 jours maximum (anonymisées immédiatement après analyse)</li>
+            <li>Données marketing (newsletter) : jusqu'à désinscription</li>
+        </ul>
+        <p>À l'expiration de ces délais, vos données sont supprimées de manière sécurisée et définitive.</p>
+    </div>
+
+    <!-- Partage -->
+    <div class="legal-section">
+        <h2>6. Partage des données</h2>
+        <p>SIVÀA Geneva partage vos données uniquement avec les prestataires strictement nécessaires à l'exécution de vos commandes :</p>
+        <ul>
+            <li><strong>Swiss Post</strong> : adresse de livraison pour l'expédition de vos commandes</li>
+            <li><strong>Twint / Revolut</strong> : données de transaction (ces prestataires ont leurs propres politiques de confidentialité)</li>
+        </ul>
+        <p>En aucun cas vos données ne sont vendues, louées ou cédées à des tiers à des fins commerciales ou publicitaires.</p>
+    </div>
+
+    <!-- Sécurité -->
+    <div class="legal-section">
+        <h2>7. Sécurité de vos données</h2>
+        <p>SIVÀA Geneva met en œuvre les mesures de sécurité techniques et organisationnelles les plus adaptées pour protéger vos données contre tout accès non autorisé, modification, divulgation ou destruction :</p>
+        <ul>
+            <li>Chiffrement SSL/TLS de toutes les communications</li>
+            <li>Paiements traités via des protocoles chiffrés de bout en bout (Twint, Revolut)</li>
+            <li>Accès aux données limité aux seules personnes habilitées</li>
+            <li>Aucune donnée financière stockée sur nos serveurs</li>
+        </ul>
+    </div>
+
+    <!-- Droits -->
+    <div class="legal-section">
+        <h2>8. Vos droits</h2>
+        <p>Conformément à la LPD suisse et au RGPD, vous disposez des droits suivants sur vos données personnelles :</p>
+        <div class="rights-grid">
+            <div class="right-card">
+                <h4>🔍 Droit d'accès</h4>
+                <p>Obtenir une copie de toutes les données que nous détenons sur vous.</p>
+            </div>
+            <div class="right-card">
+                <h4>✏️ Droit de rectification</h4>
+                <p>Corriger toute donnée inexacte ou incomplète vous concernant.</p>
+            </div>
+            <div class="right-card">
+                <h4>🗑️ Droit à l'effacement</h4>
+                <p>Demander la suppression de vos données personnelles (sauf obligations légales).</p>
+            </div>
+            <div class="right-card">
+                <h4>⏸️ Droit d'opposition</h4>
+                <p>Vous opposer à certains traitements, notamment à des fins marketing.</p>
+            </div>
+            <div class="right-card">
+                <h4>📦 Droit à la portabilité</h4>
+                <p>Recevoir vos données dans un format structuré et lisible par machine.</p>
+            </div>
+            <div class="right-card">
+                <h4>🔒 Droit à la limitation</h4>
+                <p>Demander la limitation du traitement de vos données dans certains cas.</p>
+            </div>
+        </div>
+        <p style="margin-top:1.25rem;">Pour exercer l'un de ces droits, contactez-nous à <a href="/cdn-cgi/l/email-protection#a5d5d7ccd3c4c6dce5d6ccd3c4c48bc6cd"><span class="__cf_email__" data-cfemail="1363617a6572706a53607a6572723d707b">[email&#160;protected]</span></a>. Nous nous engageons à répondre dans un délai maximum de 30 jours.</p>
+    </div>
+
+    <!-- Cookies -->
+    <div class="legal-section">
+        <h2>9. Cookies & Traceurs</h2>
+        <p>Notre site utilise un nombre minimal de cookies strictement nécessaires au bon fonctionnement de la navigation (session, panier). Nous n'utilisons pas de cookies publicitaires, de suivi comportemental ou de partage sur les réseaux sociaux sans votre consentement.</p>
+        <p>Vous pouvez à tout moment modifier les paramètres de votre navigateur pour refuser ou supprimer les cookies. Cette action peut affecter certaines fonctionnalités du site.</p>
+    </div>
+
+    <!-- Réclamations -->
+    <div class="legal-section">
+        <h2>10. Réclamations & Autorité de contrôle</h2>
+        <p>Si vous estimez que le traitement de vos données personnelles ne respecte pas la législation applicable, vous avez le droit de déposer une réclamation auprès du <strong>Préposé fédéral à la protection des données et à la transparence (PFPDT)</strong>, autorité de contrôle compétente en Suisse.</p>
+        <p>Nous vous encourageons néanmoins à nous contacter en premier lieu afin de trouver une solution amiable.</p>
+    </div>
+
+    <!-- Contact -->
+    <div class="legal-section">
+        <h2>11. Nous contacter</h2>
+        <div class="info-block">
+            <p>
+                Pour toute question relative à cette politique ou à vos données :<br/><br/>
+                <strong>SIVÀA Geneva — Délégué à la protection des données</strong><br/>
+                11 Avenue du Mail, 1205 Genève, Suisse<br/>
+                Email : <a href="/cdn-cgi/l/email-protection#ed9d9f849b8c8e94ad9e849b8c8cc38e85"><span class="__cf_email__" data-cfemail="7707051e0116140e37041e01161659141f">[email&#160;protected]</span></a><br/>
+                Téléphone : +41 77 949 65 04
+            </p>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-inner">
+        <p>© 2026 SIVÀA Geneva · Siwak de luxe & Hygiène dentaire naturelle · Genève, Suisse</p>
+        <div style="display:flex;gap:1.25rem;">
+            <a href="mentions-legales.html">Mentions légales</a>
+            <a href="politique-confidentialite.html">Confidentialité</a>
+            <a href="index.html">Retour</a>
+        </div>
+    </div>
+</footer>
+
+<script src="i18n.js"></script>
+</body>
+</html>
