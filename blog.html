@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="fr" class="dark">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Journal | SIVÀA Geneva — Savoir-faire & Tradition Siwak</title>
+    <meta name="description" content="Découvrez le journal SIVÀA : articles sur le Siwak, la tradition, la science dentaire naturelle et le rituel du Miswak." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Inter:wght@100;300;400;500;600;700;900&display=swap" rel="stylesheet" />
+
+    <style>
+        :root {
+            --bg:#09160b;--surface-lowest:#0d1c0f;--surface-low:#111f13;--surface-mid:#162518;--surface-high:#1c2e1e;--surface-highest:#223525;
+            --primary:#9dd75a;--primary-fixed:#b5e87a;--primary-dim:#2a3d1a;--secondary:#8db87a;--secondary-container:#182d12;
+            --text:#d7e7d4;--text-variant:#8c9e89;--outline:#424939;--outline-variant:#2e3a2c;--dark-green:#0a1f0c;
+            color-scheme:dark;
+        }
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+        html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;}
+        body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:.875rem;min-height:100vh;}
+        h1,h2,h3,h4{font-family:'Newsreader',serif;color:var(--text);}
+        a{text-decoration:none;color:inherit;}
+        img{display:block;max-width:100%;}
+        ::selection{background:#9dd75a33;color:#d7e7d4;}
+        ::-webkit-scrollbar{width:6px;}::-webkit-scrollbar-track{background:#09160b;}::-webkit-scrollbar-thumb{background:#424939;border-radius:3px;}
+
+        .label-sm{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;}
+        .container{max-width:1280px;margin:0 auto;padding:0 1.5rem;}
+        em.accent{font-style:normal;color:var(--primary);}
+
+        nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(9,22,11,.7);backdrop-filter:blur(20px);border-bottom:1px solid rgba(66,73,57,.3);}
+        .nav-inner{max-width:1280px;margin:0 auto;padding:0 1.5rem;height:64px;display:flex;align-items:center;justify-content:space-between;}
+        .nav-logo{font-family:'Newsreader',serif;font-size:1.25rem;font-weight:300;letter-spacing:.08em;}
+        .nav-logo span{color:var(--primary);}
+        .nav-links{display:flex;align-items:center;gap:2rem;}
+        .nav-links a{font-size:.8rem;color:var(--text-variant);transition:color .2s;}
+        .nav-links a:hover{color:var(--text);}
+        .nav-links .nav-cta{background:var(--primary);color:var(--dark-green);font-weight:600;padding:.45rem 1.1rem;border-radius:.4rem;font-size:.8rem;}
+        .nav-links .nav-cta:hover{background:var(--primary-fixed);color:var(--dark-green);}
+        @media(max-width:640px){.nav-links a:not(.nav-cta){display:none;}}
+
+        .btn-primary{display:inline-flex;align-items:center;gap:.5rem;background:var(--primary);color:var(--dark-green);font-family:'Inter',sans-serif;font-weight:600;padding:.75rem 1.5rem;border-radius:.5rem;border:none;cursor:pointer;font-size:.875rem;transition:background .2s;}
+        .btn-primary:hover{background:var(--primary-fixed);}
+        .icon{width:1.1em;height:1.1em;vertical-align:middle;flex-shrink:0;}
+        .icon-sm{width:.9em;height:.9em;}
+
+        /* HERO BANNER */
+        .blog-hero{padding:8rem 0 5rem;background:radial-gradient(ellipse 70% 50% at 50% 40%, rgba(157,215,90,.06), transparent);}
+        .blog-hero .label-sm{color:var(--primary);display:block;margin-bottom:.75rem;}
+        .blog-hero h1{font-size:clamp(2.5rem,5vw,4rem);font-weight:300;line-height:1.1;margin-bottom:1.25rem;}
+        .blog-hero p{color:var(--text-variant);font-size:1rem;max-width:36rem;line-height:1.7;}
+
+        /* FEATURED */
+        .featured-article{display:grid;gap:2.5rem;background:var(--surface-low);border-radius:1rem;overflow:hidden;margin-bottom:5rem;transition:background .2s;cursor:pointer;}
+        @media(min-width:768px){.featured-article{grid-template-columns:1.4fr 1fr;}}
+        .featured-article:hover{background:var(--surface-high);}
+        .featured-img{height:360px;overflow:hidden;position:relative;}
+        @media(max-width:767px){.featured-img{height:240px;}}
+        .featured-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s;}
+        .featured-article:hover .featured-img img{transform:scale(1.04);}
+        .featured-badge{position:absolute;top:1rem;left:1rem;background:var(--primary);color:var(--dark-green);font-size:.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.25rem .75rem;border-radius:9999px;}
+        .featured-body{padding:2.5rem 2.5rem 2.5rem 0;display:flex;flex-direction:column;justify-content:center;}
+        @media(max-width:767px){.featured-body{padding:2rem;}}
+        .featured-cat{display:inline-flex;align-items:center;gap:.5rem;font-size:.7rem;color:var(--primary);letter-spacing:.12em;text-transform:uppercase;margin-bottom:1rem;}
+        .featured-body h2{font-family:'Newsreader',serif;font-size:clamp(1.4rem,3vw,2rem);font-weight:300;line-height:1.3;margin-bottom:1rem;}
+        .featured-body p{color:var(--text-variant);font-size:.875rem;line-height:1.7;margin-bottom:1.5rem;}
+        .featured-meta{display:flex;align-items:center;gap:1rem;font-size:.72rem;color:var(--outline);}
+        .featured-link{display:flex;align-items:center;gap:.4rem;font-size:.85rem;color:var(--primary);font-weight:500;transition:gap .2s;}
+        .featured-link:hover{gap:.75rem;}
+
+        /* FILTER TABS */
+        .filter-tabs{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2.5rem;}
+        .filter-tab{padding:.4rem 1.1rem;border-radius:9999px;font-size:.75rem;font-weight:500;cursor:pointer;transition:all .2s;border:1px solid var(--outline-variant);color:var(--text-variant);background:transparent;}
+        .filter-tab:hover{border-color:var(--outline);color:var(--text);}
+        .filter-tab.active{background:var(--primary);border-color:var(--primary);color:var(--dark-green);}
+
+        /* ARTICLES GRID */
+        .articles-grid{display:grid;gap:1.5rem;margin-bottom:5rem;}
+        @media(min-width:640px){.articles-grid{grid-template-columns:repeat(2,1fr);}}
+        @media(min-width:1024px){.articles-grid{grid-template-columns:repeat(3,1fr);}}
+
+        .blog-card{background:var(--surface-low);border-radius:.75rem;overflow:hidden;transition:background .2s;cursor:pointer;}
+        .blog-card:hover{background:var(--surface-high);}
+        .blog-img-wrap{height:200px;overflow:hidden;background:var(--surface-mid);}
+        .blog-img{width:100%;height:100%;object-fit:cover;transition:transform .5s;}
+        .blog-card:hover .blog-img{transform:scale(1.05);}
+        .blog-body{padding:1.5rem;}
+        .blog-meta-row{display:flex;align-items:center;gap:.75rem;margin-bottom:.75rem;}
+        .blog-cat{background:var(--secondary-container);color:var(--secondary);font-size:.7rem;padding:.15rem .5rem;border-radius:9999px;font-weight:500;}
+        .blog-date{font-size:.7rem;color:var(--outline);}
+        .blog-card h3{font-family:'Newsreader',serif;font-size:1.05rem;line-height:1.35;margin-bottom:.5rem;}
+        .blog-card p{font-size:.78rem;color:var(--text-variant);line-height:1.6;margin-bottom:1rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+        .blog-link{display:flex;align-items:center;gap:.4rem;font-size:.8rem;color:var(--primary);font-weight:500;transition:gap .2s;}
+        .blog-link:hover{gap:.7rem;}
+        .blog-read-time{font-size:.68rem;color:var(--outline);}
+
+        /* NEWSLETTER */
+        .newsletter-banner{background:var(--surface-low);border-radius:1rem;padding:3rem 2rem;text-align:center;margin-bottom:5rem;border:1px solid var(--outline-variant);}
+        .newsletter-banner h3{font-family:'Newsreader',serif;font-size:1.8rem;font-weight:300;margin-bottom:.75rem;}
+        .newsletter-banner p{color:var(--text-variant);font-size:.9rem;margin-bottom:1.75rem;}
+        .newsletter-form{display:flex;gap:.75rem;max-width:420px;margin:0 auto;flex-wrap:wrap;justify-content:center;}
+        .newsletter-form input{flex:1;min-width:200px;background:var(--surface-mid);border:1px solid var(--outline-variant);border-radius:.5rem;padding:.75rem 1rem;color:var(--text);font-size:.875rem;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s;}
+        .newsletter-form input:focus{border-color:var(--primary);}
+
+        /* FOOTER */
+        footer{background:var(--surface-lowest);border-top:1px solid rgba(46,58,44,.3);padding:3rem 0 2rem;}
+        .footer-grid{display:grid;gap:2rem;margin-bottom:2.5rem;}
+        @media(min-width:768px){.footer-grid{grid-template-columns:2fr 1fr 1fr 1fr;}}
+        .footer-brand p{font-size:.78rem;color:var(--text-variant);line-height:1.7;margin-top:.75rem;max-width:20rem;}
+        .footer-col h4{font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--text);margin-bottom:1rem;font-family:'Inter',sans-serif;}
+        .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.5rem;}
+        .footer-col li a{font-size:.78rem;color:var(--text-variant);transition:color .2s;}
+        .footer-col li a:hover{color:var(--primary);}
+        .footer-bottom{border-top:1px solid rgba(46,58,44,.2);padding-top:1.5rem;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem;}
+        .footer-bottom p{font-size:.72rem;color:var(--outline);}
+        .footer-bottom a{font-size:.72rem;color:var(--outline);transition:color .2s;}
+        .footer-bottom a:hover{color:var(--primary);}
+
+        .whatsapp-fab{position:fixed;bottom:1.5rem;right:1.5rem;z-index:50;display:flex;align-items:center;gap:.75rem;}
+        .whatsapp-tooltip{display:none;opacity:0;background:var(--surface-highest);color:var(--text);font-size:.72rem;padding:.5rem .75rem;border-radius:.5rem;white-space:nowrap;box-shadow:0 8px 32px rgba(9,22,11,.6);transition:opacity .2s;pointer-events:none;}
+        @media(min-width:640px){.whatsapp-tooltip{display:block;}}
+        .whatsapp-fab:hover .whatsapp-tooltip{opacity:1;}
+        .whatsapp-btn{width:3.5rem;height:3.5rem;border-radius:50%;background:#25D366;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,.4);transition:transform .2s;}
+        .whatsapp-btn:hover{transform:scale(1.1);}
+        .whatsapp-btn svg{width:1.75rem;height:1.75rem;fill:white;}
+
+        @keyframes fade-up{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+        .animate-fade-up{animation:fade-up .6s ease both;}
+        .hidden-article{display:none;}
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <div class="nav-inner">
+        <a href="index.html" style="font-family:'Newsreader',serif;font-size:1.4rem;font-weight:300;letter-spacing:0.12em;color:#d7e7d4;text-decoration:none;">SIVÀA <span style="color:#9dd75a;font-size:0.9rem;letter-spacing:0.06em;">Geneva</span></a>
+        <div class="nav-links">
+            <a href="index.html#produits" data-i18n="nav.products">Produits</a>
+            <a href="blog.html" data-i18n="nav.journal">Journal</a>
+            <a href="contact.html" data-i18n="nav.contact">Contact</a>
+            <a href="checkout.html" class="nav-cta" data-i18n="nav.order">Commander</a>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<div class="blog-hero container animate-fade-up">
+    <span class="label-sm" data-i18n="blog.hero.eyebrow">Journal & Savoir-faire</span>
+    <h1><span data-i18n="blog.hero.title.part1">Le</span> <em class="accent" data-i18n="blog.hero.title.part2">Journal</em><br/><span data-i18n="blog.hero.title.part3">SIVÀA Geneva</span></h1>
+    <p data-i18n="blog.hero.subtitle">Tradition, science dentaire naturelle, rituels millénaires. Tout ce qu'il faut savoir sur le Siwak et l'hygiène naturelle.</p>
+</div>
+
+<div class="container">
+
+    <!-- ARTICLE VEDETTE -->
+    <a href="article-siwak.html" class="featured-article animate-fade-up">
+        <div class="featured-img">
+            <img src="/img/siwakblog1.png" alt="Bienfaits du Siwak" data-i18n-alt="blog.featured.image.alt" />
+            <span class="featured-badge" data-i18n="blog.featured.badge">Article vedette</span>
+        </div>
+        <div class="featured-body">
+      <span class="featured-cat">
+        <svg class="icon-sm" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span data-i18n="blog.featured.cat">Tradition &amp; Sunna</span>
+      </span>
+            <h2 data-i18n="blog.featured.title">Qu'est-ce que le Siwak ? Bienfaits, utilisation et Sunna</h2>
+            <p data-i18n="blog.featured.excerpt">Le Siwak n'est pas qu'une alternative naturelle à la brosse à dents. C'est un héritage botanique vieux de plusieurs millénaires, au cœur des civilisations islamique, africaine et asiatique. Découvrez pourquoi des millions de personnes l'utilisent encore aujourd'hui.</p>
+            <div class="featured-meta" style="margin-bottom:1.25rem;">
+                <span data-i18n="blog.featured.date">12 Mai 2024</span>
+                <span>·</span>
+                <span data-i18n="blog.featured.readTime">8 min de lecture</span>
+            </div>
+            <span class="featured-link">
+        <span data-i18n="blog.featured.link">Lire l'article complet</span>
+        <svg class="icon-sm" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </span>
+        </div>
+    </a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <div style="max-width:80rem;margin:0 auto;padding:0 1.5rem;">
+        <div class="footer-grid">
+            <div>
+                <a href="index.html" style="font-family:'Newsreader',serif;font-size:1.4rem;font-weight:300;letter-spacing:0.12em;color:#d7e7d4;text-decoration:none;">SIVÀA <span style="color:#9dd75a;font-size:0.9rem;">Geneva</span></a>
+                <p style="font-size:0.78rem;color:#8c9e89;line-height:1.7;margin-top:0.75rem;max-width:20rem;" data-i18n="footer.tagline">L'excellence du Siwak de luxe au service d'un rituel millénaire. Hygiène dentaire naturelle à Genève. Livraison Swiss Post dans toute la Suisse.</p>
+            </div>
+            <div class="footer-col">
+                <h4 data-i18n="footer.col.products">Produits</h4>
+                <ul>
+                    <li><a href="index.html#produits" data-i18n="footer.product.siwak">Siwak Premium</a></li>
+                    <li><a href="index.html#produits" data-i18n="footer.product.togo">Allo Togo</a></li>
+                    <li><a href="checkout.html" data-i18n="nav.order">Commander</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 data-i18n="footer.col.info">Informations</h4>
+                <ul>
+                    <li><a href="blog.html" data-i18n="footer.info.journal">Journal</a></li>
+                    <li><a href="contact.html" data-i18n="footer.info.contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 data-i18n="footer.col.legal">Légal</h4>
+                <ul>
+                    <li><a href="mentions-legales.html" data-i18n="footer.legal.cgv">Mentions Légales</a></li>
+                    <li><a href="politique-confidentialite.html" data-i18n="footer.legal.privacy">Confidentialité</a></li>
+                    <li><a href="contact.html" data-i18n="footer.legal.returns">Retours</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p data-i18n="footer.copyright">© 2026 SIVÀA Geneva · Siwak de luxe & Hygiène dentaire naturelle</p>
+            <div style="display:flex;gap:1.25rem;">
+                <a href="mentions-legales.html" data-i18n="footer.legal.cgv">Mentions légales</a>
+                <a href="politique-confidentialite.html" data-i18n="footer.legal.privacy">Confidentialité</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- WhatsApp FAB -->
+<div class="whatsapp-fab">
+    <span class="whatsapp-tooltip">Une question ? On répond vite 💬</span>
+    <a href="https://wa.me/41790000000?text=Bonjour%20SIVA%CC%80A%2C%20j%27ai%20une%20question%20%F0%9F%8C%BF" target="_blank" rel="noopener noreferrer">
+        <button class="whatsapp-btn">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        </button>
+    </a>
+</div>
+
+<script>
+    function filterArticles(cat, tab) {
+        document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        document.querySelectorAll('.blog-card').forEach(card => {
+            if (cat === 'all' || card.dataset.cat === cat) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+        document.getElementById('load-more-wrap').style.display = cat === 'all' ? 'block' : 'none';
+    }
+    function loadMore() {
+        document.querySelectorAll('.hidden-article').forEach(a => {
+            a.classList.remove('hidden-article');
+            a.style.display = 'block';
+        });
+        document.getElementById('load-more-wrap').style.display = 'none';
+    }
+    function subscribeNewsletter() {
+        const email = document.getElementById('nl-email').value.trim();
+        if (!email || !email.includes('@')) { alert('Veuillez entrer un email valide.'); return; }
+        document.querySelector('.newsletter-form').innerHTML = '<p style="color:var(--primary);font-size:.9rem;font-weight:500;">✓ Merci ! Vous recevrez le prochain article dans votre boîte mail.</p>';
+    }
+</script>
+<script src="i18n.js"></script>
+</body>
+</html>
