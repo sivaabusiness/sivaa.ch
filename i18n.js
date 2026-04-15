@@ -323,7 +323,7 @@ const translations = {
         "hero.title.part2": "Siwak",
         "hero.title.part3": "in",
         "hero.title.part4": "Geneva",
-        "hero.subtitle": "The natural toothbrush the world has used for 1,000 years — selected with Swiss precision. Antibacterial, whitening, biodegradable. 72h delivery throughout Switzerland.",
+        "hero.subtitle": "The natural toothbrush the world has used for 3,000 years — selected with Swiss precision. Antibacterial, whitening, biodegradable. 72h delivery throughout Switzerland.",
         "hero.cta.order": "Order now →",
         "hero.cta.discover": "Discover Siwak",
         "hero.trust.shipping": "🚚 Swiss Post 72h",
