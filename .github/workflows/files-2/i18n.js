@@ -54,7 +54,7 @@ const translations = {
         "product2.image.alt": "Bâton à mâcher Allo Togo, alternative naturelle au Siwak venant du Togo",
 
         /* ── INDEX : POPUP PRODUIT 1 ── */
-        "modal1.rating": "4.9 / 5 · 200+ avis",
+        "modal1.rating": "4.9 / 5 · 3000 années d'utilisation",
         "modal1.desc": "Antibactérien naturel. Riche en silice, tanins et minéraux. Prêt à l'emploi, sans accessoire.",
         "modal1.feat1": "🌿 70+ minéraux actifs dont fluor naturel",
         "modal1.feat2": "🌿 Antibactérien prouvé contre la plaque",
@@ -352,7 +352,7 @@ const translations = {
         "product2.image.alt": "Allo Togo chewing stick, natural Siwak alternative from Togo",
 
         /* ── INDEX : POPUP 1 ── */
-        "modal1.rating": "4.9 / 5 · 200+ reviews",
+        "modal1.rating": "4.9 / 5 · 3000 Years of use",
         "modal1.desc": "Natural antibacterial. Rich in silica, tannins and minerals. Ready to use, no accessory needed.",
         "modal1.feat1": "🌿 70+ active minerals including natural fluoride",
         "modal1.feat2": "🌿 Proven antibacterial against plaque",
@@ -633,7 +633,7 @@ const translations = {
         "product2.image.alt": "Allo Togo Kaustab, natürliche Siwak-Alternative aus Togo",
 
         /* ── POPUP 1 ── */
-        "modal1.rating": "4.9 / 5 · 200+ Bewertungen",
+        "modal1.rating": "4.9 / 5 · 3000 Jahre Nutzung",
         "modal1.desc": "Natürlich antibakteriell. Reich an Kieselsäure, Tanninen und Mineralien. Gebrauchsfertig, ohne Zubehör.",
         "modal1.feat1": "🌿 70+ aktive Mineralien einschliesslich natürliches Fluorid",
         "modal1.feat2": "🌿 Nachweislich antibakteriell gegen Plaque",
