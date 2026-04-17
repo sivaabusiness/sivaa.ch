@@ -20,12 +20,12 @@ const translations = {
         "nav.buy": "Acheter",
 
         /* ── INDEX : HERO ── */
-        "hero.badge": "Récolté à la main · Pakistan · Certifié Suisse",
+       "hero.badge": "Racine de Salvadora Persica · Certifié Suisse",
         "hero.title.part1": "L'Art du",
         "hero.title.part2": "Siwak",
         "hero.title.part3": "à",
         "hero.title.part4": "Genève",
-        "hero.subtitle": "La brosse à dents naturelle que le monde utilise depuis 3000 ans — sélectionnée avec la précision suisse. Antibactérien, blanchissant, biodégradable. Livraison en 72h à travers toute la Suisse.",
+        "hero.subtitle": "La brosse à dents naturelle validée par la science. Ce bois pour soins dentaires réduit la plaque, purifie l'haleine et blanchit les dents de manière naturelle. Recommandé par l'OMS. Livraison en 72h à travers toute la Suisse.",
         "hero.cta.order": "Commander maintenant →",
         "hero.cta.discover": "Découvrir le Siwak",
         "hero.trust.shipping": "🚚 Swiss Post 72h",
