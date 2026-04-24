@@ -29,6 +29,7 @@
         .container{max-width:1280px;margin:0 auto;padding:0 1.5rem;}
         em.accent{font-style:normal;color:var(--primary);}
 
+
         nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(9,22,11,.7);backdrop-filter:blur(20px);border-bottom:1px solid rgba(66,73,57,.3);}
         .nav-inner{max-width:1280px;margin:0 auto;padding:0 1.5rem;height:64px;display:flex;align-items:center;justify-content:space-between;}
         .nav-logo{font-family:'Newsreader',serif;font-size:1.25rem;font-weight:300;letter-spacing:.08em;}
@@ -46,10 +47,32 @@
         .icon-sm{width:.9em;height:.9em;}
 
         /* HERO BANNER */
+        * ARTICLES GRID *
+        .articles-grid{display:grid;gap:1.5rem;margin-bottom:5rem;}
+        @media(min-width:640px){.articles-grid{grid-template-columns:repeat(2,1fr);}}
+        @media(min-width:1024px){.articles-grid{grid-template-columns:repeat(3,1fr);}}
+
         .blog-hero{padding:8rem 0 5rem;background:radial-gradient(ellipse 70% 50% at 50% 40%, rgba(157,215,90,.06), transparent);}
         .blog-hero .label-sm{color:var(--primary);display:block;margin-bottom:.75rem;}
         .blog-hero h1{font-size:clamp(2.5rem,5vw,4rem);font-weight:300;line-height:1.1;margin-bottom:1.25rem;}
         .blog-hero p{color:var(--text-variant);font-size:1rem;max-width:36rem;line-height:1.7;}
+
+
+        .blog-card{background:var(--surface-low);border-radius:.75rem;overflow:hidden;transition:background .2s;cursor:pointer;}
+        .blog-card:hover{background:var(--surface-high);}
+        .blog-img-wrap{height:200px;overflow:hidden;background:var(--surface-mid);}
+        .blog-img{width:100%;height:100%;object-fit:cover;transition:transform .5s;}
+        .blog-card:hover .blog-img{transform:scale(1.05);}
+        .blog-body{padding:1.5rem;}
+        .blog-meta-row{display:flex;align-items:center;gap:.75rem;margin-bottom:.75rem;}
+        .blog-cat{background:var(--secondary-container);color:var(--secondary);font-size:.7rem;padding:.15rem .5rem;border-radius:9999px;font-weight:500;}
+        .blog-date{font-size:.7rem;color:var(--outline);}
+        .blog-card h3{font-family:'Newsreader',serif;font-size:1.05rem;line-height:1.35;margin-bottom:.5rem;}
+        .blog-card p{font-size:.78rem;color:var(--text-variant);line-height:1.6;margin-bottom:1rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+        .blog-link{display:flex;align-items:center;gap:.4rem;font-size:.8rem;color:var(--primary);font-weight:500;transition:gap .2s;}
+        .blog-link:hover{gap:.7rem;}
+        .blog-read-time{font-size:.68rem;color:var(--outline);}
+
 
         /* FEATURED */
         .featured-article{display:grid;gap:2.5rem;background:var(--surface-low);border-radius:1rem;overflow:hidden;margin-bottom:5rem;transition:background .2s;cursor:pointer;}
@@ -94,6 +117,14 @@
         .blog-link{display:flex;align-items:center;gap:.4rem;font-size:.8rem;color:var(--primary);font-weight:500;transition:gap .2s;}
         .blog-link:hover{gap:.7rem;}
         .blog-read-time{font-size:.68rem;color:var(--outline);}
+
+        /* NEWSLETTER */
+        .newsletter-banner{background:var(--surface-low);border-radius:1rem;padding:3rem 2rem;text-align:center;margin-bottom:5rem;border:1px solid var(--outline-variant);}
+        .newsletter-banner h3{font-family:'Newsreader',serif;font-size:1.8rem;font-weight:300;margin-bottom:.75rem;}
+        .newsletter-banner p{color:var(--text-variant);font-size:.9rem;margin-bottom:1.75rem;}
+        .newsletter-form{display:flex;gap:.75rem;max-width:420px;margin:0 auto;flex-wrap:wrap;justify-content:center;}
+        .newsletter-form input{flex:1;min-width:200px;background:var(--surface-mid);border:1px solid var(--outline-variant);border-radius:.5rem;padding:.75rem 1rem;color:var(--text);font-size:.875rem;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s;}
+        .newsletter-form input:focus{border-color:var(--primary);}
 
         /* FOOTER */
         footer{background:var(--surface-lowest);border-top:1px solid rgba(46,58,44,.3);padding:3rem 0 2rem;}
@@ -149,7 +180,7 @@
     <!-- ARTICLE VEDETTE -->
     <a href="article-siwak.html" class="featured-article animate-fade-up">
         <div class="featured-img">
-            <img src="siwakblog1.png" alt="Bienfaits du Siwak" data-i18n-alt="blog.featured.image.alt" />
+            <img src="/img/siwakblog1.png" alt="Bienfaits du Siwak" data-i18n-alt="blog.featured.image.alt" />
             <span class="featured-badge" data-i18n="blog.featured.badge">Article vedette</span>
         </div>
         <div class="featured-body">
@@ -170,7 +201,6 @@
       </span>
         </div>
     </a>
-</div>
 
     <div class="articles-grid" id="articles-grid">
 
@@ -195,7 +225,6 @@
         </article>
     </div>
 </div>
-
 <!-- FOOTER -->
 <footer>
     <div style="max-width:80rem;margin:0 auto;padding:0 1.5rem;">
@@ -268,7 +297,11 @@
         });
         document.getElementById('load-more-wrap').style.display = 'none';
     }
- 
+    function subscribeNewsletter() {
+        const email = document.getElementById('nl-email').value.trim();
+        if (!email || !email.includes('@')) { alert('Veuillez entrer un email valide.'); return; }
+        document.querySelector('.newsletter-form').innerHTML = '<p style="color:var(--primary);font-size:.9rem;font-weight:500;">✓ Merci ! Vous recevrez le prochain article dans votre boîte mail.</p>';
+    }
 </script>
 <script src="i18n.js"></script>
 </body>
