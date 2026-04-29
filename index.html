@@ -505,6 +505,29 @@
             </div>
         </article>
 
+        <!-- PRODUIT 3 -->
+
+        <article class="card-siv reveal reveal-delay-3" style="overflow:hidden;cursor:pointer;" onclick="openModal('modal-3')">
+            <div class="product-img-wrap" style="background:#09160b;">
+                <img src="/img/imgetui.png" alt="Étui Siwak Naturel — Hygiène dentaire nomade" style="object-fit: contain; padding: 0.5rem;" loading="lazy" data-i18n-alt="product3.image.alt"/>
+                <div style="position:absolute;top:0.75rem;left:0.75rem;background:rgba(127,153,90,0.85);color:white;font-size:0.7rem;padding:0.25rem 0.75rem;border-radius:9999px;backdrop-filter:blur(4px);" data-i18n="product3.badge">Accessoire Indispensable</div>
+            </div>
+            <div style="padding:1.5rem;">
+                <h3 style="font-size:1.1rem;font-weight:400;color:#d7e7d4;margin-bottom:0.5rem;" data-i18n="product3.name">Étui de Siwak</h3>
+                <p style="color:#c2c9b4;font-size:0.875rem;line-height:1.6;margin-bottom:1rem;" data-i18n="product3.desc">Protégez votre Siwak et gardez-le frais où que vous alliez.</p>
+                <ul style="list-style:none;margin:0 0 1rem;display:flex;flex-direction:column;gap:0.4rem;">
+                    <li style="color:#c2c9b4;font-size:0.82rem;" data-i18n="modal3.feat1">🌿 Matériel épais, solide et durable</li>
+                    <li style="color:#c2c9b4;font-size:0.82rem;" data-i18n="modal3.feat2">🌿 Stockage anti-poussière et gain de place</li>
+                    <li style="color:#c2c9b4;font-size:0.82rem;" data-i18n="modal3.feat4">🌿 Prolonge la durée de vie du Siwak</li>
+                </ul>
+                <div style="background:#152317;border-radius:0.5rem;padding:0.65rem;font-size:0.75rem;color:#8c9380;margin-bottom:1.25rem;" data-i18n="modal3.shipping">🚚 Livraison Swiss Post · CHF 4.00 · 72h</div>
+                <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;">
+                    <span style="font-family:'Newsreader',serif;font-size:1.2rem;color:#9dd75a;" data-i18n="product3.price">CHF 7.00 l'unité</span>
+                    <a href="checkout.html" class="btn-primary" style="font-size:0.875rem;padding:0.5rem 1rem;" data-i18n="modal3.buy">Acheter maintenant</a>
+                </div>
+            </div>
+        </article>
+
         <!-- BLOC GARANTIES PRESTIGE -->
         <div class="prestige-block reveal reveal-delay-3" style="grid-column:1/-1;" id="prestige-col">
             <div>
@@ -923,6 +946,37 @@
                     <span style="font-family:'Newsreader',serif;font-size:1.5rem;color:#9dd75a;" data-i18n="product2.price">CHF 6.00 pour 5 pièces</span>
                 </div>
                 <a href="checkout.html" class="btn-primary" onclick="closeModal('modal-2')" data-i18n="modal1.buy">🛍 Acheter maintenant</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div id="modal-3" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal3-title" onclick="if(event.target===this)closeModal('modal-3')">
+    <div class="modal-box">
+        <div style="position:relative;height:14rem;overflow:hidden;background:#09160b;flex-shrink:0;">
+            <img src="/img/imgetui.png" alt="Étui de protection pour Siwak naturel" style="width:100%;height:100%;object-fit:contain;padding:1rem;" loading="lazy" data-i18n-alt="modal3.image.alt"/>
+            <button onclick="closeModal('modal-3')" type="button" aria-label="Fermer" style="position:absolute;top:0.75rem;right:0.75rem;background:rgba(0,0,0,0.5);border:none;width:2rem;height:2rem;border-radius:50%;color:white;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1rem;z-index:10;">✕</button>
+        </div>
+        <div style="padding:1.5rem;">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.75rem;">
+                <h3 id="modal3-title" style="font-size:1.25rem;font-weight:400;color:#d7e7d4;" data-i18n="product3.name">Étui de Protection pour Siwak</h3>
+            </div>
+
+            <p style="color:#c2c9b4;font-size:0.875rem;line-height:1.7;margin-bottom:1rem;" data-i18n="modal3.desc">Découvrez notre étui de protection pour Siwak, l'accessoire indispensable pour conserver votre bâtonnet de Salvadora Persica à l'abri de l'humidité et de la poussière. Idéal pour une hygiène dentaire nomade, cet étui prolonge la fraîcheur de votre miswak naturel tout en évitant la prolifération des bactéries lors de vos déplacements.</p>
+
+            <ul style="list-style:none;margin:0 0 1rem;display:flex;flex-direction:column;gap:0.5rem;">
+                <li style="color:#c2c9b4;font-size:0.875rem;" data-i18n="modal3.feat1">🌿 Matériel épais, solide et durable</li>
+                <li style="color:#c2c9b4;font-size:0.875rem;" data-i18n="modal3.feat2">🌿 Stockage anti-poussière et gain de place</li>
+                <li style="color:#c2c9b4;font-size:0.875rem;" data-i18n="modal3.feat3">🌿 Portable, facile à ouvrir et à utiliser</li>
+                <li style="color:#c2c9b4;font-size:0.875rem;" data-i18n="modal3.feat4">🌿 Prolonge la durée de vie de votre Siwak naturel</li>
+            </ul>
+            <div style="background:#152317;border-radius:0.5rem;padding:0.75rem;font-size:0.75rem;color:#8c9380;margin-bottom:1.25rem;" data-i18n="modal3.shipping">🚚 Livraison Swiss Post · CHF 4.00 · 72h</div>
+            <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;">
+                <div>
+                    <p style="font-size:0.65rem;color:#8c9380;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.25rem;" data-i18n="modal3.priceLabel">Prix</p>
+                    <span style="font-family:'Newsreader',serif;font-size:1.5rem;color:#9dd75a;" data-i18n="product3.price">CHF 5.00 l'unité</span>
+                </div>
+                <a href="checkout.html" class="btn-primary" onclick="closeModal('modal-3')" data-i18n="modal3.buy">🛍 Acheter maintenant</a>
             </div>
         </div>
     </div>
