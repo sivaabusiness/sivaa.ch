@@ -311,14 +311,14 @@
                     <img class="cart-item-img" src="siwako.jpg" alt="Étui Siwak Premium" />
                     <div class="cart-item-body">
                         <p class="cart-item-name" data-i18n="item_siwak_name"><strong>Étui de Siwak Premium</strong></p>
-                        <p class="cart-item-sub"  data-i18n="item_siwak_sub">Récolté à la main · Pakistan · CHF 7.00/pièce</p>
+                        <p class="cart-item-sub"  data-i18n="item_siwak_sub">Récolté à la main · Pakistan · CHF 6.00/pièce</p>
                         <div class="qty-ctrl">
                             <button class="qty-btn" onclick="updateQty('siwak',-1)">−</button>
                             <span class="qty-val" id="qty-siwak">1</span>
                             <button class="qty-btn" onclick="updateQty('siwak',1)">+</button>
                         </div>
                     </div>
-                    <span class="cart-item-price" id="price-siwak">CHF 7.00</span>
+                    <span class="cart-item-price" id="price-siwak">CHF 6.00</span>
                 </div>
                 <div class="cart-item">
                     <img class="cart-item-img" src="allo-togo.png" alt="Allo Togo — Étui naturel du Togo" />
@@ -342,8 +342,8 @@
                             <span data-i18n="upsell_sub">Code SIVAASIWAK = offert pour<br> la 1ère commande 🎁</span>
                         </div>
                         <div style="text-align:right;">
-                            <div style="font-weight:700;color:var(--primary);font-size:0.9rem;" id="upsellPriceDisplay">CHF 7</div>
-                            <s style="color:var(--outline);font-size:0.7rem;display:none;" id="upsellOrigPrice">CHF 5</s>
+                            <div style="font-weight:700;color:var(--primary);font-size:0.9rem;" id="upsellPriceDisplay">CHF 6</div>
+                            <s style="color:var(--outline);font-size:0.7rem;display:none;" id="upsellOrigPrice">CHF 6</s>
                         </div>
                     </label>
                 </div>
@@ -354,7 +354,7 @@
                 <p id="promo-feedback" style="font-size:0.72rem;margin-top:0.35rem;display:none;padding:0 0.25rem;"></p>
                 <hr class="summary-divider" style="margin-top:1.25rem;" />
                 <div class="summary-line"><span data-i18n="summary_subtotal">Sous-total</span><span id="subtotal">CHF 13.00</span></div>
-                <div class="summary-line"><span data-i18n="summary_shipping"><strong>Livraison Swiss Post</strong></span><span>CHF 9.00</span></div>
+                <div class="summary-line"><span data-i18n="summary_shipping"><strong>Livraison Swiss Post</strong></span><span>CHF 4.00</span></div>
                 <div class="summary-line" id="promo-line" style="display:none;color:var(--primary);"><span data-i18n="summary_promo">Code promo</span><span id="promo-amount">− CHF 0.00</span></div>
                 <hr class="summary-divider" />
                 <div class="summary-total"><span class="lbl" data-i18n="summary_total">Total</span><span class="amt" id="total-display">CHF 22.00</span></div>
@@ -431,7 +431,7 @@
         info_note:   { fr:"Après réception de votre preuve de paiement, je valide manuellement votre commande sous 24h et procède à l'expédition via Swiss Post.", en:'Upon receipt of your proof of payment, I manually validate your order within 24h and ship via Swiss Post.', de:'Nach Erhalt Ihres Zahlungsbelegs validiere ich Ihre Bestellung manuell innerhalb von 24 Stunden und versende per Swiss Post.' },
         /* Modifications "étui" */
         item_siwak_name:  { fr:'Étui de Siwak Premium', en:'Premium Siwak Case', de:'Premium Siwak-Etui'  },
-        item_siwak_sub:   { fr:'Récolté à la main · Pakistan · CHF 7.00/pièce', en:'Hand-harvested · Pakistan · CHF 7.00/piece', de:'Handgepflückt · Pakistan · CHF 7.00/Stück' },
+        item_siwak_sub:   { fr:'Récolté à la main · Pakistan · CHF 6.00/pièce', en:'Hand-harvested · Pakistan · CHF 6.00/piece', de:'Handgepflückt · Pakistan · CHF 6.00/Stück' },
         upsell_name:      { fr:'Étui de Siwak supplémentaire', en:'Additional Siwak case', de:'Zusätzliches Siwak-Etui' },
         whatsapp_tip:    { fr:'Une question ? Je réponds vite 💬', en:'A question? I reply fast 💬', de:'Eine Frage? Ich antworte schnell 💬' },
     };
@@ -593,7 +593,7 @@
         const shipping = `${adresse}, ${npa} ${ville}, ${pays}`;
         const dateStr = new Date().toLocaleString('fr-CH');
 
-        const params = { order_id: orderId, to_name: prenom + ' ' + nom, to_email: email, customer_phone: phone, shipping: shipping, items: items, subtotal: 'CHF ' + sub.toFixed(2), delivery: 'CHF 9.00', discount: discount > 0 ? '− CHF ' + discount.toFixed(2) : 'Aucune', total: 'CHF ' + total, payment: chosenPayment || 'Non précisé', note: note, date: dateStr };
+        const params = { order_id: orderId, to_name: prenom + ' ' + nom, to_email: email, customer_phone: phone, shipping: shipping, items: items, subtotal: 'CHF ' + sub.toFixed(2), delivery: 'CHF 4.00', discount: discount > 0 ? '− CHF ' + discount.toFixed(2) : 'Aucune', total: 'CHF ' + total, payment: chosenPayment || 'Non précisé', note: note, date: dateStr };
 
         btn.disabled = true; document.getElementById('btnSpinner').style.display = 'inline-block'; document.getElementById('btnArrow').style.display = 'none';
         showToast(T.t_sending ? T.t_sending[LANG] : 'Envoi...', 'info');
