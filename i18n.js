@@ -53,6 +53,22 @@ const translations = {
         "product2.price": "CHF 6.00 pour 5 pièce",
         "product2.image.alt": "Bâton à mâcher Allo Togo, alternative naturelle au Siwak venant du Togo",
 
+       "product3.badge": "Accessoire Indispensable",
+        "product3.name": "Étui de Protection Siwak",
+        "product3.desc": "Protégez votre Siwak et gardez-le frais où que vous alliez.",
+        "product3.price": "CHF 7.00 l'unité",
+        "product3.image.alt": "Étui de protection pour Siwak, étui hygiénique nomade",
+        
+        "modal3.desc": "Découvrez mon étui de protection pour Siwak, l'accessoire indispensable pour conserver votre bâtonnet de Salvadora Persica à l'abri de l'humidité et de la poussière. Idéal pour une hygiène dentaire nomade, cet étui prolonge la fraîcheur de votre miswak naturel tout en évitant la prolifération des bactéries lors de vos déplacements.",
+        "modal3.feat1": "🌿 Matériel épais, solide et durable",
+        "modal3.feat2": "🌿 Stockage anti-poussière et gain de place",
+        "modal3.feat3": "🌿 Portable, facile à ouvrir et à utiliser",
+        "modal3.feat4": "🌿 Prolonge la durée de vie de votre Siwak naturel",
+        "modal3.shipping": "🚚 Livraison Swiss Post · CHF 4.00 · 72h",
+        "modal3.priceLabel": "Prix",
+        "modal3.buy": "🛍 Acheter maintenant",
+        "modal3.image.alt": "Étui de transport pour Siwak naturel",
+
         /* ── INDEX : POPUP PRODUIT 1 ── */
         "modal1.rating": "4.9 / 5 · 3500 années d'utilisation",
         "modal1.desc": "Antibactérien naturel. Riche en silice, tanins et minéraux. Prêt à l'emploi, sans accessoire.",
@@ -353,6 +369,22 @@ const translations = {
         "product2.price": "CHF 6.00 per 5 piece",
         "product2.image.alt": "Allo Togo chewing stick, natural Siwak alternative from Togo",
 
+       "product3.badge": "Essential Accessory",
+        "product3.name": "Siwak Protective Case",
+        "product3.desc": "Protect your Siwak and keep it fresh wherever you go.",
+        "product3.price": "CHF 7.00 per unit",
+        "product3.image.alt": "Protective case for Siwak, hygienic travel case",
+        
+        "modal3.desc": "Discover my protective case for Siwak, the essential accessory to keep your Salvadora Persica stick away from moisture and dust. Ideal for on-the-go dental hygiene, this case prolongs the freshness of your natural miswak while preventing bacteria buildup when traveling.",
+        "modal3.feat1": "🌿 Thick, solid, and durable material",
+        "modal3.feat2": "🌿 Dust-proof storage and space-saving",
+        "modal3.feat3": "🌿 Portable, easy to open and use",
+        "modal3.feat4": "🌿 Prolongs the lifespan of your natural Siwak",
+        "modal3.shipping": "🚚 Swiss Post delivery · CHF 4.00 · 72h",
+        "modal3.priceLabel": "Price",
+        "modal3.buy": "🛍 Buy now",
+        "modal3.image.alt": "Travel case for natural Siwak",
+
         /* ── INDEX : POPUP 1 ── */
         "modal1.rating": "4.9 / 5 · 3500 Years of use",
         "modal1.desc": "Natural antibacterial. Rich in silica, tannins and minerals. Ready to use, no accessory needed.",
@@ -635,6 +667,22 @@ const translations = {
         "product2.desc": "Formel ohne künstliches Fluorid. Mit Siwak austauschbar.",
         "product2.price": "CHF 6.00 pro 5 Stück",
         "product2.image.alt": "Allo Togo Kaustab, natürliche Siwak-Alternative aus Togo",
+
+       "product3.badge": "Unverzichtbares Zubehör",
+        "product3.name": "Siwak Schutzetui",
+        "product3.desc": "Schützen Sie Ihren Siwak und halten Sie ihn überall frisch.",
+        "product3.price": "CHF 7.00 pro Stück",
+        "product3.image.alt": "Schutzetui für Siwak, hygienisches Reiseetui",
+        
+        "modal3.desc": "Entdecken Sie mein Schutzetui für Siwak, das unverzichtbare Zubehör, um Ihren Salvadora Persica-Stab vor Feuchtigkeit und Staub zu schützen. Ideal für die Zahnhygiene unterwegs, verlängert dieses Etui die Frische Ihres natürlichen Miswak und verhindert die Vermehrung von Bakterien auf Reisen.",
+        "modal3.feat1": "🌿 Dickes, solides und langlebiges Material",
+        "modal3.feat2": "🌿 Staubdichte Aufbewahrung und platzsparend",
+        "modal3.feat3": "🌿 Tragbar, einfach zu öffnen und zu verwenden",
+        "modal3.feat4": "🌿 Verlängert die Lebensdauer Ihres natürlichen Siwak",
+        "modal3.shipping": "🚚 Swiss Post Lieferung · CHF 4.00 · 72h",
+        "modal3.priceLabel": "Preis",
+        "modal3.buy": "🛍 Jetzt kaufen",
+        "modal3.image.alt": "Reiseetui für natürlichen Siwak",
 
         /* ── POPUP 1 ── */
         "modal1.rating": "4.9 / 5 · 3500 Jahre Nutzung",
