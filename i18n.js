@@ -43,7 +43,7 @@ const translations = {
         "product1.badge": "Récolté à la main · Pakistan",
         "product1.name": "Bâton de Siwak Premium",
         "product1.desc": "Antibactérien naturel. Riche en silice, tanins et minéraux. Prêt à l'emploi.",
-        "product1.price": "CHF 5.00 par pièce",
+        "product1.price": "CHF 6.00 par pièce",
         "product1.discover": "Découvrir",
         "product1.image.alt": "Bâton de Siwak Premium SIVÀA, brosse à dents naturelle en Salvadora persica",
 
@@ -246,7 +246,7 @@ const translations = {
         "article.toc.4": "IV. Art d'Emploi",
         "article.sidebar.cta.title": "Siwak Premium SIVÀA",
         "article.sidebar.cta.desc": "Sélectionné à la main au Pakistan, certifié par mes soins à Genève. La quintessence du bâton de Siwak.",
-        "article.sidebar.cta.btn": "Commander · CHF 5.00 →",
+        "article.sidebar.cta.btn": "Commander · CHF 6.00 →",
         "article.sidebar.delivery": "Livraison Swiss Post · 72h en Suisse",
         "article.sidebar.langs.title": "Cet article en d'autres langues",
         "article.cta.title": "Commencez votre rituel <em class=\"accent\">aujourd'hui</em>",
@@ -359,7 +359,7 @@ const translations = {
         "product1.badge": "Hand-harvested · Pakistan",
         "product1.name": "Premium Siwak Stick",
         "product1.desc": "Natural antibacterial. Rich in silica, tannins and minerals. Ready to use.",
-        "product1.price": "CHF 5.00 per piece",
+        "product1.price": "CHF 6.00 per piece",
         "product1.discover": "Discover",
         "product1.image.alt": "SIVÀA Premium Siwak stick, natural Salvadora persica toothbrush",
 
@@ -658,7 +658,7 @@ const translations = {
         "product1.badge": "Handgeerntet · Pakistan",
         "product1.name": "Premium Siwak-Stab",
         "product1.desc": "Natürlich antibakteriell. Reich an Kieselsäure, Tanninen und Mineralien. Gebrauchsfertig.",
-        "product1.price": "CHF 5.00 pro Stück",
+        "product1.price": "CHF 6.00 pro Stück",
         "product1.discover": "Entdecken",
         "product1.image.alt": "SIVÀA Premium Siwak-Stab, natürliche Salvadora persica Zahnbürste",
 
@@ -691,7 +691,7 @@ const translations = {
         "modal1.feat2": "🌿 Nachweislich antibakteriell gegen Plaque",
         "modal1.feat3": "🌿 Natürliche Aufhellung ohne Abrieb",
         "modal1.feat4": "🌿 Null Plastik · 100% biologisch abbaubar",
-        "modal1.shipping": "🚚 Swiss Post Lieferung · CHF 9.00 · 72h",
+        "modal1.shipping": "🚚 Swiss Post Lieferung · CHF 4.00 · 72h",
         "modal1.priceLabel": "Preis",
         "modal1.buy": "🛍 Jetzt kaufen",
 
