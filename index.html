@@ -992,37 +992,52 @@
         var el = document.getElementById(id);
         if (el) { el.classList.add('open'); document.body.style.overflow = 'hidden'; }
     }
+    
     function closeModal(id) {
         var el = document.getElementById(id);
-        if (el) { el.classList.remove('open'); document.body.style.overflow = ''; }
+        if (el) { 
+            el.classList.remove('open'); 
+            document.body.style.overflow = ''; 
+            
+            // NOUVEAU : On nettoie l'URL (on enlève le #) quand on ferme le popup
+            // pour pouvoir le ré-ouvrir plus tard sans bug
+            history.pushState("", document.title, window.location.pathname + window.location.search);
+        }
     }
+    
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
             document.querySelectorAll('.modal-overlay.open').forEach(function(m) {
                 m.classList.remove('open');
             });
             document.body.style.overflow = '';
+            history.pushState("", document.title, window.location.pathname + window.location.search);
         }
     });
 
     /* ── OUVERTURE AUTOMATIQUE DES MODALES VIA URL ── */
-    document.addEventListener('DOMContentLoaded', function() {
-        // On récupère la fin de l'URL (le hash)
+    
+    // On crée une fonction réutilisable
+    function checkUrlAndOpenModal() {
         const hash = window.location.hash;
 
-        // Si l'URL contient #etui-siwak, on ouvre la modale 3
         if (hash === '#etui-siwak' || hash === '#modal-3') {
-            // Un petit délai (100ms) assure que la page a bien fini de se construire avant d'ouvrir le pop-up
             setTimeout(() => { openModal('modal-3'); }, 100);
         }
-        // J'ai pris l'initiative d'ajouter la logique pour vos autres produits si besoin !
         else if (hash === '#siwak-premium' || hash === '#modal-1') {
             setTimeout(() => { openModal('modal-1'); }, 100);
         }
         else if (hash === '#allo-togo' || hash === '#modal-2') {
             setTimeout(() => { openModal('modal-2'); }, 100);
         }
-    });
+    }
+
+    // 1. Déclenchement quand on arrive sur la page depuis un lien externe
+    document.addEventListener('DOMContentLoaded', checkUrlAndOpenModal);
+
+    // 2. Déclenchement quand l'URL change alors qu'on est déjà sur la page
+    window.addEventListener('hashchange', checkUrlAndOpenModal);
+
 
     /* ── SCROLL REVEAL ── */
     (function() {
