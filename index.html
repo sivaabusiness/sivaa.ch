@@ -1005,6 +1005,25 @@
         }
     });
 
+    /* ── OUVERTURE AUTOMATIQUE DES MODALES VIA URL ── */
+    document.addEventListener('DOMContentLoaded', function() {
+        // On récupère la fin de l'URL (le hash)
+        const hash = window.location.hash;
+
+        // Si l'URL contient #etui-siwak, on ouvre la modale 3
+        if (hash === '#etui-siwak' || hash === '#modal-3') {
+            // Un petit délai (100ms) assure que la page a bien fini de se construire avant d'ouvrir le pop-up
+            setTimeout(() => { openModal('modal-3'); }, 100);
+        }
+        // J'ai pris l'initiative d'ajouter la logique pour vos autres produits si besoin !
+        else if (hash === '#siwak-premium' || hash === '#modal-1') {
+            setTimeout(() => { openModal('modal-1'); }, 100);
+        }
+        else if (hash === '#allo-togo' || hash === '#modal-2') {
+            setTimeout(() => { openModal('modal-2'); }, 100);
+        }
+    });
+
     /* ── SCROLL REVEAL ── */
     (function() {
         var revealEls = document.querySelectorAll('.reveal');
@@ -1053,6 +1072,7 @@
     }
   }]
 }
+        
 </script>
 </body>
 </html>
