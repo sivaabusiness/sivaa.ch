@@ -582,7 +582,9 @@
         const prenom = document.getElementById('prenom').value.trim();
         const nom = document.getElementById('nom').value.trim();
         const email = document.getElementById('email').value.trim();
-        const phone = document.getElementById('phone').value.trim() || 'N/A';
+        const prefix = document.getElementById('phone-prefix').value;
+        const phoneInput = document.getElementById('phone').value.trim();
+        const phone = phoneInput ? prefix + ' ' + phoneInput : 'N/A';
         const adresse = document.getElementById('adresse').value.trim();
         const npa = document.getElementById('npa').value.trim();
         const ville = document.getElementById('ville').value.trim();
