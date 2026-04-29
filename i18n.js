@@ -56,7 +56,7 @@ const translations = {
        "product3.badge": "Accessoire Indispensable",
         "product3.name": "Étui de Protection Siwak",
         "product3.desc": "Protégez votre Siwak et gardez-le frais où que vous alliez.",
-        "product3.price": "CHF 7.00 l'unité",
+        "product3.price": "CHF 5.00 l'unité",
         "product3.image.alt": "Étui de protection pour Siwak, étui hygiénique nomade",
         
         "modal3.desc": "Découvrez mon étui de protection pour Siwak, l'accessoire indispensable pour conserver votre bâtonnet de Salvadora Persica à l'abri de l'humidité et de la poussière. Idéal pour une hygiène dentaire nomade, cet étui prolonge la fraîcheur de votre miswak naturel tout en évitant la prolifération des bactéries lors de vos déplacements.",
@@ -372,7 +372,7 @@ const translations = {
        "product3.badge": "Essential Accessory",
         "product3.name": "Siwak Protective Case",
         "product3.desc": "Protect your Siwak and keep it fresh wherever you go.",
-        "product3.price": "CHF 7.00 per unit",
+        "product3.price": "CHF 5.00 per unit",
         "product3.image.alt": "Protective case for Siwak, hygienic travel case",
         
         "modal3.desc": "Discover my protective case for Siwak, the essential accessory to keep your Salvadora Persica stick away from moisture and dust. Ideal for on-the-go dental hygiene, this case prolongs the freshness of your natural miswak while preventing bacteria buildup when traveling.",
@@ -671,7 +671,7 @@ const translations = {
        "product3.badge": "Unverzichtbares Zubehör",
         "product3.name": "Siwak Schutzetui",
         "product3.desc": "Schützen Sie Ihren Siwak und halten Sie ihn überall frisch.",
-        "product3.price": "CHF 7.00 pro Stück",
+        "product3.price": "CHF 5.00 pro Stück",
         "product3.image.alt": "Schutzetui für Siwak, hygienisches Reiseetui",
         
         "modal3.desc": "Entdecken Sie mein Schutzetui für Siwak, das unverzichtbare Zubehör, um Ihren Salvadora Persica-Stab vor Feuchtigkeit und Staub zu schützen. Ideal für die Zahnhygiene unterwegs, verlängert dieses Etui die Frische Ihres natürlichen Miswak und verhindert die Vermehrung von Bakterien auf Reisen.",
