@@ -20,7 +20,7 @@ const translations = {
         "nav.buy": "Acheter",
 
         /* ── INDEX : HERO ── */
-       "hero.badge": "Racine de Salvadora Persica · Certifié Suisse",
+        "hero.badge": "Racine de Salvadora Persica · Certifié Suisse",
         "hero.title.part1": "L'Art du",
         "hero.title.part2": "Siwak",
         "hero.title.part3": "à",
@@ -36,7 +36,7 @@ const translations = {
 
         /* ── INDEX : PRODUITS ── */
         "products.eyebrow": "L'Atelier Botanique",
-        "products.title.part1": "Notre",
+        "products.title.part1": "Ma",
         "products.title.part2": "Collection",
         "products.seeAll": "Voir tout →",
 
@@ -73,7 +73,7 @@ const translations = {
 
         /* ── INDEX : TÉMOIGNAGES ── */
         "reviews.eyebrow": "Témoignages",
-        "reviews.title.part1": "Ce que disent nos",
+        "reviews.title.part1": "Ce que disent mes",
         "reviews.title.part2": "clients",
         "reviews.subtitle": "4.9/5 · Des avis depuis Genève et toute la Suisse",
         "review1.text": "\"Je cherchais une alternative naturelle depuis longtemps. Le Siwak SIVÀA a complètement remplacé ma brosse à dents électrique. Dents plus blanches en 2 semaines, gencives apaisées.\"",
@@ -84,8 +84,8 @@ const translations = {
         "review2.name": "Mark",
         "review2.location": "Lausanne · Février 2026",
         "review2.tag": "Coffret Essentiel",
-        "review3.text": "\"Je n'utilise plus que ça ! J'ai combiné le Siwak et le bâton Allo Togo dans ma routine quotidienne et j'ai adoré le résultat. Leurs bienfaits purifiants sont incroyables, ma bouche n'a jamais été aussi saine et propre.\"",        "review3.name": "Aya",
-        "review2.name": "Inès",
+        "review3.text": "\"Je n'utilise plus que ça ! J'ai combiné le Siwak et le bâton Allo Togo dans ma routine quotidienne et j'ai adoré le résultat. Leurs bienfaits purifiants sont incroyables, ma bouche n'a jamais été aussi saine et propre.\"",
+        "review3.name": "Inès",
         "review3.location": "Zürich · Avril 2026",
         "review3.tag": "Dentifrice Botanique",
         "stats.reviews": "Année d'usage ancestral",
@@ -104,28 +104,29 @@ const translations = {
         "faq.q3": "Le miswak est-il réellement bénéfique pour l'hygiène bucco-dentaire ?",
         "faq.a3": "Absolument. Son efficacité est validée scientifiquement et son usage est recommandé par l'Organisation Mondiale de la Santé (OMS). Il élimine radicalement la plaque dentaire, purifie l'haleine et possède des propriétés antibactériennes prouvées.",
         "faq.q4": "Où trouver du vrai siwak de haute qualité en Suisse (Migros, Coop, Manor) ?",
-        "faq.a4": "Il est souvent difficile de trouver du siwak frais en grande distribution (Coop, Migros, Manor) ou en pharmacie. Chez Sivàa Geneva, nous sommes l'alternative locale spécialisée : un siwak premium, certifié, disponible en livraison rapide Swiss Post (72h) ou en retrait dans notre atelier à Genève (paiement Twint accepté).",
+        "faq.a4": "Il est souvent difficile de trouver du siwak frais en grande distribution (Coop, Migros, Manor) ou en pharmacie. Chez Sivàa Geneva, je suis l'alternative locale spécialisée : un siwak premium, certifié, disponible en livraison rapide Swiss Post (72h) ou en retrait dans mon atelier à Genève (paiement Twint accepté).",
         "faq.q5": "Comment utiliser le Siwak pour la première fois ?",
         "faq.a5": "Trempez l'extrémité du bâton dans de l'eau pendant 5 minutes. Mâchez doucement pour effilocher les fibres et former une brosse naturelle. Frottez vos dents et vos gencives en mouvement circulaire. Rincez. Coupez l'extrémité usée et recommencez.",
         "faq.q6": "Dois-je utiliser du dentifrice en plus du Siwak ?",
         "faq.a6": "Le Siwak contient naturellement ses propres agents nettoyants, du fluor naturel et des antibactériens. Il se suffit donc à lui tout seul pour l'hygiène bucco-dentaire ! Vous pouvez alterner avec un dentifrice si vous le souhaitez.",
-        "faq.a6": "Oui, plusieurs études publiées dans le Journal of Periodontology confirment que le Siwak est aussi efficace qu'une brosse à dents conventionnelle pour réduire la plaque et l'inflammation gingivale, grâce à ses 70+ composés actifs naturels (silice, tanins, alcaloïdes, fluor naturel). Néanmoins, le facteur le plus déterminant sera la technique avec laquelle vous l'utilisez.",
         "faq.q7": "Je souhaite choisir si mon bâton à mâcher sera fin ou épais, comment faire ?",
         "faq.a7": "Ne vous inquiétez pas, en ajoutant votre message à votre commande je vous sélectionnerai le bâton à mâcher le plus adapté à vos envies.",
+        "faq.payment.q": "Quels modes de paiement acceptez-vous ?",
+        "faq.payment.a": "J'accepte Twint, Revolut et virement bancaire. Tous les paiements sont chiffrés de bout en bout. Minimum CHF 30.00 pour livraison.",
         "faq.noQuestion": "Votre question n'est pas listée ?",
-        "faq.contactBtn": "💬 Contacter notre atelier",
+        "faq.contactBtn": "💬 Contacter mon atelier",
 
         /* ── ATELIER GENÈVE ── */
         "loc.eyebrow": "Localisation & Prestige",
         "loc.title.part1": "Votre atelier à",
         "loc.title.part2": "Genève",
-        "loc.subtitle": "Situé au cœur de <strong style=\"color:#d7e7d4;\">Plainpalais, Genève</strong>, notre atelier vous accueille sur rendez-vous pour une remise en main propre personnalisée.",
+        "loc.subtitle": "Situé au cœur de <strong style=\"color:#d7e7d4;\">Plainpalais, Genève</strong>, mon atelier vous accueille sur rendez-vous pour une remise en main propre personnalisée.",
         "loc.country": "Suisse",
         "loc.district": "Quartier Plainpalais",
         "loc.appointment.title": "Retrait sur rendez-vous",
-        "loc.appointment.desc": "Disponible 7j/7, Contactez-nous pour convenir d'un horaire adapté à vos disponibilités.",
+        "loc.appointment.desc": "Disponible 7j/7, Contactez-moi pour convenir d'un horaire adapté à vos disponibilités.",
         "loc.payment.title": "Paiement Twint Genève & Revolut",
-        "loc.payment.desc": "Règlement sécurisé à réception. Minimum CHF 30.00 pour toute commande.",
+        "loc.payment.desc": "Règlement sécurisé à réception. Minimum CHF 30.00 pour toute livraison.",
         "loc.cta": "📞 Prendre rendez-vous à Genève",
 
         /* ── INDEX : CTA FINAL ── */
@@ -177,7 +178,7 @@ const translations = {
         "blog.art1.excerpt": "Face aux technologies soniques et aux poils en nylon, le bois de brossage naturel tient-il la route ?",
         "blog.art1.date": "08 Mai 2026",
         "blog.art2.title": "Acheter du vrai Siwak à Genève : notre guide complet",
-        "blog.art2.excerpt": "De nos ateliers genevois aux meilleures adresses locales, comment identifier un Siwak frais et éthique.",
+        "blog.art2.excerpt": "De mon atelier genevois aux meilleures adresses locales, comment identifier un Siwak frais et éthique.",
         "blog.art2.date": "02 Mai 2026",
         "blog.art3.title": "Comment utiliser le Siwak pour la première fois ?",
         "blog.art3.excerpt": "Guide pas-à-pas pour débutants : préparation, geste, fréquence et entretien de votre bâton de Siwak.",
@@ -194,8 +195,8 @@ const translations = {
         "blog.art7.title": "Siwak pendant le Ramadan : ce que dit la tradition",
         "blog.art7.excerpt": "Le Siwak peut-il être utilisé pendant le jeûne ? Les avis des savants et la pratique des compagnons.",
         "blog.art7.date": "29 Mar 2024",
-        "blog.art8.title": "Notre atelier genevois : coulisses de la sélection SIVÀA",
-        "blog.art8.excerpt": "Comment nous choisissons, testons et conditionnons chaque bâton avant de vous le livrer à Genève.",
+        "blog.art8.title": "Mon atelier genevois : coulisses de ma sélection SIVÀA",
+        "blog.art8.excerpt": "Comment je choisis, teste et conditionne chaque bâton avant de vous le livrer à Genève.",
         "blog.art8.date": "18 Mar 2024",
         "blog.art9.title": "Blancheur naturelle : la silice du Siwak vs les blanchissants chimiques",
         "blog.art9.excerpt": "Comparatif scientifique entre la silice naturelle du Salvadora persica et les agents blanchissants industriels.",
@@ -228,7 +229,7 @@ const translations = {
         "article.toc.3": "III. Analyse Scientifique",
         "article.toc.4": "IV. Art d'Emploi",
         "article.sidebar.cta.title": "Siwak Premium SIVÀA",
-        "article.sidebar.cta.desc": "Sélectionné à la main au Pakistan, certifié par nos soins à Genève. La quintessence du bâton de Siwak.",
+        "article.sidebar.cta.desc": "Sélectionné à la main au Pakistan, certifié par mes soins à Genève. La quintessence du bâton de Siwak.",
         "article.sidebar.cta.btn": "Commander · CHF 5.00 →",
         "article.sidebar.delivery": "Livraison Swiss Post · 72h en Suisse",
         "article.sidebar.langs.title": "Cet article en d'autres langues",
@@ -238,9 +239,9 @@ const translations = {
 
         /* ── CONTACT ── */
         "contact.header.eyebrow": "Atelier Genevois",
-        "contact.header.title.part1": "Nous",
+        "contact.header.title.part1": "Me",
         "contact.header.title.part2": "contacter",
-        "contact.header.subtitle": "Nous répondons en général dans les 2–4 heures en journée.",
+        "contact.header.subtitle": "Je réponds en général dans les 2–4 heures en journée.",
         "contact.form.subjectLabel": "Sujet de votre message",
         "contact.pill.order": "📦 Commande / Livraison",
         "contact.pill.product": "🌿 Question produit",
@@ -261,7 +262,7 @@ const translations = {
         "contact.send": "Envoyer le message",
         "contact.required": "* champs obligatoires",
         "contact.success.title": "Message envoyé !",
-        "contact.success.subtitle": "Nous vous répondons dans les 2–4 heures en journée.",
+        "contact.success.subtitle": "Je vous réponds dans les 2–4 heures en journée.",
         "contact.success.again": "Envoyer un autre message",
         "contact.wa.title": "WhatsApp",
         "contact.wa.desc": "La façon la plus rapide. Réponse en quelques minutes.",
@@ -278,7 +279,7 @@ const translations = {
         "contact.info.returns.label": "Retours",
         "contact.info.returns.value": "14 jours sans justification, échange ou remboursement",
         "contact.order.note": "Vous avez passé commande ?",
-        "contact.order.desc": "Pour toute question sur votre commande, munissez-vous de votre numéro (SIVAA-XXXX-XXXXX) et contactez-nous par WhatsApp pour un traitement prioritaire.",
+        "contact.order.desc": "Pour toute question sur votre commande, munissez-vous de votre numéro (SIVAA-XXXX-XXXXX) et contactez-moi par WhatsApp pour un traitement prioritaire.",
 
         /* ── MERCI ── */
         "merci.banner": "Votre colis est en cours de préparation à Genève 🌿",
@@ -306,7 +307,7 @@ const translations = {
         "merci.confirmWa": "Confirmer par WhatsApp",
         "merci.confirmEmail": "Confirmer par email",
         "merci.bottomImg": "Chaque bâton, sélectionné à la main. Chaque colis, préparé avec soin.",
-        "merci.back": "← Retour à l'accueil",
+        "merci.back": "← Retour à l'accueil"
     },
 
     en: {
@@ -335,7 +336,7 @@ const translations = {
 
         /* ── INDEX : PRODUCTS ── */
         "products.eyebrow": "The Botanical Workshop",
-        "products.title.part1": "Our",
+        "products.title.part1": "My",
         "products.title.part2": "Collection",
         "products.seeAll": "See all →",
 
@@ -372,7 +373,7 @@ const translations = {
 
         /* ── INDEX : REVIEWS ── */
         "reviews.eyebrow": "Testimonials",
-        "reviews.title.part1": "What our",
+        "reviews.title.part1": "What my",
         "reviews.title.part2": "customers",
         "reviews.title.suffix": "say",
         "reviews.subtitle": "4.9/5 · Reviews from Geneva and across Switzerland",
@@ -411,20 +412,22 @@ const translations = {
         "faq.a6": "Yes, several studies published in the Journal of Periodontology confirm that Siwak is as effective as a conventional toothbrush at reducing plaque and gum inflammation, thanks to its 70+ natural active compounds (silica, tannins, alkaloids, natural fluoride). However, the most determining factor will be the technique you use.",
         "faq.q7": "I'd like to choose whether my chewing stick is thin or thick, how?",
         "faq.a7": "Don't worry, by adding your message to your order I will select the chewing stick most suited to your preferences.",
+        "faq.payment.q": "What payment methods do you accept?",
+        "faq.payment.a": "I accept Twint, Revolut, and bank transfer. All payments are end-to-end encrypted. Minimum CHF 30.00 for delivery.",
         "faq.noQuestion": "Your question isn't listed?",
-        "faq.contactBtn": "💬 Contact our workshop",
+        "faq.contactBtn": "💬 Contact my workshop",
 
         /* ── INDEX : LOCATION SECTION ── */
         "loc.eyebrow": "Location & Prestige",
         "loc.title.part1": "Your workshop in",
         "loc.title.part2": "Geneva",
-        "loc.subtitle": "Located in the heart of <strong style=\"color:#d7e7d4;\">Plainpalais, Geneva</strong>, our workshop welcomes you by appointment for a personalized hand delivery.",
+        "loc.subtitle": "Located in the heart of <strong style=\"color:#d7e7d4;\">Plainpalais, Geneva</strong>, my workshop welcomes you by appointment for a personalized hand delivery.",
         "loc.country": "Switzerland",
         "loc.district": "Plainpalais district",
         "loc.appointment.title": "Pickup by appointment",
-        "loc.appointment.desc": "Available 7 days a week, Contact us to arrange a time that suits your schedule.",
+        "loc.appointment.desc": "Available 7 days a week, Contact me to arrange a time that suits your schedule.",
         "loc.payment.title": "Twint Geneva & Revolut Payment",
-        "loc.payment.desc": "Secure payment on reception. Minimum CHF 30.00 for any order.",
+        "loc.payment.desc": "Secure payment on reception. Minimum CHF 30.00 for delivery.",
         "loc.cta": "📞 Book an appointment in Geneva",
 
         /* ── INDEX : CTA FINAL ── */
@@ -476,7 +479,7 @@ const translations = {
         "blog.art1.excerpt": "Against sonic technologies and nylon bristles, does the natural brushing wood hold up?",
         "blog.art1.date": "May 08, 2026",
         "blog.art2.title": "Buying real Siwak in Geneva: our complete guide",
-        "blog.art2.excerpt": "From our Geneva workshops to the best local addresses, how to identify a fresh and ethical Siwak.",
+        "blog.art2.excerpt": "From my Geneva workshop to the best local addresses, how to identify a fresh and ethical Siwak.",
         "blog.art2.date": "May 02, 2026",
         "blog.art3.title": "How to use Siwak for the first time?",
         "blog.art3.excerpt": "Step-by-step guide for beginners: preparation, technique, frequency and care of your Siwak stick.",
@@ -493,8 +496,8 @@ const translations = {
         "blog.art7.title": "Siwak during Ramadan: what tradition says",
         "blog.art7.excerpt": "Can Siwak be used during fasting? The opinions of scholars and the practice of the companions.",
         "blog.art7.date": "Mar 29, 2026",
-        "blog.art8.title": "Our Geneva workshop: behind the scenes of SIVÀA selection",
-        "blog.art8.excerpt": "How we choose, test and package each stick before delivering it to you in Geneva.",
+        "blog.art8.title": "My Geneva workshop: behind the scenes of my SIVÀA selection",
+        "blog.art8.excerpt": "How I choose, test and package each stick before delivering it to you in Geneva.",
         "blog.art8.date": "Mar 18, 2026",
         "blog.art9.title": "Natural whiteness: Siwak silica vs chemical whiteners",
         "blog.art9.excerpt": "Scientific comparison between the natural silica of Salvadora persica and industrial whitening agents.",
@@ -520,8 +523,8 @@ const translations = {
         /* ── CONTACT ── */
         "contact.header.eyebrow": "Geneva Workshop",
         "contact.header.title.part1": "Contact",
-        "contact.header.title.part2": "us",
-        "contact.header.subtitle": "We usually reply within 2–4 hours during the day.",
+        "contact.header.title.part2": "me",
+        "contact.header.subtitle": "I usually reply within 2–4 hours during the day.",
         "contact.form.subjectLabel": "Subject of your message",
         "contact.pill.order": "📦 Order / Delivery",
         "contact.pill.product": "🌿 Product question",
@@ -542,7 +545,7 @@ const translations = {
         "contact.send": "Send message",
         "contact.required": "* required fields",
         "contact.success.title": "Message sent!",
-        "contact.success.subtitle": "We reply within 2–4 hours during the day.",
+        "contact.success.subtitle": "I reply within 2–4 hours during the day.",
         "contact.success.again": "Send another message",
         "contact.wa.title": "WhatsApp",
         "contact.wa.desc": "The fastest way. Reply in a few minutes.",
@@ -559,7 +562,7 @@ const translations = {
         "contact.info.returns.label": "Returns",
         "contact.info.returns.value": "14 days no-questions-asked, exchange or refund",
         "contact.order.note": "Already placed an order?",
-        "contact.order.desc": "For any question about your order, have your number ready (SIVAA-XXXX-XXXXX) and contact us via WhatsApp for priority handling.",
+        "contact.order.desc": "For any question about your order, have your number ready (SIVAA-XXXX-XXXXX) and contact me via WhatsApp for priority handling.",
 
         /* ── MERCI ── */
         "merci.banner": "Your parcel is being prepared in Geneva 🌿",
@@ -587,7 +590,7 @@ const translations = {
         "merci.confirmWa": "Confirm via WhatsApp",
         "merci.confirmEmail": "Confirm via email",
         "merci.bottomImg": "Each stick, hand-selected. Each parcel, prepared with care.",
-        "merci.back": "← Back to home",
+        "merci.back": "← Back to home"
     },
 
     de: {
@@ -616,7 +619,7 @@ const translations = {
 
         /* ── INDEX : PRODUKTE ── */
         "products.eyebrow": "Die Botanische Werkstatt",
-        "products.title.part1": "Unsere",
+        "products.title.part1": "Meine",
         "products.title.part2": "Kollektion",
         "products.seeAll": "Alle ansehen →",
 
@@ -653,7 +656,7 @@ const translations = {
 
         /* ── REVIEWS ── */
         "reviews.eyebrow": "Kundenstimmen",
-        "reviews.title.part1": "Was unsere",
+        "reviews.title.part1": "Was meine",
         "reviews.title.part2": "Kunden",
         "reviews.title.suffix": "sagen",
         "reviews.subtitle": "4.9/5 · Bewertungen aus Genf und der ganzen Schweiz",
@@ -665,7 +668,7 @@ const translations = {
         "review2.name": "Karim",
         "review2.location": "Lausanne · Februar 2026",
         "review2.tag": "Essential Set",
-        "review3.text": "\"Ich benutze nichts anderes mehr! Ich habe den Siwak und das Allo Togo-Stäbchen in meiner täglichen Routine kombiniert und das Ergebnis geliebt. Ihre reinigenden Eigenschaften sind unglaublich, mein Mund war noch nie so gesund und sauber.\"",        
+        "review3.text": "\"Ich benutze nichts anderes mehr! Ich habe den Siwak und das Allo Togo-Stäbchen in meiner täglichen Routine kombiniert und das Ergebnis geliebt. Ihre reinigenden Eigenschaften sind unglaublich, mein Mund war noch nie so gesund und sauber.\"",
         "review3.name": "Inès",
         "review3.location": "Zürich · April 2026",
         "review3.tag": "Botanische Zahnpasta",
@@ -692,20 +695,22 @@ const translations = {
         "faq.a6": "Ja, mehrere im Journal of Periodontology veröffentlichte Studien bestätigen, dass Siwak dank seiner über 70 natürlichen Wirkstoffe (Kieselsäure, Tannine, Alkaloide, natürliches Fluorid) genauso wirksam gegen Plaque und Zahnfleischentzündungen ist wie eine herkömmliche Zahnbürste. Der entscheidende Faktor ist jedoch die Technik, mit der Sie ihn verwenden.",
         "faq.q7": "Ich möchte wählen, ob mein Kaustab dünn oder dick ist. Wie?",
         "faq.a7": "Keine Sorge, indem Sie Ihrer Bestellung eine Nachricht hinzufügen, wähle ich den Kaustab aus, der am besten zu Ihren Wünschen passt.",
+        "faq.payment.q": "Welche Zahlungsmethoden akzeptieren Sie?",
+        "faq.payment.a": "Ich akzeptiere Twint, Revolut und Banküberweisung. Alle Zahlungen sind Ende-zu-Ende verschlüsselt. Mindestbestellwert CHF 30.00 für die Lieferung.",
         "faq.noQuestion": "Ihre Frage ist nicht aufgeführt?",
-        "faq.contactBtn": "💬 Werkstatt kontaktieren",
+        "faq.contactBtn": "💬 Meine Werkstatt kontaktieren",
 
         /* ── INDEX : STANDORT SECTION ── */
         "loc.eyebrow": "Standort & Prestige",
         "loc.title.part1": "Ihre Werkstatt in",
         "loc.title.part2": "Genf",
-        "loc.subtitle": "Im Herzen von <strong style=\"color:#d7e7d4;\">Plainpalais, Genf</strong> gelegen, empfängt Sie unsere Werkstatt nach Vereinbarung für eine persönliche Übergabe.",
+        "loc.subtitle": "Im Herzen von <strong style=\"color:#d7e7d4;\">Plainpalais, Genf</strong> gelegen, empfängt Sie meine Werkstatt nach Vereinbarung für eine persönliche Übergabe.",
         "loc.country": "Schweiz",
         "loc.district": "Quartier Plainpalais",
         "loc.appointment.title": "Abholung nach Vereinbarung",
-        "loc.appointment.desc": "7 Tage die Woche verfügbar, Kontaktieren Sie uns, um einen passenden Termin zu vereinbaren.",
+        "loc.appointment.desc": "7 Tage die Woche verfügbar, Kontaktieren Sie mich, um einen passenden Termin zu vereinbaren.",
         "loc.payment.title": "Zahlung mit Twint Genf & Revolut",
-        "loc.payment.desc": "Sichere Zahlung bei Erhalt. Mindestbestellwert CHF 30.00.",
+        "loc.payment.desc": "Sichere Zahlung bei Erhalt. Mindestbestellwert CHF 30.00 für die Lieferung.",
         "loc.cta": "📞 Termin in Genf vereinbaren",
 
         /* ── CTA FINAL ── */
@@ -757,7 +762,7 @@ const translations = {
         "blog.art1.excerpt": "Hält sich das natürliche Putzholz gegen Schalltechnologien und Nylonborsten?",
         "blog.art1.date": "08. Mai 2026",
         "blog.art2.title": "Echten Siwak in Genf kaufen: unser kompletter Leitfaden",
-        "blog.art2.excerpt": "Von unseren Genfer Werkstätten bis zu den besten lokalen Adressen, wie man einen frischen und ethischen Siwak erkennt.",
+        "blog.art2.excerpt": "Von meiner Genfer Werkstatt bis zu den besten lokalen Adressen, wie man einen frischen und ethischen Siwak erkennt.",
         "blog.art2.date": "02. Mai 2026",
         "blog.art3.title": "Wie benutzt man Siwak zum ersten Mal?",
         "blog.art3.excerpt": "Schritt-für-Schritt-Anleitung für Anfänger: Vorbereitung, Technik, Häufigkeit und Pflege Ihres Siwak-Stabs.",
@@ -774,8 +779,8 @@ const translations = {
         "blog.art7.title": "Siwak während des Ramadan: was die Tradition sagt",
         "blog.art7.excerpt": "Darf Siwak während des Fastens verwendet werden? Die Meinungen der Gelehrten und die Praxis der Gefährten.",
         "blog.art7.date": "29. März 2024",
-        "blog.art8.title": "Unsere Genfer Werkstatt: Hinter den Kulissen der SIVÀA-Auswahl",
-        "blog.art8.excerpt": "Wie wir jeden Stab auswählen, testen und verpacken, bevor wir ihn nach Genf liefern.",
+        "blog.art8.title": "Meine Genfer Werkstatt: Hinter den Kulissen meiner SIVÀA-Auswahl",
+        "blog.art8.excerpt": "Wie ich jeden Stab auswähle, teste und verpacke, bevor ich ihn nach Genf liefere.",
         "blog.art8.date": "18. März 2024",
         "blog.art9.title": "Natürliche Weisse: Siwak-Kieselsäure vs chemische Bleichmittel",
         "blog.art9.excerpt": "Wissenschaftlicher Vergleich zwischen der natürlichen Kieselsäure von Salvadora persica und industriellen Bleichmitteln.",
@@ -801,8 +806,8 @@ const translations = {
         /* ── CONTACT ── */
         "contact.header.eyebrow": "Genfer Werkstatt",
         "contact.header.title.part1": "Kontaktieren Sie",
-        "contact.header.title.part2": "uns",
-        "contact.header.subtitle": "Wir antworten normalerweise innerhalb von 2–4 Stunden während des Tages.",
+        "contact.header.title.part2": "mich",
+        "contact.header.subtitle": "Ich antworte normalerweise innerhalb von 2–4 Stunden während des Tages.",
         "contact.form.subjectLabel": "Betreff Ihrer Nachricht",
         "contact.pill.order": "📦 Bestellung / Lieferung",
         "contact.pill.product": "🌿 Produktfrage",
@@ -823,7 +828,7 @@ const translations = {
         "contact.send": "Nachricht senden",
         "contact.required": "* Pflichtfelder",
         "contact.success.title": "Nachricht gesendet!",
-        "contact.success.subtitle": "Wir antworten innerhalb von 2–4 Stunden während des Tages.",
+        "contact.success.subtitle": "Ich antworte innerhalb von 2–4 Stunden während des Tages.",
         "contact.success.again": "Weitere Nachricht senden",
         "contact.wa.title": "WhatsApp",
         "contact.wa.desc": "Der schnellste Weg. Antwort in wenigen Minuten.",
@@ -840,7 +845,7 @@ const translations = {
         "contact.info.returns.label": "Rückgabe",
         "contact.info.returns.value": "14 Tage ohne Begründung, Umtausch oder Rückerstattung",
         "contact.order.note": "Haben Sie bestellt?",
-        "contact.order.desc": "Für Fragen zu Ihrer Bestellung halten Sie Ihre Nummer bereit (SIVAA-XXXX-XXXXX) und kontaktieren Sie uns via WhatsApp für eine prioritäre Bearbeitung.",
+        "contact.order.desc": "Für Fragen zu Ihrer Bestellung halten Sie Ihre Nummer bereit (SIVAA-XXXX-XXXXX) und kontaktieren Sie mich via WhatsApp für eine prioritäre Bearbeitung.",
 
         /* ── MERCI ── */
         "merci.banner": "Ihr Paket wird in Genf vorbereitet 🌿",
@@ -868,7 +873,7 @@ const translations = {
         "merci.confirmWa": "Per WhatsApp bestätigen",
         "merci.confirmEmail": "Per E-Mail bestätigen",
         "merci.bottomImg": "Jeder Stab, von Hand ausgewählt. Jedes Paket, mit Sorgfalt vorbereitet.",
-        "merci.back": "← Zurück zur Startseite",
+        "merci.back": "← Zurück zur Startseite"
     }
 };
 
