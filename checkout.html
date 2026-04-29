@@ -153,10 +153,24 @@
     <div class="nav-inner">
         <a href="index.html" style="font-family:'Newsreader',serif;font-size:1.4rem;font-weight:300;letter-spacing:0.12em;color:#d7e7d4;text-decoration:none;">SIVÀA <span style="color:#9dd75a;font-size:0.9rem;letter-spacing:0.06em;">Geneva</span></a>
         <div class="nav-links">
-            <a href="index.html#produits" data-i18n="nav.products">Produits</a>
-            <a href="blog.html"  data-i18n="nav.journal">Journal</a>
-            <a href="contact.html" data-i18n="nav.contact">Contact</a>
-            <a href="checkout.html" class="nav-cta" data-i18n="nav.order">Commander</a>
+            <a href="index.html" data-i18n="nav_home">Accueil</a>
+            <a href="blog.html"  data-i18n="nav_journal">Journal</a>
+            <a href="contact.html" data-i18n="nav_contact">Contact</a>
+            <div class="lang-wrap" id="langWrap">
+                <button class="lang-btn" id="langBtn" onclick="toggleLangMenu()" aria-haspopup="true" aria-expanded="false">
+                    <span id="langFlag">🇫🇷</span>
+                    <span id="langCode">FR</span>
+                    <svg class="chevron" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                        <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                </button>
+                <div class="lang-dropdown" role="menu">
+                    <div class="lang-opt active" data-lang="fr" onclick="switchLanguage('fr')" role="menuitem">🇫🇷 Français</div>
+                    <div class="lang-opt"       data-lang="en" onclick="switchLanguage('en')" role="menuitem">🇬🇧 English</div>
+                    <div class="lang-opt"       data-lang="de" onclick="switchLanguage('de')" role="menuitem">🇩🇪 Deutsch</div>
+                </div>
+            </div>
+            <a href="checkout.html" class="nav-cta" data-i18n="nav_order">Commander</a>
         </div>
     </div>
 </nav>
@@ -420,7 +434,48 @@
 <div class="toast" id="toast"><span id="toastMsg">—</span></div>
 
 <script>
-    /* ── LOGIQUE DU PANIER ET DES PRIX ── */
+    /* VARIABLES DE TRADUCTION MISES À JOUR (je, étui, etc) */
+    const T = {
+        /* ... GARDER LES TRADUCTIONS PRÉCÉDENTES, VOICI CELLES MODIFIÉES : ... */
+        t_sending:   { fr:'📤 Envoi de votre commande…', en:'📤 Sending your order…', de:'📤 Ihre Bestellung wird gesendet…' },
+        t_success:   { fr:'✅ Commande confirmée ! Vérifiez vos emails.', en:'✅ Order confirmed! Check your emails.', de:'✅ Bestellung bestätigt! Prüfen Sie Ihre E-Mails.' },
+        t_error:     { fr:"❌ Erreur d'envoi. Réessayez ou contactez-moi via WhatsApp.", en:'❌ Send error. Please retry or contact me via WhatsApp.', de:'❌ Sendefehler. Bitte erneut versuchen oder über WhatsApp kontaktieren.' },
+        info_note:   { fr:"Après réception de votre preuve de paiement, je valide manuellement votre commande sous 24h et procède à l'expédition via Swiss Post.", en:'Upon receipt of your proof of payment, I manually validate your order within 24h and ship via Swiss Post.', de:'Nach Erhalt Ihres Zahlungsbelegs validiere ich Ihre Bestellung manuell innerhalb von 24 Stunden und versende per Swiss Post.' },
+        /* Modifications "étui" */
+        item_siwak_name:  { fr:'Étui de Siwak Premium', en:'Premium Siwak Case', de:'Premium Siwak-Etui'  },
+        item_siwak_sub:   { fr:'Récolté à la main · Pakistan · CHF 7.00/pièce', en:'Hand-harvested · Pakistan · CHF 7.00/piece', de:'Handgepflückt · Pakistan · CHF 7.00/Stück' },
+        upsell_name:      { fr:'Étui de Siwak supplémentaire', en:'Additional Siwak case', de:'Zusätzliches Siwak-Etui' },
+        whatsapp_tip:    { fr:'Une question ? Je réponds vite 💬', en:'A question? I reply fast 💬', de:'Eine Frage? Ich antworte schnell 💬' },
+    };
+
+    let LANG = 'fr';
+    const LANG_META = { fr: { flag:'🇫🇷', code:'FR' }, en: { flag:'🇬🇧', code:'EN' }, de: { flag:'🇩🇪', code:'DE' } };
+
+    function switchLanguage(lang) {
+        if (!LANG_META[lang]) return;
+        LANG = lang;
+        document.getElementById('langFlag').textContent = LANG_META[lang].flag;
+        document.getElementById('langCode').textContent = LANG_META[lang].code;
+        document.querySelectorAll('.lang-opt').forEach(el => el.classList.toggle('active', el.dataset.lang === lang));
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (T[key] && T[key][lang] !== undefined) el.innerHTML = T[key][lang];
+        });
+        refreshBtnConfirm();
+        closeLangMenu();
+        document.documentElement.lang = lang;
+    }
+    function toggleLangMenu() {
+        const w = document.getElementById('langWrap');
+        const open = w.classList.toggle('open');
+        document.getElementById('langBtn').setAttribute('aria-expanded', open);
+    }
+    function closeLangMenu() {
+        document.getElementById('langWrap').classList.remove('open');
+        document.getElementById('langBtn').setAttribute('aria-expanded','false');
+    }
+    document.addEventListener('click', e => { if (!document.getElementById('langWrap').contains(e.target)) closeLangMenu(); });
+
     const PRICE = { allotogo: 6, siwak: 7, upsell: 7 };
     const QTY   = { allotogo: 1, siwak: 1, upsell: 0 };
     let discount = 0;
@@ -431,22 +486,15 @@
         document.getElementById('price-' + item).textContent = 'CHF ' + (PRICE[item] * QTY[item]).toFixed(2);
         recalc();
     }
-    
     function toggleUpsell() {
         const on = document.getElementById('upsellCheck').checked;
         QTY.upsell = on ? 1 : 0;
         document.getElementById('upsellToggle').classList.toggle('active', on);
         recalc();
     }
-
     function applyPromo() {
         const code = document.getElementById('promo-code').value.trim().toUpperCase();
         const fb = document.getElementById('promo-feedback');
-        
-        // Récupérer la langue active depuis i18n.js
-        const lang = (typeof getStoredLang === 'function') ? getStoredLang() : 'fr';
-        const dict = (typeof translations !== 'undefined') ? translations[lang] : null;
-
         if (code === 'SIVAASIWAK') {
             document.getElementById('upsellCheck').checked = true;
             QTY.upsell = 1;
@@ -456,25 +504,20 @@
             document.getElementById('upsellOrigPrice').style.display = 'inline';
             document.getElementById('promo-line').style.display = 'flex';
             document.getElementById('promo-amount').textContent = '− CHF ' + PRICE.upsell.toFixed(2);
-            
-            fb.style.display = 'block'; 
-            fb.style.color = 'var(--primary)';
-            fb.textContent = dict ? dict['t_promo_ok'] : '✅ Code appliqué';
+            fb.style.display = 'block'; fb.style.color = 'var(--primary)';
+            fb.textContent = T.t_promo_ok ? T.t_promo_ok[LANG] : 'Code appliqué';
             showToast('✅ Code appliqué', 'success');
         } else {
             discount = 0;
             document.getElementById('upsellPriceDisplay').textContent = 'CHF ' + PRICE.upsell;
             document.getElementById('upsellOrigPrice').style.display = 'none';
             document.getElementById('promo-line').style.display = 'none';
-            
-            fb.style.display = 'block'; 
-            fb.style.color = 'var(--danger)';
-            fb.textContent = code ? (dict ? dict['t_promo_bad'] : '❌ Code invalide') : '';
+            fb.style.display = 'block'; fb.style.color = 'var(--danger)';
+            fb.textContent = code ? (T.t_promo_bad ? T.t_promo_bad[LANG] : 'Code invalide') : '';
             if (code) showToast('❌ Code invalide', 'error');
         }
         recalc();
     }
-
     function recalc() {
         const sub = PRICE.allotogo * QTY.allotogo + PRICE.siwak * QTY.siwak + PRICE.upsell * QTY.upsell;
         const total = sub + 9 - discount;
@@ -482,20 +525,15 @@
         document.getElementById('total-display').textContent = 'CHF ' + total.toFixed(2);
         refreshBtnConfirm(total);
     }
-
     function refreshBtnConfirm(total) {
         if (total === undefined) {
             const sub = PRICE.allotogo * QTY.allotogo + PRICE.siwak * QTY.siwak + PRICE.upsell * QTY.upsell;
             total = sub + 9 - discount;
         }
-        const lang = (typeof getStoredLang === 'function') ? getStoredLang() : 'fr';
-        const dict = (typeof translations !== 'undefined') ? translations[lang] : null;
-        
-        document.getElementById('btnLabel').innerHTML = dict ? dict['btn_confirm'] : 'Confirmer ma commande · CHF ';
+        document.getElementById('btnLabel').innerHTML = T.btn_confirm ? T.btn_confirm[LANG] : 'Confirmer ma commande · CHF ';
         document.getElementById('btnTotal').textContent = total.toFixed(2);
     }
 
-    /* ── LOGIQUE DU FORMULAIRE ET PREUVE DE PAIEMENT ── */
     const REQUIRED = ['prenom','nom','email','adresse','npa','ville'];
     let fileReady = false;
 
@@ -517,33 +555,23 @@
         }
         checkFormLock();
     }
-
     function checkFormLock() {
         const allFilled = REQUIRED.every(id => { const el = document.getElementById(id); return el && el.value.trim().length > 0; });
         const ready = allFilled && fileReady;
         const btn = document.getElementById('btnConfirm');
         const icon = document.getElementById('lockIcon');
         const msg = document.getElementById('lockMsg');
-        
-        const lang = (typeof getStoredLang === 'function') ? getStoredLang() : 'fr';
-        const dict = (typeof translations !== 'undefined') ? translations[lang] : null;
-
         btn.disabled = !ready;
         if (ready) {
-            icon.textContent = '🔓'; 
-            msg.innerHTML = dict ? dict['lock_ready'] : 'Tout est prêt'; 
-            msg.style.color = 'var(--primary)';
+            icon.textContent = '🔓'; msg.innerHTML = T.lock_ready ? T.lock_ready[LANG] : 'Prêt'; msg.style.color = 'var(--primary)';
         } else {
-            icon.textContent = '🔒'; 
-            msg.innerHTML = dict ? dict['lock_default'] : 'Remplissez les champs'; 
-            msg.style.color = 'var(--text-variant)';
+            icon.textContent = '🔒'; msg.innerHTML = T.lock_default ? T.lock_default[LANG] : 'Remplissez les champs'; msg.style.color = 'var(--text-variant)';
         }
     }
 
     let chosenPayment = '';
     function markPayment(method) { chosenPayment = method; }
 
-    /* ── LOGIQUE D'ENVOI (EMAILJS) ── */
     const EMAILJS = { publicKey: 'YOUR_PUBLIC_KEY', serviceId: 'YOUR_SERVICE_ID', templateAdmin: 'YOUR_TEMPLATE_ADMIN_ID', templateClient: 'YOUR_TEMPLATE_CLIENT_ID', adminEmail: 'votre@email.com' };
 
     async function submitOrder() {
@@ -554,12 +582,9 @@
         const prenom = document.getElementById('prenom').value.trim();
         const nom = document.getElementById('nom').value.trim();
         const email = document.getElementById('email').value.trim();
-        
-        // NOUVEAU: Récupération de l'indicatif téléphonique
-        const prefix = document.getElementById('phone-prefix') ? document.getElementById('phone-prefix').value : '';
+        const prefix = document.getElementById('phone-prefix').value;
         const phoneInput = document.getElementById('phone').value.trim();
         const phone = phoneInput ? prefix + ' ' + phoneInput : 'N/A';
-        
         const adresse = document.getElementById('adresse').value.trim();
         const npa = document.getElementById('npa').value.trim();
         const ville = document.getElementById('ville').value.trim();
@@ -582,11 +607,8 @@
 
         const params = { order_id: orderId, to_name: prenom + ' ' + nom, to_email: email, customer_phone: phone, shipping: shipping, items: items, subtotal: 'CHF ' + sub.toFixed(2), delivery: 'CHF 9.00', discount: discount > 0 ? '− CHF ' + discount.toFixed(2) : 'Aucune', total: 'CHF ' + total, payment: chosenPayment || 'Non précisé', note: note, date: dateStr };
 
-        const lang = (typeof getStoredLang === 'function') ? getStoredLang() : 'fr';
-        const dict = (typeof translations !== 'undefined') ? translations[lang] : null;
-
         btn.disabled = true; document.getElementById('btnSpinner').style.display = 'inline-block'; document.getElementById('btnArrow').style.display = 'none';
-        showToast(dict ? dict['t_sending'] : 'Envoi...', 'info');
+        showToast(T.t_sending ? T.t_sending[LANG] : 'Envoi...', 'info');
 
         try {
             emailjs.init(EMAILJS.publicKey);
@@ -600,36 +622,28 @@
                 confirmation_body: `Bonjour ${prenom},\n\nMerci pour votre confiance ! Votre commande SIVÀA Geneva est enregistrée.\n\n📦 Numéro : ${orderId}\n💰 Total : CHF ${total}\n📍 Adresse : ${shipping}\n\nJ'ai bien reçu votre preuve de paiement. Je validerai votre commande manuellement sous 24h ouvrées. Dès validation, votre colis sera expédié via Swiss Post.\n\nPour toute question : WhatsApp +41 77 949 65 04\n\nSIVÀA Geneva 🌿`
             });
 
-            showToast(dict ? dict['t_success'] : 'Succès', 'success');
+            showToast(T.t_success ? T.t_success[LANG] : 'Succès', 'success');
             setTimeout(() => { window.location.href = `merci.html?order=${orderId}&total=${total}&email=${encodeURIComponent(email)}&name=${encodeURIComponent(prenom)}`; }, 1800);
         } catch (err) {
             console.error(err);
-            showToast(dict ? dict['t_error'] : 'Erreur', 'error');
+            showToast(T.t_error ? T.t_error[LANG] : 'Erreur', 'error');
             btn.disabled = false; document.getElementById('btnSpinner').style.display = 'none'; document.getElementById('btnArrow').style.display = 'inline-block'; checkFormLock();
         }
     }
 
     function fileToBase64(file) { return new Promise((res, rej) => { const r = new FileReader(); r.onload = () => res(r.result.split(',')[1]); r.onerror = rej; r.readAsDataURL(file); }); }
-    
-    let toastTimer; 
-    function showToast(msg, type = 'info') { 
-        const el = document.getElementById('toast'); 
-        document.getElementById('toastMsg').textContent = msg; 
-        el.className = 'toast ' + type + ' show'; 
-        clearTimeout(toastTimer); 
-        toastTimer = setTimeout(() => el.classList.remove('show'), 4200); 
-    }
+    let toastTimer; function showToast(msg, type = 'info') { const el = document.getElementById('toast'); document.getElementById('toastMsg').textContent = msg; el.className = 'toast ' + type + ' show'; clearTimeout(toastTimer); toastTimer = setTimeout(() => el.classList.remove('show'), 4200); }
 
     document.addEventListener('DOMContentLoaded', () => {
-        recalc(); 
-        checkFormLock();
+        recalc(); checkFormLock();
+        const bl = (navigator.language || 'fr').split('-')[0];
+        if (['en','de'].includes(bl)) switchLanguage(bl);
         const zone = document.getElementById('uploadZone');
         zone.addEventListener('dragover', e => { e.preventDefault(); zone.style.borderColor = 'var(--primary)'; });
         zone.addEventListener('dragleave', () => { zone.style.borderColor = ''; });
         zone.addEventListener('drop', e => { e.preventDefault(); zone.style.borderColor = ''; const fi = document.getElementById('paymentProof'); const dt = new DataTransfer(); Array.from(e.dataTransfer.files).slice(0,1).forEach(f => dt.items.add(f)); fi.files = dt.files; handleFileUpload(fi); });
     });
 </script>
-
 <script src="i18n.js"></script>
 </body>
 </html>
