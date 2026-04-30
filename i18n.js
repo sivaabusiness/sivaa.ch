@@ -70,7 +70,7 @@ const translations = {
         "modal3.image.alt": "Étui de transport pour Siwak naturel",
 
         /* ── INDEX : POPUP PRODUIT 1 ── */
-        "modal1.rating": "4.9 / 5 · 3500 années d'utilisation",
+        "modal1.rating": "4.9 / 5 · 7000 années d'utilisation",
         "modal1.desc": "Antibactérien naturel. Riche en silice, tanins et minéraux. Prêt à l'emploi, sans accessoire.",
         "modal1.feat1": "🌿 70+ minéraux actifs dont fluor naturel",
         "modal1.feat2": "🌿 Antibactérien prouvé contre la plaque",
@@ -387,7 +387,7 @@ const translations = {
         "modal3.image.alt": "Travel case for natural Siwak",
 
         /* ── INDEX : POPUP 1 ── */
-        "modal1.rating": "4.9 / 5 · 3500 Years of use",
+        "modal1.rating": "4.9 / 5 · 7000 Years of use",
         "modal1.desc": "Natural antibacterial. Rich in silica, tannins and minerals. Ready to use, no accessory needed.",
         "modal1.feat1": "🌿 70+ active minerals including natural fluoride",
         "modal1.feat2": "🌿 Proven antibacterial against plaque",
@@ -642,7 +642,7 @@ const translations = {
         "hero.title.part2": "Siwak",
         "hero.title.part3": "in",
         "hero.title.part4": "Genf",
-        "hero.subtitle": "Die natürliche Zahnbürste, die die Welt seit 3500 Jahren verwendet, ausgewählt mit Schweizer Präzision. Antibakteriell, aufhellend, biologisch abbaubar. Lieferung innert 72h in der ganzen Schweiz.",
+        "hero.subtitle": "Die natürliche Zahnbürste, die die Welt seit 7000 Jahren verwendet, ausgewählt mit Schweizer Präzision. Antibakteriell, aufhellend, biologisch abbaubar. Lieferung innert 72h in der ganzen Schweiz.",
         "hero.cta.order": "Jetzt bestellen →",
         "hero.cta.discover": "Siwak entdecken",
         "hero.trust.shipping": "🚚 Swiss Post 72h",
@@ -687,7 +687,7 @@ const translations = {
         "modal3.image.alt": "Reiseetui für natürlichen Siwak",
 
         /* ── POPUP 1 ── */
-        "modal1.rating": "4.9 / 5 · 3500 Jahre Nutzung",
+        "modal1.rating": "4.9 / 5 · 7000 Jahre Nutzung",
         "modal1.desc": "Natürlich antibakteriell. Reich an Kieselsäure, Tanninen und Mineralien. Gebrauchsfertig, ohne Zubehör.",
         "modal1.feat1": "🌿 70+ aktive Mineralien einschliesslich natürliches Fluorid",
         "modal1.feat2": "🌿 Nachweislich antibakteriell gegen Plaque",
