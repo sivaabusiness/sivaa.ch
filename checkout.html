@@ -465,9 +465,14 @@
     }
     document.addEventListener('click', e => { if (!document.getElementById('langWrap').contains(e.target)) closeLangMenu(); });
 
-    const PRICE = { allotogo: 6, siwak: 7, upsell: 7 };
+    /* --- VARIABLES CORRIGÉES --- */
+    // J'ai aligné les prix sur ce qui est écrit dans ton HTML (6 CHF partout). 
+    // Si tu veux passer l'étui à 5 CHF, change simplement upsell: 5.
+    const PRICE = { allotogo: 6, siwak: 6, upsell: 6 }; 
+    const SHIPPING = 4; // Corrigé (c'était 9 avant !)
     const QTY   = { allotogo: 1, siwak: 1, upsell: 0 };
-    let discount = 0;
+    
+    let isPromoActive = false; // Remplace ton ancienne variable "discount"
 
     function updateQty(item, delta) {
         QTY[item] = Math.max(0, QTY[item] + delta);
@@ -475,49 +480,82 @@
         document.getElementById('price-' + item).textContent = 'CHF ' + (PRICE[item] * QTY[item]).toFixed(2);
         recalc();
     }
+
     function toggleUpsell() {
         const on = document.getElementById('upsellCheck').checked;
         QTY.upsell = on ? 1 : 0;
         document.getElementById('upsellToggle').classList.toggle('active', on);
-        recalc();
+        recalc(); // Recalcule avec ou sans la promo
     }
+
     function applyPromo() {
         const code = document.getElementById('promo-code').value.trim().toUpperCase();
         const fb = document.getElementById('promo-feedback');
+        
         if (code === 'SIVAASIWAK') {
+            isPromoActive = true;
+            
+            // 1. On coche l'étui et on l'ajoute au panier
             document.getElementById('upsellCheck').checked = true;
             QTY.upsell = 1;
             document.getElementById('upsellToggle').classList.add('active');
-            discount = PRICE.upsell;
-            document.getElementById('upsellPriceDisplay').textContent = 'CHF 0';
+            
+            // 2. Magie de l'UI : On montre que c'est gratuit
+            document.getElementById('upsellPriceDisplay').textContent = 'CHF 0.00';
             document.getElementById('upsellOrigPrice').style.display = 'inline';
-            document.getElementById('promo-line').style.display = 'flex';
-            document.getElementById('promo-amount').textContent = '− CHF ' + PRICE.upsell.toFixed(2);
-            fb.style.display = 'block'; fb.style.color = 'var(--primary)';
-            fb.textContent = T.t_promo_ok ? T.t_promo_ok[LANG] : 'Code appliqué';
-            showToast('✅ Code appliqué', 'success');
+            
+            fb.style.display = 'block'; 
+            fb.style.color = 'var(--primary)';
+            fb.textContent = '✅ Code appliqué : Étui offert !';
+            showToast('🎁 Étui ajouté en cadeau', 'success');
         } else {
-            discount = 0;
-            document.getElementById('upsellPriceDisplay').textContent = 'CHF ' + PRICE.upsell;
+            isPromoActive = false;
+            
+            // On remet le prix normal
+            document.getElementById('upsellPriceDisplay').textContent = 'CHF ' + PRICE.upsell.toFixed(2);
             document.getElementById('upsellOrigPrice').style.display = 'none';
-            document.getElementById('promo-line').style.display = 'none';
-            fb.style.display = 'block'; fb.style.color = 'var(--danger)';
-            fb.textContent = code ? (T.t_promo_bad ? T.t_promo_bad[LANG] : 'Code invalide') : '';
+            
+            fb.style.display = 'block'; 
+            fb.style.color = 'var(--danger)';
+            fb.textContent = code ? 'Code invalide' : '';
             if (code) showToast('❌ Code invalide', 'error');
         }
         recalc();
     }
+
     function recalc() {
-        const sub = PRICE.allotogo * QTY.allotogo + PRICE.siwak * QTY.siwak + PRICE.upsell * QTY.upsell;
-        const total = sub + 9 - discount;
+        // 1. Calcul du sous-total brut
+        const sub = (PRICE.allotogo * QTY.allotogo) + (PRICE.siwak * QTY.siwak) + (PRICE.upsell * QTY.upsell);
+        
+        // 2. Calcul de la réduction (s'applique UNIQUEMENT si l'étui est coché ET le code actif)
+        let currentDiscount = 0;
+        if (isPromoActive && QTY.upsell > 0) {
+            currentDiscount = PRICE.upsell * QTY.upsell;
+        }
+
+        // 3. Calcul du total final
+        const total = sub + SHIPPING - currentDiscount;
+
+        // 4. Mise à jour du HTML
         document.getElementById('subtotal').textContent = 'CHF ' + sub.toFixed(2);
         document.getElementById('total-display').textContent = 'CHF ' + total.toFixed(2);
+        
+        const promoLine = document.getElementById('promo-line');
+        if (currentDiscount > 0) {
+            promoLine.style.display = 'flex';
+            document.getElementById('promo-amount').textContent = '− CHF ' + currentDiscount.toFixed(2);
+        } else {
+            promoLine.style.display = 'none';
+        }
+        
         refreshBtnConfirm(total);
     }
+
     function refreshBtnConfirm(total) {
         if (total === undefined) {
-            const sub = PRICE.allotogo * QTY.allotogo + PRICE.siwak * QTY.siwak + PRICE.upsell * QTY.upsell;
-            total = sub + 9 - discount;
+            const sub = (PRICE.allotogo * QTY.allotogo) + (PRICE.siwak * QTY.siwak) + (PRICE.upsell * QTY.upsell);
+            let currentDiscount = (isPromoActive && QTY.upsell > 0) ? PRICE.upsell * QTY.upsell : 0;
+            total = sub + SHIPPING - currentDiscount;
         }
         document.getElementById('btnLabel').innerHTML = T.btn_confirm ? T.btn_confirm[LANG] : 'Confirmer ma commande · CHF ';
         document.getElementById('btnTotal').textContent = total.toFixed(2);
@@ -589,8 +627,12 @@
             QTY.upsell > 0 ? `Étui supplémentaire ×1 = CHF ${discount > 0 ? '0.00 (offert)' : PRICE.upsell.toFixed(2)}` : null,
         ].filter(Boolean).join('\n');
 
-        const sub = PRICE.allotogo * QTY.allotogo + PRICE.siwak * QTY.siwak + PRICE.upsell * QTY.upsell;
-        const total = (sub + 9 - discount).toFixed(2);
+        const sub = (PRICE.allotogo * QTY.allotogo) + (PRICE.siwak * QTY.siwak) + (PRICE.upsell * QTY.upsell);
+        let currentDiscount = (isPromoActive && QTY.upsell > 0) ? PRICE.upsell * QTY.upsell : 0;
+        const total = (sub + SHIPPING - currentDiscount).toFixed(2);
+        // ...
+        // Et un peu plus bas, modifie "discount" dans tes params :
+        // discount: currentDiscount > 0 ? '− CHF ' + currentDiscount.toFixed(2) : 'Aucune',
         const shipping = `${adresse}, ${npa} ${ville}, ${pays}`;
         const dateStr = new Date().toLocaleString('fr-CH');
 
