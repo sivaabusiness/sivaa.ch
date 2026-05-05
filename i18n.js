@@ -142,7 +142,7 @@ const translations = {
         "loc.appointment.title": "Retrait sur rendez-vous",
         "loc.appointment.desc": "Disponible 7j/7, Contactez-moi pour convenir d'un horaire adapté à vos disponibilités.",
         "loc.payment.title": "Paiement Twint Genève & Revolut",
-        "loc.payment.desc": "Règlement sécurisé à réception. Minimum CHF 30.00 pour toute livraison.",
+        "loc.payment.desc": "Règlement sécurisé à réception.  Minimum CHF 15.00 pour échange en main propre.",
         "loc.cta": "📞 Prendre rendez-vous à Genève",
 
         /* ── INDEX : CTA FINAL ── */
@@ -460,7 +460,7 @@ const translations = {
         "loc.appointment.title": "Pickup by appointment",
         "loc.appointment.desc": "Available 7 days a week, Contact me to arrange a time that suits your schedule.",
         "loc.payment.title": "Twint Geneva & Revolut Payment",
-        "loc.payment.desc": "Secure payment on reception. Minimum CHF 30.00 for delivery.",
+        "loc.payment.desc": "Secure payment on reception. Minimum of CHF 15.00 for in-person exchanges.",
         "loc.cta": "📞 Book an appointment in Geneva",
 
         /* ── INDEX : CTA FINAL ── */
@@ -760,7 +760,7 @@ const translations = {
         "loc.appointment.title": "Abholung nach Vereinbarung",
         "loc.appointment.desc": "7 Tage die Woche verfügbar, Kontaktieren Sie mich, um einen passenden Termin zu vereinbaren.",
         "loc.payment.title": "Zahlung mit Twint Genf & Revolut",
-        "loc.payment.desc": "Sichere Zahlung bei Erhalt. Mindestbestellwert CHF 30.00 für die Lieferung.",
+        "loc.payment.desc": "Sichere Zahlung bei Erhalt. Mindestens 15,00 CHF bei Umtausch vor Ort.",
         "loc.cta": "📞 Termin in Genf vereinbaren",
 
         /* ── CTA FINAL ── */
