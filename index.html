@@ -279,28 +279,33 @@
         .hero-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 2.5rem;
+            /* Réduit de 2.5rem à 1.25rem pour remonter l'image vers le texte */
+            gap: 1.25rem; 
             align-items: center;
-            padding: 7.5rem 1.25rem 3rem;
-            margin-top:100px;
-
+            /* Augmenté à 9.5rem pour éviter le chevauchement avec la banderole sur mobile */
+            padding: 9.5rem 1.25rem 2rem; 
         }
         @media(min-width: 768px) {
             .hero-grid {
                 grid-template-columns: 1fr 1fr;
                 gap: 4rem;
-                padding: 8rem 1.5rem;
-                margin-bottom:100px;
+                padding: 9.5rem 1.5rem 3rem; /* Dégagement pour ordinateur */
             }
         }
 
         .hero-image {
-            border-radius: 0.75rem; overflow: hidden;
-            max-height: 55vw;
+            border-radius: 0.75rem; 
+            overflow: hidden;
+            /* Limite la hauteur de l'image sur téléphone pour que le badge reste visible */
+            max-height: 45vh; 
             aspect-ratio: 4/5;
         }
         @media(min-width: 768px) {
-            .hero-image { max-height: none; aspect-ratio: auto; height: 42rem; }
+            .hero-image { 
+                max-height: none; 
+                aspect-ratio: auto; 
+                height: 42rem; 
+            }
         }
         .hero-image img { width: 100%; height: 100%; object-fit: cover; }
 
