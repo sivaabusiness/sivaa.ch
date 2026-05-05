@@ -12,7 +12,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
     <style>
-        /* [LE CSS RESTE IDENTIQUE À VOTRE VERSION ORIGINALE] */
         :root { --bg: #09160b; --surface-lowest: #0d1c0f; --surface-low: #111f13; --surface-mid: #162518; --surface-high: #1c2e1e; --surface-highest: #223525; --primary: #9dd75a; --primary-fixed: #b5e87a; --primary-dim: #2a3d1a; --secondary: #8db87a; --secondary-container: #182d12; --text: #d7e7d4; --text-variant: #8c9e89; --outline: #424939; --outline-variant: #2e3a2c; --dark-green: #0a1f0c; --danger: #e05a5a; --danger-dim: #3d1a1a; color-scheme: dark; }
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
@@ -35,41 +34,19 @@
         .nav-links .nav-cta{background:var(--primary);color:var(--dark-green);font-weight:600;padding:.45rem 1.1rem;border-radius:.4rem;font-size:.8rem;}
         .nav-links .nav-cta:hover{background:var(--primary-fixed);color:var(--dark-green);}
         @media(max-width:640px){.nav-links a:not(.nav-cta){display:none;}}
-         /* ═══════════════════════════════════
-           RESPONSIVE — HERO GRID
+
+        /* ═══════════════════════════════════
+           CORRECTION DU PADDING CHECKOUT
         ═══════════════════════════════════ */
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            /* Réduit de 2.5rem à 1.25rem pour remonter l'image vers le texte */
-            gap: 3.0rem; 
-            align-items: center;
-            /* Augmenté à 9.5rem pour éviter le chevauchement avec la banderole sur mobile */
-            padding: 9.5rem 1.25rem 2rem; 
+        .page-header { 
+            /* On augmente le padding-top pour dégager la banderole d'offre */
+            padding: 9.5rem 0 3rem; 
         }
         @media(min-width: 768px) {
-            .hero-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 4rem;
-                padding: 9.5rem 1.5rem 3rem; /* Dégagement pour ordinateur */
+            .page-header { 
+                padding: 8.5rem 0 3rem; 
             }
         }
-
-        .hero-image {
-            border-radius: 0.75rem; 
-            overflow: hidden;
-            /* Limite la hauteur de l'image sur téléphone pour que le badge reste visible */
-            max-height: 45vh; 
-            aspect-ratio: 4/5;
-        }
-        @media(min-width: 768px) {
-            .hero-image { 
-                max-height: none; 
-                aspect-ratio: auto; 
-                height: 42rem; 
-            }
-        }
-
 
         .lang-wrap { position: relative; }
         .lang-btn { display: flex; align-items: center; gap: 0.35rem; background: var(--surface-high); border: 1px solid var(--outline-variant); color: var(--text-variant); border-radius: 0.4rem; padding: 0.35rem 0.7rem; font-size: 0.75rem; cursor: pointer; font-family: 'Inter', sans-serif; transition: all 0.2s; }
@@ -81,7 +58,6 @@
         .lang-opt { display: flex; align-items: center; gap: 0.6rem; padding: 0.6rem 1rem; font-size: 0.78rem; color: var(--text-variant); cursor: pointer; transition: all 0.15s; }
         .lang-opt:hover { background: var(--surface-highest); color: var(--text); }
         .lang-opt.active { color: var(--primary); font-weight: 600; }
-        .page-header { padding: 7rem 0 3rem; }
         .page-header .label-sm { color: var(--primary); display: block; margin-bottom: 0.75rem; }
         .page-header h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; }
         .checkout-grid { display: grid; gap: 3rem; padding-bottom: 6rem; }
@@ -197,9 +173,10 @@
         </div>
     </div>
 </nav>
-     <div style="position: fixed; top: 4rem; left: 0; right: 0; z-index: 30; background: rgba(17, 31, 19, 0.9); border-bottom: 1px solid rgba(157,215,90,0.2); padding: 0.6rem 1rem; text-align: center; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);">
+
+<div style="position: fixed; top: 4rem; left: 0; right: 0; z-index: 30; background: rgba(17, 31, 19, 0.9); border-bottom: 1px solid rgba(157,215,90,0.2); padding: 0.6rem 1rem; text-align: center; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);">
     <p style="font-size: 0.75rem; color: #d7e7d4; margin: 0; display: flex; align-items: center; justify-content: center; gap: 0.4rem; flex-wrap: wrap;">
-        <span style="color:#9dd75a; font-weight: 600;"> Offre :</span>
+        <span style="color:#9dd75a; font-weight: 600;">✦ Offre :</span>
         <span>1 pce = 6 CHF</span> <span style="color:#424939;">|</span>
         <span>2 pces = 11 CHF</span> <span style="color:#424939;">|</span>
         <span>3 pces = 15 CHF</span>
@@ -354,8 +331,8 @@
                 <div class="cart-item">
                     <img class="cart-item-img" src="siwako.jpg" alt="Étui Siwak Premium" />
                     <div class="cart-item-body">
-                        <p class="cart-item-name" data-i18n="item_siwak_name"><strong>Étui de Siwak Premium</strong></p>
-                        <p class="cart-item-sub"  data-i18n="item_siwak_sub">Récolté à la main · Pakistan · CHF 6.00/pièce</p>
+                        <p class="cart-item-name" data-i18n="item_siwak_name"><strong>Bâton de Siwak Premium</strong></p>
+                        <p class="cart-item-sub"  data-i18n="item_siwak_sub">Récolté à la main · Pakistan</p>
                         <div class="qty-ctrl">
                             <button class="qty-btn" onclick="updateQty('siwak',-1)">−</button>
                             <span class="qty-val" id="qty-siwak">1</span>
@@ -368,7 +345,7 @@
                     <img class="cart-item-img" src="allo-togo.png" alt="Allo Togo — Étui naturel du Togo" />
                     <div class="cart-item-body">
                         <p class="cart-item-name" data-i18n="item_allotogo_name">Allo Togo</p>
-                        <p class="cart-item-sub"  data-i18n="item_allotogo_sub">5 pièces · CHF 6.00 le lot</p>
+                        <p class="cart-item-sub"  data-i18n="item_allotogo_sub">Lot de 5 pièces</p>
                         <div class="qty-ctrl">
                             <button class="qty-btn" onclick="updateQty('allotogo',-1)">−</button>
                             <span class="qty-val" id="qty-allotogo">1</span>
@@ -382,7 +359,7 @@
                     <label class="upsell-toggle" id="upsellToggle" style="margin-bottom:0;">
                         <input type="checkbox" id="upsellCheck" onchange="toggleUpsell()" />
                         <div class="upsell-label">
-                            <p data-i18n="upsell_name"><strong>Étui de Siwak</strong> supplémentaire</p>
+                            <p data-i18n="upsell_name"><strong>Étui de Siwak</strong></p>
                             <span data-i18n="upsell_sub">Code SIVAASIWAK = offert pour<br> la 1ère commande 🎁</span>
                         </div>
                         <div style="text-align:right;">
@@ -397,11 +374,19 @@
                 </div>
                 <p id="promo-feedback" style="font-size:0.72rem;margin-top:0.35rem;display:none;padding:0 0.25rem;"></p>
                 <hr class="summary-divider" style="margin-top:1.25rem;" />
-                <div class="summary-line"><span data-i18n="summary_subtotal">Sous-total</span><span id="subtotal">CHF 13.00</span></div>
+                
+                <div class="summary-line"><span data-i18n="summary_subtotal">Sous-total</span><span id="subtotal">CHF 12.00</span></div>
+                
+                <div class="summary-line" id="volume-line" style="display:none;color:var(--primary);">
+                    <span data-i18n="summary_volume">Offre groupée (Quantité)</span>
+                    <span id="volume-amount">− CHF 0.00</span>
+                </div>
+
                 <div class="summary-line"><span data-i18n="summary_shipping"><strong>Livraison Swiss Post</strong></span><span>CHF 4.00</span></div>
-                <div class="summary-line" id="promo-line" style="display:none;color:var(--primary);"><span data-i18n="summary_promo">Code promo</span><span id="promo-amount">− CHF 0.00</span></div>
+                <div class="summary-line" id="promo-line" style="display:none;color:var(--primary);"><span data-i18n="summary_promo">Code promo (Étui offert)</span><span id="promo-amount">− CHF 0.00</span></div>
                 <hr class="summary-divider" />
-                <div class="summary-total"><span class="lbl" data-i18n="summary_total">Total</span><span class="amt" id="total-display">CHF 22.00</span></div>
+                <div class="summary-total"><span class="lbl" data-i18n="summary_total">Total</span><span class="amt" id="total-display">CHF 16.00</span></div>
+                
                 <div class="trust-chips">
                     <div class="trust-chip"><svg class="icon-sm" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg><span data-i18n="trust_post">Swiss Post 48h</span></div>
                     <div class="trust-chip"><svg class="icon-sm" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><span data-i18n="trust_secure">Paiement sécurisé</span></div>
@@ -467,16 +452,15 @@
 <div class="toast" id="toast"><span id="toastMsg">—</span></div>
 
 <script>
-    /* VARIABLES DE TRADUCTION MISES À JOUR (je, étui, etc) */
     const T = {
-        /* ... GARDER LES TRADUCTIONS PRÉCÉDENTES, VOICI CELLES MODIFIÉES : ... */
         t_sending:   { fr:'📤 Envoi de votre commande…', en:'📤 Sending your order…', de:'📤 Ihre Bestellung wird gesendet…' },
         t_success:   { fr:'✅ Commande confirmée ! Vérifiez vos emails.', en:'✅ Order confirmed! Check your emails.', de:'✅ Bestellung bestätigt! Prüfen Sie Ihre E-Mails.' },
         t_error:     { fr:"❌ Erreur d'envoi. Réessayez ou contactez-moi via WhatsApp.", en:'❌ Send error. Please retry or contact me via WhatsApp.', de:'❌ Sendefehler. Bitte erneut versuchen oder über WhatsApp kontaktieren.' },
         info_note:   { fr:"Après réception de votre preuve de paiement, je valide manuellement votre commande sous 24h et procède à l'expédition via Swiss Post.", en:'Upon receipt of your proof of payment, I manually validate your order within 24h and ship via Swiss Post.', de:'Nach Erhalt Ihres Zahlungsbelegs validiere ich Ihre Bestellung manuell innerhalb von 24 Stunden und versende per Swiss Post.' },
-        /* Modifications "étui" */
-        item_siwak_name:  { fr:'Étui de Siwak Premium', en:'Premium Siwak Case', de:'Premium Siwak-Etui'  },
-        item_siwak_sub:   { fr:'Récolté à la main · Pakistan · CHF 6.00/pièce', en:'Hand-harvested · Pakistan · CHF 6.00/piece', de:'Handgepflückt · Pakistan · CHF 6.00/Stück' },
+        item_siwak_name:  { fr:'Bâton de Siwak Premium', en:'Premium Siwak Case', de:'Premium Siwak-Etui'  },
+        item_siwak_sub:   { fr:'Récolté à la main · Pakistan', en:'Hand-harvested · Pakistan', de:'Handgepflückt · Pakistan' },
+        item_allotogo_name: { fr:'Allo Togo' },
+        item_allotogo_sub: { fr:'Lot de 5 pièces' },
         upsell_name:      { fr:'Étui de Siwak supplémentaire', en:'Additional Siwak case', de:'Zusätzliches Siwak-Etui' },
         whatsapp_tip:    { fr:'Une question ? Je réponds vite 💬', en:'A question? I reply fast 💬', de:'Eine Frage? Ich antworte schnell 💬' },
     };
@@ -487,36 +471,22 @@
     function switchLanguage(lang) {
         if (!LANG_META[lang]) return;
         LANG = lang;
-        document.getElementById('langFlag').textContent = LANG_META[lang].flag;
-        document.getElementById('langCode').textContent = LANG_META[lang].code;
         document.querySelectorAll('.lang-opt').forEach(el => el.classList.toggle('active', el.dataset.lang === lang));
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
             if (T[key] && T[key][lang] !== undefined) el.innerHTML = T[key][lang];
         });
         refreshBtnConfirm();
-        closeLangMenu();
         document.documentElement.lang = lang;
     }
-    function toggleLangMenu() {
-        const w = document.getElementById('langWrap');
-        const open = w.classList.toggle('open');
-        document.getElementById('langBtn').setAttribute('aria-expanded', open);
-    }
-    function closeLangMenu() {
-        document.getElementById('langWrap').classList.remove('open');
-        document.getElementById('langBtn').setAttribute('aria-expanded','false');
-    }
-    document.addEventListener('click', e => { if (!document.getElementById('langWrap').contains(e.target)) closeLangMenu(); });
 
-    /* --- VARIABLES CORRIGÉES --- */
-    // J'ai aligné les prix sur ce qui est écrit dans ton HTML (6 CHF partout). 
-    // Si tu veux passer l'étui à 5 CHF, change simplement upsell: 5.
     const PRICE = { allotogo: 6, siwak: 6, upsell: 6 }; 
-    const SHIPPING = 4; // Corrigé (c'était 9 avant !)
+    const SHIPPING = 4; 
     const QTY   = { allotogo: 1, siwak: 1, upsell: 0 };
     
-    let isPromoActive = false; // Remplace ton ancienne variable "discount"
+    let isPromoActive = false;
+    let currentTotal = 0; // Stocker le total pour l'envoi email
+    let currentDiscountForEmail = 0; // Stocker la remise totale pour l'email
 
     function updateQty(item, delta) {
         QTY[item] = Math.max(0, QTY[item] + delta);
@@ -529,7 +499,7 @@
         const on = document.getElementById('upsellCheck').checked;
         QTY.upsell = on ? 1 : 0;
         document.getElementById('upsellToggle').classList.toggle('active', on);
-        recalc(); // Recalcule avec ou sans la promo
+        recalc(); 
     }
 
     function applyPromo() {
@@ -539,12 +509,10 @@
         if (code === 'SIVAASIWAK') {
             isPromoActive = true;
             
-            // 1. On coche l'étui et on l'ajoute au panier
             document.getElementById('upsellCheck').checked = true;
             QTY.upsell = 1;
             document.getElementById('upsellToggle').classList.add('active');
             
-            // 2. Magie de l'UI : On montre que c'est gratuit
             document.getElementById('upsellPriceDisplay').textContent = 'CHF 0.00';
             document.getElementById('upsellOrigPrice').style.display = 'inline';
             
@@ -555,7 +523,6 @@
         } else {
             isPromoActive = false;
             
-            // On remet le prix normal
             document.getElementById('upsellPriceDisplay').textContent = 'CHF ' + PRICE.upsell.toFixed(2);
             document.getElementById('upsellOrigPrice').style.display = 'none';
             
@@ -567,42 +534,68 @@
         recalc();
     }
 
+    // Fonction mathématique pour les paliers (1=6, 2=11, 3=15)
+    function getTieredPrice(qty) {
+        const groupsOf3 = Math.floor(qty / 3);
+        const remainder3 = qty % 3;
+        const groupsOf2 = Math.floor(remainder3 / 2);
+        const remainder1 = remainder3 % 2;
+        return (groupsOf3 * 15) + (groupsOf2 * 11) + (remainder1 * 6);
+    }
+
     function recalc() {
-        // 1. Calcul du sous-total brut
-        const sub = (PRICE.allotogo * QTY.allotogo) + (PRICE.siwak * QTY.siwak) + (PRICE.upsell * QTY.upsell);
-        
-        // 2. Calcul de la réduction (s'applique UNIQUEMENT si l'étui est coché ET le code actif)
-        let currentDiscount = 0;
-        if (isPromoActive && QTY.upsell > 0) {
-            currentDiscount = PRICE.upsell * QTY.upsell;
+        // Quantité brute et prix de base (sans offre)
+        const rawQty = QTY.allotogo + QTY.siwak + QTY.upsell;
+        const rawSub = rawQty * 6;
+
+        let paidQty = rawQty;
+        let isUpsellFree = (isPromoActive && QTY.upsell > 0);
+
+        // Si l'étui est gratuit via promo, on le retire du calcul des paliers
+        if (isUpsellFree) {
+            paidQty -= 1; 
         }
 
-        // 3. Calcul du total final
-        const total = sub + SHIPPING - currentDiscount;
-
-        // 4. Mise à jour du HTML
-        document.getElementById('subtotal').textContent = 'CHF ' + sub.toFixed(2);
-        document.getElementById('total-display').textContent = 'CHF ' + total.toFixed(2);
+        // Le prix des articles calculé avec les paliers
+        const finalItemsPrice = getTieredPrice(paidQty);
         
+        // Remise liée aux lots de quantité
+        const volumeDiscount = (paidQty * 6) - finalItemsPrice;
+        
+        // Remise liée au code promo (valeur unitaire de base)
+        const promoValue = isUpsellFree ? 6 : 0; 
+        
+        // Sauvegarde pour l'envoi d'email
+        currentDiscountForEmail = volumeDiscount + promoValue;
+
+        currentTotal = finalItemsPrice + SHIPPING;
+
+        // Mise à jour de l'affichage HTML
+        document.getElementById('subtotal').textContent = 'CHF ' + rawSub.toFixed(2);
+
+        const volLine = document.getElementById('volume-line');
+        if (volumeDiscount > 0) {
+            volLine.style.display = 'flex';
+            document.getElementById('volume-amount').textContent = '− CHF ' + volumeDiscount.toFixed(2);
+        } else {
+            volLine.style.display = 'none';
+        }
+
         const promoLine = document.getElementById('promo-line');
-        if (currentDiscount > 0) {
+        if (isUpsellFree) {
             promoLine.style.display = 'flex';
-            document.getElementById('promo-amount').textContent = '− CHF ' + currentDiscount.toFixed(2);
+            document.getElementById('promo-amount').textContent = '− CHF 6.00';
         } else {
             promoLine.style.display = 'none';
         }
-        
-        refreshBtnConfirm(total);
+
+        document.getElementById('total-display').textContent = 'CHF ' + currentTotal.toFixed(2);
+        refreshBtnConfirm(currentTotal);
     }
 
-    function refreshBtnConfirm(total) {
-        if (total === undefined) {
-            const sub = (PRICE.allotogo * QTY.allotogo) + (PRICE.siwak * QTY.siwak) + (PRICE.upsell * QTY.upsell);
-            let currentDiscount = (isPromoActive && QTY.upsell > 0) ? PRICE.upsell * QTY.upsell : 0;
-            total = sub + SHIPPING - currentDiscount;
-        }
+    function refreshBtnConfirm(totalVal) {
         document.getElementById('btnLabel').innerHTML = T.btn_confirm ? T.btn_confirm[LANG] : 'Confirmer ma commande · CHF ';
-        document.getElementById('btnTotal').textContent = total.toFixed(2);
+        document.getElementById('btnTotal').textContent = totalVal.toFixed(2);
     }
 
     const REQUIRED = ['prenom','nom','email','adresse','npa','ville'];
@@ -665,22 +658,35 @@
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showToast('❌ Adresse email invalide', 'error'); return; }
 
         const orderId = 'SIVAA-' + new Date().getFullYear() + '-' + Math.floor(10000 + Math.random() * 90000);
+        
+        let isUpsellFree = (isPromoActive && QTY.upsell > 0);
         const items = [
-            QTY.allotogo > 0 ? `Allo Togo ×${QTY.allotogo} = CHF ${(PRICE.allotogo * QTY.allotogo).toFixed(2)}` : null,
-            QTY.siwak > 0 ? `Étui Siwak Premium ×${QTY.siwak} = CHF ${(PRICE.siwak * QTY.siwak).toFixed(2)}` : null,
-            QTY.upsell > 0 ? `Étui supplémentaire ×1 = CHF ${discount > 0 ? '0.00 (offert)' : PRICE.upsell.toFixed(2)}` : null,
+            QTY.allotogo > 0 ? `Allo Togo ×${QTY.allotogo}` : null,
+            QTY.siwak > 0 ? `Bâton Siwak Premium ×${QTY.siwak}` : null,
+            QTY.upsell > 0 ? `Étui de Siwak ×1 ${isUpsellFree ? '(OFFERT)' : ''}` : null,
         ].filter(Boolean).join('\n');
 
-        const sub = (PRICE.allotogo * QTY.allotogo) + (PRICE.siwak * QTY.siwak) + (PRICE.upsell * QTY.upsell);
-        let currentDiscount = (isPromoActive && QTY.upsell > 0) ? PRICE.upsell * QTY.upsell : 0;
-        const total = (sub + SHIPPING - currentDiscount).toFixed(2);
-        // ...
-        // Et un peu plus bas, modifie "discount" dans tes params :
-        // discount: currentDiscount > 0 ? '− CHF ' + currentDiscount.toFixed(2) : 'Aucune',
+        const rawQty = QTY.allotogo + QTY.siwak + QTY.upsell;
+        const rawSub = rawQty * 6;
+
         const shipping = `${adresse}, ${npa} ${ville}, ${pays}`;
         const dateStr = new Date().toLocaleString('fr-CH');
 
-        const params = { order_id: orderId, to_name: prenom + ' ' + nom, to_email: email, customer_phone: phone, shipping: shipping, items: items, subtotal: 'CHF ' + sub.toFixed(2), delivery: 'CHF 4.00', discount: discount > 0 ? '− CHF ' + discount.toFixed(2) : 'Aucune', total: 'CHF ' + total, payment: chosenPayment || 'Non précisé', note: note, date: dateStr };
+        const params = { 
+            order_id: orderId, 
+            to_name: prenom + ' ' + nom, 
+            to_email: email, 
+            customer_phone: phone, 
+            shipping: shipping, 
+            items: items, 
+            subtotal: 'CHF ' + rawSub.toFixed(2), 
+            delivery: 'CHF 4.00', 
+            discount: currentDiscountForEmail > 0 ? '− CHF ' + currentDiscountForEmail.toFixed(2) : 'Aucune', 
+            total: 'CHF ' + currentTotal.toFixed(2), 
+            payment: chosenPayment || 'Non précisé', 
+            note: note, 
+            date: dateStr 
+        };
 
         btn.disabled = true; document.getElementById('btnSpinner').style.display = 'inline-block'; document.getElementById('btnArrow').style.display = 'none';
         showToast(T.t_sending ? T.t_sending[LANG] : 'Envoi...', 'info');
@@ -691,14 +697,14 @@
             let proof_b64 = '';
             if (fileInput.files[0]) proof_b64 = await fileToBase64(fileInput.files[0]);
 
-            await emailjs.send(EMAILJS.serviceId, EMAILJS.templateAdmin, { ...params, to_email: EMAILJS.adminEmail, proof_b64: proof_b64, subject: `[SIVÀA] Commande ${orderId} — CHF ${total} | ${prenom} ${nom}` });
+            await emailjs.send(EMAILJS.serviceId, EMAILJS.templateAdmin, { ...params, to_email: EMAILJS.adminEmail, proof_b64: proof_b64, subject: `[SIVÀA] Commande ${orderId} — CHF ${currentTotal.toFixed(2)} | ${prenom} ${nom}` });
             await emailjs.send(EMAILJS.serviceId, EMAILJS.templateClient, {
                 ...params, to_email: email, subject: `✅ Votre commande SIVÀA ${orderId} est bien reçue`,
-                confirmation_body: `Bonjour ${prenom},\n\nMerci pour votre confiance ! Votre commande SIVÀA Geneva est enregistrée.\n\n📦 Numéro : ${orderId}\n💰 Total : CHF ${total}\n📍 Adresse : ${shipping}\n\nJ'ai bien reçu votre preuve de paiement. Je validerai votre commande manuellement sous 24h ouvrées. Dès validation, votre colis sera expédié via Swiss Post.\n\nPour toute question : WhatsApp +41 77 949 65 04\n\nSIVÀA Geneva 🌿`
+                confirmation_body: `Bonjour ${prenom},\n\nMerci pour votre confiance ! Votre commande SIVÀA Geneva est enregistrée.\n\n📦 Numéro : ${orderId}\n💰 Total : CHF ${currentTotal.toFixed(2)}\n📍 Adresse : ${shipping}\n\nJ'ai bien reçu votre preuve de paiement. Je validerai votre commande manuellement sous 24h ouvrées. Dès validation, votre colis sera expédié via Swiss Post.\n\nPour toute question : WhatsApp +41 77 949 65 04\n\nSIVÀA Geneva 🌿`
             });
 
             showToast(T.t_success ? T.t_success[LANG] : 'Succès', 'success');
-            setTimeout(() => { window.location.href = `merci.html?order=${orderId}&total=${total}&email=${encodeURIComponent(email)}&name=${encodeURIComponent(prenom)}`; }, 1800);
+            setTimeout(() => { window.location.href = `merci.html?order=${orderId}&total=${currentTotal.toFixed(2)}&email=${encodeURIComponent(email)}&name=${encodeURIComponent(prenom)}`; }, 1800);
         } catch (err) {
             console.error(err);
             showToast(T.t_error ? T.t_error[LANG] : 'Erreur', 'error');
