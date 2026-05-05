@@ -35,6 +35,42 @@
         .nav-links .nav-cta{background:var(--primary);color:var(--dark-green);font-weight:600;padding:.45rem 1.1rem;border-radius:.4rem;font-size:.8rem;}
         .nav-links .nav-cta:hover{background:var(--primary-fixed);color:var(--dark-green);}
         @media(max-width:640px){.nav-links a:not(.nav-cta){display:none;}}
+         /* ═══════════════════════════════════
+           RESPONSIVE — HERO GRID
+        ═══════════════════════════════════ */
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            /* Réduit de 2.5rem à 1.25rem pour remonter l'image vers le texte */
+            gap: 2.5rem; 
+            align-items: center;
+            /* Augmenté à 9.5rem pour éviter le chevauchement avec la banderole sur mobile */
+            padding: 9.5rem 1.25rem 2rem; 
+        }
+        @media(min-width: 768px) {
+            .hero-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 4rem;
+                padding: 9.5rem 1.5rem 3rem; /* Dégagement pour ordinateur */
+            }
+        }
+
+        .hero-image {
+            border-radius: 0.75rem; 
+            overflow: hidden;
+            /* Limite la hauteur de l'image sur téléphone pour que le badge reste visible */
+            max-height: 45vh; 
+            aspect-ratio: 4/5;
+        }
+        @media(min-width: 768px) {
+            .hero-image { 
+                max-height: none; 
+                aspect-ratio: auto; 
+                height: 42rem; 
+            }
+        }
+        .hero-image img { width: 100%; height: 100%; object-fit: cover; }
+
 
         .lang-wrap { position: relative; }
         .lang-btn { display: flex; align-items: center; gap: 0.35rem; background: var(--surface-high); border: 1px solid var(--outline-variant); color: var(--text-variant); border-radius: 0.4rem; padding: 0.35rem 0.7rem; font-size: 0.75rem; cursor: pointer; font-family: 'Inter', sans-serif; transition: all 0.2s; }
@@ -162,6 +198,15 @@
         </div>
     </div>
 </nav>
+     <div style="position: fixed; top: 4rem; left: 0; right: 0; z-index: 30; background: rgba(17, 31, 19, 0.9); border-bottom: 1px solid rgba(157,215,90,0.2); padding: 0.6rem 1rem; text-align: center; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);">
+    <p style="font-size: 0.75rem; color: #d7e7d4; margin: 0; display: flex; align-items: center; justify-content: center; gap: 0.4rem; flex-wrap: wrap;">
+        <span style="color:#9dd75a; font-weight: 600;"> Offre :</span>
+        <span>1 pce = 6 CHF</span> <span style="color:#424939;">|</span>
+        <span>2 pces = 11 CHF</span> <span style="color:#424939;">|</span>
+        <span>3 pces = 15 CHF</span>
+        <span style="background: rgba(157,215,90,0.1); border: 1px solid rgba(157,215,90,0.3); color: #9dd75a; padding: 0.2rem 0.6rem; border-radius: 9999px; font-size: 0.65rem; margin-left: 0.25rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em;">🤝 Main propre dès 3 pces</span>
+    </p>
+</div>
 
 <div class="page-header container animate-fade-up">
     <span class="label-sm" data-i18n="page_label">Votre commande</span>
