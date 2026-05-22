@@ -382,7 +382,7 @@
                     <span id="volume-amount">− CHF 0.00</span>
                 </div>
 
-                <div class="summary-line"><span data-i18n="summary_shipping"><strong>Livraison Swiss Post</strong></span><span>CHF 4.00</span></div>
+                <div class="summary-line"><span data-i18n="summary_shipping"><strong>Livraison Swiss Post</strong></span><span>CHF 10.00</span></div>
                 <div class="summary-line" id="promo-line" style="display:none;color:var(--primary);"><span data-i18n="summary_promo">Code promo (Étui offert)</span><span id="promo-amount">− CHF 0.00</span></div>
                 <hr class="summary-divider" />
                 <div class="summary-total"><span class="lbl" data-i18n="summary_total">Total</span><span class="amt" id="total-display">CHF 16.00</span></div>
@@ -680,7 +680,7 @@
             shipping: shipping, 
             items: items, 
             subtotal: 'CHF ' + rawSub.toFixed(2), 
-            delivery: 'CHF 4.00', 
+            delivery: 'CHF 10.00', 
             discount: currentDiscountForEmail > 0 ? '− CHF ' + currentDiscountForEmail.toFixed(2) : 'Aucune', 
             total: 'CHF ' + currentTotal.toFixed(2), 
             payment: chosenPayment || 'Non précisé', 
