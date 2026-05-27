@@ -35,18 +35,8 @@
         .nav-links .nav-cta:hover{background:var(--primary-fixed);color:var(--dark-green);}
         @media(max-width:640px){.nav-links a:not(.nav-cta){display:none;}}
 
-        /* ═══════════════════════════════════
-           CORRECTION DU PADDING CHECKOUT
-        ═══════════════════════════════════ */
-        .page-header { 
-            /* On augmente le padding-top pour dégager la banderole d'offre */
-            padding: 9.5rem 0 3rem; 
-        }
-        @media(min-width: 768px) {
-            .page-header { 
-                padding: 8.5rem 0 3rem; 
-            }
-        }
+        .page-header { padding: 9.5rem 0 3rem; }
+        @media(min-width: 768px) { .page-header { padding: 8.5rem 0 3rem; } }
 
         .lang-wrap { position: relative; }
         .lang-btn { display: flex; align-items: center; gap: 0.35rem; background: var(--surface-high); border: 1px solid var(--outline-variant); color: var(--text-variant); border-radius: 0.4rem; padding: 0.35rem 0.7rem; font-size: 0.75rem; cursor: pointer; font-family: 'Inter', sans-serif; transition: all 0.2s; }
@@ -485,8 +475,8 @@
     const QTY   = { allotogo: 1, siwak: 1, upsell: 0 };
     
     let isPromoActive = false;
-    let currentTotal = 0; // Stocker le total pour l'envoi email
-    let currentDiscountForEmail = 0; // Stocker la remise totale pour l'email
+    let currentTotal = 0; 
+    let currentDiscountForEmail = 0; 
 
     function updateQty(item, delta) {
         QTY[item] = Math.max(0, QTY[item] + delta);
@@ -534,7 +524,6 @@
         recalc();
     }
 
-    // Fonction mathématique pour les paliers (1=6, 2=11, 3=15)
     function getTieredPrice(qty) {
         const groupsOf3 = Math.floor(qty / 3);
         const remainder3 = qty % 3;
@@ -544,33 +533,25 @@
     }
 
     function recalc() {
-        // Quantité brute et prix de base (sans offre)
         const rawQty = QTY.allotogo + QTY.siwak + QTY.upsell;
         const rawSub = rawQty * 6;
 
         let paidQty = rawQty;
         let isUpsellFree = (isPromoActive && QTY.upsell > 0);
 
-        // Si l'étui est gratuit via promo, on le retire du calcul des paliers
         if (isUpsellFree) {
             paidQty -= 1; 
         }
 
-        // Le prix des articles calculé avec les paliers
         const finalItemsPrice = getTieredPrice(paidQty);
         
-        // Remise liée aux lots de quantité
         const volumeDiscount = (paidQty * 6) - finalItemsPrice;
         
-        // Remise liée au code promo (valeur unitaire de base)
         const promoValue = isUpsellFree ? 6 : 0; 
         
-        // Sauvegarde pour l'envoi d'email
         currentDiscountForEmail = volumeDiscount + promoValue;
-
         currentTotal = finalItemsPrice + SHIPPING;
 
-        // Mise à jour de l'affichage HTML
         document.getElementById('subtotal').textContent = 'CHF ' + rawSub.toFixed(2);
 
         const volLine = document.getElementById('volume-line');
@@ -619,6 +600,7 @@
         }
         checkFormLock();
     }
+    
     function checkFormLock() {
         const allFilled = REQUIRED.every(id => { const el = document.getElementById(id); return el && el.value.trim().length > 0; });
         const ready = allFilled && fileReady;
@@ -636,7 +618,6 @@
     let chosenPayment = '';
     function markPayment(method) { chosenPayment = method; }
 
-    const EMAILJS = { publicKey: 'YOUR_PUBLIC_KEY', serviceId: 'YOUR_SERVICE_ID', templateAdmin: 'YOUR_TEMPLATE_ADMIN_ID', templateClient: 'YOUR_TEMPLATE_CLIENT_ID', adminEmail: 'votre@email.com' };
 
     async function submitOrder() {
         const btn = document.getElementById('btnConfirm');
