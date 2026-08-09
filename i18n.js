@@ -69,6 +69,38 @@ const translations = {
         "modal3.buy": "🛍 Acheter maintenant",
         "modal3.image.alt": "Étui de transport pour Siwak naturel",
 
+        "product4.badge": "Protection Anticavité · Clou de Girofle",
+        "product4.name": "Dentifrice Siwak — Clou de Girofle",
+        "product4.desc": "Le pouvoir nettoyant du Siwak associé à l'action apaisante du clou de girofle, pour une protection anticavité renforcée au quotidien.",
+        "product4.price": "CHF 10.00 par pièce",
+        "product4.image.alt": "Dentifrice Siwak au Clou de Girofle SIVÀA Geneva",
+
+        "modal4.rating": "4.8 / 5",
+        "modal4.desc.intro": "Formulé à partir d'extraits naturels de <strong>Siwak (Salvadora Persica)</strong> et de clou de girofle, ce dentifrice traditionnel réunit des bienfaits reconnus depuis des siècles avec les standards suisses de qualité.",
+        "modal4.desc": "Le clou de girofle, réputé pour ses propriétés apaisantes et antibactériennes, vient renforcer l'action nettoyante du Siwak pour une protection anticavité complète, tout en apaisant les gencives sensibles à chaque brossage.",
+        "modal4.feat1": "🌿 Protection anticavité renforcée par les extraits de Siwak",
+        "modal4.feat2": "🌿 Clou de girofle : action apaisante et antibactérienne naturelle",
+        "modal4.feat3": "🌿 Haleine fraîche longue durée, sans fluor chimique agressif",
+        "modal4.shipping": "🚚 Livraison Swiss Post · CHF 10.00 · 72h",
+        "modal4.priceLabel": "Prix",
+        "modal4.buy": "🛍 Acheter maintenant",
+
+        "product5.badge": "Blancheur Intense · Charbon Actif",
+        "product5.name": "Dentifrice Siwak — Charbon Actif",
+        "product5.desc": "Le charbon actif purifiant associé aux vertus ancestrales du Siwak, pour un blanchiment naturel intense et une bouche parfaitement saine.",
+        "product5.price": "CHF 10.00 par pièce",
+        "product5.image.alt": "Dentifrice Siwak au Charbon Actif SIVÀA Geneva",
+
+        "modal5.rating": "4.8 / 5",
+        "modal5.desc.intro": "Conçu pour une blancheur éclatante, ce dentifrice associe la puissance absorbante du <strong>charbon actif</strong> à l'efficacité traditionnelle du Siwak (Salvadora Persica), pour un nettoyage en profondeur qui respecte l'émail.",
+        "modal5.desc": "Le charbon actif capte les pigments responsables du jaunissement des dents et purifie la cavité buccale, tandis que les extraits de Siwak renforcent l'action antibactérienne et apaisent les gencives à chaque brossage.",
+        "modal5.feat1": "🌿 Charbon actif : absorbe les taches et purifie en profondeur",
+        "modal5.feat2": "🌿 Blancheur visible dès les premières utilisations",
+        "modal5.feat3": "🌿 Formule enrichie au Siwak, sans peroxyde ni abrasifs chimiques",
+        "modal5.shipping": "🚚 Livraison Swiss Post · CHF 10.00 · 72h",
+        "modal5.priceLabel": "Prix",
+        "modal5.buy": "🛍 Acheter maintenant",
+
         /* ── INDEX : POPUP PRODUIT 1 ── */
         "modal1.rating": "4.9 / 5 · 7000 années d'utilisation",
         "modal1.desc": "Antibactérien naturel. Riche en silice, tanins et minéraux. Prêt à l'emploi, sans accessoire.",
@@ -79,6 +111,15 @@ const translations = {
         "modal1.shipping": "🚚 Livraison Swiss Post · CHF 10.00 · 72h",
         "modal1.priceLabel": "Prix",
         "modal1.buy": "🛍 Acheter maintenant",
+
+        "modal1.thickness.label": "Épaisseur du bâton",
+        "modal1.thickness.thin": "Fin",
+        "modal1.thickness.thick": "Épais",
+        "modal1.thickness.any": "Peu importe",
+        "modal1.thickness.intro": "Pas sûr de quoi choisir ? Voici comment décider selon votre usage :",
+        "modal1.thickness.guide.thin": "plus flexible et souple, idéal pour les gencives sensibles et un nettoyage précis entre les dents.",
+        "modal1.thickness.guide.thick": "plus robuste et durable, recommandé pour un usage quotidien intensif et une prise en main plus ferme.",
+        "modal1.thickness.guide.any": "laissez-nous sélectionner l'épaisseur selon nos meilleures récoltes du moment.",
 
         /* ── INDEX : POPUP PRODUIT 2 ── */
         "modal2.desc": "Formulation sans fluorure artificiel. Interchangeable avec le Siwak.",

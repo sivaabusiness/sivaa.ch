@@ -9,7 +9,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Inter:wght@100;300;400;500;600;700;900&display=swap" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
     <style>
         :root { --bg: #09160b; --surface-lowest: #0d1c0f; --surface-low: #111f13; --surface-mid: #162518; --surface-high: #1c2e1e; --surface-highest: #223525; --primary: #9dd75a; --primary-fixed: #b5e87a; --primary-dim: #2a3d1a; --secondary: #8db87a; --secondary-container: #182d12; --text: #d7e7d4; --text-variant: #8c9e89; --outline: #424939; --outline-variant: #2e3a2c; --dark-green: #0a1f0c; --danger: #e05a5a; --danger-dim: #3d1a1a; color-scheme: dark; }
@@ -60,6 +59,9 @@
         .form-group label { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--outline); }
         .form-group input, .form-group select, .form-group textarea { background: var(--surface-low); border: 1px solid var(--outline-variant); border-radius: 0.5rem; padding: 0.75rem 1rem; color: var(--text); font-size: 0.875rem; font-family: 'Inter', sans-serif; outline: none; transition: border-color 0.2s; width: 100%; }
         .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--primary); }
+        .form-group input.input-invalid { border-color: var(--danger); }
+        .field-error { display: none; font-size: 0.7rem; color: var(--danger); margin-top: 0.35rem; }
+        .field-error.show { display: block; }
         .form-group select option { background: var(--surface-mid); }
         .steps-payment { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.5rem; }
         .step-pay { display: flex; gap: 0.875rem; align-items: flex-start; padding: 1rem; background: var(--surface-mid); border-radius: 0.5rem; border: 1px solid var(--outline-variant); }
@@ -98,6 +100,14 @@
         .cart-item-name { font-size: 0.85rem; font-weight: 500; color: var(--text); margin-bottom: 0.25rem; }
         .cart-item-sub { font-size: 0.75rem; color: var(--text-variant); }
         .cart-item-price { font-size: 0.9rem; font-weight: 600; color: var(--primary); white-space: nowrap; }
+        .thickness-picker-mini { margin: 0.5rem 0 0.6rem; }
+        .thickness-picker-mini-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--outline); margin-bottom: 0.4rem; }
+        .thickness-mini-options { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+        .thickness-mini-pill { position: relative; cursor: pointer; }
+        .thickness-mini-pill input { position: absolute; opacity: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
+        .thickness-mini-pill span { display: inline-block; padding: 0.3rem 0.75rem; border-radius: 9999px; border: 1px solid var(--outline-variant); font-size: 0.72rem; color: var(--text-variant); transition: background-color 0.15s, border-color 0.15s, color 0.15s; }
+        .thickness-mini-pill input:checked + span { background: var(--primary); border-color: var(--primary); color: var(--dark-green); font-weight: 600; }
+        .thickness-mini-pill input:focus-visible + span { outline: 2px solid var(--primary); outline-offset: 2px; }
         .qty-ctrl { display: inline-flex; align-items: center; background: var(--surface-mid); border-radius: 0.4rem; overflow: hidden; margin-top: 0.5rem; }
         .qty-btn { background: none; border: none; color: var(--text-variant); width: 28px; height: 28px; cursor: pointer; font-size: 0.9rem; transition: all 0.15s; }
         .qty-btn:hover { background: var(--surface-high); color: var(--primary); }
@@ -204,12 +214,13 @@
                     <div class="form-group">
                         <label for="phone" data-i18n="form_phone">Téléphone (optionnel)</label>
                         <div style="display: flex; gap: 0.5rem;">
-                            <select id="phone-prefix" style="width: auto; flex-shrink: 0; padding: 0.75rem 0.5rem;">
+                            <select id="phone-prefix" onchange="checkFormLock()" style="width: auto; flex-shrink: 0; padding: 0.75rem 0.5rem;">
                                 <option value="+41">🇨🇭 +41</option>
                                 <option value="+33">🇫🇷 +33</option>
                             </select>
-                            <input type="tel" id="phone" style="flex-grow: 1;" />
+                            <input type="tel" id="phone" oninput="checkFormLock()" style="flex-grow: 1;" />
                         </div>
+                        <p class="field-error" id="phone-error" data-i18n="error_phone">Numéro invalide (9 chiffres attendus après l'indicatif)</p>
                     </div>
                 </div>
             </div>
@@ -225,7 +236,8 @@
                 <div class="form-row cols-2" style="margin-top:1rem;">
                     <div class="form-group">
                         <label for="npa" data-i18n="form_zip">NPA / Code postal</label>
-                        <input type="text" id="npa" oninput="checkFormLock()" />
+                        <input type="text" id="npa" inputmode="numeric" maxlength="4" oninput="checkFormLock()" />
+                        <p class="field-error" id="npa-error" data-i18n="error_npa">Code postal suisse invalide (4 chiffres, ex. 1205)</p>
                     </div>
                     <div class="form-group">
                         <label for="ville" data-i18n="form_city">Ville</label>
@@ -309,6 +321,15 @@
                 <div class="spinner" id="btnSpinner"></div>
                 <svg id="btnArrow" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </button>
+
+            <div id="orderSuccessPanel" style="display:none;margin-top:1rem;padding:1.25rem;background:var(--secondary-container);border:1px solid var(--primary-dim);border-radius:0.75rem;text-align:center;">
+                <p style="font-size:1.5rem;margin-bottom:0.5rem;">✅</p>
+                <p style="color:var(--text);font-weight:600;margin-bottom:0.4rem;" data-i18n="order_success_title">Commande préparée !</p>
+                <p style="color:var(--text-variant);font-size:0.8rem;line-height:1.6;" data-i18n="order_success_body">WhatsApp s'est ouvert dans un nouvel onglet avec votre commande pré-remplie. N'oubliez pas de joindre votre preuve de paiement directement dans la conversation avant d'envoyer le message.</p>
+                <a href="#" id="orderSuccessWaLink" target="_blank" rel="noopener noreferrer" class="btn-confirm" style="display:inline-flex;margin-top:0.85rem;text-decoration:none;">
+                    <span data-i18n="order_success_reopen">Réouvrir WhatsApp</span>
+                </a>
+            </div>
             <p style="text-align:center;color:var(--outline);font-size:0.72rem;margin-top:0.75rem;">🔒 <span data-i18n="secure_note"><strong>Paiement sécurisé</strong> · Données protégées selon la LPD suisse</span></p>
         </div>
 
@@ -320,6 +341,23 @@
                     <div class="cart-item-body">
                         <p class="cart-item-name" data-i18n="item_siwak_name"><strong>Bâton de Siwak Premium</strong></p>
                         <p class="cart-item-sub"  data-i18n="item_siwak_sub">Récolté à la main · Pakistan</p>
+                        <div class="thickness-picker-mini">
+                            <p class="thickness-picker-mini-label" data-i18n="thickness_label">Épaisseur du bâton</p>
+                            <div class="thickness-mini-options">
+                                <label class="thickness-mini-pill">
+                                    <input type="radio" name="thickness-checkout" value="fin" onchange="setSiwakThickness('fin')" />
+                                    <span data-i18n="thickness_fin">Fin</span>
+                                </label>
+                                <label class="thickness-mini-pill">
+                                    <input type="radio" name="thickness-checkout" value="epais" onchange="setSiwakThickness('epais')" />
+                                    <span data-i18n="thickness_epais">Épais</span>
+                                </label>
+                                <label class="thickness-mini-pill">
+                                    <input type="radio" name="thickness-checkout" value="peu-importe" onchange="setSiwakThickness('peu-importe')" />
+                                    <span data-i18n="thickness_any">Peu importe</span>
+                                </label>
+                            </div>
+                        </div>
                         <div class="qty-ctrl">
                             <button class="qty-btn" onclick="updateQty('siwak',-1)">−</button>
                             <span class="qty-val" id="qty-siwak">1</span>
@@ -340,6 +378,32 @@
                         </div>
                     </div>
                     <span class="cart-item-price" id="price-allotogo">CHF 6.00</span>
+                </div>
+                <div class="cart-item">
+                    <img class="cart-item-img" src="dentifrice-girofle.jpg" alt="Dentifrice Siwak — Clou de Girofle" />
+                    <div class="cart-item-body">
+                        <p class="cart-item-name" data-i18n="item_girofle_name">Dentifrice Siwak — Clou de Girofle</p>
+                        <p class="cart-item-sub"  data-i18n="item_girofle_sub">Protection anticavité renforcée</p>
+                        <div class="qty-ctrl">
+                            <button class="qty-btn" onclick="updateQty('girofle',-1)">−</button>
+                            <span class="qty-val" id="qty-girofle">0</span>
+                            <button class="qty-btn" onclick="updateQty('girofle',1)">+</button>
+                        </div>
+                    </div>
+                    <span class="cart-item-price" id="price-girofle">CHF 0.00</span>
+                </div>
+                <div class="cart-item">
+                    <img class="cart-item-img" src="dentifrice-au-siwak-et-charbon-actif.jpg" alt="Dentifrice Siwak — Charbon Actif" />
+                    <div class="cart-item-body">
+                        <p class="cart-item-name" data-i18n="item_charbon_name">Dentifrice Siwak — Charbon Actif</p>
+                        <p class="cart-item-sub"  data-i18n="item_charbon_sub">Blancheur intense</p>
+                        <div class="qty-ctrl">
+                            <button class="qty-btn" onclick="updateQty('charbon',-1)">−</button>
+                            <span class="qty-val" id="qty-charbon">0</span>
+                            <button class="qty-btn" onclick="updateQty('charbon',1)">+</button>
+                        </div>
+                    </div>
+                    <span class="cart-item-price" id="price-charbon">CHF 0.00</span>
                 </div>
                 <div style="padding:0.875rem 0;border-bottom:1px solid var(--outline-variant);">
                     <p style="font-size:0.68rem;color:var(--primary);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:0.5rem;" data-i18n="upsell_label">✦ Complétez votre rituel</p>
@@ -441,15 +505,29 @@
 <script>
     const T = {
         t_sending:   { fr:'📤 Envoi de votre commande…', en:'📤 Sending your order…', de:'📤 Ihre Bestellung wird gesendet…' },
-        t_success:   { fr:'✅ Commande confirmée ! Vérifiez vos emails.', en:'✅ Order confirmed! Check your emails.', de:'✅ Bestellung bestätigt! Prüfen Sie Ihre E-Mails.' },
+        t_success:   { fr:'✅ Commande confirmée !', en:'✅ Order confirmed!', de:'✅ Bestellung bestätigt!' },
         t_error:     { fr:"❌ Erreur d'envoi. Réessayez ou contactez-moi via WhatsApp.", en:'❌ Send error. Please retry or contact me via WhatsApp.', de:'❌ Sendefehler. Bitte erneut versuchen oder über WhatsApp kontaktieren.' },
         info_note:   { fr:"Après réception de votre preuve de paiement, je valide manuellement votre commande sous 24h et procède à l'expédition via Swiss Post.", en:'Upon receipt of your proof of payment, I manually validate your order within 24h and ship via Swiss Post.', de:'Nach Erhalt Ihres Zahlungsbelegs validiere ich Ihre Bestellung manuell innerhalb von 24 Stunden und versende per Swiss Post.' },
         item_siwak_name:  { fr:'Bâton de Siwak Premium', en:'Premium Siwak Case', de:'Premium Siwak-Etui'  },
         item_siwak_sub:   { fr:'Récolté à la main · Pakistan', en:'Hand-harvested · Pakistan', de:'Handgepflückt · Pakistan' },
         item_allotogo_name: { fr:'Allo Togo' },
         item_allotogo_sub: { fr:'Lot de 5 pièces' },
+        item_girofle_name: { fr:'Dentifrice Siwak — Clou de Girofle', en:'Siwak Toothpaste — Clove', de:'Siwak-Zahnpasta — Gewürznelke' },
+        item_girofle_sub:  { fr:'Protection anticavité renforcée', en:'Enhanced cavity protection', de:'Verstärkter Kariesschutz' },
+        item_charbon_name: { fr:'Dentifrice Siwak — Charbon Actif', en:'Siwak Toothpaste — Activated Charcoal', de:'Siwak-Zahnpasta — Aktivkohle' },
+        item_charbon_sub:  { fr:'Blancheur intense', en:'Intense whitening', de:'Intensive Weiße' },
+        thickness_label:  { fr:'Épaisseur du bâton', en:'Stick thickness', de:'Stärke des Stäbchens' },
+        thickness_fin:    { fr:'Fin', en:'Thin', de:'Dünn' },
+        thickness_epais:  { fr:'Épais', en:'Thick', de:'Dick' },
+        thickness_any:    { fr:'Peu importe', en:'No preference', de:'Egal' },
         upsell_name:      { fr:'Étui de Siwak supplémentaire', en:'Additional Siwak case', de:'Zusätzliches Siwak-Etui' },
         whatsapp_tip:    { fr:'Une question ? Je réponds vite 💬', en:'A question? I reply fast 💬', de:'Eine Frage? Ich antworte schnell 💬' },
+        lock_min:        { fr:'Montant minimum de commande : CHF {min}', en:'Minimum order amount: CHF {min}', de:'Mindestbestellwert: CHF {min}' },
+        error_npa:       { fr:'Code postal suisse invalide (4 chiffres, ex. 1205)', en:'Invalid Swiss postal code (4 digits, e.g. 1205)', de:'Ungültige Schweizer Postleitzahl (4 Ziffern, z.B. 1205)' },
+        error_phone:     { fr:"Numéro invalide (9 chiffres attendus après l'indicatif)", en:'Invalid number (9 digits expected after the prefix)', de:'Ungültige Nummer (9 Ziffern nach der Vorwahl erwartet)' },
+        order_success_title: { fr:'Commande préparée !', en:'Order ready!', de:'Bestellung vorbereitet!' },
+        order_success_body:  { fr:"WhatsApp s'est ouvert dans un nouvel onglet avec votre commande pré-remplie. N'oubliez pas de joindre votre preuve de paiement directement dans la conversation avant d'envoyer le message.", en:'WhatsApp opened in a new tab with your order pre-filled. Don\'t forget to attach your payment proof directly in the conversation before sending the message.', de:'WhatsApp wurde in einem neuen Tab mit Ihrer vorausgefüllten Bestellung geöffnet. Vergessen Sie nicht, Ihren Zahlungsbeleg direkt im Chat anzuhängen, bevor Sie die Nachricht senden.' },
+        order_success_reopen: { fr:'Réouvrir WhatsApp', en:'Reopen WhatsApp', de:'WhatsApp erneut öffnen' },
     };
 
     let LANG = 'fr';
@@ -467,9 +545,22 @@
         document.documentElement.lang = lang;
     }
 
-    const PRICE = { allotogo: 6, siwak: 6, upsell: 6 }; 
-    const SHIPPING = 10; 
-    const QTY   = { allotogo: 1, siwak: 1, upsell: 0 };
+    function setSiwakThickness(value) {
+        try { localStorage.setItem('sivaa_siwak_thickness', value); } catch (e) {}
+    }
+
+    function initSiwakThickness() {
+        var value = null;
+        try { value = localStorage.getItem('sivaa_siwak_thickness'); } catch (e) {}
+        if (!value) value = 'peu-importe';
+        var input = document.querySelector('input[name="thickness-checkout"][value="' + value + '"]');
+        if (input) input.checked = true;
+    }
+
+    const PRICE = { allotogo: 6, siwak: 6, upsell: 6, girofle: 10, charbon: 10 };
+    const SHIPPING = 10;
+    const MIN_ORDER = 30;
+    const QTY   = { allotogo: 1, siwak: 1, upsell: 0, girofle: 0, charbon: 0 };
     
     let isPromoActive = false;
     let currentTotal = 0; 
@@ -537,19 +628,22 @@
         let isUpsellFree = (isPromoActive && QTY.upsell > 0);
 
         if (isUpsellFree) {
-            paidQty -= 1; 
+            paidQty -= 1;
         }
 
         const finalItemsPrice = getTieredPrice(paidQty);
-        
-        const volumeDiscount = (paidQty * 6) - finalItemsPrice;
-        
-        const promoValue = isUpsellFree ? 6 : 0; 
-        
-        currentDiscountForEmail = volumeDiscount + promoValue;
-        currentTotal = finalItemsPrice + SHIPPING;
 
-        document.getElementById('subtotal').textContent = 'CHF ' + rawSub.toFixed(2);
+        const volumeDiscount = (paidQty * 6) - finalItemsPrice;
+
+        const promoValue = isUpsellFree ? 6 : 0;
+
+        currentDiscountForEmail = volumeDiscount + promoValue;
+
+        const dentifriceSub = (QTY.girofle * PRICE.girofle) + (QTY.charbon * PRICE.charbon);
+
+        currentTotal = finalItemsPrice + dentifriceSub + SHIPPING;
+
+        document.getElementById('subtotal').textContent = 'CHF ' + (rawSub + dentifriceSub).toFixed(2);
 
         const volLine = document.getElementById('volume-line');
         if (volumeDiscount > 0) {
@@ -569,6 +663,7 @@
 
         document.getElementById('total-display').textContent = 'CHF ' + currentTotal.toFixed(2);
         refreshBtnConfirm(currentTotal);
+        checkFormLock();
     }
 
     function refreshBtnConfirm(totalVal) {
@@ -578,6 +673,15 @@
 
     const REQUIRED = ['prenom','nom','email','adresse','npa','ville'];
     let fileReady = false;
+
+    function isValidSwissNpa(value) {
+        return /^[1-9]\d{3}$/.test(value.trim());
+    }
+
+    function isValidPhoneNumber(value) {
+        const digits = value.replace(/[^\d]/g, '');
+        return digits.length === 9;
+    }
 
     function handleFileUpload(input) {
         const zone = document.getElementById('uploadZone');
@@ -600,13 +704,36 @@
     
     function checkFormLock() {
         const allFilled = REQUIRED.every(id => { const el = document.getElementById(id); return el && el.value.trim().length > 0; });
-        const ready = allFilled && fileReady;
+
+        const npaEl = document.getElementById('npa');
+        const npaFilled = npaEl.value.trim().length > 0;
+        const npaValid = !npaFilled || isValidSwissNpa(npaEl.value);
+        npaEl.classList.toggle('input-invalid', npaFilled && !npaValid);
+        document.getElementById('npa-error').classList.toggle('show', npaFilled && !npaValid);
+
+        const phoneEl = document.getElementById('phone');
+        const phoneFilled = phoneEl.value.trim().length > 0;
+        const phoneValid = !phoneFilled || isValidPhoneNumber(phoneEl.value);
+        phoneEl.classList.toggle('input-invalid', phoneFilled && !phoneValid);
+        document.getElementById('phone-error').classList.toggle('show', phoneFilled && !phoneValid);
+
+        const meetsMinimum = currentTotal >= MIN_ORDER;
+        const ready = allFilled && fileReady && meetsMinimum && npaValid && phoneValid;
         const btn = document.getElementById('btnConfirm');
         const icon = document.getElementById('lockIcon');
         const msg = document.getElementById('lockMsg');
         btn.disabled = !ready;
         if (ready) {
             icon.textContent = '🔓'; msg.innerHTML = T.lock_ready ? T.lock_ready[LANG] : 'Prêt'; msg.style.color = 'var(--primary)';
+        } else if (!meetsMinimum) {
+            icon.textContent = '🔒';
+            const tpl = T.lock_min ? T.lock_min[LANG] : 'Montant minimum de commande : CHF {min}';
+            msg.innerHTML = (tpl || 'Montant minimum de commande : CHF {min}').replace('{min}', MIN_ORDER.toFixed(2));
+            msg.style.color = 'var(--danger)';
+        } else if (npaFilled && !npaValid) {
+            icon.textContent = '🔒'; msg.innerHTML = T.error_npa ? T.error_npa[LANG] : 'Code postal suisse invalide'; msg.style.color = 'var(--danger)';
+        } else if (phoneFilled && !phoneValid) {
+            icon.textContent = '🔒'; msg.innerHTML = T.error_phone ? T.error_phone[LANG] : 'Numéro de téléphone invalide'; msg.style.color = 'var(--danger)';
         } else {
             icon.textContent = '🔒'; msg.innerHTML = T.lock_default ? T.lock_default[LANG] : 'Remplissez les champs'; msg.style.color = 'var(--text-variant)';
         }
@@ -616,10 +743,11 @@
     function markPayment(method) { chosenPayment = method; }
 
 
-    async function submitOrder() {
+    function submitOrder() {
         const btn = document.getElementById('btnConfirm');
         if (btn.disabled) return;
         if (!fileReady) { showToast('Remplissez tous les champs', 'error'); return; }
+        if (currentTotal < MIN_ORDER) { showToast('❌ Montant minimum : CHF ' + MIN_ORDER.toFixed(2), 'error'); return; }
 
         const prenom = document.getElementById('prenom').value.trim();
         const nom = document.getElementById('nom').value.trim();
@@ -631,9 +759,11 @@
         const npa = document.getElementById('npa').value.trim();
         const ville = document.getElementById('ville').value.trim();
         const pays = document.getElementById('pays').value;
-        const note = document.getElementById('note').value.trim() || 'Aucune';
 
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showToast('❌ Adresse email invalide', 'error'); return; }
+        if (!isValidSwissNpa(document.getElementById('npa').value)) { showToast('❌ Code postal suisse invalide', 'error'); return; }
+        const phoneCheckVal = document.getElementById('phone').value.trim();
+        if (phoneCheckVal && !isValidPhoneNumber(phoneCheckVal)) { showToast('❌ Numéro de téléphone invalide', 'error'); return; }
 
         const orderId = 'SIVAA-' + new Date().getFullYear() + '-' + Math.floor(10000 + Math.random() * 90000);
         
@@ -642,59 +772,53 @@
             QTY.allotogo > 0 ? `Allo Togo ×${QTY.allotogo}` : null,
             QTY.siwak > 0 ? `Bâton Siwak Premium ×${QTY.siwak}` : null,
             QTY.upsell > 0 ? `Étui de Siwak ×1 ${isUpsellFree ? '(OFFERT)' : ''}` : null,
+            QTY.girofle > 0 ? `Dentifrice Siwak Clou de Girofle ×${QTY.girofle}` : null,
+            QTY.charbon > 0 ? `Dentifrice Siwak Charbon Actif ×${QTY.charbon}` : null,
         ].filter(Boolean).join('\n');
-
-        const rawQty = QTY.allotogo + QTY.siwak + QTY.upsell;
-        const rawSub = rawQty * 6;
 
         const shipping = `${adresse}, ${npa} ${ville}, ${pays}`;
         const dateStr = new Date().toLocaleString('fr-CH');
 
-        const params = { 
-            order_id: orderId, 
-            to_name: prenom + ' ' + nom, 
-            to_email: email, 
-            customer_phone: phone, 
-            shipping: shipping, 
-            items: items, 
-            subtotal: 'CHF ' + rawSub.toFixed(2), 
-            delivery: 'CHF 10.00', 
-            discount: currentDiscountForEmail > 0 ? '− CHF ' + currentDiscountForEmail.toFixed(2) : 'Aucune', 
-            total: 'CHF ' + currentTotal.toFixed(2), 
-            payment: chosenPayment || 'Non précisé', 
-            note: note, 
-            date: dateStr 
-        };
+        const thicknessMap = { fin: 'Fin', epais: 'Épais', 'peu-importe': 'Peu importe' };
+        const thicknessInput = document.querySelector('input[name="thickness-checkout"]:checked');
+        const thicknessLine = (QTY.siwak > 0 && thicknessInput) ? `\n🌿 Épaisseur Siwak : ${thicknessMap[thicknessInput.value] || thicknessInput.value}` : '';
+
+        const message =
+`🌿 Nouvelle commande SIVÀA — ${orderId}
+
+👤 ${prenom} ${nom}
+📧 ${email}
+📱 ${phone}
+
+📦 Articles :
+${items}${thicknessLine}
+
+📍 Livraison : ${shipping}
+
+💳 TOTAL : CHF ${currentTotal.toFixed(2)}
+
+🕐 ${dateStr}`;
 
         btn.disabled = true; document.getElementById('btnSpinner').style.display = 'inline-block'; document.getElementById('btnArrow').style.display = 'none';
         showToast(T.t_sending ? T.t_sending[LANG] : 'Envoi...', 'info');
 
-        try {
-            emailjs.init(EMAILJS.publicKey);
-            const fileInput = document.getElementById('paymentProof');
-            let proof_b64 = '';
-            if (fileInput.files[0]) proof_b64 = await fileToBase64(fileInput.files[0]);
+        const waUrl = 'https://wa.me/41779496504?text=' + encodeURIComponent(message);
+        window.open(waUrl, '_blank', 'noopener');
 
-            await emailjs.send(EMAILJS.serviceId, EMAILJS.templateAdmin, { ...params, to_email: EMAILJS.adminEmail, proof_b64: proof_b64, subject: `[SIVÀA] Commande ${orderId} — CHF ${currentTotal.toFixed(2)} | ${prenom} ${nom}` });
-            await emailjs.send(EMAILJS.serviceId, EMAILJS.templateClient, {
-                ...params, to_email: email, subject: `✅ Votre commande SIVÀA ${orderId} est bien reçue`,
-                confirmation_body: `Bonjour ${prenom},\n\nMerci pour votre confiance ! Votre commande SIVÀA Geneva est enregistrée.\n\n📦 Numéro : ${orderId}\n💰 Total : CHF ${currentTotal.toFixed(2)}\n📍 Adresse : ${shipping}\n\nJ'ai bien reçu votre preuve de paiement. Je validerai votre commande manuellement sous 24h ouvrées. Dès validation, votre colis sera expédié via Swiss Post.\n\nPour toute question : WhatsApp +41 77 949 65 04\n\nSIVÀA Geneva 🌿`
-            });
+        const waLink = document.getElementById('orderSuccessWaLink');
+        if (waLink) waLink.href = waUrl;
+        document.getElementById('orderSuccessPanel').style.display = 'block';
+        document.getElementById('orderSuccessPanel').scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-            showToast(T.t_success ? T.t_success[LANG] : 'Succès', 'success');
-            setTimeout(() => { window.location.href = `merci.html?order=${orderId}&total=${currentTotal.toFixed(2)}&email=${encodeURIComponent(email)}&name=${encodeURIComponent(prenom)}`; }, 1800);
-        } catch (err) {
-            console.error(err);
-            showToast(T.t_error ? T.t_error[LANG] : 'Erreur', 'error');
-            btn.disabled = false; document.getElementById('btnSpinner').style.display = 'none'; document.getElementById('btnArrow').style.display = 'inline-block'; checkFormLock();
-        }
+        showToast(T.t_success ? T.t_success[LANG] : 'Succès', 'success');
+        btn.disabled = false; document.getElementById('btnSpinner').style.display = 'none'; document.getElementById('btnArrow').style.display = 'inline-block';
     }
 
-    function fileToBase64(file) { return new Promise((res, rej) => { const r = new FileReader(); r.onload = () => res(r.result.split(',')[1]); r.onerror = rej; r.readAsDataURL(file); }); }
     let toastTimer; function showToast(msg, type = 'info') { const el = document.getElementById('toast'); document.getElementById('toastMsg').textContent = msg; el.className = 'toast ' + type + ' show'; clearTimeout(toastTimer); toastTimer = setTimeout(() => el.classList.remove('show'), 4200); }
 
     document.addEventListener('DOMContentLoaded', () => {
         recalc(); checkFormLock();
+        initSiwakThickness();
         const bl = (navigator.language || 'fr').split('-')[0];
         if (['en','de'].includes(bl)) switchLanguage(bl);
         const zone = document.getElementById('uploadZone');
