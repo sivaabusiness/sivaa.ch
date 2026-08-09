@@ -371,6 +371,23 @@
                     <div class="cart-item-body">
                         <p class="cart-item-name" data-i18n="item_allotogo_name">Allo Togo</p>
                         <p class="cart-item-sub"  data-i18n="item_allotogo_sub">Lot de 5 pièces</p>
+                        <div class="thickness-picker-mini">
+                            <p class="thickness-picker-mini-label" data-i18n="thickness_label">Épaisseur du bâton</p>
+                            <div class="thickness-mini-options">
+                                <label class="thickness-mini-pill">
+                                    <input type="radio" name="thickness-checkout-allotogo" value="fin" onchange="setAllotogoThickness('fin')" />
+                                    <span data-i18n="thickness_fin">Fin</span>
+                                </label>
+                                <label class="thickness-mini-pill">
+                                    <input type="radio" name="thickness-checkout-allotogo" value="epais" onchange="setAllotogoThickness('epais')" />
+                                    <span data-i18n="thickness_epais">Épais</span>
+                                </label>
+                                <label class="thickness-mini-pill">
+                                    <input type="radio" name="thickness-checkout-allotogo" value="peu-importe" onchange="setAllotogoThickness('peu-importe')" />
+                                    <span data-i18n="thickness_any">Peu importe</span>
+                                </label>
+                            </div>
+                        </div>
                         <div class="qty-ctrl">
                             <button class="qty-btn" onclick="updateQty('allotogo',-1)">−</button>
                             <span class="qty-val" id="qty-allotogo">1</span>
@@ -411,7 +428,6 @@
                         <input type="checkbox" id="upsellCheck" onchange="toggleUpsell()" />
                         <div class="upsell-label">
                             <p data-i18n="upsell_name"><strong>Étui de Siwak</strong></p>
-                            <span data-i18n="upsell_sub">Code SIVAASIWAK = offert pour<br> la 1ère commande 🎁</span>
                         </div>
                         <div style="text-align:right;">
                             <div style="font-weight:700;color:var(--primary);font-size:0.9rem;" id="upsellPriceDisplay">CHF 6</div>
@@ -549,12 +565,21 @@
         try { localStorage.setItem('sivaa_siwak_thickness', value); } catch (e) {}
     }
 
-    function initSiwakThickness() {
-        var value = null;
-        try { value = localStorage.getItem('sivaa_siwak_thickness'); } catch (e) {}
-        if (!value) value = 'peu-importe';
-        var input = document.querySelector('input[name="thickness-checkout"][value="' + value + '"]');
-        if (input) input.checked = true;
+    function setAllotogoThickness(value) {
+        try { localStorage.setItem('sivaa_allotogo_thickness', value); } catch (e) {}
+    }
+
+    function initThicknessPickers() {
+        [
+            { storageKey: 'sivaa_siwak_thickness', inputName: 'thickness-checkout' },
+            { storageKey: 'sivaa_allotogo_thickness', inputName: 'thickness-checkout-allotogo' }
+        ].forEach(function (group) {
+            var value = null;
+            try { value = localStorage.getItem(group.storageKey); } catch (e) {}
+            if (!value) value = 'peu-importe';
+            var input = document.querySelector('input[name="' + group.inputName + '"][value="' + value + '"]');
+            if (input) input.checked = true;
+        });
     }
 
     const PRICE = { allotogo: 6, siwak: 6, upsell: 6, girofle: 10, charbon: 10 };
@@ -780,8 +805,11 @@
         const dateStr = new Date().toLocaleString('fr-CH');
 
         const thicknessMap = { fin: 'Fin', epais: 'Épais', 'peu-importe': 'Peu importe' };
-        const thicknessInput = document.querySelector('input[name="thickness-checkout"]:checked');
-        const thicknessLine = (QTY.siwak > 0 && thicknessInput) ? `\n🌿 Épaisseur Siwak : ${thicknessMap[thicknessInput.value] || thicknessInput.value}` : '';
+        const siwakThicknessInput = document.querySelector('input[name="thickness-checkout"]:checked');
+        const allotogoThicknessInput = document.querySelector('input[name="thickness-checkout-allotogo"]:checked');
+        const thicknessLine =
+            (QTY.siwak > 0 && siwakThicknessInput ? `\n🌿 Épaisseur Siwak : ${thicknessMap[siwakThicknessInput.value] || siwakThicknessInput.value}` : '') +
+            (QTY.allotogo > 0 && allotogoThicknessInput ? `\n🌿 Épaisseur Allo Togo : ${thicknessMap[allotogoThicknessInput.value] || allotogoThicknessInput.value}` : '');
 
         const message =
 `🌿 Nouvelle commande SIVÀA — ${orderId}
@@ -818,7 +846,7 @@ ${items}${thicknessLine}
 
     document.addEventListener('DOMContentLoaded', () => {
         recalc(); checkFormLock();
-        initSiwakThickness();
+        initThicknessPickers();
         const bl = (navigator.language || 'fr').split('-')[0];
         if (['en','de'].includes(bl)) switchLanguage(bl);
         const zone = document.getElementById('uploadZone');

@@ -606,6 +606,24 @@
                     <span style="font-family:'Newsreader',serif;font-size:1.2rem;color:#9dd75a;" data-i18n="product2.price">CHF 6.00 pour 5 pièces</span>
                     <a href="checkout.html" class="btn-primary" style="font-size:0.875rem;padding:0.5rem 1rem;" data-i18n="modal1.buy">Acheter maintenant</a>
                 </div>
+
+                <div class="thickness-picker" onclick="event.stopPropagation()">
+                    <p class="thickness-picker-label" data-i18n="modal1.thickness.label">Épaisseur du bâton</p>
+                    <div class="thickness-options">
+                        <label class="thickness-pill">
+                            <input type="radio" name="thickness-card2" value="fin" />
+                            <span data-i18n="modal1.thickness.thin">Fin</span>
+                        </label>
+                        <label class="thickness-pill">
+                            <input type="radio" name="thickness-card2" value="epais" />
+                            <span data-i18n="modal1.thickness.thick">Épais</span>
+                        </label>
+                        <label class="thickness-pill">
+                            <input type="radio" name="thickness-card2" value="peu-importe" checked />
+                            <span data-i18n="modal1.thickness.any">Peu importe</span>
+                        </label>
+                    </div>
+                </div>
             </div>
         </article>
 
@@ -1150,6 +1168,30 @@
                 <a href="checkout.html" class="btn-primary" onclick="closeModal('modal-2')" data-i18n="modal1.buy">🛍 Acheter maintenant</a>
             </div>
                 </div>
+
+            <div class="thickness-picker">
+                <p class="thickness-picker-label" data-i18n="modal1.thickness.label">Épaisseur du bâton</p>
+                <div class="thickness-options">
+                    <label class="thickness-pill">
+                        <input type="radio" name="thickness-modal2" value="fin" />
+                        <span data-i18n="modal1.thickness.thin">Fin</span>
+                    </label>
+                    <label class="thickness-pill">
+                        <input type="radio" name="thickness-modal2" value="epais" />
+                        <span data-i18n="modal1.thickness.thick">Épais</span>
+                    </label>
+                    <label class="thickness-pill">
+                        <input type="radio" name="thickness-modal2" value="peu-importe" checked />
+                        <span data-i18n="modal1.thickness.any">Peu importe</span>
+                    </label>
+                </div>
+                <p class="thickness-picker-intro" data-i18n="modal1.thickness.intro">Pas sûr de quoi choisir ? Voici comment décider selon votre usage :</p>
+                <ul class="thickness-guide">
+                    <li><strong data-i18n="modal1.thickness.thin">Fin</strong> — <span data-i18n="modal1.thickness.guide.thin">plus flexible et souple, idéal pour les gencives sensibles et un nettoyage précis entre les dents.</span></li>
+                    <li><strong data-i18n="modal1.thickness.thick">Épais</strong> — <span data-i18n="modal1.thickness.guide.thick">plus robuste et durable, recommandé pour un usage quotidien intensif et une prise en main plus ferme.</span></li>
+                    <li><strong data-i18n="modal1.thickness.any">Peu importe</strong> — <span data-i18n="modal1.thickness.guide.any">laissez-nous sélectionner l'épaisseur selon nos meilleures récoltes du moment.</span></li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>
@@ -1303,13 +1345,15 @@
         }
     });
 
-    /* ── CHOIX D'ÉPAISSEUR SIWAK (synchronisé carte + modale, mémorisé pour le checkout) ── */
-    (function () {
-        var STORAGE_KEY = 'sivaa_siwak_thickness';
-        var thicknessInputs = document.querySelectorAll('input[name="thickness-card1"], input[name="thickness-modal1"]');
+    /* ── CHOIX D'ÉPAISSEUR (synchronisé carte + modale, mémorisé pour le checkout) ── */
+    [
+        { key: 'sivaa_siwak_thickness', selector: 'input[name="thickness-card1"], input[name="thickness-modal1"]' },
+        { key: 'sivaa_allotogo_thickness', selector: 'input[name="thickness-card2"], input[name="thickness-modal2"]' }
+    ].forEach(function (group) {
+        var thicknessInputs = document.querySelectorAll(group.selector);
 
         var saved = null;
-        try { saved = localStorage.getItem(STORAGE_KEY); } catch (e) {}
+        try { saved = localStorage.getItem(group.key); } catch (e) {}
         if (saved) {
             thicknessInputs.forEach(function (input) {
                 input.checked = (input.value === saved);
@@ -1322,10 +1366,10 @@
                 thicknessInputs.forEach(function (other) {
                     other.checked = (other.value === value);
                 });
-                try { localStorage.setItem(STORAGE_KEY, value); } catch (e) {}
+                try { localStorage.setItem(group.key, value); } catch (e) {}
             });
         });
-    })();
+    });
 
     /* ── OUVERTURE AUTOMATIQUE DES MODALES VIA URL ── */
     
