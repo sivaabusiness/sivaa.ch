@@ -417,7 +417,39 @@ const translations = {
         "product3.desc": "Protect your Siwak and keep it fresh wherever you go.",
         "product3.price": "CHF 5.00 per unit",
         "product3.image.alt": "Protective case for Siwak, hygienic travel case",
-        
+
+        "product4.badge": "Cavity Protection · Clove",
+        "product4.name": "Siwak Toothpaste — Clove",
+        "product4.desc": "The cleansing power of Siwak combined with the soothing action of clove, for enhanced daily cavity protection.",
+        "product4.price": "CHF 10.00 per piece",
+        "product4.image.alt": "Siwak Toothpaste with Clove SIVÀA Geneva",
+
+        "modal4.rating": "4.8 / 5",
+        "modal4.desc.intro": "Made from natural extracts of <strong>Siwak (Salvadora Persica)</strong> and clove, this traditional toothpaste combines centuries-old benefits with Swiss quality standards.",
+        "modal4.desc": "Clove, known for its soothing and antibacterial properties, reinforces the cleansing action of Siwak for complete cavity protection, while soothing sensitive gums with every brushing.",
+        "modal4.feat1": "🌿 Enhanced cavity protection from Siwak extracts",
+        "modal4.feat2": "🌿 Clove: natural soothing and antibacterial action",
+        "modal4.feat3": "🌿 Long-lasting fresh breath, without harsh chemical fluoride",
+        "modal4.shipping": "🚚 Swiss Post delivery · CHF 10.00 · 72h",
+        "modal4.priceLabel": "Price",
+        "modal4.buy": "🛍 Buy now",
+
+        "product5.badge": "Intense Whitening · Activated Charcoal",
+        "product5.name": "Siwak Toothpaste — Activated Charcoal",
+        "product5.desc": "Purifying activated charcoal combined with the ancestral virtues of Siwak, for intense natural whitening and a perfectly healthy mouth.",
+        "product5.price": "CHF 10.00 per piece",
+        "product5.image.alt": "Siwak Toothpaste with Activated Charcoal SIVÀA Geneva",
+
+        "modal5.rating": "4.8 / 5",
+        "modal5.desc.intro": "Designed for radiant whiteness, this toothpaste combines the absorbing power of <strong>activated charcoal</strong> with the traditional effectiveness of Siwak (Salvadora Persica), for a deep clean that respects the enamel.",
+        "modal5.desc": "Activated charcoal captures the pigments responsible for tooth yellowing and purifies the mouth, while Siwak extracts strengthen the antibacterial action and soothe gums with every brushing.",
+        "modal5.feat1": "🌿 Activated charcoal: absorbs stains and purifies deeply",
+        "modal5.feat2": "🌿 Visible whiteness from the very first uses",
+        "modal5.feat3": "🌿 Siwak-enriched formula, without peroxide or chemical abrasives",
+        "modal5.shipping": "🚚 Swiss Post delivery · CHF 10.00 · 72h",
+        "modal5.priceLabel": "Price",
+        "modal5.buy": "🛍 Buy now",
+
         "modal3.desc": "Discover my protective case for Siwak, the essential accessory to keep your Salvadora Persica stick away from moisture and dust. Ideal for on-the-go dental hygiene, this case prolongs the freshness of your natural miswak while preventing bacteria buildup when traveling.",
         "modal3.feat1": "🌿 Thick, solid, and durable material",
         "modal3.feat2": "🌿 Dust-proof storage and space-saving",
@@ -438,6 +470,15 @@ const translations = {
         "modal1.shipping": "🚚 Swiss Post delivery · CHF 10.00 · 72h",
         "modal1.priceLabel": "Price",
         "modal1.buy": "🛍 Buy now",
+
+        "modal1.thickness.label": "Stick thickness",
+        "modal1.thickness.thin": "Thin",
+        "modal1.thickness.thick": "Thick",
+        "modal1.thickness.any": "No preference",
+        "modal1.thickness.intro": "Not sure what to choose? Here's how to decide based on your use:",
+        "modal1.thickness.guide.thin": "more flexible and supple, ideal for sensitive gums and precise cleaning between teeth.",
+        "modal1.thickness.guide.thick": "more robust and durable, recommended for intensive daily use and a firmer grip.",
+        "modal1.thickness.guide.any": "let us select the thickness from our best current harvest.",
 
         /* ── INDEX : POPUP 2 ── */
         "modal2.desc": "Formula without artificial fluoride. Interchangeable with Siwak.",
@@ -718,7 +759,39 @@ const translations = {
         "product3.desc": "Schützen Sie Ihren Siwak und halten Sie ihn überall frisch.",
         "product3.price": "CHF 5.00 pro Stück",
         "product3.image.alt": "Schutzetui für Siwak, hygienisches Reiseetui",
-        
+
+        "product4.badge": "Kariesschutz · Gewürznelke",
+        "product4.name": "Siwak-Zahnpasta — Gewürznelke",
+        "product4.desc": "Die reinigende Kraft von Siwak kombiniert mit der beruhigenden Wirkung von Gewürznelke, für einen verstärkten Kariesschutz im Alltag.",
+        "product4.price": "CHF 10.00 pro Stück",
+        "product4.image.alt": "Siwak-Zahnpasta mit Gewürznelke SIVÀA Geneva",
+
+        "modal4.rating": "4.8 / 5",
+        "modal4.desc.intro": "Hergestellt aus natürlichen Extrakten von <strong>Siwak (Salvadora Persica)</strong> und Gewürznelke, vereint diese traditionelle Zahnpasta jahrhundertealte Vorteile mit Schweizer Qualitätsstandards.",
+        "modal4.desc": "Die für ihre beruhigenden und antibakteriellen Eigenschaften bekannte Gewürznelke verstärkt die reinigende Wirkung von Siwak für einen vollständigen Kariesschutz und beruhigt gleichzeitig empfindliches Zahnfleisch bei jedem Zähneputzen.",
+        "modal4.feat1": "🌿 Verstärkter Kariesschutz durch Siwak-Extrakte",
+        "modal4.feat2": "🌿 Gewürznelke: natürliche beruhigende und antibakterielle Wirkung",
+        "modal4.feat3": "🌿 Lang anhaltender frischer Atem, ohne aggressives chemisches Fluorid",
+        "modal4.shipping": "🚚 Swiss Post Lieferung · CHF 10.00 · 72h",
+        "modal4.priceLabel": "Preis",
+        "modal4.buy": "🛍 Jetzt kaufen",
+
+        "product5.badge": "Intensive Weiße · Aktivkohle",
+        "product5.name": "Siwak-Zahnpasta — Aktivkohle",
+        "product5.desc": "Reinigende Aktivkohle kombiniert mit den althergebrachten Tugenden von Siwak, für eine intensive natürliche Aufhellung und einen perfekt gesunden Mund.",
+        "product5.price": "CHF 10.00 pro Stück",
+        "product5.image.alt": "Siwak-Zahnpasta mit Aktivkohle SIVÀA Geneva",
+
+        "modal5.rating": "4.8 / 5",
+        "modal5.desc.intro": "Für strahlende Weiße konzipiert, vereint diese Zahnpasta die absorbierende Kraft von <strong>Aktivkohle</strong> mit der traditionellen Wirksamkeit von Siwak (Salvadora Persica), für eine Tiefenreinigung, die den Zahnschmelz schont.",
+        "modal5.desc": "Die Aktivkohle bindet die für die Vergilbung der Zähne verantwortlichen Pigmente und reinigt die Mundhöhle, während die Siwak-Extrakte die antibakterielle Wirkung verstärken und das Zahnfleisch bei jedem Zähneputzen beruhigen.",
+        "modal5.feat1": "🌿 Aktivkohle: absorbiert Flecken und reinigt tiefgehend",
+        "modal5.feat2": "🌿 Sichtbare Weiße bereits ab den ersten Anwendungen",
+        "modal5.feat3": "🌿 Mit Siwak angereicherte Formel, ohne Peroxid oder chemische Schleifmittel",
+        "modal5.shipping": "🚚 Swiss Post Lieferung · CHF 10.00 · 72h",
+        "modal5.priceLabel": "Preis",
+        "modal5.buy": "🛍 Jetzt kaufen",
+
         "modal3.desc": "Entdecken Sie mein Schutzetui für Siwak, das unverzichtbare Zubehör, um Ihren Salvadora Persica-Stab vor Feuchtigkeit und Staub zu schützen. Ideal für die Zahnhygiene unterwegs, verlängert dieses Etui die Frische Ihres natürlichen Miswak und verhindert die Vermehrung von Bakterien auf Reisen.",
         "modal3.feat1": "🌿 Dickes, solides und langlebiges Material",
         "modal3.feat2": "🌿 Staubdichte Aufbewahrung und platzsparend",
@@ -739,6 +812,15 @@ const translations = {
         "modal1.shipping": "🚚 Swiss Post Lieferung · CHF 10.00 · 72h",
         "modal1.priceLabel": "Preis",
         "modal1.buy": "🛍 Jetzt kaufen",
+
+        "modal1.thickness.label": "Stärke des Stäbchens",
+        "modal1.thickness.thin": "Dünn",
+        "modal1.thickness.thick": "Dick",
+        "modal1.thickness.any": "Egal",
+        "modal1.thickness.intro": "Nicht sicher, was Sie wählen sollen? So entscheiden Sie je nach Verwendung:",
+        "modal1.thickness.guide.thin": "flexibler und geschmeidiger, ideal für empfindliches Zahnfleisch und eine präzise Reinigung zwischen den Zähnen.",
+        "modal1.thickness.guide.thick": "robuster und langlebiger, empfohlen für den intensiven täglichen Gebrauch und einen festeren Griff.",
+        "modal1.thickness.guide.any": "lassen Sie uns die Stärke aus unserer besten aktuellen Ernte auswählen.",
 
         /* ── POPUP 2 ── */
         "modal2.desc": "Formel ohne künstliches Fluorid. Mit Siwak austauschbar.",
