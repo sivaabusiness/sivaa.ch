@@ -646,27 +646,22 @@
     }
 
     function recalc() {
-        const rawQty = QTY.allotogo + QTY.siwak + QTY.upsell;
-        const rawSub = rawQty * 6;
+        const stickQty = QTY.allotogo + QTY.siwak;
+        const rawSub = (stickQty * 6) + (QTY.upsell * PRICE.upsell);
 
-        let paidQty = rawQty;
+        const finalItemsPrice = getTieredPrice(stickQty);
+
+        const volumeDiscount = (stickQty * 6) - finalItemsPrice;
+
         let isUpsellFree = (isPromoActive && QTY.upsell > 0);
-
-        if (isUpsellFree) {
-            paidQty -= 1;
-        }
-
-        const finalItemsPrice = getTieredPrice(paidQty);
-
-        const volumeDiscount = (paidQty * 6) - finalItemsPrice;
-
-        const promoValue = isUpsellFree ? 6 : 0;
+        const upsellPrice = isUpsellFree ? 0 : (QTY.upsell * PRICE.upsell);
+        const promoValue = isUpsellFree ? PRICE.upsell : 0;
 
         currentDiscountForEmail = volumeDiscount + promoValue;
 
         const dentifriceSub = (QTY.girofle * PRICE.girofle) + (QTY.charbon * PRICE.charbon);
 
-        currentTotal = finalItemsPrice + dentifriceSub + SHIPPING;
+        currentTotal = finalItemsPrice + upsellPrice + dentifriceSub + SHIPPING;
 
         document.getElementById('subtotal').textContent = 'CHF ' + (rawSub + dentifriceSub).toFixed(2);
 
