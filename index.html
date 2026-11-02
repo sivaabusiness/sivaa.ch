@@ -1320,7 +1320,16 @@
     /* ── MODALS ── */
     function openModal(id) {
         var el = document.getElementById(id);
-        if (el) { el.classList.add('open'); document.body.style.overflow = 'hidden'; }
+        if (el) {
+            el.classList.add('open');
+            document.body.style.overflow = 'hidden';
+
+            // Met à jour l'URL avec un # court propre à chaque produit
+            var hashMap = { 'modal-1': '#siwak', 'modal-2': '#allo', 'modal-3': '#etui', 'modal-4': '#dentifrice-girofle', 'modal-5': '#dentifrice-charbon' };
+            if (hashMap[id]) {
+                history.pushState("", document.title, window.location.pathname + window.location.search + hashMap[id]);
+            }
+        }
     }
     
     function closeModal(id) {
@@ -1377,14 +1386,20 @@
     function checkUrlAndOpenModal() {
         const hash = window.location.hash;
 
-        if (hash === '#etui-siwak' || hash === '#modal-3') {
+        if (hash === '#etui-siwak' || hash === '#modal-3' || hash === '#etui') {
             setTimeout(() => { openModal('modal-3'); }, 100);
         }
-        else if (hash === '#siwak-premium' || hash === '#modal-1') {
+        else if (hash === '#siwak-premium' || hash === '#modal-1' || hash === '#siwak') {
             setTimeout(() => { openModal('modal-1'); }, 100);
         }
-        else if (hash === '#allo-togo' || hash === '#modal-2') {
+        else if (hash === '#allo-togo' || hash === '#modal-2' || hash === '#allo') {
             setTimeout(() => { openModal('modal-2'); }, 100);
+        }
+        else if (hash === '#modal-4' || hash === '#dentifrice-girofle') {
+            setTimeout(() => { openModal('modal-4'); }, 100);
+        }
+        else if (hash === '#modal-5' || hash === '#dentifrice-charbon') {
+            setTimeout(() => { openModal('modal-5'); }, 100);
         }
     }
 
