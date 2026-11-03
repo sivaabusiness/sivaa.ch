@@ -358,6 +358,7 @@
         .thickness-pill input:checked + span { background: #9dd75a; border-color: #9dd75a; color: #0b1a0d; font-weight: 600; }
         .thickness-pill input:focus-visible + span { outline: 2px solid #9dd75a; outline-offset: 2px; }
         .thickness-picker-hint { font-size: 0.75rem; color: #8c9380; line-height: 1.6; margin: 0; }
+        .thickness-sizes { font-size: 0.7rem; color: #8c9380; margin-top: 0.5rem; }
         .thickness-picker-intro { font-size: 0.75rem; color: #8c9380; margin-bottom: 0.5rem; }
         .thickness-guide { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.5rem; }
         .thickness-guide li { font-size: 0.8rem; line-height: 1.6; color: #c2c9b4; }
@@ -503,9 +504,9 @@
             </div>
 
             <div class="hero-animate-4" style="display:flex;gap:1.25rem;margin-top:2.5rem;padding-top:1.75rem;border-top:1px solid rgba(66,73,57,0.2);flex-wrap:wrap;">
-                <span style="font-size:0.875rem;color:#c2c9b4;" data-i18n="hero.trust.shipping">🚚 Swiss Post 72h</span>
-                <span style="font-size:0.875rem;color:#c2c9b4;" data-i18n="hero.trust.natural">🌿 100% Naturel</span>
-                <span style="font-size:0.875rem;color:#c2c9b4;" data-i18n="hero.trust.ssl">🔒 Twint &amp; Revolut Sécurisé</span>
+                <span style="font-size:0.875rem;color:#c2c9b4;" data-i18n="hero.trust.shipping">🚚 Expédition Swiss Post 72h</span>
+                <span style="font-size:0.875rem;color:#c2c9b4;" data-i18n="hero.trust.natural">🌿 100 % Naturel</span>
+                <span style="font-size:0.875rem;color:#c2c9b4;" data-i18n="hero.trust.ssl">🔒 Paiement Twint ou Revolut</span>
             </div>
         </div>
 
@@ -560,7 +561,7 @@
                     <li style="color:#c2c9b4;font-size:0.82rem;" data-i18n="modal1.feat3">🌿 Blanchiment naturel sans abrasion</li>
                     <li style="color:#c2c9b4;font-size:0.82rem;" data-i18n="modal1.feat4">🌿 Zéro plastique · 100% biodégradable</li>
                 </ul>
-                <div style="background:#152317;border-radius:0.5rem;padding:0.65rem;font-size:0.75rem;color:#8c9380;margin-bottom:1.25rem;" data-i18n="modal1.shipping">🚚 Livraison Swiss Post · CHF 10.00 · 72h</div>
+                <div style="background:#152317;border-radius:0.5rem;padding:0.65rem;font-size:0.75rem;color:#8c9380;margin-bottom:1.25rem;" data-i18n="modal1.shipping">🚚 Frais de livraison Swiss Post · CHF 10.00 · 72h</div>
                 <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;">
                     <span style="font-family:'Newsreader',serif;font-size:1.2rem;color:#9dd75a;" data-i18n="product1.price">CHF 6.00 par pièce</span>
                     <a href="checkout.html" class="btn-primary" style="font-size:0.875rem;padding:0.5rem 1rem;" data-i18n="modal1.buy">Acheter maintenant</a>
@@ -582,6 +583,7 @@
                             <span data-i18n="modal1.thickness.any">Peu importe</span>
                         </label>
                     </div>
+                    <p class="thickness-sizes" data-i18n="thickness.sizes">Fin ≈ 1–1,5 cm · Épais ≈ 2–2,5 cm de diamètre</p>
                 </div>
             </div>
         </article>
@@ -601,7 +603,7 @@
                     <li style="color:#c2c9b4;font-size:0.82rem;" data-i18n="modal2.feat3">🌿 Renforce l'émail et apaise les gencives</li>
                     <li style="color:#c2c9b4;font-size:0.82rem;" data-i18n="modal2.feat4">🌿 Testé dermatologiquement · vegan</li>
                 </ul>
-                <div style="background:#152317;border-radius:0.5rem;padding:0.65rem;font-size:0.75rem;color:#8c9380;margin-bottom:1.25rem;" data-i18n="modal1.shipping">🚚 Livraison Swiss Post · CHF 10.00 · 72h</div>
+                <div style="background:#152317;border-radius:0.5rem;padding:0.65rem;font-size:0.75rem;color:#8c9380;margin-bottom:1.25rem;" data-i18n="modal1.shipping">🚚 Frais de livraison Swiss Post · CHF 10.00 · 72h</div>
                 <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;">
                     <span style="font-family:'Newsreader',serif;font-size:1.2rem;color:#9dd75a;" data-i18n="product2.price">CHF 6.00 pour 5 pièces</span>
                     <a href="checkout.html" class="btn-primary" style="font-size:0.875rem;padding:0.5rem 1rem;" data-i18n="modal1.buy">Acheter maintenant</a>
@@ -623,6 +625,7 @@
                             <span data-i18n="modal1.thickness.any">Peu importe</span>
                         </label>
                     </div>
+                    <p class="thickness-sizes" data-i18n="thickness.sizes">Fin ≈ 1–1,5 cm · Épais ≈ 2–2,5 cm de diamètre</p>
                 </div>
             </div>
         </article>
@@ -642,7 +645,7 @@
                     <li style="color:#c2c9b4;font-size:0.82rem;" data-i18n="modal3.feat2">🌿 Stockage anti-poussière et gain de place</li>
                     <li style="color:#c2c9b4;font-size:0.82rem;" data-i18n="modal3.feat4">🌿 Prolonge la durée de vie du Siwak</li>
                 </ul>
-                <div style="background:#152317;border-radius:0.5rem;padding:0.65rem;font-size:0.75rem;color:#8c9380;margin-bottom:1.25rem;" data-i18n="modal3.shipping">🚚 Livraison Swiss Post · CHF 10.00 · 72h</div>
+                <div style="background:#152317;border-radius:0.5rem;padding:0.65rem;font-size:0.75rem;color:#8c9380;margin-bottom:1.25rem;" data-i18n="modal3.shipping">🚚 Frais de livraison Swiss Post · CHF 10.00 · 72h</div>
                 <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;">
                     <span style="font-family:'Newsreader',serif;font-size:1.2rem;color:#9dd75a;" data-i18n="product3.price">CHF 5.00 l'unité</span>
                     <a href="checkout.html" class="btn-primary" style="font-size:0.875rem;padding:0.5rem 1rem;" data-i18n="modal3.buy">Acheter maintenant</a>
@@ -660,29 +663,29 @@
                 <div class="prestige-item">
                     <div class="prestige-icon">🔐</div>
                     <div>
-                        <h4>Paiement Sécurisé</h4>
-                        <p><strong style="color:#9dd75a;">Twint & Revolut</strong> chiffrés de bout en bout. Vos données protégées selon les normes bancaires suisses.</p>
+                        <h4>Paiement Twint ou Revolut</h4>
+                        <p>Paiement simple par <strong style="color:#9dd75a;">Twint ou Revolut</strong>. Je valide chaque commande personnellement.</p>
                     </div>
                 </div>
                 <div class="prestige-item">
-                    <div class="prestige-icon">✦</div>
+                    <div class="prestige-icon">📦</div>
                     <div>
-                        <h4>Livraison possible dès 30 CHF</h4>
-                        <p>Le service démarre à <strong style="color:#9dd75a;">CHF 30.00 pour toute livraison</strong> pour garantir qualité et exclusivité.</p>
+                        <h4>Livraison possible dès 15 CHF</h4>
+                        <p>Commande possible dès <strong style="color:#9dd75a;">CHF 15.00 d'articles</strong>, en livraison comme en retrait.</p>
                     </div>
                 </div>
                 <div class="prestige-item">
                     <div class="prestige-icon">🤝</div>
                     <div>
-                        <h4>Remise en Main Propre — Genève</h4>
-                        <p>Retrait à Genève, Acacias. <a href="contact.html" style="color:#9dd75a;">Contactez-moi</a> pour coordonner votre retrait.</p>
+                        <h4>Remise en Main Propre — Carouge</h4>
+                        <p>Retrait gratuit à Carouge (Acacias). <a href="contact.html" style="color:#9dd75a;">Contactez-moi</a> pour coordonner votre retrait.</p>
                     </div>
                 </div>
                 <div class="prestige-item">
                     <div class="prestige-icon">🚚</div>
                     <div>
                         <h4>Livraison Swiss Post 72h</h4>
-                        <p>Expédition dès réception du paiement. <strong style="color:#9dd75a;">Toute la Suisse</strong> en 2–3 jours ouvrés. Suivi inclus.</p>
+                        <p>Expédition sous 48h dès réception du paiement. Livraison dans <strong style="color:#9dd75a;">toute la Suisse</strong> en 2–3 jours ouvrés.</p>
                     </div>
                 </div>
             </div>
@@ -730,7 +733,7 @@
                     <li style="color:#c2c9b4;font-size:0.82rem;" data-i18n="modal4.feat2">🌿 Clou de girofle : action apaisante et antibactérienne naturelle</li>
                     <li style="color:#c2c9b4;font-size:0.82rem;" data-i18n="modal4.feat3">🌿 Haleine fraîche longue durée, sans fluor chimique agressif</li>
                 </ul>
-                <div style="background:#152317;border-radius:0.5rem;padding:0.65rem;font-size:0.75rem;color:#8c9380;margin-bottom:1.25rem;" data-i18n="modal1.shipping">🚚 Livraison Swiss Post · CHF 10.00 · 72h</div>
+                <div style="background:#152317;border-radius:0.5rem;padding:0.65rem;font-size:0.75rem;color:#8c9380;margin-bottom:1.25rem;" data-i18n="modal1.shipping">🚚 Frais de livraison Swiss Post · CHF 10.00 · 72h</div>
                 <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;">
                     <span style="font-family:'Newsreader',serif;font-size:1.2rem;color:#9dd75a;" data-i18n="product4.price">CHF 10.00 par pièce</span>
                     <a href="checkout.html" class="btn-primary" style="font-size:0.875rem;padding:0.5rem 1rem;" data-i18n="modal1.buy">Acheter maintenant</a>
@@ -752,7 +755,7 @@
                     <li style="color:#c2c9b4;font-size:0.82rem;" data-i18n="modal5.feat2">🌿 Blancheur visible dès les premières utilisations</li>
                     <li style="color:#c2c9b4;font-size:0.82rem;" data-i18n="modal5.feat3">🌿 Formule enrichie au Siwak, sans peroxyde ni abrasifs chimiques</li>
                 </ul>
-                <div style="background:#152317;border-radius:0.5rem;padding:0.65rem;font-size:0.75rem;color:#8c9380;margin-bottom:1.25rem;" data-i18n="modal1.shipping">🚚 Livraison Swiss Post · CHF 10.00 · 72h</div>
+                <div style="background:#152317;border-radius:0.5rem;padding:0.65rem;font-size:0.75rem;color:#8c9380;margin-bottom:1.25rem;" data-i18n="modal1.shipping">🚚 Frais de livraison Swiss Post · CHF 10.00 · 72h</div>
                 <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;">
                     <span style="font-family:'Newsreader',serif;font-size:1.2rem;color:#9dd75a;" data-i18n="product5.price">CHF 10.00 par pièce</span>
                     <a href="checkout.html" class="btn-primary" style="font-size:0.875rem;padding:0.5rem 1rem;" data-i18n="modal1.buy">Acheter maintenant</a>
@@ -1091,7 +1094,7 @@
                 <li style="color:#c2c9b4;font-size:0.875rem;" data-i18n="modal1.feat4">🌿 Validé par la science : hygiène reconnue par l'OMS</li>
             </ul>
             
-            <div style="background:#152317;border-radius:0.5rem;padding:0.75rem;font-size:0.75rem;color:#8c9380;margin-bottom:1.25rem;" data-i18n="modal1.shipping">🚚 Livraison Swiss Post · CHF 10.00 · 72h</div>
+            <div style="background:#152317;border-radius:0.5rem;padding:0.75rem;font-size:0.75rem;color:#8c9380;margin-bottom:1.25rem;" data-i18n="modal1.shipping">🚚 Frais de livraison Swiss Post · CHF 10.00 · 72h</div>
             <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;">
                 <div>
                     <p style="font-size:0.65rem;color:#8c9380;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.25rem;" data-i18n="modal1.priceLabel">Prix</p>
@@ -1123,8 +1126,8 @@
                 </div>
                 <p class="thickness-picker-intro" data-i18n="modal1.thickness.intro">Pas sûr de quoi choisir ? Voici comment décider selon votre usage :</p>
                 <ul class="thickness-guide">
-                    <li><strong data-i18n="modal1.thickness.thin">Fin</strong> — <span data-i18n="modal1.thickness.guide.thin">plus flexible et souple, idéal pour les gencives sensibles et un nettoyage précis entre les dents.</span></li>
-                    <li><strong data-i18n="modal1.thickness.thick">Épais</strong> — <span data-i18n="modal1.thickness.guide.thick">plus robuste et durable, recommandé pour un usage quotidien intensif et une prise en main plus ferme.</span></li>
+                    <li><strong data-i18n="modal1.thickness.thin">Fin</strong> — <span data-i18n="modal1.thickness.guide.thin">≈ 1 à 1,5 cm de diamètre, plus flexible et souple, idéal pour les gencives sensibles et un nettoyage précis entre les dents.</span></li>
+                    <li><strong data-i18n="modal1.thickness.thick">Épais</strong> — <span data-i18n="modal1.thickness.guide.thick">≈ 2 à 2,5 cm de diamètre, plus robuste et durable, recommandé pour un usage quotidien intensif et une prise en main plus ferme.</span></li>
                     <li><strong data-i18n="modal1.thickness.any">Peu importe</strong> — <span data-i18n="modal1.thickness.guide.any">laissez-nous sélectionner l'épaisseur selon nos meilleures récoltes du moment.</span></li>
                 </ul>
             </div>
@@ -1155,7 +1158,7 @@
                 <li style="color:#c2c9b4;font-size:0.875rem;" data-i18n="modal2.feat4">🌿 Récolte éthique : importé directement et de manière responsable du Togo</li>
             </ul>
             
-            <div style="background:#152317;border-radius:0.5rem;padding:0.75rem;font-size:0.75rem;color:#8c9380;margin-bottom:1.25rem;" data-i18n="modal1.shipping">🚚 Livraison Swiss Post · CHF 10.00 · 72h</div>
+            <div style="background:#152317;border-radius:0.5rem;padding:0.75rem;font-size:0.75rem;color:#8c9380;margin-bottom:1.25rem;" data-i18n="modal1.shipping">🚚 Frais de livraison Swiss Post · CHF 10.00 · 72h</div>
             <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;">
                 <div>
                     <p style="font-size:0.65rem;color:#8c9380;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.25rem;" data-i18n="modal2.priceLabel">Prix</p>
@@ -1187,8 +1190,8 @@
                 </div>
                 <p class="thickness-picker-intro" data-i18n="modal1.thickness.intro">Pas sûr de quoi choisir ? Voici comment décider selon votre usage :</p>
                 <ul class="thickness-guide">
-                    <li><strong data-i18n="modal1.thickness.thin">Fin</strong> — <span data-i18n="modal1.thickness.guide.thin">plus flexible et souple, idéal pour les gencives sensibles et un nettoyage précis entre les dents.</span></li>
-                    <li><strong data-i18n="modal1.thickness.thick">Épais</strong> — <span data-i18n="modal1.thickness.guide.thick">plus robuste et durable, recommandé pour un usage quotidien intensif et une prise en main plus ferme.</span></li>
+                    <li><strong data-i18n="modal1.thickness.thin">Fin</strong> — <span data-i18n="modal1.thickness.guide.thin">≈ 1 à 1,5 cm de diamètre, plus flexible et souple, idéal pour les gencives sensibles et un nettoyage précis entre les dents.</span></li>
+                    <li><strong data-i18n="modal1.thickness.thick">Épais</strong> — <span data-i18n="modal1.thickness.guide.thick">≈ 2 à 2,5 cm de diamètre, plus robuste et durable, recommandé pour un usage quotidien intensif et une prise en main plus ferme.</span></li>
                     <li><strong data-i18n="modal1.thickness.any">Peu importe</strong> — <span data-i18n="modal1.thickness.guide.any">laissez-nous sélectionner l'épaisseur selon nos meilleures récoltes du moment.</span></li>
                 </ul>
             </div>
@@ -1215,7 +1218,7 @@
                 <li style="color:#c2c9b4;font-size:0.875rem;" data-i18n="modal3.feat3">🌿 Portable, facile à ouvrir et à utiliser</li>
                 <li style="color:#c2c9b4;font-size:0.875rem;" data-i18n="modal3.feat4">🌿 Prolonge la durée de vie de votre Siwak naturel</li>
             </ul>
-            <div style="background:#152317;border-radius:0.5rem;padding:0.75rem;font-size:0.75rem;color:#8c9380;margin-bottom:1.25rem;" data-i18n="modal3.shipping">🚚 Livraison Swiss Post · CHF 10.00 · 72h</div>
+            <div style="background:#152317;border-radius:0.5rem;padding:0.75rem;font-size:0.75rem;color:#8c9380;margin-bottom:1.25rem;" data-i18n="modal3.shipping">🚚 Frais de livraison Swiss Post · CHF 10.00 · 72h</div>
             <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;">
                 <div>
                     <p style="font-size:0.65rem;color:#8c9380;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.25rem;" data-i18n="modal3.priceLabel">Prix</p>
@@ -1255,7 +1258,7 @@
                 <li style="color:#c2c9b4;font-size:0.875rem;" data-i18n="modal4.feat3">🌿 Haleine fraîche longue durée, sans fluor chimique agressif</li>
             </ul>
 
-            <div style="background:#152317;border-radius:0.5rem;padding:0.75rem;font-size:0.75rem;color:#8c9380;margin-bottom:1.25rem;" data-i18n="modal1.shipping">🚚 Livraison Swiss Post · CHF 10.00 · 72h</div>
+            <div style="background:#152317;border-radius:0.5rem;padding:0.75rem;font-size:0.75rem;color:#8c9380;margin-bottom:1.25rem;" data-i18n="modal1.shipping">🚚 Frais de livraison Swiss Post · CHF 10.00 · 72h</div>
             <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;">
                 <div>
                     <p style="font-size:0.65rem;color:#8c9380;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.25rem;" data-i18n="modal4.priceLabel">Prix</p>
@@ -1295,7 +1298,7 @@
                 <li style="color:#c2c9b4;font-size:0.875rem;" data-i18n="modal5.feat3">🌿 Formule enrichie au Siwak, sans peroxyde ni abrasifs chimiques</li>
             </ul>
 
-            <div style="background:#152317;border-radius:0.5rem;padding:0.75rem;font-size:0.75rem;color:#8c9380;margin-bottom:1.25rem;" data-i18n="modal1.shipping">🚚 Livraison Swiss Post · CHF 10.00 · 72h</div>
+            <div style="background:#152317;border-radius:0.5rem;padding:0.75rem;font-size:0.75rem;color:#8c9380;margin-bottom:1.25rem;" data-i18n="modal1.shipping">🚚 Frais de livraison Swiss Post · CHF 10.00 · 72h</div>
             <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;">
                 <div>
                     <p style="font-size:0.65rem;color:#8c9380;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.25rem;" data-i18n="modal5.priceLabel">Prix</p>
@@ -1377,6 +1380,29 @@
                 });
                 try { localStorage.setItem(group.key, value); } catch (e) {}
             });
+        });
+    });
+
+    /* ── WHATSAPP DES MODALES : produit + épaisseur dans le message ── */
+    var WA_PRODUCTS = {
+        'modal-1': { name: 'le Bâton de Siwak Premium', thickness: 'thickness-modal1' },
+        'modal-2': { name: 'Allo Togo', thickness: 'thickness-modal2' },
+        'modal-3': { name: "l'Étui de Siwak" },
+        'modal-4': { name: 'le Dentifrice Siwak au Clou de Girofle' },
+        'modal-5': { name: 'le Dentifrice Siwak au Charbon Actif' }
+    };
+    var WA_THICKNESS = { fin: 'Fin', epais: 'Épais', 'peu-importe': 'Peu importe' };
+    document.querySelectorAll('.modal-overlay .wa-small-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            var modal = btn.closest('.modal-overlay');
+            var product = modal && WA_PRODUCTS[modal.id];
+            if (!product) return;
+            var text = 'Bonjour SIVÀA Geneva, je suis intéressé(e) par ' + product.name;
+            if (product.thickness) {
+                var checked = document.querySelector('input[name="' + product.thickness + '"]:checked');
+                if (checked) text += ' (épaisseur : ' + WA_THICKNESS[checked.value] + ')';
+            }
+            btn.href = 'https://wa.me/41779496504?text=' + encodeURIComponent(text + '.');
         });
     });
 

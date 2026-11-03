@@ -120,6 +120,13 @@
         .upsell-label p { font-size: 0.85rem; font-weight: 500; color: var(--text); }
         .upsell-label span { font-size: 0.72rem; color: var(--text-variant); }
         .summary-divider { border: none; border-top: 1px solid var(--outline-variant); margin: 0.75rem 0; }
+        .mode-options { display: grid; gap: 0.6rem; }
+        .mode-option { display: flex; gap: 0.75rem; align-items: flex-start; padding: 0.85rem 1rem; border: 1px solid var(--outline-variant); border-radius: 0.75rem; cursor: pointer; transition: border-color .2s, background .2s; }
+        .mode-option:has(input:checked) { border-color: var(--primary); background: var(--secondary-container); }
+        .mode-option input { margin-top: 0.2rem; accent-color: var(--primary); }
+        .mode-option strong { display: block; color: var(--text); font-size: 0.9rem; }
+        .mode-option span { color: var(--text-variant); font-size: 0.75rem; }
+        .pickup-note { margin-top: 0.75rem; padding: 0.75rem 1rem; border-radius: 0.75rem; background: var(--secondary-container); color: var(--text-variant); font-size: 0.8rem; line-height: 1.6; }
         .summary-line { display: flex; justify-content: space-between; font-size: 0.82rem; color: var(--text-variant); padding: 0.4rem 0; }
         .summary-total { display: flex; justify-content: space-between; align-items: center; }
         .summary-total .lbl { font-family: 'Newsreader', serif; font-size: 1.1rem; }
@@ -176,7 +183,7 @@
 
 <div style="position: fixed; top: 4rem; left: 0; right: 0; z-index: 30; background: rgba(17, 31, 19, 0.9); border-bottom: 1px solid rgba(157,215,90,0.2); padding: 0.6rem 1rem; text-align: center; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);">
     <p style="font-size: 0.75rem; color: #d7e7d4; margin: 0; display: flex; align-items: center; justify-content: center; gap: 0.4rem; flex-wrap: wrap;">
-        <span style="color:#9dd75a; font-weight: 600;">✦ Offre :</span>
+        <span style="color:#9dd75a; font-weight: 600;">Offre :</span>
         <span>1 pce = 6 CHF</span> <span style="color:#424939;">|</span>
         <span>2 pces = 11 CHF</span> <span style="color:#424939;">|</span>
         <span>3 pces = 15 CHF</span>
@@ -193,6 +200,21 @@
     <div class="checkout-grid">
         <div class="animate-fade-up">
             <div class="form-block">
+                <p class="form-block-title" data-i18n="mode_title">Mode de réception</p>
+                <div class="mode-options">
+                    <label class="mode-option">
+                        <input type="radio" name="delivery-mode" value="livraison" checked onchange="setDeliveryMode(this.value)" />
+                        <div><strong data-i18n="mode_delivery">Livraison Swiss Post (+10 CHF)</strong><span data-i18n="mode_delivery_sub">Expédition sous 48h, livraison en 2–3 jours ouvrés</span></div>
+                    </label>
+                    <label class="mode-option">
+                        <input type="radio" name="delivery-mode" value="retrait" onchange="setDeliveryMode(this.value)" />
+                        <div><strong data-i18n="mode_pickup">Retrait en main propre à Carouge (gratuit)</strong><span data-i18n="mode_pickup_sub">Dès CHF 15.00 d'articles</span></div>
+                    </label>
+                </div>
+                <p class="pickup-note" id="pickup-note" style="display:none;" data-i18n="pickup_note">Je te contacte sur WhatsApp pour fixer le lieu et l'heure du retrait à Carouge.</p>
+            </div>
+
+            <div class="form-block">
                 <p class="form-block-title" data-i18n="form_coords">Vos coordonnées</p>
                 <div class="form-row cols-2">
                     <div class="form-group">
@@ -202,12 +224,6 @@
                     <div class="form-group">
                         <label for="nom" data-i18n="form_lastname">Nom</label>
                         <input type="text" id="nom" oninput="checkFormLock()" />
-                    </div>
-                </div>
-                <div class="form-row" style="margin-top:1rem;">
-                    <div class="form-group">
-                        <label for="email" data-i18n="form_email">Adresse e-mail</label>
-                        <input type="email" id="email" oninput="checkFormLock()" />
                     </div>
                 </div>
                 <div class="form-row" style="margin-top:1rem;">
@@ -225,7 +241,7 @@
                 </div>
             </div>
 
-            <div class="form-block">
+            <div class="form-block" id="shipping-block">
                 <p class="form-block-title" data-i18n="form_shipping">Adresse de livraison</p>
                 <div class="form-row">
                     <div class="form-group">
@@ -253,7 +269,8 @@
             </div>
 
             <div class="form-block">
-                <p class="form-block-title" data-i18n="form_payment_title">Étapes de paiement obligatoires</p>
+                <p class="form-block-title" id="payment-title" data-i18n="form_payment_title">Étapes de paiement obligatoires</p>
+                <p class="pickup-note" id="pickup-pay-note" style="display:none;margin:0 0 1rem;" data-i18n="pickup_pay_note">Paiement à l'avance conseillé (Twint ou Revolut). Vous pouvez aussi payer sur place en Twint : dans ce cas, la capture n'est pas nécessaire.</p>
                 <div class="steps-payment">
                     <div class="step-pay">
                         <div class="step-num">1</div>
@@ -287,7 +304,7 @@
                 </div>
 
                 <div class="form-group" style="margin-bottom:0.75rem;">
-                    <label data-i18n="upload_label">Capture d'écran de votre confirmation de paiement<span style="color:var(--danger);margin-left:2px;">*</span></label>
+                    <label>Capture d'écran de votre confirmation de paiement<span id="proof-required-star" style="color:var(--danger);margin-left:2px;">*</span></label>
                     <div class="upload-zone" id="uploadZone" style="margin-top:0.4rem;">
                         <input type="file" id="paymentProof" accept="image/*,.pdf" onchange="handleFileUpload(this)" />
                         <div class="upload-icon">📎</div>
@@ -299,7 +316,7 @@
                     </div>
                 </div>
 
-                <div class="warning-mandatory">
+                <div class="warning-mandatory" id="payment-warning">
                     <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="color:var(--danger);flex-shrink:0;margin-top:1px;"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
                     <p data-i18n="warning_mandatory"><strong>⚠️ Étape obligatoire :</strong> Si vous ne joignez pas votre capture d'écran de paiement, votre achat sera ignoré et aucune expédition ne sera effectuée.</p>
                 </div>
@@ -317,7 +334,7 @@
 
             <button class="btn-confirm" id="btnConfirm" disabled onclick="submitOrder()">
                 <span id="btnLabel" data-i18n="btn_confirm">Confirmer ma commande · CHF </span>
-                <span id="btnTotal">22.00</span>
+                <span id="btnTotal">21.00</span>
                 <div class="spinner" id="btnSpinner"></div>
                 <svg id="btnArrow" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </button>
@@ -330,7 +347,7 @@
                     <span data-i18n="order_success_reopen">Réouvrir WhatsApp</span>
                 </a>
             </div>
-            <p style="text-align:center;color:var(--outline);font-size:0.72rem;margin-top:0.75rem;">🔒 <span data-i18n="secure_note"><strong>Paiement sécurisé</strong> · Données protégées selon la LPD suisse</span></p>
+            <p style="text-align:center;color:var(--outline);font-size:0.72rem;margin-top:0.75rem;">🔒 <span data-i18n="secure_note"><strong>Paiement Twint ou Revolut</strong> · Données protégées selon la LPD suisse</span></p>
         </div>
 
         <div>
@@ -423,7 +440,7 @@
                     <span class="cart-item-price" id="price-charbon">CHF 0.00</span>
                 </div>
                 <div style="padding:0.875rem 0;border-bottom:1px solid var(--outline-variant);">
-                    <p style="font-size:0.68rem;color:var(--primary);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:0.5rem;" data-i18n="upsell_label">✦ Complétez votre rituel</p>
+                    <p style="font-size:0.68rem;color:var(--primary);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:0.5rem;" data-i18n="upsell_label">Complétez votre rituel</p>
                     <label class="upsell-toggle" id="upsellToggle" style="margin-bottom:0;">
                         <input type="checkbox" id="upsellCheck" onchange="toggleUpsell()" />
                         <div class="upsell-label">
@@ -449,10 +466,10 @@
                     <span id="volume-amount">− CHF 0.00</span>
                 </div>
 
-                <div class="summary-line"><span data-i18n="summary_shipping"><strong>Livraison Swiss Post</strong></span><span>CHF 10.00</span></div>
+                <div class="summary-line"><span id="shipping-label"><strong>Frais de livraison Swiss Post</strong></span><span id="shipping-amount">CHF 10.00</span></div>
                 <div class="summary-line" id="promo-line" style="display:none;color:var(--primary);"><span data-i18n="summary_promo">Code promo (Étui offert)</span><span id="promo-amount">− CHF 0.00</span></div>
                 <hr class="summary-divider" />
-                <div class="summary-total"><span class="lbl" data-i18n="summary_total">Total</span><span class="amt" id="total-display">CHF 16.00</span></div>
+                <div class="summary-total"><span class="lbl" data-i18n="summary_total">Total</span><span class="amt" id="total-display">CHF 21.00</span></div>
                 
                 <div class="trust-chips">
                     <div class="trust-chip"><svg class="icon-sm" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg><span data-i18n="trust_post">Swiss Post 48h</span></div>
@@ -538,12 +555,21 @@
         thickness_any:    { fr:'Peu importe', en:'No preference', de:'Egal' },
         upsell_name:      { fr:'Étui de Siwak supplémentaire', en:'Additional Siwak case', de:'Zusätzliches Siwak-Etui' },
         whatsapp_tip:    { fr:'Une question ? Je réponds vite 💬', en:'A question? I reply fast 💬', de:'Eine Frage? Ich antworte schnell 💬' },
-        lock_min:        { fr:'Montant minimum de commande : CHF {min}', en:'Minimum order amount: CHF {min}', de:'Mindestbestellwert: CHF {min}' },
         error_npa:       { fr:'Code postal suisse invalide (4 chiffres, ex. 1205)', en:'Invalid Swiss postal code (4 digits, e.g. 1205)', de:'Ungültige Schweizer Postleitzahl (4 Ziffern, z.B. 1205)' },
         error_phone:     { fr:"Numéro invalide (9 chiffres attendus après l'indicatif)", en:'Invalid number (9 digits expected after the prefix)', de:'Ungültige Nummer (9 Ziffern nach der Vorwahl erwartet)' },
         order_success_title: { fr:'Commande préparée !', en:'Order ready!', de:'Bestellung vorbereitet!' },
         order_success_body:  { fr:"WhatsApp s'est ouvert dans un nouvel onglet avec votre commande pré-remplie. N'oubliez pas de joindre votre preuve de paiement directement dans la conversation avant d'envoyer le message.", en:'WhatsApp opened in a new tab with your order pre-filled. Don\'t forget to attach your payment proof directly in the conversation before sending the message.', de:'WhatsApp wurde in einem neuen Tab mit Ihrer vorausgefüllten Bestellung geöffnet. Vergessen Sie nicht, Ihren Zahlungsbeleg direkt im Chat anzuhängen, bevor Sie die Nachricht senden.' },
         order_success_reopen: { fr:'Réouvrir WhatsApp', en:'Reopen WhatsApp', de:'WhatsApp erneut öffnen' },
+        mode_title:        { fr:'Mode de réception', en:'How to receive your order', de:'Erhalt der Bestellung' },
+        mode_delivery:     { fr:'Livraison Swiss Post (+10 CHF)', en:'Swiss Post delivery (+10 CHF)', de:'Lieferung Swiss Post (+10 CHF)' },
+        mode_delivery_sub: { fr:'Expédition sous 48h, livraison en 2–3 jours ouvrés', en:'Shipped within 48h, delivered in 2–3 business days', de:'Versand innerhalb von 48 Std., Lieferung in 2–3 Werktagen' },
+        mode_pickup:       { fr:'Retrait en main propre à Carouge (gratuit)', en:'Hand pickup in Carouge (free)', de:'Persönliche Abholung in Carouge (kostenlos)' },
+        mode_pickup_sub:   { fr:"Dès CHF 15.00 d'articles", en:'From CHF 15.00 of items', de:'Ab CHF 15.00 (Artikel)' },
+        pickup_note:       { fr:"Je te contacte sur WhatsApp pour fixer le lieu et l'heure du retrait à Carouge.", en:"I'll contact you on WhatsApp to set the place and time for pickup in Carouge.", de:'Ich kontaktiere dich per WhatsApp, um Ort und Zeit der Abholung in Carouge festzulegen.' },
+        pickup_pay_note:   { fr:"Paiement à l'avance conseillé (Twint ou Revolut). Vous pouvez aussi payer sur place en Twint : dans ce cas, la capture n'est pas nécessaire.", en:'Paying in advance is recommended (Twint or Revolut). You can also pay on the spot with Twint: in that case, no screenshot is needed.', de:'Vorauszahlung empfohlen (Twint oder Revolut). Sie können auch vor Ort mit Twint bezahlen: dann ist kein Screenshot nötig.' },
+        shipping_label:    { fr:'<strong>Frais de livraison Swiss Post</strong>', en:'<strong>Swiss Post shipping fee</strong>', de:'<strong>Versandkosten Swiss Post</strong>' },
+        pickup_label:      { fr:'<strong>Retrait à Carouge</strong>', en:'<strong>Pickup in Carouge</strong>', de:'<strong>Abholung in Carouge</strong>' },
+        lock_min:          { fr:"Montant minimum : CHF {min} d'articles", en:'Minimum: CHF {min} of items', de:'Mindestbetrag: CHF {min} (Artikel)' },
     };
 
     let LANG = 'fr';
@@ -557,7 +583,8 @@
             const key = el.getAttribute('data-i18n');
             if (T[key] && T[key][lang] !== undefined) el.innerHTML = T[key][lang];
         });
-        refreshBtnConfirm();
+        refreshBtnConfirm(currentTotal);
+        updateShippingLabel();
         document.documentElement.lang = lang;
     }
 
@@ -583,8 +610,29 @@
     }
 
     const PRICE = { allotogo: 6, siwak: 6, upsell: 6, girofle: 10, charbon: 10 };
-    const SHIPPING = 10;
-    const MIN_ORDER = 30;
+    const SHIPPING_FEE = 10;
+    const MIN_ORDER = 15; // montant minimum d'articles (hors frais de livraison)
+    let deliveryMode = 'livraison';
+    let itemsTotal = 0;
+
+    function setDeliveryMode(mode) {
+        deliveryMode = mode;
+        const pickup = mode === 'retrait';
+        document.getElementById('shipping-block').style.display = pickup ? 'none' : '';
+        document.getElementById('pickup-note').style.display = pickup ? 'block' : 'none';
+        document.getElementById('pickup-pay-note').style.display = pickup ? 'block' : 'none';
+        document.getElementById('payment-warning').style.display = pickup ? 'none' : '';
+        document.getElementById('proof-required-star').style.display = pickup ? 'none' : '';
+        updateShippingLabel();
+        recalc();
+    }
+
+    function updateShippingLabel() {
+        const pickup = deliveryMode === 'retrait';
+        const key = pickup ? 'pickup_label' : 'shipping_label';
+        document.getElementById('shipping-label').innerHTML = T[key][LANG] || T[key].fr;
+        document.getElementById('shipping-amount').textContent = pickup ? 'CHF 0.00' : 'CHF ' + SHIPPING_FEE.toFixed(2);
+    }
     const QTY   = { allotogo: 1, siwak: 1, upsell: 0, girofle: 0, charbon: 0 };
     
     let isPromoActive = false;
@@ -661,7 +709,8 @@
 
         const dentifriceSub = (QTY.girofle * PRICE.girofle) + (QTY.charbon * PRICE.charbon);
 
-        currentTotal = finalItemsPrice + upsellPrice + dentifriceSub + SHIPPING;
+        itemsTotal = finalItemsPrice + upsellPrice + dentifriceSub;
+        currentTotal = itemsTotal + (deliveryMode === 'retrait' ? 0 : SHIPPING_FEE);
 
         document.getElementById('subtotal').textContent = 'CHF ' + (rawSub + dentifriceSub).toFixed(2);
 
@@ -686,12 +735,15 @@
         checkFormLock();
     }
 
-    function refreshBtnConfirm(totalVal) {
+    function refreshBtnConfirm(totalVal = currentTotal) {
         document.getElementById('btnLabel').innerHTML = T.btn_confirm ? T.btn_confirm[LANG] : 'Confirmer ma commande · CHF ';
         document.getElementById('btnTotal').textContent = totalVal.toFixed(2);
     }
 
-    const REQUIRED = ['prenom','nom','email','adresse','npa','ville'];
+    const REQUIRED_BASE = ['prenom','nom'];
+    const REQUIRED_ADDRESS = ['adresse','npa','ville'];
+    const requiredFields = () => deliveryMode === 'retrait' ? REQUIRED_BASE : REQUIRED_BASE.concat(REQUIRED_ADDRESS);
+    const proofRequired = () => deliveryMode !== 'retrait';
     let fileReady = false;
 
     function isValidSwissNpa(value) {
@@ -723,11 +775,11 @@
     }
     
     function checkFormLock() {
-        const allFilled = REQUIRED.every(id => { const el = document.getElementById(id); return el && el.value.trim().length > 0; });
+        const allFilled = requiredFields().every(id => { const el = document.getElementById(id); return el && el.value.trim().length > 0; });
 
         const npaEl = document.getElementById('npa');
         const npaFilled = npaEl.value.trim().length > 0;
-        const npaValid = !npaFilled || isValidSwissNpa(npaEl.value);
+        const npaValid = deliveryMode === 'retrait' || !npaFilled || isValidSwissNpa(npaEl.value);
         npaEl.classList.toggle('input-invalid', npaFilled && !npaValid);
         document.getElementById('npa-error').classList.toggle('show', npaFilled && !npaValid);
 
@@ -737,8 +789,8 @@
         phoneEl.classList.toggle('input-invalid', phoneFilled && !phoneValid);
         document.getElementById('phone-error').classList.toggle('show', phoneFilled && !phoneValid);
 
-        const meetsMinimum = currentTotal >= MIN_ORDER;
-        const ready = allFilled && fileReady && meetsMinimum && npaValid && phoneValid;
+        const meetsMinimum = itemsTotal >= MIN_ORDER;
+        const ready = allFilled && (fileReady || !proofRequired()) && meetsMinimum && npaValid && phoneValid;
         const btn = document.getElementById('btnConfirm');
         const icon = document.getElementById('lockIcon');
         const msg = document.getElementById('lockMsg');
@@ -766,12 +818,11 @@
     function submitOrder() {
         const btn = document.getElementById('btnConfirm');
         if (btn.disabled) return;
-        if (!fileReady) { showToast('Remplissez tous les champs', 'error'); return; }
-        if (currentTotal < MIN_ORDER) { showToast('❌ Montant minimum : CHF ' + MIN_ORDER.toFixed(2), 'error'); return; }
+        if (!fileReady && proofRequired()) { showToast('Remplissez tous les champs', 'error'); return; }
+        if (itemsTotal < MIN_ORDER) { showToast("❌ Montant minimum : CHF " + MIN_ORDER.toFixed(2) + " d'articles", 'error'); return; }
 
         const prenom = document.getElementById('prenom').value.trim();
         const nom = document.getElementById('nom').value.trim();
-        const email = document.getElementById('email').value.trim();
         const prefix = document.getElementById('phone-prefix').value;
         const phoneInput = document.getElementById('phone').value.trim();
         const phone = phoneInput ? prefix + ' ' + phoneInput : 'N/A';
@@ -780,8 +831,7 @@
         const ville = document.getElementById('ville').value.trim();
         const pays = document.getElementById('pays').value;
 
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showToast('❌ Adresse email invalide', 'error'); return; }
-        if (!isValidSwissNpa(document.getElementById('npa').value)) { showToast('❌ Code postal suisse invalide', 'error'); return; }
+        if (deliveryMode !== 'retrait' && !isValidSwissNpa(document.getElementById('npa').value)) { showToast('❌ Code postal suisse invalide', 'error'); return; }
         const phoneCheckVal = document.getElementById('phone').value.trim();
         if (phoneCheckVal && !isValidPhoneNumber(phoneCheckVal)) { showToast('❌ Numéro de téléphone invalide', 'error'); return; }
 
@@ -796,7 +846,10 @@
             QTY.charbon > 0 ? `Dentifrice Siwak Charbon Actif ×${QTY.charbon}` : null,
         ].filter(Boolean).join('\n');
 
-        const shipping = `${adresse}, ${npa} ${ville}, ${pays}`;
+        const reception = deliveryMode === 'retrait'
+            ? '🤝 Retrait en main propre à Carouge (à fixer sur WhatsApp)'
+            : `📍 Livraison Swiss Post : ${adresse}, ${npa} ${ville}, ${pays}`;
+        const paymentLine = fileReady ? '💳 Paiement : capture jointe' : '💳 Paiement : sur place (Twint)';
         const dateStr = new Date().toLocaleString('fr-CH');
 
         const thicknessMap = { fin: 'Fin', epais: 'Épais', 'peu-importe': 'Peu importe' };
@@ -809,18 +862,19 @@
         const message =
 `🌿 Nouvelle commande SIVÀA — ${orderId}
 
-👤 ${prenom} ${nom}
-📧 ${email}
-📱 ${phone}
+Prénom : ${prenom}
+Nom : ${nom}
+Téléphone : ${phone}
 
 📦 Articles :
 ${items}${thicknessLine}
 
-📍 Livraison : ${shipping}
+${reception}
 
 💳 TOTAL : CHF ${currentTotal.toFixed(2)}
+${paymentLine}
 
-🕐 ${dateStr}`;
+${dateStr}`;
 
         btn.disabled = true; document.getElementById('btnSpinner').style.display = 'inline-block'; document.getElementById('btnArrow').style.display = 'none';
         showToast(T.t_sending ? T.t_sending[LANG] : 'Envoi...', 'info');

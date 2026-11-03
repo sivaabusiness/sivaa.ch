@@ -28,9 +28,9 @@ const translations = {
         "hero.subtitle": "La brosse à dents naturelle validée par la science. Ce bois pour soins dentaires réduit la plaque, purifie l'haleine et blanchit les dents de manière naturelle. Recommandé par l'OMS. Livraison en 72h à travers toute la Suisse.",
         "hero.cta.order": "Commander maintenant →",
         "hero.cta.discover": "Découvrir le Siwak",
-        "hero.trust.shipping": "🚚 Swiss Post 72h",
-        "hero.trust.natural": "🌿 100% Naturel",
-        "hero.trust.ssl": "🔒 SSL Sécurisé",
+        "hero.trust.shipping": "🚚 Expédition Swiss Post 72h",
+        "hero.trust.natural": "🌿 100 % Naturel",
+        "hero.trust.ssl": "🔒 Paiement Twint ou Revolut",
         "hero.badge.float": "⭐ 4.9/5 — Reconnu par l'OMS",
         "hero.image.alt": "Bâton de Siwak premium SIVÀA Geneva, brosse à dents naturelle suisse",
 
@@ -64,7 +64,7 @@ const translations = {
         "modal3.feat2": "🌿 Stockage anti-poussière et gain de place",
         "modal3.feat3": "🌿 Portable, facile à ouvrir et à utiliser",
         "modal3.feat4": "🌿 Prolonge la durée de vie de votre Siwak naturel",
-        "modal3.shipping": "🚚 Livraison Swiss Post · CHF 10.00 · 72h",
+        "modal3.shipping": "🚚 Frais de livraison Swiss Post · CHF 10.00 · 72h",
         "modal3.priceLabel": "Prix",
         "modal3.buy": "🛍 Acheter maintenant",
         "modal3.image.alt": "Étui de transport pour Siwak naturel",
@@ -81,7 +81,7 @@ const translations = {
         "modal4.feat1": "🌿 Protection anticavité renforcée par les extraits de Siwak",
         "modal4.feat2": "🌿 Clou de girofle : action apaisante et antibactérienne naturelle",
         "modal4.feat3": "🌿 Haleine fraîche longue durée, sans fluor chimique agressif",
-        "modal4.shipping": "🚚 Livraison Swiss Post · CHF 10.00 · 72h",
+        "modal4.shipping": "🚚 Frais de livraison Swiss Post · CHF 10.00 · 72h",
         "modal4.priceLabel": "Prix",
         "modal4.buy": "🛍 Acheter maintenant",
 
@@ -97,7 +97,7 @@ const translations = {
         "modal5.feat1": "🌿 Charbon actif : absorbe les taches et purifie en profondeur",
         "modal5.feat2": "🌿 Blancheur visible dès les premières utilisations",
         "modal5.feat3": "🌿 Formule enrichie au Siwak, sans peroxyde ni abrasifs chimiques",
-        "modal5.shipping": "🚚 Livraison Swiss Post · CHF 10.00 · 72h",
+        "modal5.shipping": "🚚 Frais de livraison Swiss Post · CHF 10.00 · 72h",
         "modal5.priceLabel": "Prix",
         "modal5.buy": "🛍 Acheter maintenant",
 
@@ -108,17 +108,18 @@ const translations = {
         "modal1.feat2": "🌿 Antibactérien prouvé contre la plaque",
         "modal1.feat3": "🌿 Blanchiment naturel sans abrasion",
         "modal1.feat4": "🌿 Zéro plastique · 100% biodégradable",
-        "modal1.shipping": "🚚 Livraison Swiss Post · CHF 10.00 · 72h",
+        "modal1.shipping": "🚚 Frais de livraison Swiss Post · CHF 10.00 · 72h",
         "modal1.priceLabel": "Prix",
         "modal1.buy": "🛍 Acheter maintenant",
 
         "modal1.thickness.label": "Épaisseur du bâton",
+        "thickness.sizes": "Fin ≈ 1–1,5 cm · Épais ≈ 2–2,5 cm de diamètre",
         "modal1.thickness.thin": "Fin",
         "modal1.thickness.thick": "Épais",
         "modal1.thickness.any": "Peu importe",
         "modal1.thickness.intro": "Pas sûr de quoi choisir ? Voici comment décider selon votre usage :",
-        "modal1.thickness.guide.thin": "plus flexible et souple, idéal pour les gencives sensibles et un nettoyage précis entre les dents.",
-        "modal1.thickness.guide.thick": "plus robuste et durable, recommandé pour un usage quotidien intensif et une prise en main plus ferme.",
+        "modal1.thickness.guide.thin": "≈ 1 à 1,5 cm de diamètre, plus flexible et souple, idéal pour les gencives sensibles et un nettoyage précis entre les dents.",
+        "modal1.thickness.guide.thick": "≈ 2 à 2,5 cm de diamètre, plus robuste et durable, recommandé pour un usage quotidien intensif et une prise en main plus ferme.",
         "modal1.thickness.guide.any": "laissez-nous sélectionner l'épaisseur selon nos meilleures récoltes du moment.",
 
         /* ── INDEX : POPUP PRODUIT 2 ── */
@@ -169,7 +170,7 @@ const translations = {
         "faq.q7": "Je souhaite choisir si mon bâton à mâcher sera fin ou épais, comment faire ?",
         "faq.a7": "Ne vous inquiétez pas, en ajoutant votre message à votre commande je vous sélectionnerai le bâton à mâcher le plus adapté à vos envies.",
         "faq.payment.q": "Quels modes de paiement acceptez-vous ?",
-        "faq.payment.a": "J'accepte Twint, Revolut et virement bancaire. Tous les paiements sont chiffrés de bout en bout. Minimum CHF 30.00 pour livraison.",
+        "faq.payment.a": "J'accepte Twint, Revolut et virement bancaire. Tous les paiements sont chiffrés de bout en bout. Minimum CHF 15.00 d'articles.",
         "faq.noQuestion": "Votre question n'est pas listée ?",
         "faq.contactBtn": "💬 Contacter mon atelier",
 
@@ -322,10 +323,10 @@ const translations = {
         "contact.placeholder.email": "votre@email.ch",
         "contact.placeholder.order": "SIVAA-2026-XXXXX",
         "contact.placeholder.message": "Décrivez votre question ou situation…",
-        "contact.send": "Envoyer le message",
+        "contact.send": "Envoyer sur WhatsApp",
         "contact.required": "* champs obligatoires",
-        "contact.success.title": "Message envoyé !",
-        "contact.success.subtitle": "Je vous réponds dans les 2–4 heures en journée.",
+        "contact.success.title": "WhatsApp s'est ouvert !",
+        "contact.success.subtitle": "Envoyez le message pré-rempli dans WhatsApp, je vous réponds dans les 2–4 heures en journée.",
         "contact.success.again": "Envoyer un autre message",
         "contact.wa.title": "WhatsApp",
         "contact.wa.desc": "La façon la plus rapide. Réponse en quelques minutes.",
@@ -391,9 +392,9 @@ const translations = {
         "hero.subtitle": "The natural toothbrush the world has used for 3,500 years, selected with Swiss precision. Antibacterial, whitening, biodegradable. 72h delivery throughout Switzerland.",
         "hero.cta.order": "Order now →",
         "hero.cta.discover": "Discover Siwak",
-        "hero.trust.shipping": "🚚 Swiss Post 72h",
+        "hero.trust.shipping": "🚚 Swiss Post shipping 72h",
         "hero.trust.natural": "🌿 100% Natural",
-        "hero.trust.ssl": "🔒 SSL Secured",
+        "hero.trust.ssl": "🔒 Twint or Revolut payment",
         "hero.badge.float": "⭐ 4.9/5 — Recognized by WHO",
         "hero.image.alt": "Premium SIVÀA Geneva Siwak stick, Swiss natural toothbrush",
 
@@ -434,7 +435,7 @@ const translations = {
         "modal4.feat1": "🌿 Enhanced cavity protection from Siwak extracts",
         "modal4.feat2": "🌿 Clove: natural soothing and antibacterial action",
         "modal4.feat3": "🌿 Long-lasting fresh breath, without harsh chemical fluoride",
-        "modal4.shipping": "🚚 Swiss Post delivery · CHF 10.00 · 72h",
+        "modal4.shipping": "🚚 Swiss Post shipping fee · CHF 10.00 · 72h",
         "modal4.priceLabel": "Price",
         "modal4.buy": "🛍 Buy now",
 
@@ -450,7 +451,7 @@ const translations = {
         "modal5.feat1": "🌿 Activated charcoal: absorbs stains and purifies deeply",
         "modal5.feat2": "🌿 Visible whiteness from the very first uses",
         "modal5.feat3": "🌿 Siwak-enriched formula, without peroxide or chemical abrasives",
-        "modal5.shipping": "🚚 Swiss Post delivery · CHF 10.00 · 72h",
+        "modal5.shipping": "🚚 Swiss Post shipping fee · CHF 10.00 · 72h",
         "modal5.priceLabel": "Price",
         "modal5.buy": "🛍 Buy now",
 
@@ -459,7 +460,7 @@ const translations = {
         "modal3.feat2": "🌿 Dust-proof storage and space-saving",
         "modal3.feat3": "🌿 Portable, easy to open and use",
         "modal3.feat4": "🌿 Prolongs the lifespan of your natural Siwak",
-        "modal3.shipping": "🚚 Swiss Post delivery · CHF 10.00 · 72h",
+        "modal3.shipping": "🚚 Swiss Post shipping fee · CHF 10.00 · 72h",
         "modal3.priceLabel": "Price",
         "modal3.buy": "🛍 Buy now",
         "modal3.image.alt": "Travel case for natural Siwak",
@@ -471,17 +472,18 @@ const translations = {
         "modal1.feat2": "🌿 Proven antibacterial against plaque",
         "modal1.feat3": "🌿 Natural whitening without abrasion",
         "modal1.feat4": "🌿 Zero plastic · 100% biodegradable",
-        "modal1.shipping": "🚚 Swiss Post delivery · CHF 10.00 · 72h",
+        "modal1.shipping": "🚚 Swiss Post shipping fee · CHF 10.00 · 72h",
         "modal1.priceLabel": "Price",
         "modal1.buy": "🛍 Buy now",
 
         "modal1.thickness.label": "Stick thickness",
+        "thickness.sizes": "Thin ≈ 1–1.5 cm · Thick ≈ 2–2.5 cm in diameter",
         "modal1.thickness.thin": "Thin",
         "modal1.thickness.thick": "Thick",
         "modal1.thickness.any": "No preference",
         "modal1.thickness.intro": "Not sure what to choose? Here's how to decide based on your use:",
-        "modal1.thickness.guide.thin": "more flexible and supple, ideal for sensitive gums and precise cleaning between teeth.",
-        "modal1.thickness.guide.thick": "more robust and durable, recommended for intensive daily use and a firmer grip.",
+        "modal1.thickness.guide.thin": "≈ 1 to 1.5 cm in diameter, more flexible and supple, ideal for sensitive gums and precise cleaning between teeth.",
+        "modal1.thickness.guide.thick": "≈ 2 to 2.5 cm in diameter, more robust and durable, recommended for intensive daily use and a firmer grip.",
         "modal1.thickness.guide.any": "let us select the thickness from our best current harvest.",
 
         /* ── INDEX : POPUP 2 ── */
@@ -533,7 +535,7 @@ const translations = {
         "faq.q7": "I'd like to choose whether my chewing stick is thin or thick, how?",
         "faq.a7": "Don't worry, by adding your message to your order I will select the chewing stick most suited to your preferences.",
         "faq.payment.q": "What payment methods do you accept?",
-        "faq.payment.a": "I accept Twint, Revolut, and bank transfer. All payments are end-to-end encrypted. Minimum CHF 30.00 for delivery.",
+        "faq.payment.a": "I accept Twint, Revolut, and bank transfer. All payments are end-to-end encrypted. Minimum CHF 15.00 of items.",
         "faq.noQuestion": "Your question isn't listed?",
         "faq.contactBtn": "💬 Contact my workshop",
 
@@ -668,10 +670,10 @@ const translations = {
         "contact.placeholder.email": "your@email.com",
         "contact.placeholder.order": "SIVAA-2026-XXXXX",
         "contact.placeholder.message": "Describe your question or situation…",
-        "contact.send": "Send message",
+        "contact.send": "Send via WhatsApp",
         "contact.required": "* required fields",
-        "contact.success.title": "Message sent!",
-        "contact.success.subtitle": "I reply within 2–4 hours during the day.",
+        "contact.success.title": "WhatsApp has opened!",
+        "contact.success.subtitle": "Send the pre-filled message in WhatsApp, I reply within 2–4 hours during the day.",
         "contact.success.again": "Send another message",
         "contact.wa.title": "WhatsApp",
         "contact.wa.desc": "The fastest way. Reply in a few minutes.",
@@ -737,9 +739,9 @@ const translations = {
         "hero.subtitle": "Die natürliche Zahnbürste, die die Welt seit 7000 Jahren verwendet, ausgewählt mit Schweizer Präzision. Antibakteriell, aufhellend, biologisch abbaubar. Lieferung innert 72h in der ganzen Schweiz.",
         "hero.cta.order": "Jetzt bestellen →",
         "hero.cta.discover": "Siwak entdecken",
-        "hero.trust.shipping": "🚚 Swiss Post 72h",
-        "hero.trust.natural": "🌿 100% Natürlich",
-        "hero.trust.ssl": "🔒 SSL-Gesichert",
+        "hero.trust.shipping": "🚚 Versand Swiss Post 72h",
+        "hero.trust.natural": "🌿 100 % Natürlich",
+        "hero.trust.ssl": "🔒 Zahlung per Twint oder Revolut",
         "hero.badge.float": "⭐ 4.9/5 — Von der WHO anerkannt",
         "hero.image.alt": "Premium SIVÀA Geneva Siwak-Stab, Schweizer natürliche Zahnbürste",
 
@@ -780,7 +782,7 @@ const translations = {
         "modal4.feat1": "🌿 Verstärkter Kariesschutz durch Siwak-Extrakte",
         "modal4.feat2": "🌿 Gewürznelke: natürliche beruhigende und antibakterielle Wirkung",
         "modal4.feat3": "🌿 Lang anhaltender frischer Atem, ohne aggressives chemisches Fluorid",
-        "modal4.shipping": "🚚 Swiss Post Lieferung · CHF 10.00 · 72h",
+        "modal4.shipping": "🚚 Versandkosten Swiss Post · CHF 10.00 · 72h",
         "modal4.priceLabel": "Preis",
         "modal4.buy": "🛍 Jetzt kaufen",
 
@@ -796,7 +798,7 @@ const translations = {
         "modal5.feat1": "🌿 Aktivkohle: absorbiert Flecken und reinigt tiefgehend",
         "modal5.feat2": "🌿 Sichtbare Weiße bereits ab den ersten Anwendungen",
         "modal5.feat3": "🌿 Mit Siwak angereicherte Formel, ohne Peroxid oder chemische Schleifmittel",
-        "modal5.shipping": "🚚 Swiss Post Lieferung · CHF 10.00 · 72h",
+        "modal5.shipping": "🚚 Versandkosten Swiss Post · CHF 10.00 · 72h",
         "modal5.priceLabel": "Preis",
         "modal5.buy": "🛍 Jetzt kaufen",
 
@@ -805,7 +807,7 @@ const translations = {
         "modal3.feat2": "🌿 Staubdichte Aufbewahrung und platzsparend",
         "modal3.feat3": "🌿 Tragbar, einfach zu öffnen und zu verwenden",
         "modal3.feat4": "🌿 Verlängert die Lebensdauer Ihres natürlichen Siwak",
-        "modal3.shipping": "🚚 Swiss Post Lieferung · CHF 10.00 · 72h",
+        "modal3.shipping": "🚚 Versandkosten Swiss Post · CHF 10.00 · 72h",
         "modal3.priceLabel": "Preis",
         "modal3.buy": "🛍 Jetzt kaufen",
         "modal3.image.alt": "Reiseetui für natürlichen Siwak",
@@ -817,17 +819,18 @@ const translations = {
         "modal1.feat2": "🌿 Nachweislich antibakteriell gegen Plaque",
         "modal1.feat3": "🌿 Natürliche Aufhellung ohne Abrieb",
         "modal1.feat4": "🌿 Null Plastik · 100% biologisch abbaubar",
-        "modal1.shipping": "🚚 Swiss Post Lieferung · CHF 10.00 · 72h",
+        "modal1.shipping": "🚚 Versandkosten Swiss Post · CHF 10.00 · 72h",
         "modal1.priceLabel": "Preis",
         "modal1.buy": "🛍 Jetzt kaufen",
 
         "modal1.thickness.label": "Stärke des Stäbchens",
+        "thickness.sizes": "Dünn ≈ 1–1,5 cm · Dick ≈ 2–2,5 cm Durchmesser",
         "modal1.thickness.thin": "Dünn",
         "modal1.thickness.thick": "Dick",
         "modal1.thickness.any": "Egal",
         "modal1.thickness.intro": "Nicht sicher, was Sie wählen sollen? So entscheiden Sie je nach Verwendung:",
-        "modal1.thickness.guide.thin": "flexibler und geschmeidiger, ideal für empfindliches Zahnfleisch und eine präzise Reinigung zwischen den Zähnen.",
-        "modal1.thickness.guide.thick": "robuster und langlebiger, empfohlen für den intensiven täglichen Gebrauch und einen festeren Griff.",
+        "modal1.thickness.guide.thin": "≈ 1 bis 1,5 cm Durchmesser, flexibler und geschmeidiger, ideal für empfindliches Zahnfleisch und eine präzise Reinigung zwischen den Zähnen.",
+        "modal1.thickness.guide.thick": "≈ 2 bis 2,5 cm Durchmesser, robuster und langlebiger, empfohlen für den intensiven täglichen Gebrauch und einen festeren Griff.",
         "modal1.thickness.guide.any": "lassen Sie uns die Stärke aus unserer besten aktuellen Ernte auswählen.",
 
         /* ── POPUP 2 ── */
@@ -879,7 +882,7 @@ const translations = {
         "faq.q7": "Ich möchte wählen, ob mein Kaustab dünn oder dick ist. Wie?",
         "faq.a7": "Keine Sorge, indem Sie Ihrer Bestellung eine Nachricht hinzufügen, wähle ich den Kaustab aus, der am besten zu Ihren Wünschen passt.",
         "faq.payment.q": "Welche Zahlungsmethoden akzeptieren Sie?",
-        "faq.payment.a": "Ich akzeptiere Twint, Revolut und Banküberweisung. Alle Zahlungen sind Ende-zu-Ende verschlüsselt. Mindestbestellwert CHF 30.00 für die Lieferung.",
+        "faq.payment.a": "Ich akzeptiere Twint, Revolut und Banküberweisung. Alle Zahlungen sind Ende-zu-Ende verschlüsselt. Mindestbestellwert CHF 15.00 (Artikel).",
         "faq.noQuestion": "Ihre Frage ist nicht aufgeführt?",
         "faq.contactBtn": "💬 Meine Werkstatt kontaktieren",
 
@@ -1014,10 +1017,10 @@ const translations = {
         "contact.placeholder.email": "ihre@email.ch",
         "contact.placeholder.order": "SIVAA-2026-XXXXX",
         "contact.placeholder.message": "Beschreiben Sie Ihre Frage oder Situation…",
-        "contact.send": "Nachricht senden",
+        "contact.send": "Per WhatsApp senden",
         "contact.required": "* Pflichtfelder",
-        "contact.success.title": "Nachricht gesendet!",
-        "contact.success.subtitle": "Ich antworte innerhalb von 2–4 Stunden während des Tages.",
+        "contact.success.title": "WhatsApp wurde geöffnet!",
+        "contact.success.subtitle": "Senden Sie die vorausgefüllte Nachricht in WhatsApp, ich antworte innerhalb von 2–4 Stunden während des Tages.",
         "contact.success.again": "Weitere Nachricht senden",
         "contact.wa.title": "WhatsApp",
         "contact.wa.desc": "Der schnellste Weg. Antwort in wenigen Minuten.",
@@ -1308,9 +1311,6 @@ function injectBurgerMenu() {
       <a href="blog.html"    class="sivaa-bnav-link" onclick="closeBurger()"><span class="sivaa-bnav-dot"></span><span data-i18n="nav.journal">Journal</span></a>
       <a href="contact.html" class="sivaa-bnav-link" onclick="closeBurger()"><span class="sivaa-bnav-dot"></span><span data-i18n="nav.contact">Contact</span></a>
     </nav>
-    <a href="checkout.html" class="sivaa-bcta" onclick="closeBurger()">
-      <span data-i18n="nav.order">Commander</span> →
-    </a>
     <div class="sivaa-blang">
       <p class="sivaa-blang-label">Langue / Language / Sprache</p>
       <div class="sivaa-blang-row">
