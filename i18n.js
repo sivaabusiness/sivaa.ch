@@ -25,10 +25,10 @@ const translations = {
         "hero.title.part2": "Siwak",
         "hero.title.part3": "à",
         "hero.title.part4": "Genève",
-        "hero.subtitle": "La brosse à dents naturelle validée par la science. Ce bois pour soins dentaires réduit la plaque, purifie l'haleine et blanchit les dents de manière naturelle. Recommandé par l'OMS. Livraison en 72h à travers toute la Suisse.",
+        "hero.subtitle": "La brosse à dents naturelle validée par la science. Ce bois pour soins dentaires réduit la plaque, purifie l'haleine et blanchit les dents de manière naturelle. Recommandé par l'OMS. Livraison dans toute la Suisse : expédition sous 48h + 2–3 jours.",
         "hero.cta.order": "Commander maintenant →",
         "hero.cta.discover": "Découvrir le Siwak",
-        "hero.trust.shipping": "🚚 Expédition Swiss Post 72h",
+        "hero.trust.shipping": "🚚 Expédition sous 48h + 2–3 jours",
         "hero.trust.natural": "🌿 100 % Naturel",
         "hero.trust.ssl": "🔒 Paiement Twint ou Revolut",
         "hero.badge.float": "⭐ 4.9/5 — Reconnu par l'OMS",
@@ -64,7 +64,7 @@ const translations = {
         "modal3.feat2": "🌿 Stockage anti-poussière et gain de place",
         "modal3.feat3": "🌿 Portable, facile à ouvrir et à utiliser",
         "modal3.feat4": "🌿 Prolonge la durée de vie de votre Siwak naturel",
-        "modal3.shipping": "🚚 Frais de livraison Swiss Post · CHF 10.00 · 72h",
+        "modal3.shipping": "🚚 Frais de livraison Swiss Post · CHF 10.00 · expédition sous 48h + 2–3 jours",
         "modal3.priceLabel": "Prix",
         "modal3.buy": "🛍 Acheter maintenant",
         "modal3.image.alt": "Étui de transport pour Siwak naturel",
@@ -81,7 +81,7 @@ const translations = {
         "modal4.feat1": "🌿 Protection anticavité renforcée par les extraits de Siwak",
         "modal4.feat2": "🌿 Clou de girofle : action apaisante et antibactérienne naturelle",
         "modal4.feat3": "🌿 Haleine fraîche longue durée, sans fluor chimique agressif",
-        "modal4.shipping": "🚚 Frais de livraison Swiss Post · CHF 10.00 · 72h",
+        "modal4.shipping": "🚚 Frais de livraison Swiss Post · CHF 10.00 · expédition sous 48h + 2–3 jours",
         "modal4.priceLabel": "Prix",
         "modal4.buy": "🛍 Acheter maintenant",
 
@@ -97,7 +97,7 @@ const translations = {
         "modal5.feat1": "🌿 Charbon actif : absorbe les taches et purifie en profondeur",
         "modal5.feat2": "🌿 Blancheur visible dès les premières utilisations",
         "modal5.feat3": "🌿 Formule enrichie au Siwak, sans peroxyde ni abrasifs chimiques",
-        "modal5.shipping": "🚚 Frais de livraison Swiss Post · CHF 10.00 · 72h",
+        "modal5.shipping": "🚚 Frais de livraison Swiss Post · CHF 10.00 · expédition sous 48h + 2–3 jours",
         "modal5.priceLabel": "Prix",
         "modal5.buy": "🛍 Acheter maintenant",
 
@@ -108,7 +108,7 @@ const translations = {
         "modal1.feat2": "🌿 Antibactérien prouvé contre la plaque",
         "modal1.feat3": "🌿 Blanchiment naturel sans abrasion",
         "modal1.feat4": "🌿 Zéro plastique · 100% biodégradable",
-        "modal1.shipping": "🚚 Frais de livraison Swiss Post · CHF 10.00 · 72h",
+        "modal1.shipping": "🚚 Frais de livraison Swiss Post · CHF 10.00 · expédition sous 48h + 2–3 jours",
         "modal1.priceLabel": "Prix",
         "modal1.buy": "🛍 Acheter maintenant",
 
@@ -149,7 +149,7 @@ const translations = {
         "stats.reviews": "Année d'usage ancestral",
         "stats.rating": "Note moyenne",
         "stats.recommend": "Recommandent",
-        "stats.delivery": "Livraison Suisse",
+        "stats.delivery": "Expédition",
 
         /* ── INDEX : FAQ ── */
         "faq.eyebrow": "Questions fréquentes",
@@ -162,7 +162,7 @@ const translations = {
         "faq.q3": "Le miswak est-il réellement bénéfique pour l'hygiène bucco-dentaire ?",
         "faq.a3": "Absolument. Son efficacité est validée scientifiquement et son usage est recommandé par l'Organisation Mondiale de la Santé (OMS). Il élimine radicalement la plaque dentaire, purifie l'haleine et possède des propriétés antibactériennes prouvées.",
         "faq.q4": "Où trouver du vrai siwak de haute qualité en Suisse (Migros, Coop, Manor) ?",
-        "faq.a4": "Il est souvent difficile de trouver du siwak frais en grande distribution (Coop, Migros, Manor) ou en pharmacie. Chez Sivàa Geneva, je suis l'alternative locale spécialisée : un siwak premium, certifié, disponible en livraison rapide Swiss Post (72h) ou en retrait dans mon atelier à Genève (paiement Twint accepté).",
+        "faq.a4": "Il est souvent difficile de trouver du siwak frais en grande distribution (Coop, Migros, Manor) ou en pharmacie. Chez Sivàa Geneva, je suis l'alternative locale spécialisée : un siwak premium, certifié, disponible en livraison Swiss Post (expédition sous 48h + 2–3 jours) ou en retrait dans mon atelier à Genève (paiement Twint accepté).",
         "faq.q5": "Comment utiliser le Siwak pour la première fois ?",
         "faq.a5": "Trempez l'extrémité du bâton dans de l'eau pendant 5 minutes. Mâchez doucement pour effilocher les fibres et former une brosse naturelle. Frottez vos dents et vos gencives en mouvement circulaire. Rincez. Coupez l'extrémité usée et recommencez.",
         "faq.q6": "Dois-je utiliser du dentifrice en plus du Siwak ?",
@@ -170,7 +170,7 @@ const translations = {
         "faq.q7": "Je souhaite choisir si mon bâton à mâcher sera fin ou épais, comment faire ?",
         "faq.a7": "Ne vous inquiétez pas, en ajoutant votre message à votre commande je vous sélectionnerai le bâton à mâcher le plus adapté à vos envies.",
         "faq.payment.q": "Quels modes de paiement acceptez-vous ?",
-        "faq.payment.a": "J'accepte Twint, Revolut et virement bancaire. Tous les paiements sont chiffrés de bout en bout. Minimum CHF 15.00 d'articles.",
+        "faq.payment.a": "J'accepte Twint et Revolut. Minimum CHF 15.00 d'articles.",
         "faq.noQuestion": "Votre question n'est pas listée ?",
         "faq.contactBtn": "💬 Contacter mon atelier",
 
@@ -188,7 +188,7 @@ const translations = {
         "loc.cta": "📞 Prendre rendez-vous à Genève",
 
         /* ── INDEX : CTA FINAL ── */
-        "cta.eyebrow": "Livraison Swiss Post · 72h",
+        "cta.eyebrow": "Livraison Swiss Post · expédition sous 48h + 2–3 jours",
         "cta.title.part1": "Commencez votre rituel",
         "cta.title.part2": "aujourd'hui",
         "cta.subtitle": "Rejoignez les centaines de Genevois qui ont adopté le rituel du Siwak. Naturel, efficace, éternel.",
@@ -295,7 +295,7 @@ const translations = {
         "article.sidebar.cta.title": "Siwak Premium SIVÀA",
         "article.sidebar.cta.desc": "Sélectionné à la main au Pakistan, certifié par mes soins à Genève. La quintessence du bâton de Siwak.",
         "article.sidebar.cta.btn": "Commander · CHF 6.00 →",
-        "article.sidebar.delivery": "Livraison Swiss Post · 72h en Suisse",
+        "article.sidebar.delivery": "Livraison Swiss Post · expédition sous 48h + 2–3 jours",
         "article.sidebar.langs.title": "Cet article en d'autres langues",
         "article.cta.title": "Commencez votre rituel <em class=\"accent\">aujourd'hui</em>",
         "article.cta.subtitle": "Quatorze siècles de sagesse botanique, sélectionnés avec la précision genevoise. Votre Siwak Premium vous attend.",
@@ -389,10 +389,10 @@ const translations = {
         "hero.title.part2": "Siwak",
         "hero.title.part3": "in",
         "hero.title.part4": "Geneva",
-        "hero.subtitle": "The natural toothbrush the world has used for 3,500 years, selected with Swiss precision. Antibacterial, whitening, biodegradable. 72h delivery throughout Switzerland.",
+        "hero.subtitle": "The natural toothbrush the world has used for 3,500 years, selected with Swiss precision. Antibacterial, whitening, biodegradable. Delivery throughout Switzerland: shipped within 48h + 2–3 days.",
         "hero.cta.order": "Order now →",
         "hero.cta.discover": "Discover Siwak",
-        "hero.trust.shipping": "🚚 Swiss Post shipping 72h",
+        "hero.trust.shipping": "🚚 Shipped within 48h + 2–3 days",
         "hero.trust.natural": "🌿 100% Natural",
         "hero.trust.ssl": "🔒 Twint or Revolut payment",
         "hero.badge.float": "⭐ 4.9/5 — Recognized by WHO",
@@ -435,7 +435,7 @@ const translations = {
         "modal4.feat1": "🌿 Enhanced cavity protection from Siwak extracts",
         "modal4.feat2": "🌿 Clove: natural soothing and antibacterial action",
         "modal4.feat3": "🌿 Long-lasting fresh breath, without harsh chemical fluoride",
-        "modal4.shipping": "🚚 Swiss Post shipping fee · CHF 10.00 · 72h",
+        "modal4.shipping": "🚚 Swiss Post shipping fee · CHF 10.00 · shipped within 48h + 2–3 days",
         "modal4.priceLabel": "Price",
         "modal4.buy": "🛍 Buy now",
 
@@ -451,7 +451,7 @@ const translations = {
         "modal5.feat1": "🌿 Activated charcoal: absorbs stains and purifies deeply",
         "modal5.feat2": "🌿 Visible whiteness from the very first uses",
         "modal5.feat3": "🌿 Siwak-enriched formula, without peroxide or chemical abrasives",
-        "modal5.shipping": "🚚 Swiss Post shipping fee · CHF 10.00 · 72h",
+        "modal5.shipping": "🚚 Swiss Post shipping fee · CHF 10.00 · shipped within 48h + 2–3 days",
         "modal5.priceLabel": "Price",
         "modal5.buy": "🛍 Buy now",
 
@@ -460,7 +460,7 @@ const translations = {
         "modal3.feat2": "🌿 Dust-proof storage and space-saving",
         "modal3.feat3": "🌿 Portable, easy to open and use",
         "modal3.feat4": "🌿 Prolongs the lifespan of your natural Siwak",
-        "modal3.shipping": "🚚 Swiss Post shipping fee · CHF 10.00 · 72h",
+        "modal3.shipping": "🚚 Swiss Post shipping fee · CHF 10.00 · shipped within 48h + 2–3 days",
         "modal3.priceLabel": "Price",
         "modal3.buy": "🛍 Buy now",
         "modal3.image.alt": "Travel case for natural Siwak",
@@ -472,7 +472,7 @@ const translations = {
         "modal1.feat2": "🌿 Proven antibacterial against plaque",
         "modal1.feat3": "🌿 Natural whitening without abrasion",
         "modal1.feat4": "🌿 Zero plastic · 100% biodegradable",
-        "modal1.shipping": "🚚 Swiss Post shipping fee · CHF 10.00 · 72h",
+        "modal1.shipping": "🚚 Swiss Post shipping fee · CHF 10.00 · shipped within 48h + 2–3 days",
         "modal1.priceLabel": "Price",
         "modal1.buy": "🛍 Buy now",
 
@@ -514,7 +514,7 @@ const translations = {
         "stats.reviews": "Year of traditional use",
         "stats.rating": "Average rating",
         "stats.recommend": "Recommend",
-        "stats.delivery": "Swiss delivery",
+        "stats.delivery": "Shipping",
 
         /* ── INDEX : FAQ ── */
         "faq.eyebrow": "Frequently asked questions",
@@ -535,7 +535,7 @@ const translations = {
         "faq.q7": "I'd like to choose whether my chewing stick is thin or thick, how?",
         "faq.a7": "Don't worry, by adding your message to your order I will select the chewing stick most suited to your preferences.",
         "faq.payment.q": "What payment methods do you accept?",
-        "faq.payment.a": "I accept Twint, Revolut, and bank transfer. All payments are end-to-end encrypted. Minimum CHF 15.00 of items.",
+        "faq.payment.a": "I accept Twint and Revolut. Minimum CHF 15.00 of items.",
         "faq.noQuestion": "Your question isn't listed?",
         "faq.contactBtn": "💬 Contact my workshop",
 
@@ -553,7 +553,7 @@ const translations = {
         "loc.cta": "📞 Book an appointment in Geneva",
 
         /* ── INDEX : CTA FINAL ── */
-        "cta.eyebrow": "Swiss Post delivery · 72h",
+        "cta.eyebrow": "Swiss Post delivery · shipped within 48h + 2–3 days",
         "cta.title.part1": "Start your ritual",
         "cta.title.part2": "today",
         "cta.subtitle": "Join the hundreds of Genevans who have adopted the Siwak ritual. Natural, effective, timeless.",
@@ -736,10 +736,10 @@ const translations = {
         "hero.title.part2": "Siwak",
         "hero.title.part3": "in",
         "hero.title.part4": "Genf",
-        "hero.subtitle": "Die natürliche Zahnbürste, die die Welt seit 7000 Jahren verwendet, ausgewählt mit Schweizer Präzision. Antibakteriell, aufhellend, biologisch abbaubar. Lieferung innert 72h in der ganzen Schweiz.",
+        "hero.subtitle": "Die natürliche Zahnbürste, die die Welt seit 7000 Jahren verwendet, ausgewählt mit Schweizer Präzision. Antibakteriell, aufhellend, biologisch abbaubar. Lieferung in der ganzen Schweiz: Versand innerhalb von 48 Std. + 2–3 Tage.",
         "hero.cta.order": "Jetzt bestellen →",
         "hero.cta.discover": "Siwak entdecken",
-        "hero.trust.shipping": "🚚 Versand Swiss Post 72h",
+        "hero.trust.shipping": "🚚 Versand innerhalb von 48 Std. + 2–3 Tage",
         "hero.trust.natural": "🌿 100 % Natürlich",
         "hero.trust.ssl": "🔒 Zahlung per Twint oder Revolut",
         "hero.badge.float": "⭐ 4.9/5 — Von der WHO anerkannt",
@@ -782,7 +782,7 @@ const translations = {
         "modal4.feat1": "🌿 Verstärkter Kariesschutz durch Siwak-Extrakte",
         "modal4.feat2": "🌿 Gewürznelke: natürliche beruhigende und antibakterielle Wirkung",
         "modal4.feat3": "🌿 Lang anhaltender frischer Atem, ohne aggressives chemisches Fluorid",
-        "modal4.shipping": "🚚 Versandkosten Swiss Post · CHF 10.00 · 72h",
+        "modal4.shipping": "🚚 Versandkosten Swiss Post · CHF 10.00 · Versand innerhalb von 48 Std. + 2–3 Tage",
         "modal4.priceLabel": "Preis",
         "modal4.buy": "🛍 Jetzt kaufen",
 
@@ -798,7 +798,7 @@ const translations = {
         "modal5.feat1": "🌿 Aktivkohle: absorbiert Flecken und reinigt tiefgehend",
         "modal5.feat2": "🌿 Sichtbare Weiße bereits ab den ersten Anwendungen",
         "modal5.feat3": "🌿 Mit Siwak angereicherte Formel, ohne Peroxid oder chemische Schleifmittel",
-        "modal5.shipping": "🚚 Versandkosten Swiss Post · CHF 10.00 · 72h",
+        "modal5.shipping": "🚚 Versandkosten Swiss Post · CHF 10.00 · Versand innerhalb von 48 Std. + 2–3 Tage",
         "modal5.priceLabel": "Preis",
         "modal5.buy": "🛍 Jetzt kaufen",
 
@@ -807,7 +807,7 @@ const translations = {
         "modal3.feat2": "🌿 Staubdichte Aufbewahrung und platzsparend",
         "modal3.feat3": "🌿 Tragbar, einfach zu öffnen und zu verwenden",
         "modal3.feat4": "🌿 Verlängert die Lebensdauer Ihres natürlichen Siwak",
-        "modal3.shipping": "🚚 Versandkosten Swiss Post · CHF 10.00 · 72h",
+        "modal3.shipping": "🚚 Versandkosten Swiss Post · CHF 10.00 · Versand innerhalb von 48 Std. + 2–3 Tage",
         "modal3.priceLabel": "Preis",
         "modal3.buy": "🛍 Jetzt kaufen",
         "modal3.image.alt": "Reiseetui für natürlichen Siwak",
@@ -819,7 +819,7 @@ const translations = {
         "modal1.feat2": "🌿 Nachweislich antibakteriell gegen Plaque",
         "modal1.feat3": "🌿 Natürliche Aufhellung ohne Abrieb",
         "modal1.feat4": "🌿 Null Plastik · 100% biologisch abbaubar",
-        "modal1.shipping": "🚚 Versandkosten Swiss Post · CHF 10.00 · 72h",
+        "modal1.shipping": "🚚 Versandkosten Swiss Post · CHF 10.00 · Versand innerhalb von 48 Std. + 2–3 Tage",
         "modal1.priceLabel": "Preis",
         "modal1.buy": "🛍 Jetzt kaufen",
 
@@ -861,7 +861,7 @@ const translations = {
         "stats.reviews": "Seit jeher",
         "stats.rating": "Durchschnittsnote",
         "stats.recommend": "Empfehlen",
-        "stats.delivery": "Lieferung Schweiz",
+        "stats.delivery": "Versand",
 
         /* ── FAQ ── */
         "faq.eyebrow": "Häufig gestellte Fragen",
@@ -882,7 +882,7 @@ const translations = {
         "faq.q7": "Ich möchte wählen, ob mein Kaustab dünn oder dick ist. Wie?",
         "faq.a7": "Keine Sorge, indem Sie Ihrer Bestellung eine Nachricht hinzufügen, wähle ich den Kaustab aus, der am besten zu Ihren Wünschen passt.",
         "faq.payment.q": "Welche Zahlungsmethoden akzeptieren Sie?",
-        "faq.payment.a": "Ich akzeptiere Twint, Revolut und Banküberweisung. Alle Zahlungen sind Ende-zu-Ende verschlüsselt. Mindestbestellwert CHF 15.00 (Artikel).",
+        "faq.payment.a": "Ich akzeptiere Twint und Revolut. Mindestbestellwert CHF 15.00 (Artikel).",
         "faq.noQuestion": "Ihre Frage ist nicht aufgeführt?",
         "faq.contactBtn": "💬 Meine Werkstatt kontaktieren",
 
@@ -900,7 +900,7 @@ const translations = {
         "loc.cta": "📞 Termin in Genf vereinbaren",
 
         /* ── CTA FINAL ── */
-        "cta.eyebrow": "Swiss Post Lieferung · 72h",
+        "cta.eyebrow": "Swiss Post Lieferung · Versand innerhalb von 48 Std. + 2–3 Tage",
         "cta.title.part1": "Beginnen Sie Ihr Ritual",
         "cta.title.part2": "heute",
         "cta.subtitle": "Schliessen Sie sich den Hunderten von Genfern an, die das Siwak-Ritual angenommen haben. Natürlich, wirksam, ewig.",
