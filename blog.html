@@ -64,6 +64,7 @@
         .blog-img-wrap{height:200px;overflow:hidden;background:var(--surface-mid);}
         .blog-img{width:100%;height:100%;object-fit:cover;transition:transform .5s;}
         .blog-card:hover .blog-img{transform:scale(1.05);}
+        .blog-img.blog-img--contain{object-fit:contain;}
         .blog-body{padding:1.5rem;}
         .blog-meta-row{display:flex;align-items:center;gap:.75rem;margin-bottom:.75rem;}
         .blog-cat{background:var(--secondary-container);color:var(--secondary);font-size:.7rem;padding:.15rem .5rem;border-radius:9999px;font-weight:500;}
@@ -271,7 +272,7 @@
 <article class="blog-card" data-cat="science">
     <a href="siwak-vs-brosse-a-dents.html" style="display:block; text-decoration:none; color:inherit; height:100%;">
         <div class="blog-img-wrap">
-            <img class="blog-img" src="miswak-vs-brosse-a-dents.jpg" alt="Miswak contre brosse à dents : faut-il remplacer sa brosse à dents par le Siwak" loading="lazy" />
+            <img class="blog-img blog-img--contain" src="miswak-vs-brosse-a-dents.jpg" alt="Miswak contre brosse à dents : faut-il remplacer sa brosse à dents par le Siwak" loading="lazy" />
         </div>
         <div class="blog-body">
             <div class="blog-meta-row">
