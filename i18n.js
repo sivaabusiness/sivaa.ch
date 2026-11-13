@@ -5,7 +5,7 @@
      1. Inclure ce fichier sur chaque page : <script src="i18n.js"></script>
      2. Ajouter data-i18n="clé" sur toute balise textuelle à traduire.
      3. Pour les attributs : data-i18n-alt, data-i18n-placeholder, data-i18n-title.
-     4. Le sélecteur de langue + le menu mobile (sans burger) sont injectés automatiquement dans <nav>.
+     4. Le sélecteur de langue + burger mobile sont injectés automatiquement dans <nav>.
      5. La langue est sauvegardée dans localStorage (clé : sivaa_lang).
 ════════════════════════════════════════════════════════════════ */
 
@@ -1135,43 +1135,58 @@ function switchLanguage(lang) {
 
     try { localStorage.setItem('sivaa_lang', lang); } catch (e) {}
 
-    // Update switcher display (desktop + mobile)
-    document.querySelectorAll('.sivaa-lang-current').forEach(current => {
+    // Update desktop switcher display
+    const current = document.querySelector('.sivaa-lang-current');
+    if (current) {
         current.innerHTML =
             '<span class="sivaa-lang-flag">' + LANG_META[lang].flag + '</span>' +
             '<span class="sivaa-lang-code">' + lang.toUpperCase() + '</span>' +
             '<span class="sivaa-lang-caret">▾</span>';
-    });
+    }
 
-    // Update all lang buttons (desktop + mobile dropdowns)
-    document.querySelectorAll('.sivaa-lang-item').forEach(btn => {
+    // Update all lang buttons (desktop dropdown + burger)
+    document.querySelectorAll('.sivaa-lang-item, .sivaa-blang-btn').forEach(btn => {
         btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
     });
 
-    // Close dropdowns
-    document.querySelectorAll('.sivaa-lang-menu').forEach(m => m.classList.remove('open'));
+    // Close desktop dropdown
+    const menu = document.getElementById('sivaa-lang-menu');
+    if (menu) menu.classList.remove('open');
     const switcher = document.getElementById('sivaa-lang-switcher');
     if (switcher) switcher.classList.remove('open');
 
-    document.querySelectorAll('.sivaa-lang-switcher').forEach(sw => sw.classList.remove('open'));
+    // Close burger menu after language switch
+    closeBurger();
 
     // Hook pour les pages qui ont leurs propres textes (ex. checkout.html)
     if (typeof window.onSivaaLanguageChange === 'function') window.onSivaaLanguageChange(lang);
 }
 
 /* ────────────────────────────────────────────────────────────────
-   NAV MOBILE (< 768 px) — sans burger
-   Injecté sur TOUTES les pages :
-   - Ligne 1 : Logo | sélecteur de langue
-   - Ligne 2 : intitulés du menu, centrés
-   - Ligne 3 : bouton « Commander », centré
-   La hauteur supplémentaire de l'en-tête fixe est compensée
-   (--sivaa-nav-extra) pour ne pas masquer le contenu.
-   Desktop (≥ 768 px) : inchangé (liens normaux + switcher).
+   BURGER MENU — Mobile/Tablet
+   Injecte sur TOUTES les pages :
+   - Mobile navbar : Logo | CTA Commander | Burger
+   - Desktop navbar : liens normaux + switcher de langue
+   - Overlay plein écran avec liens + CTA + switcher de langue
 ──────────────────────────────────────────────────────────────── */
-const SIVAA_NAV_BASE = 65; // hauteur d'origine de l'en-tête : 64 px + bordure
+function closeBurger() {
+    const overlay = document.getElementById('burger-overlay');
+    const btn = document.getElementById('burger-btn');
+    if (overlay) overlay.classList.remove('open');
+    if (btn) btn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+}
 
-function injectMobileNav() {
+function toggleBurger() {
+    const overlay = document.getElementById('burger-overlay');
+    const btn = document.getElementById('burger-btn');
+    if (!overlay) return;
+    const isOpen = overlay.classList.toggle('open');
+    btn.setAttribute('aria-expanded', String(isOpen));
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+}
+
+function injectBurgerMenu() {
     if (document.getElementById('sivaa-nav-styles')) return; // déjà injecté
 
     /* ── STYLES ── */
@@ -1193,90 +1208,187 @@ function injectMobileNav() {
     .sivaa-lang-item.active{color:#9dd75a;font-weight:600;}
     .sivaa-lang-item .sivaa-lang-flag{font-size:1.1rem;}
 
-    /* ══ MOBILE : menu centré ══ */
-    .sivaa-mnav,.sivaa-mcta-row,.sivaa-lang-switcher-mobile{display:none;}
-    .sivaa-mnav-link{
-      display:inline-flex;align-items:center;justify-content:center;
-      min-height:44px;padding:0 .625rem;
-      font-family:'Inter',sans-serif;font-size:.9375rem;font-weight:400;letter-spacing:.02em;
-      color:#c2c9b4;text-decoration:none;white-space:nowrap;transition:color .2s;
-      -webkit-tap-highlight-color:transparent;
-    }
-    .sivaa-mnav-link:hover,.sivaa-mnav-link:active{color:#d7e7d4;}
-    .sivaa-mcta{
-      display:inline-flex;align-items:center;justify-content:center;
-      min-height:44px;padding:0 2rem;border-radius:.5rem;
+    /* ══ MOBILE : nav right group ══ */
+    .sivaa-mobile-right{display:none;align-items:center;gap:.625rem;}
+    .sivaa-mobile-cta{
+      display:inline-flex;align-items:center;
       background:#9dd75a;color:#1e3700;
-      font-family:'Inter',sans-serif;font-weight:600;font-size:.9375rem;
-      text-decoration:none;white-space:nowrap;transition:background .15s;
+      font-weight:700;font-size:.78rem;font-family:'Inter',sans-serif;
+      padding:.4rem .875rem;border-radius:.4rem;text-decoration:none;
+      white-space:nowrap;transition:background .15s;
       -webkit-tap-highlight-color:transparent;
     }
-    .sivaa-mcta:hover,.sivaa-mcta:active{background:#b7f473;}
+    .sivaa-mobile-cta:hover{background:#b7f473;}
 
+    /* ══ BURGER BUTTON ══ */
+    #burger-btn{
+      display:none;background:transparent;border:none;
+      cursor:pointer;padding:.45rem;border-radius:.4rem;
+      color:#d7e7d4;transition:background .2s;
+      -webkit-tap-highlight-color:transparent;flex-shrink:0;
+    }
+    #burger-btn:hover{background:rgba(42,56,43,.6);}
+    #burger-btn svg{display:block;width:1.375rem;height:1.375rem;}
+
+    /* ══ BREAKPOINT LOGIC ══ */
     @media(max-width:767px){
+      /* Mobile : cache les liens desktop, montre le groupe mobile */
+      .sivaa-mobile-right{display:flex !important;}
+      #burger-btn{display:flex !important;align-items:center;justify-content:center;}
+      /* Cache tous les liens nav sauf le logo sur mobile */
       nav .nav-links,
       nav .nav-links-desktop{display:none !important;}
-      .sivaa-lang-switcher:not(.sivaa-lang-switcher-mobile){display:none !important;}
-      .sivaa-lang-switcher-mobile{display:inline-flex !important;}
-      .sivaa-nav-inner{flex-wrap:wrap !important;height:auto !important;padding-bottom:.75rem !important;}
-      .sivaa-nav-inner > a:first-child{display:block;line-height:56px;}
-      .sivaa-mnav{display:flex;flex-wrap:wrap;justify-content:center;column-gap:1.25rem;width:100%;}
-      .sivaa-mcta-row{display:flex;justify-content:center;width:100%;padding-top:.25rem;}
-      html{scroll-padding-top:var(--sivaa-nav-extra,0px);}
-      body{padding-top:var(--sivaa-nav-extra,0px) !important;}
+      /* Cache aussi le switcher desktop */
+      .sivaa-lang-switcher{display:none !important;}
     }
+    @media(min-width:768px){
+      .sivaa-mobile-right{display:none !important;}
+      #burger-btn{display:none !important;}
+      #burger-overlay{display:none !important;}
+    }
+
+    /* ══ BURGER OVERLAY ══ */
+    #burger-overlay{
+      position:fixed;inset:0;z-index:9000;
+      background:rgba(5,17,7,.97);
+      display:flex;flex-direction:column;
+      opacity:0;visibility:hidden;
+      transition:opacity .28s ease,visibility .28s ease;
+    }
+    #burger-overlay.open{opacity:1;visibility:visible;}
+
+    .sivaa-bh{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:0 1.25rem;height:64px;flex-shrink:0;
+      border-bottom:1px solid rgba(66,73,57,.25);
+    }
+    .sivaa-bh-logo{font-family:'Newsreader',Georgia,serif;font-size:1.25rem;font-weight:300;letter-spacing:.1em;color:#d7e7d4;text-decoration:none;}
+    .sivaa-bh-logo span{color:#9dd75a;font-size:.85rem;letter-spacing:.06em;}
+    #sivaa-burger-close{background:transparent;border:none;cursor:pointer;padding:.5rem;color:#8c9380;transition:color .2s;-webkit-tap-highlight-color:transparent;}
+    #sivaa-burger-close:hover{color:#d7e7d4;}
+    #sivaa-burger-close svg{display:block;width:1.25rem;height:1.25rem;}
+
+    .sivaa-bnav{
+      display:flex;flex-wrap:wrap;justify-content:center;align-items:center;
+      column-gap:1.75rem;row-gap:.25rem;
+      padding:2.5rem 1.25rem 0;flex-shrink:0;
+    }
+    .sivaa-bnav-link{
+      display:inline-flex;align-items:center;justify-content:center;
+      min-height:44px;padding:0 .25rem;
+      font-size:1.375rem;font-weight:300;font-family:'Newsreader',Georgia,serif;
+      color:#c2c9b4;text-decoration:none;white-space:nowrap;
+      transition:color .2s;
+    }
+    .sivaa-bnav-link:hover,.sivaa-bnav-link:active{color:#d7e7d4;}
+
+    .sivaa-bcta{
+      display:flex;align-items:center;justify-content:center;gap:.5rem;
+      align-self:center;margin:1.75rem auto 0;flex-shrink:0;min-height:44px;
+      background:#9dd75a;color:#1e3700;
+      font-weight:700;font-size:1rem;font-family:'Inter',sans-serif;
+      padding:.9rem 1.5rem;border-radius:.625rem;text-decoration:none;
+      transition:background .2s;-webkit-tap-highlight-color:transparent;
+    }
+    .sivaa-bcta:active{background:#b7f473;}
+
+    .sivaa-blang{
+      margin-top:auto;
+      border-top:1px solid rgba(66,73,57,.25);
+      padding:1.1rem 1.75rem 2rem;flex-shrink:0;
+    }
+    .sivaa-blang-label{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:#8c9380;margin-bottom:.75rem;}
+    .sivaa-blang-row{display:flex;gap:.5rem;}
+    .sivaa-blang-btn{
+      display:flex;align-items:center;gap:.4rem;
+      padding:.45rem .875rem;border-radius:.5rem;
+      font-size:.82rem;font-weight:500;font-family:'Inter',sans-serif;
+      background:rgba(22,37,24,.8);border:1px solid rgba(66,73,57,.35);
+      color:#c2c9b4;cursor:pointer;transition:all .2s;
+      -webkit-tap-highlight-color:transparent;
+    }
+    .sivaa-blang-btn:hover,.sivaa-blang-btn:active{background:rgba(42,56,43,.8);border-color:rgba(157,215,90,.3);color:#d7e7d4;}
+    .sivaa-blang-btn.active{background:rgba(39,80,10,.5);border-color:#9dd75a;color:#9dd75a;font-weight:600;}
   `;
     document.head.appendChild(style);
 
-    /* ── INJECT INTO EACH NAV ── */
-    document.querySelectorAll('nav').forEach(nav => {
-        const inner = nav.querySelector('.nav-inner') || nav.querySelector(':scope > div') || nav;
-        inner.classList.add('sivaa-nav-inner');
+    const initial = getStoredLang();
 
-        // .nav-links reste réservé au desktop
+    /* ── OVERLAY HTML ── */
+    const overlay = document.createElement('div');
+    overlay.id = 'burger-overlay';
+    overlay.setAttribute('role', 'dialog');
+    overlay.setAttribute('aria-modal', 'true');
+    overlay.setAttribute('aria-label', 'Menu de navigation');
+    overlay.innerHTML = `
+    <div class="sivaa-bh">
+      <a href="index.html" class="sivaa-bh-logo" onclick="closeBurger()">SIVÀA <span>Geneva</span></a>
+      <button id="sivaa-burger-close" onclick="closeBurger()" aria-label="Fermer le menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+    <div class="sivaa-bnav" role="navigation">
+      <a href="index.html" class="sivaa-bnav-link" onclick="closeBurger()"><span data-i18n="nav.home">Accueil</span></a>
+      <a href="blog.html"    class="sivaa-bnav-link" onclick="closeBurger()"><span data-i18n="nav.journal">Journal</span></a>
+      <a href="contact.html" class="sivaa-bnav-link" onclick="closeBurger()"><span data-i18n="nav.contact">Contact</span></a>
+    </div>
+    <a href="checkout.html" class="sivaa-bcta" onclick="closeBurger()" data-i18n="nav.order">Commander</a>
+    <div class="sivaa-blang">
+      <p class="sivaa-blang-label">Langue / Language / Sprache</p>
+      <div class="sivaa-blang-row">
+        ${Object.keys(LANG_META).map(code => `
+          <button class="sivaa-blang-btn${code === initial ? ' active' : ''}" data-lang="${code}" onclick="switchLanguage('${code}')">
+            <span>${LANG_META[code].flag}</span><span>${code.toUpperCase()}</span>
+          </button>
+        `).join('')}
+      </div>
+    </div>
+  `;
+    document.body.insertBefore(overlay, document.body.firstChild);
+
+    /* ── INJECT INTO EACH NAV ──
+       Structure attendue dans toutes les pages :
+         <nav>
+           <div class="nav-inner">
+             <a class="nav-logo">…</a>
+             <div class="nav-links">…</div>   ← liens desktop
+           </div>
+         </nav>
+       On va :
+       1. Ajouter 'nav-links-desktop' sur .nav-links pour le masquer en mobile
+       2. Insérer le group mobile [CTA + burger] juste avant .nav-links
+    */
+    document.querySelectorAll('nav').forEach(nav => {
+        if (nav.closest('#burger-overlay')) return; // pas dans le menu ouvert lui-même
+        // Chercher le container interne (nav-inner ou premier div)
+        const inner = nav.querySelector('.nav-inner') || nav.querySelector(':scope > div') || nav;
+
+        // Marquer .nav-links comme desktop-only
         const navLinks = inner.querySelector('.nav-links');
         if (navLinks) navLinks.classList.add('nav-links-desktop');
 
-        // Ligne des intitulés (mêmes intitulés et liens que l'ancien menu burger)
-        const links = document.createElement('div');
-        links.className = 'sivaa-mnav';
-        links.setAttribute('role', 'navigation');
-        links.innerHTML = `
-      <a href="index.html" class="sivaa-mnav-link" data-i18n="nav.home">Accueil</a>
-      <a href="blog.html" class="sivaa-mnav-link" data-i18n="nav.journal">Journal</a>
-      <a href="contact.html" class="sivaa-mnav-link" data-i18n="nav.contact">Contact</a>
+        // Groupe mobile : CTA + burger button
+        const mobileGroup = document.createElement('div');
+        mobileGroup.className = 'sivaa-mobile-right';
+        mobileGroup.innerHTML = `
+      <a href="checkout.html" class="sivaa-mobile-cta" data-i18n="nav.order">Commander</a>
+      <button id="burger-btn" onclick="toggleBurger()" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="burger-overlay">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
     `;
-        inner.appendChild(links);
-
-        // Bouton Commander centré sous les intitulés
-        const cta = document.createElement('div');
-        cta.className = 'sivaa-mcta-row';
-        cta.innerHTML = `<a href="checkout.html" class="sivaa-mcta" data-i18n="nav.order">Commander</a>`;
-        inner.appendChild(cta);
+        inner.appendChild(mobileGroup);
     });
 
-    // Les bandeaux fixes placés sous l'en-tête (top: 4rem) suivent sa hauteur
-    document.querySelectorAll('body > div').forEach(el => {
-        if (el.style.position === 'fixed' && el.style.top === '4rem') {
-            el.style.top = 'calc(4rem + var(--sivaa-nav-extra, 0px))';
-        }
+    // Fermeture sur Escape
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeBurger();
     });
-
-    syncNavOffset();
-    window.addEventListener('resize', syncNavOffset);
-    if (window.ResizeObserver) {
-        const nav = document.querySelector('nav');
-        if (nav) new ResizeObserver(syncNavOffset).observe(nav);
-    }
-}
-
-function syncNavOffset() {
-    const nav = document.querySelector('nav');
-    if (!nav) return;
-    const extra = window.matchMedia('(max-width:767px)').matches
-        ? Math.max(0, nav.offsetHeight - SIVAA_NAV_BASE)
-        : 0;
-    document.documentElement.style.setProperty('--sivaa-nav-extra', extra + 'px');
 }
 
 /* ────────────────────────────────────────────────────────────────
@@ -1336,7 +1448,7 @@ document.addEventListener('click', () => {
    Init on DOM ready
 ──────────────────────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
-    injectMobileNav();
+    injectBurgerMenu();
     injectLanguageSelector();        // desktop
     injectLanguageSelectorMobile();  // mobile
     switchLanguage(getStoredLang());
@@ -1344,7 +1456,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /* ────────────────────────────────────────────────────────────────
    MOBILE LANGUAGE SELECTOR
-   Injecté à droite du logo (visible uniquement < 768 px)
+   Injecté dans .nav-links-mobile (menu burger)
 ──────────────────────────────────────────────────────────────── */
 function injectLanguageSelectorMobile() {
     if (document.getElementById('sivaa-lang-switcher-mobile')) return; // déjà injecté
@@ -1359,7 +1471,7 @@ function injectLanguageSelectorMobile() {
       </div>
       <div class="sivaa-lang-menu" id="sivaa-lang-menu-mobile">
         ${Object.keys(LANG_META).map(code => `
-          <button class="sivaa-lang-item${code === initial ? ' active' : ''}" data-lang="${code}" onclick="switchLanguage('${code}')">
+          <button class="sivaa-lang-item${code === initial ? ' active' : ''}" data-lang="${code}" onclick="switchLanguage('${code}'); closeBurgerMenu();">
             <span class="sivaa-lang-flag">${LANG_META[code].flag}</span>
             <span>${LANG_META[code].label}</span>
           </button>
@@ -1368,15 +1480,15 @@ function injectLanguageSelectorMobile() {
     </div>
   `;
 
-    // Insérer juste après le logo, sur la première ligne de l'en-tête
-    const nav = document.querySelector('nav');
-    const inner = nav && (nav.querySelector('.sivaa-nav-inner') || nav.querySelector(':scope > div'));
-    const logo = inner && inner.querySelector(':scope > a');
-    if (logo) {
-        const wrapper = document.createElement('div');
-        wrapper.innerHTML = selectorHTML;
-        logo.after(wrapper.firstElementChild);
-    }
+    // Injecter dans .nav-links-mobile (menu burger)
+    document.querySelectorAll('nav').forEach(nav => {
+        const container = nav.querySelector('.nav-links-mobile');
+        if (container) {
+            const wrapper = document.createElement('div');
+            wrapper.innerHTML = selectorHTML;
+            container.appendChild(wrapper.firstElementChild);
+        }
+    });
 }
 
 function toggleLangMenuMobile(e) {
