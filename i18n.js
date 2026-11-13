@@ -1136,6 +1136,9 @@ function switchLanguage(lang) {
     if (switcher) switcher.classList.remove('open');
 
     document.querySelectorAll('.sivaa-lang-switcher').forEach(sw => sw.classList.remove('open'));
+
+    // Hook pour les pages qui ont leurs propres textes (ex. checkout.html)
+    if (typeof window.onSivaaLanguageChange === 'function') window.onSivaaLanguageChange(lang);
 }
 
 /* ────────────────────────────────────────────────────────────────
