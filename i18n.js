@@ -18,6 +18,12 @@ const translations = {
         "nav.contact": "Contact",
         "nav.order": "Commander",
         "nav.buy": "Acheter",
+        /* ── BANDEAU OFFRE ── */
+        "offer.label": "Offre :",
+        "offer.p1": "1 pce = 6 CHF",
+        "offer.p2": "2 pces = 11 CHF",
+        "offer.p3": "3 pces = 15 CHF",
+        "offer.hand": "🤝 Main propre dès 3 pces",
 
         /* ── INDEX : HERO ── */
         "hero.badge": "Racine de Salvadora Persica · Certifié Suisse",
@@ -382,6 +388,12 @@ const translations = {
         "nav.contact": "Contact",
         "nav.order": "Order",
         "nav.buy": "Buy",
+        /* ── BANDEAU OFFRE ── */
+        "offer.label": "Offer:",
+        "offer.p1": "1 pc = 6 CHF",
+        "offer.p2": "2 pcs = 11 CHF",
+        "offer.p3": "3 pcs = 15 CHF",
+        "offer.hand": "🤝 Hand delivery from 3 pcs",
 
         /* ── INDEX : HERO ── */
         "hero.badge": "Hand-harvested · Pakistan · Swiss Certified",
@@ -729,6 +741,12 @@ const translations = {
         "nav.contact": "Kontakt",
         "nav.order": "Bestellen",
         "nav.buy": "Kaufen",
+        /* ── BANDEAU OFFRE ── */
+        "offer.label": "Angebot:",
+        "offer.p1": "1 Stk. = 6 CHF",
+        "offer.p2": "2 Stk. = 11 CHF",
+        "offer.p3": "3 Stk. = 15 CHF",
+        "offer.hand": "🤝 Persönliche Übergabe ab 3 Stk.",
 
         /* ── INDEX : HERO ── */
         "hero.badge": "Handgeerntet · Pakistan · Schweizer Zertifiziert",

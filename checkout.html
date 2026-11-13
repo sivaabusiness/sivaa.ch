@@ -183,11 +183,11 @@
 
 <div style="position: fixed; top: 4rem; left: 0; right: 0; z-index: 30; background: rgba(17, 31, 19, 0.9); border-bottom: 1px solid rgba(157,215,90,0.2); padding: 0.6rem 1rem; text-align: center; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);">
     <p style="font-size: 0.75rem; color: #d7e7d4; margin: 0; display: flex; align-items: center; justify-content: center; gap: 0.4rem; flex-wrap: wrap;">
-        <span style="color:#9dd75a; font-weight: 600;">Offre :</span>
-        <span>1 pce = 6 CHF</span> <span style="color:#424939;">|</span>
-        <span>2 pces = 11 CHF</span> <span style="color:#424939;">|</span>
-        <span>3 pces = 15 CHF</span>
-        <span style="background: rgba(157,215,90,0.1); border: 1px solid rgba(157,215,90,0.3); color: #9dd75a; padding: 0.2rem 0.6rem; border-radius: 9999px; font-size: 0.65rem; margin-left: 0.25rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em;">🤝 Main propre dès 3 pces</span>
+        <span style="color:#9dd75a; font-weight: 600;"><span data-i18n="offer.label">Offre :</span></span>
+        <span data-i18n="offer.p1">1 pce = 6 CHF</span> <span style="color:#424939;">|</span>
+        <span data-i18n="offer.p2">2 pces = 11 CHF</span> <span style="color:#424939;">|</span>
+        <span data-i18n="offer.p3">3 pces = 15 CHF</span>
+        <span style="background: rgba(157,215,90,0.1); border: 1px solid rgba(157,215,90,0.3); color: #9dd75a; padding: 0.2rem 0.6rem; border-radius: 9999px; font-size: 0.65rem; margin-left: 0.25rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em;" data-i18n="offer.hand">🤝 Main propre dès 3 pces</span>
     </p>
 </div>
 
@@ -304,7 +304,7 @@
                 </div>
 
                 <div class="form-group" style="margin-bottom:0.75rem;">
-                    <label>Capture d'écran de votre confirmation de paiement<span id="proof-required-star" style="color:var(--danger);margin-left:2px;">*</span></label>
+                    <label><span data-i18n="proof_label">Capture d'écran de votre confirmation de paiement</span><span id="proof-required-star" style="color:var(--danger);margin-left:2px;">*</span></label>
                     <div class="upload-zone" id="uploadZone" style="margin-top:0.4rem;">
                         <input type="file" id="paymentProof" accept="image/*,.pdf" onchange="handleFileUpload(this)" />
                         <div class="upload-icon">📎</div>
@@ -544,7 +544,7 @@
         item_siwak_name:  { fr:'Bâton de Siwak Premium', en:'Premium Siwak Case', de:'Premium Siwak-Etui'  },
         item_siwak_sub:   { fr:'Récolté à la main · Pakistan', en:'Hand-harvested · Pakistan', de:'Handgepflückt · Pakistan' },
         item_allotogo_name: { fr:'Allo Togo' },
-        item_allotogo_sub: { fr:'Lot de 5 pièces' },
+        item_allotogo_sub: { fr:'Lot de 5 pièces', en:'Pack of 5', de:'5er-Pack' },
         item_girofle_name: { fr:'Dentifrice Siwak — Clou de Girofle', en:'Siwak Toothpaste — Clove', de:'Siwak-Zahnpasta — Gewürznelke' },
         item_girofle_sub:  { fr:'Protection anticavité renforcée', en:'Enhanced cavity protection', de:'Verstärkter Kariesschutz' },
         item_charbon_name: { fr:'Dentifrice Siwak — Charbon Actif', en:'Siwak Toothpaste — Activated Charcoal', de:'Siwak-Zahnpasta — Aktivkohle' },
@@ -570,6 +570,59 @@
         shipping_label:    { fr:'<strong>Frais de livraison Swiss Post</strong>', en:'<strong>Swiss Post shipping fee</strong>', de:'<strong>Versandkosten Swiss Post</strong>' },
         pickup_label:      { fr:'<strong>Retrait à Carouge</strong>', en:'<strong>Pickup in Carouge</strong>', de:'<strong>Abholung in Carouge</strong>' },
         lock_min:          { fr:"Montant minimum : CHF {min} d'articles", en:'Minimum: CHF {min} of items', de:'Mindestbetrag: CHF {min} (Artikel)' },
+        page_label: { fr:"Votre commande", en:"Your order", de:"Ihre Bestellung" },
+        page_title: { fr:"Commander votre <em class=\"accent\">Siwak</em>", en:"Order your <em class=\"accent\">Siwak</em>", de:"Bestellen Sie Ihren <em class=\"accent\">Siwak</em>" },
+        form_coords: { fr:"Vos coordonnées", en:"Your details", de:"Ihre Angaben" },
+        form_firstname: { fr:"Prénom", en:"First name", de:"Vorname" },
+        form_lastname: { fr:"Nom", en:"Last name", de:"Nachname" },
+        form_phone: { fr:"Téléphone (optionnel)", en:"Phone (optional)", de:"Telefon (optional)" },
+        form_shipping: { fr:"Adresse de livraison", en:"Delivery address", de:"Lieferadresse" },
+        form_street: { fr:"Rue et numéro", en:"Street and number", de:"Strasse und Hausnummer" },
+        form_zip: { fr:"NPA / Code postal", en:"Postcode", de:"PLZ / Postleitzahl" },
+        form_city: { fr:"Ville", en:"City", de:"Ort" },
+        form_country: { fr:"Pays", en:"Country", de:"Land" },
+        country_value: { fr:"🇨🇭 Suisse", en:"🇨🇭 Switzerland", de:"🇨🇭 Schweiz" },
+        form_payment_title: { fr:"Étapes de paiement obligatoires", en:"Required payment steps", de:"Erforderliche Zahlungsschritte" },
+        step1_title: { fr:"Effectuez votre paiement via Twint ou Revolut", en:"Make your payment via Twint or Revolut", de:"Bezahlen Sie per Twint oder Revolut" },
+        step1_sub: { fr:"Cliquez sur le bouton de votre choix ci-dessous", en:"Click the button of your choice below", de:"Klicken Sie unten auf die Schaltfläche Ihrer Wahl" },
+        step2_title: { fr:"Faites une capture d'écran de la confirmation", en:"Take a screenshot of the confirmation", de:"Machen Sie einen Screenshot der Bestätigung" },
+        step2_sub: { fr:"Depuis votre application Twint ou Revolut", en:"From your Twint or Revolut app", de:"In Ihrer Twint- oder Revolut-App" },
+        step3_title: { fr:"Joignez la capture ci-dessous, puis confirmez", en:"Attach the screenshot below, then confirm", de:"Laden Sie den Screenshot unten hoch und bestätigen Sie" },
+        step3_sub: { fr:"Le bouton s'activera automatiquement", en:"The button will unlock automatically", de:"Die Schaltfläche wird automatisch aktiviert" },
+        btn_twint: { fr:"Payer via Twint · +41 77 949 65 04", en:"Pay via Twint · +41 77 949 65 04", de:"Mit Twint bezahlen · +41 77 949 65 04" },
+        btn_revolut: { fr:"Payer via Revolut · revolut.me/jameskoff", en:"Pay via Revolut · revolut.me/jameskoff", de:"Mit Revolut bezahlen · revolut.me/jameskoff" },
+        proof_label: { fr:"Capture d'écran de votre confirmation de paiement", en:"Screenshot of your payment confirmation", de:"Screenshot Ihrer Zahlungsbestätigung" },
+        upload_cta: { fr:"Cliquez pour joindre votre preuve de paiement", en:"Click to attach your proof of payment", de:"Klicken Sie, um Ihren Zahlungsbeleg anzuhängen" },
+        upload_formats: { fr:"JPG, PNG ou PDF — max 10 MB", en:"JPG, PNG or PDF — max 10 MB", de:"JPG, PNG oder PDF — max. 10 MB" },
+        warning_mandatory: { fr:"<strong>⚠️ Étape obligatoire :</strong> Si vous ne joignez pas votre capture d'écran de paiement, votre achat sera ignoré et aucune expédition ne sera effectuée.", en:"<strong>⚠️ Required step:</strong> If you do not attach your payment screenshot, your order will be ignored and nothing will be shipped.", de:"<strong>⚠️ Pflichtschritt:</strong> Ohne Screenshot Ihrer Zahlung wird Ihre Bestellung nicht berücksichtigt und es erfolgt kein Versand." },
+        form_note_label: { fr:"Note <span style=\"color:var(--outline);font-size:0.75rem;\">(optionnel)</span>", en:"Note <span style=\"color:var(--outline);font-size:0.75rem;\">(optional)</span>", de:"Notiz <span style=\"color:var(--outline);font-size:0.75rem;\">(optional)</span>" },
+        lock_default: { fr:"Remplissez tous les champs et joignez votre preuve pour débloquer", en:"Fill in all fields and attach your proof to unlock", de:"Füllen Sie alle Felder aus und laden Sie Ihren Beleg hoch, um fortzufahren" },
+        lock_ready: { fr:"Prêt", en:"Ready", de:"Bereit" },
+        btn_confirm: { fr:"Confirmer ma commande · CHF ", en:"Confirm my order · CHF ", de:"Bestellung bestätigen · CHF " },
+        secure_note: { fr:"<strong>Paiement Twint ou Revolut</strong> · Données protégées selon la LPD suisse", en:"<strong>Twint or Revolut payment</strong> · Data protected under the Swiss FADP", de:"<strong>Zahlung per Twint oder Revolut</strong> · Daten geschützt nach Schweizer DSG" },
+        summary_title: { fr:"Votre panier", en:"Your cart", de:"Ihr Warenkorb" },
+        upsell_label: { fr:"Complétez votre rituel", en:"Complete your ritual", de:"Vervollständigen Sie Ihr Ritual" },
+        btn_promo: { fr:"Appliquer", en:"Apply", de:"Anwenden" },
+        summary_subtotal: { fr:"Sous-total", en:"Subtotal", de:"Zwischensumme" },
+        summary_volume: { fr:"Offre groupée (Quantité)", en:"Bundle offer (quantity)", de:"Mengenrabatt" },
+        summary_promo: { fr:"Code promo (Étui offert)", en:"Promo code (free case)", de:"Promo-Code (Etui gratis)" },
+        summary_total: { fr:"Total", en:"Total", de:"Total" },
+        promo_ok: { fr:"✅ Code appliqué : Étui offert !", en:"✅ Code applied: free case!", de:"✅ Code angewendet: Etui gratis!" },
+        promo_toast: { fr:"🎁 Étui ajouté en cadeau", en:"🎁 Case added as a gift", de:"🎁 Etui als Geschenk hinzugefügt" },
+        promo_invalid: { fr:"Code invalide", en:"Invalid code", de:"Ungültiger Code" },
+        trust_post: { fr:"Swiss Post 48h", en:"Swiss Post 48h", de:"Swiss Post 48 Std." },
+        trust_secure: { fr:"Paiement sécurisé", en:"Secure payment", de:"Sichere Zahlung" },
+        trust_return: { fr:"Retour 14 jours", en:"14-day returns", de:"14 Tage Rückgabe" },
+        trust_natural: { fr:"100% Naturel", en:"100% natural", de:"100 % natürlich" },
+        footer_brand: { fr:"L'excellence suisse au service d'un rituel millénaire.", en:"Swiss excellence in the service of an age-old ritual.", de:"Schweizer Exzellenz im Dienst eines jahrtausendealten Rituals." },
+        footer_products: { fr:"Produits", en:"Products", de:"Produkte" },
+        footer_info: { fr:"Informations", en:"Information", de:"Informationen" },
+        nav_journal: { fr:"Journal", en:"Journal", de:"Journal" },
+        nav_contact: { fr:"Contact", en:"Contact", de:"Kontakt" },
+        footer_legal: { fr:"Légal", en:"Legal", de:"Rechtliches" },
+        footer_cgv: { fr:"CGV", en:"Terms", de:"AGB" },
+        footer_privacy: { fr:"Confidentialité", en:"Privacy", de:"Datenschutz" },
+        footer_returns: { fr:"Retours", en:"Returns", de:"Rückgabe" },
     };
 
     let LANG = 'fr';
@@ -584,8 +637,10 @@
             const key = el.getAttribute('data-i18n');
             if (T[key] && T[key][lang] !== undefined) el.innerHTML = T[key][lang];
         });
+        document.getElementById('pays').value = T.country_value[lang];
         refreshBtnConfirm(currentTotal);
         updateShippingLabel();
+        checkFormLock();
         document.documentElement.lang = lang;
     }
 
@@ -670,8 +725,8 @@
             
             fb.style.display = 'block'; 
             fb.style.color = 'var(--primary)';
-            fb.textContent = '✅ Code appliqué : Étui offert !';
-            showToast('🎁 Étui ajouté en cadeau', 'success');
+            fb.textContent = T.promo_ok[LANG];
+            showToast(T.promo_toast[LANG], 'success');
         } else {
             isPromoActive = false;
             
@@ -680,8 +735,8 @@
             
             fb.style.display = 'block'; 
             fb.style.color = 'var(--danger)';
-            fb.textContent = code ? 'Code invalide' : '';
-            if (code) showToast('❌ Code invalide', 'error');
+            fb.textContent = code ? T.promo_invalid[LANG] : '';
+            if (code) showToast('❌ ' + T.promo_invalid[LANG], 'error');
         }
         recalc();
     }
@@ -830,7 +885,7 @@
         const adresse = document.getElementById('adresse').value.trim();
         const npa = document.getElementById('npa').value.trim();
         const ville = document.getElementById('ville').value.trim();
-        const pays = document.getElementById('pays').value;
+        const pays = T.country_value.fr; // message au vendeur : toujours en français
 
         if (deliveryMode !== 'retrait' && !isValidSwissNpa(document.getElementById('npa').value)) { showToast('❌ Code postal suisse invalide', 'error'); return; }
         const phoneCheckVal = document.getElementById('phone').value.trim();
