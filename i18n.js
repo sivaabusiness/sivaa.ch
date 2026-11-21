@@ -55,7 +55,7 @@ const translations = {
 
         "product2.badge": "Bâton à mâcher venant du Togo",
         "product2.name": "Allo Togo",
-        "product2.desc": "Formulation sans fluorure artificiel. Interchangeable avec le Siwak.",
+        "product2.desc": "Bâton à mâcher en Fagara, venant du Togo. Interchangeable avec le Siwak.",
         "product2.price": "CHF 6.00 pour 5 pièce",
         "product2.image.alt": "Bâton à mâcher Allo Togo, alternative naturelle au Siwak venant du Togo",
 
@@ -129,11 +129,12 @@ const translations = {
         "modal1.thickness.guide.any": "laissez-nous sélectionner l'épaisseur selon nos meilleures récoltes du moment.",
 
         /* ── INDEX : POPUP PRODUIT 2 ── */
-        "modal2.desc": "Formulation sans fluorure artificiel. Interchangeable avec le Siwak.",
-        "modal2.feat1": "🌿 Sans fluorure artificiel ni SLS",
-        "modal2.feat2": "🌿 Menthe & myrrhe, fraîcheur longue durée",
-        "modal2.feat3": "🌿 Renforce l'émail et apaise les gencives",
-        "modal2.feat4": "🌿 Testé dermatologiquement · vegan",
+        "modal2.desc.intro": "Issu d'Afrique de l'Ouest, l'Allo Togo est taillé dans le <strong>Fagara</strong> (<em>Zanthoxylum zanthoxyloides</em>), un arbuste dont la racine sert depuis des générations de frotte-dents. Le Fagara contient des composés naturels qui laissent une légère sensation de picotement en bouche lors de la mastication.",
+        "modal2.desc": "Contrairement au Siwak, au goût boisé et légèrement poivré, l'Allo Togo a un goût vif et légèrement piquant. Il s'utilise de la même façon et peut remplacer le Siwak au quotidien.",
+        "modal2.feat1": "🌿 Bois naturel de Fagara (Zanthoxylum zanthoxyloides)",
+        "modal2.feat2": "🌿 Légère sensation de picotement, typique du Fagara",
+        "modal2.feat3": "🌿 Frotte-dents traditionnel d'Afrique de l'Ouest",
+        "modal2.feat4": "🌿 Lot de 5 bâtonnets, importé directement du Togo",
 
         /* ── INDEX : TÉMOIGNAGES ── */
         "reviews.eyebrow": "Témoignages",
@@ -428,7 +429,7 @@ const translations = {
 
         "product2.badge": "Chewing stick from Togo",
         "product2.name": "Allo Togo",
-        "product2.desc": "Formula without artificial fluoride. Interchangeable with Siwak.",
+        "product2.desc": "Fagara chewing stick from Togo. Interchangeable with Siwak.",
         "product2.price": "CHF 6.00 per 5 piece",
         "product2.image.alt": "Allo Togo chewing stick, natural Siwak alternative from Togo",
 
@@ -502,11 +503,12 @@ const translations = {
         "modal1.thickness.guide.any": "let us select the thickness from our best current harvest.",
 
         /* ── INDEX : POPUP 2 ── */
-        "modal2.desc": "Formula without artificial fluoride. Interchangeable with Siwak.",
-        "modal2.feat1": "🌿 No artificial fluoride or SLS",
-        "modal2.feat2": "🌿 Mint & myrrh, long-lasting freshness",
-        "modal2.feat3": "🌿 Strengthens enamel and soothes gums",
-        "modal2.feat4": "🌿 Dermatologically tested · vegan",
+        "modal2.desc.intro": "From West Africa, Allo Togo is cut from <strong>Fagara</strong> (<em>Zanthoxylum zanthoxyloides</em>), a shrub whose root has been used as a chewing stick for generations. Fagara contains natural compounds that leave a light tingling sensation in the mouth as you chew.",
+        "modal2.desc": "Unlike Siwak, with its woody, slightly peppery taste, Allo Togo has a lively, slightly pungent taste. It is used the same way and can replace Siwak day to day.",
+        "modal2.feat1": "🌿 Natural Fagara wood (Zanthoxylum zanthoxyloides)",
+        "modal2.feat2": "🌿 Light tingling sensation, typical of Fagara",
+        "modal2.feat3": "🌿 Traditional West African chewing stick",
+        "modal2.feat4": "🌿 Pack of 5 sticks, imported directly from Togo",
 
         /* ── INDEX : REVIEWS ── */
         "reviews.eyebrow": "Testimonials",
@@ -784,7 +786,7 @@ const translations = {
 
         "product2.badge": "Kaustab aus Togo",
         "product2.name": "Allo Togo",
-        "product2.desc": "Formel ohne künstliches Fluorid. Mit Siwak austauschbar.",
+        "product2.desc": "Kaustab aus Fagara, aus Togo. Mit Siwak austauschbar.",
         "product2.price": "CHF 6.00 pro 5 Stück",
         "product2.image.alt": "Allo Togo Kaustab, natürliche Siwak-Alternative aus Togo",
 
@@ -858,11 +860,12 @@ const translations = {
         "modal1.thickness.guide.any": "lassen Sie uns die Stärke aus unserer besten aktuellen Ernte auswählen.",
 
         /* ── POPUP 2 ── */
-        "modal2.desc": "Formel ohne künstliches Fluorid. Mit Siwak austauschbar.",
-        "modal2.feat1": "🌿 Ohne künstliches Fluorid oder SLS",
-        "modal2.feat2": "🌿 Minze & Myrrhe, lang anhaltende Frische",
-        "modal2.feat3": "🌿 Stärkt den Zahnschmelz und beruhigt das Zahnfleisch",
-        "modal2.feat4": "🌿 Dermatologisch getestet · vegan",
+        "modal2.desc.intro": "Allo Togo stammt aus Westafrika und wird aus <strong>Fagara</strong> (<em>Zanthoxylum zanthoxyloides</em>) geschnitten, einem Strauch, dessen Wurzel seit Generationen als Kaustab dient. Fagara enthält natürliche Stoffe, die beim Kauen ein leichtes Kribbeln im Mund hinterlassen.",
+        "modal2.desc": "Anders als der Siwak mit seinem holzigen, leicht pfeffrigen Geschmack schmeckt Allo Togo lebhaft und leicht scharf. Er wird gleich verwendet und kann den Siwak im Alltag ersetzen.",
+        "modal2.feat1": "🌿 Natürliches Fagara-Holz (Zanthoxylum zanthoxyloides)",
+        "modal2.feat2": "🌿 Leichtes Kribbeln, typisch für Fagara",
+        "modal2.feat3": "🌿 Traditioneller Kaustab aus Westafrika",
+        "modal2.feat4": "🌿 5er-Pack, direkt aus Togo importiert",
 
         /* ── REVIEWS ── */
         "reviews.eyebrow": "Kundenstimmen",
