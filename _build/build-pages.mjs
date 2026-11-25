@@ -59,7 +59,7 @@ const PRODUCTS = [
         thickness: 'sivaa_siwak_thickness', offerPrice: '6.00',
         tree: { img: '/arbre-salvadora-persica.webp', w: 507, h: 508, alt: 'pp.tree.p1.alt', caption: 'pp.tree.p1.caption' },
         sections: [
-            { type: 'text', title: 'pp.p1.origin.title', paras: ['pp.p1.origin.1', 'pp.p1.origin.2'] },
+            { type: 'text', tree: true, title: 'pp.p1.origin.title', paras: ['pp.p1.origin.1', 'pp.p1.origin.2'] },
             { type: 'steps', title: 'pp.p1.use.title', steps: steps('p1', 5) },
             { type: 'text', title: 'pp.p1.life.title', paras: ['pp.p1.life.1', 'pp.p1.life.2'] },
             { type: 'compare', title: 'pp.p1.cmp.title', order: ['siwak', 'allo'] },
@@ -77,7 +77,7 @@ const PRODUCTS = [
         thickness: 'sivaa_allotogo_thickness', offerPrice: '6.00',
         tree: { img: '/fagara-zanthoxylum.webp', w: 387, h: 516, alt: 'pp.tree.p2.alt', caption: 'pp.tree.p2.caption' },
         sections: [
-            { type: 'text', title: 'pp.p2.origin.title', paras: ['pp.p2.origin.1', 'pp.p2.origin.2'] },
+            { type: 'text', tree: true, title: 'pp.p2.origin.title', paras: ['pp.p2.origin.1', 'pp.p2.origin.2'] },
             { type: 'steps', title: 'pp.p2.use.title', steps: steps('p2', 5) },
             { type: 'text', title: 'pp.p2.life.title', paras: ['pp.p2.life.1', 'pp.p2.life.2'] },
             { type: 'compare', title: 'pp.p2.cmp.title', intro: 'pp.p2.cmp.intro', order: ['allo', 'siwak'] },
@@ -85,8 +85,8 @@ const PRODUCTS = [
         faq: faqs('p2', 5),
         reads: ['siwak-ou-allo-togo.html', 'siwak-epais-vs-fin.html'], related: ['p1', 'p3', 'p5'],
         desc: {
-            fr: 'Allo Togo, l\'alternative fraîcheur au siwak : 5 bâtonnets à mâcher importés du Togo, au goût vif. CHF 6.00 le lot. Retrait aux Acacias (Genève) ou livraison Swiss Post dans toute la Suisse.',
-            de: 'Allo Togo, die frische Alternative zum Siwak: 5 Kaustäbe, direkt aus Togo importiert, mit lebhaftem Geschmack. CHF 6.00 pro Packung. Versand mit Swiss Post nach Zürich, Basel und in die ganze Schweiz.',
+            fr: 'Allo Togo : bâton à mâcher issu de l\'arbre fagara, venu du Togo. 5 bâtonnets au goût vif, CHF 6.00 le lot. Retrait aux Acacias (Genève) ou livraison Swiss Post dans toute la Suisse.',
+            de: 'Allo Togo: Kauholz vom Fagara-Baum, aus Togo. 5 Kaustäbe mit lebhaftem Geschmack, CHF 6.00 pro Packung. Versand mit Swiss Post nach Zürich, Basel und in die ganze Schweiz.',
         },
     },
     {
@@ -137,6 +137,15 @@ const PRODUCTS = [
 ];
 const byId = Object.fromEntries(PRODUCTS.map((p) => [p.id, p]));
 
+/* Images responsives : variantes WebP 480/800/1200 px générées à côté de l'original */
+const IMAGES = JSON.parse(fs.readFileSync(path.join(import.meta.dirname, 'images.json'), 'utf8'));
+function picture(src, alt, altKey, sizes, { eager = false, cls = '' } = {}) {
+    const v = IMAGES[src];
+    if (!v) throw new Error('Variantes manquantes pour ' + src + ' (voir _build/images.json)');
+    const def = v.find((x) => x[1] >= 800) || v[v.length - 1];
+    return `<img${cls ? ` class="${cls}"` : ''} src="/${def[0]}" srcset="${v.map(([f, w]) => `/${f} ${w}w`).join(', ')}" sizes="${sizes}" width="${def[1]}" height="${def[2]}" alt="${escAttr(alt)}" data-i18n-alt="${altKey}"${eager ? ' fetchpriority="high"' : ' loading="lazy"'} decoding="async"/>`;
+}
+
 /* Titres des articles du journal (lus dans les pages) */
 const articleTitle = (file) => {
     const html = fs.readFileSync(path.join(ROOT, file), 'utf8');
@@ -172,12 +181,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(9,22,11,.7);b
 .page{padding:6.5rem 0 4rem}
 .breadcrumb{display:flex;flex-wrap:wrap;gap:.5rem;font-size:.72rem;color:var(--outline);margin-bottom:2rem}
 .breadcrumb a{color:var(--primary)}
-.pp-grid{display:grid;gap:2.5rem;align-items:start}
-@media(min-width:900px){.pp-grid{grid-template-columns:1fr 1fr;gap:4rem}}
-.pp-media{background:var(--surface-low);border:1px solid var(--outline-variant);border-radius:1rem;overflow:hidden}
-.pp-media img{width:100%;aspect-ratio:1/1;object-fit:cover}
 .pp-badge{display:inline-block;font-size:.7rem;color:#fff;background:rgba(127,153,90,.85);padding:.25rem .75rem;border-radius:9999px;margin-bottom:1rem}
-.pp-info h1{font-size:clamp(2rem,4vw,3rem);font-weight:300;line-height:1.15;margin-bottom:.75rem}
 .pp-price{font-family:'Newsreader',serif;font-size:1.6rem;color:var(--primary);margin-bottom:1.25rem}
 .pp-bundle{background:var(--surface-low);border:1px solid var(--outline-variant);border-radius:.75rem;padding:1rem 1.25rem;margin-bottom:1.5rem}
 .pp-bundle p{color:var(--primary);margin-bottom:.5rem}
@@ -190,18 +194,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(9,22,11,.7);b
 .thickness-options{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:.75rem}
 .thickness-pill{position:relative;cursor:pointer}
 .thickness-pill input{position:absolute;opacity:0}
-.thickness-pill span{display:inline-block;padding:.45rem 1rem;border:1px solid var(--outline);border-radius:9999px;font-size:.8rem;color:#c2c9b4;transition:all .15s}
 .thickness-pill input:checked+span{border-color:var(--primary);color:var(--primary);background:rgba(157,215,90,.08)}
 .thickness-pill input:focus-visible+span{outline:2px solid var(--primary);outline-offset:2px}
 .thickness-guide{list-style:none;display:flex;flex-direction:column;gap:.35rem;font-size:.78rem;color:var(--text-variant);line-height:1.6}
 .thickness-guide strong{color:var(--text);font-weight:500}
-.pp-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-bottom:1.5rem}
 .pp-delivery{background:var(--surface-low);border:1px solid var(--outline-variant);border-radius:.75rem;padding:1.25rem}
 .pp-delivery h2{font-family:'Inter',sans-serif;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--primary);margin-bottom:.5rem;font-weight:600}
 .pp-delivery p{color:var(--text-variant);font-size:.85rem;line-height:1.7;margin-bottom:.6rem}
 .pp-delivery a{color:var(--primary);font-size:.82rem}
-.pp-section{margin-top:4rem}
-.pp-section h2{font-size:clamp(1.4rem,3vw,2rem);font-weight:300;margin-bottom:1.25rem}
 .reads{list-style:none;display:flex;flex-direction:column;gap:.6rem}
 .reads a{color:var(--primary);font-size:.9rem}
 .tiles{display:grid;gap:1rem;grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
@@ -212,14 +212,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(9,22,11,.7);b
 .tile-name{font-family:'Newsreader',serif;font-size:1.1rem;color:var(--text)}
 .tile-price{font-size:.85rem;color:var(--primary)}
 .tile-see{font-size:.8rem;color:var(--text-variant);margin-top:auto}
-.pp-prose p{color:#c2c9b4;font-size:.95rem;line-height:1.85;max-width:46rem;margin-bottom:1rem}
 .pp-prose a{color:var(--primary)}
-.steps{list-style:none;counter-reset:st;display:flex;flex-direction:column;gap:.75rem;max-width:46rem}
 .steps li{counter-increment:st;position:relative;background:var(--surface-low);border-radius:.75rem;padding:1rem 1.25rem 1rem 3.5rem;color:#c2c9b4;font-size:.92rem;line-height:1.7}
 .steps li::before{content:counter(st);position:absolute;left:1rem;top:1rem;width:1.75rem;height:1.75rem;border-radius:50%;background:var(--primary);color:var(--dark-green);font-weight:700;font-size:.8rem;display:flex;align-items:center;justify-content:center}
 .steps li strong{color:var(--text);font-weight:600}
 .cmp-intro{color:var(--text-variant);margin-bottom:1rem}
-.cmp-wrap{overflow-x:auto;border:1px solid var(--outline-variant);border-radius:.75rem;max-width:46rem}
 .cmp{width:100%;border-collapse:collapse;font-size:.88rem;background:var(--surface-low)}
 .cmp th,.cmp td{padding:.85rem 1rem;text-align:left;border-bottom:1px solid var(--outline-variant);line-height:1.5;vertical-align:top}
 .cmp thead th{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--primary);background:var(--surface-mid)}
@@ -228,17 +225,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(9,22,11,.7);b
 .cmp tr:last-child th,.cmp tr:last-child td{border-bottom:none}
 .cmp-link{margin-top:.9rem}
 .cmp-link a{color:var(--primary);font-size:.88rem}
-.thickness-sizes{font-size:.78rem;color:var(--text-variant)}
 .ship-card[id]{scroll-margin-top:5.5rem}
-.pp-gallery{display:flex;flex-direction:column;gap:1rem}
-.pp-tree{background:var(--surface-low);border:1px solid var(--outline-variant);border-radius:1rem;overflow:hidden}
-.pp-tree img{width:100%;height:auto;max-height:28rem;object-fit:cover}
-.pp-tree figcaption{padding:.9rem 1.1rem;font-size:.82rem;line-height:1.6;color:var(--text-variant)}
-.pp-tree figcaption em{color:var(--text)}
-.pp-local{background:linear-gradient(135deg,rgba(39,80,10,.35),rgba(24,45,18,.75));border:1px solid rgba(157,215,90,.2);border-radius:.75rem;padding:1.5rem 1.75rem}
-.pp-local h2{margin-bottom:.75rem}
-.pp-local p{color:#c2c9b4;font-size:.95rem;line-height:1.8;max-width:52rem}
-.faq{display:flex;flex-direction:column;gap:.6rem;max-width:52rem}
 .faq details{background:var(--surface-low);border:1px solid var(--outline-variant);border-radius:.6rem}
 .faq details[open]{border-color:rgba(157,215,90,.3)}
 .faq summary{list-style:none;cursor:pointer;padding:1rem 1.25rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;font-size:.92rem;font-weight:500;color:var(--text)}
@@ -282,6 +269,63 @@ footer{background:var(--surface-lowest);border-top:1px solid rgba(46,58,44,.3);p
 .footer-bottom{border-top:1px solid rgba(46,58,44,.2);padding-top:1.5rem;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem}
 .footer-bottom p,.footer-bottom a{font-size:.72rem;color:var(--outline)}
 .footer-bottom a:hover{color:var(--primary)}
+/* ── Fiche produit : mise en page ── */
+.page{padding:6rem 0 4rem}
+.pp-head{max-width:62rem;margin:0 auto 1.5rem}
+.pp-head h1{font-size:clamp(2rem,4.2vw,3rem);font-weight:300;line-height:1.15;margin:.5rem 0 .5rem}
+.pp-sub{font-size:1.05rem;line-height:1.6;color:#c2c9b4;max-width:40rem}
+.pp-top{display:grid;gap:1.5rem;max-width:62rem;margin:0 auto}
+@media(min-width:900px){.pp-top{grid-template-columns:minmax(0,460px) minmax(0,1fr);gap:3rem;align-items:start}}
+.pp-media{width:100%;max-width:460px;aspect-ratio:1/1;margin:0 auto;background:#fff;border-radius:1rem;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.pp-media img{width:100%;height:100%;object-fit:contain;padding:1rem}
+@media(max-width:899px){.pp-media{max-width:none;aspect-ratio:auto;height:min(calc(100vw - 3rem),40vh)}}
+.pp-buy{background:var(--surface-low);border:1px solid var(--outline-variant);border-radius:1rem;padding:1.5rem}
+.pp-buy .pp-price{font-size:1.8rem;margin-bottom:1rem}
+.pp-buy .pp-bundle{background:var(--surface-mid);border:none;margin-bottom:1.25rem}
+.pp-buy .thickness{margin-bottom:1.25rem}
+.thickness-pill span{display:inline-flex;align-items:center;min-height:44px;padding:0 1.1rem;border:1px solid var(--outline);border-radius:9999px;font-size:.85rem;color:#c2c9b4;transition:all .15s}
+.thickness-sizes{font-size:.78rem;color:var(--text-variant)}
+.pp-actions{display:flex;flex-wrap:wrap;gap:.75rem}
+.pp-actions a{min-height:48px}
+@media(max-width:767px){.pp-actions a{flex:1 1 100%}}
+.pp-col{max-width:44rem;margin:0 auto}
+.pp-section{margin-top:3.5rem}
+.pp-section h2{font-size:clamp(1.45rem,3vw,2rem);font-weight:300;line-height:1.25;margin-bottom:1.1rem}
+.pp-keys .pp-text{max-width:68ch}
+.pp-feats{margin:1rem 0 0}
+.pp-prose p{color:#c2c9b4;font-size:.95rem;line-height:1.85;max-width:68ch;margin-bottom:1rem}
+.pp-tree{max-width:460px;margin:0 0 1.25rem;background:var(--surface-low);border:1px solid var(--outline-variant);border-radius:1rem;overflow:hidden}
+.pp-tree img{display:block;width:100%;aspect-ratio:4/3;height:auto;object-fit:cover}
+.pp-tree figcaption{padding:.8rem 1rem;font-size:.82rem;line-height:1.6;color:var(--text-variant)}
+.pp-tree figcaption em{color:var(--text)}
+.steps{list-style:none;counter-reset:st;display:flex;flex-direction:column;gap:.75rem}
+.cmp-wrap{overflow-x:auto;border:1px solid var(--outline-variant);border-radius:.75rem}
+.faq{display:flex;flex-direction:column;gap:.6rem}
+.faq summary{min-height:48px}
+.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
+.pp-delivery h2{font-family:'Newsreader',serif;font-size:clamp(1.45rem,3vw,2rem);font-weight:300;letter-spacing:normal;text-transform:none;color:var(--text);margin-bottom:.75rem}
+.pp-delivery p{font-size:.95rem;max-width:68ch}
+.tile img{width:100%;height:auto;aspect-ratio:1/1;object-fit:contain;background:#fff;padding:.6rem}
+.tile-sub{font-size:.78rem;line-height:1.5;color:var(--text-variant)}
+/* Mobile : prix et Commander visibles sans défiler (prix dégressifs et épaisseur juste en dessous) */
+.pp-buy{display:flex;flex-direction:column}
+@media(max-width:767px){
+.page{padding-top:5rem}
+.breadcrumb{margin-bottom:1rem}
+.pp-head{margin-bottom:1rem}
+.pp-head h1{font-size:1.85rem;margin:.35rem 0 .35rem}
+.pp-head .pp-badge{margin-bottom:0}
+.pp-sub{font-size:.95rem}
+.pp-media{height:min(calc(100vw - 3rem),30vh)}
+.pp-buy{padding:1.1rem}
+.pp-buy .pp-price{order:1;font-size:1.6rem;margin-bottom:.75rem}
+.pp-buy .pp-actions{order:2;margin-bottom:1.1rem}
+.pp-buy .pp-bundle{order:3;margin-bottom:1rem}
+.pp-buy .thickness{order:4;margin-bottom:0}
+}
+.whatsapp-fab{transition:opacity .2s,transform .2s}
+.whatsapp-fab.fab-hidden{opacity:0;transform:translateY(12px);pointer-events:none}
+
 `;
 
 const fonts = `<link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -454,13 +498,18 @@ function faqLdFor(lang, keys) {
 }
 
 /* ── Sections propres à chaque fiche ────────────────────────── */
-function sectionHtml(lang, sec) {
+function sectionHtml(lang, sec, p) {
     const t = (k) => tr(lang, k);
     const h2 = `<h2 data-i18n="${sec.title}">${t(sec.title)}</h2>`;
     if (sec.type === 'text') {
+        const tree = sec.tree && p.tree ? `
+        <figure class="pp-tree">
+            ${picture(p.tree.img, strip(t(p.tree.alt)), p.tree.alt, '(max-width: 767px) 100vw, 460px')}
+            <figcaption data-i18n="${p.tree.caption}">${t(p.tree.caption)}</figcaption>
+        </figure>` : '';
         return `
     <section class="pp-section pp-prose">
-        ${h2}
+        ${h2}${tree}
         ${sec.paras.map((k) => `<p data-i18n="${k}">${t(k)}</p>`).join('\n        ')}
     </section>`;
     }
@@ -512,7 +561,7 @@ function renderProduct(p, lang) {
         '@type': 'Product',
         name,
         image: [SITE + p.img],
-        description: strip(t(p.intro)),
+        description: strip(t(`pp.${p.id}.subtitle`)) + ' ' + strip(t(p.intro)),
         brand: { '@type': 'Brand', name: 'SIVÀA Geneva' },
         url: SITE + URLS[p.id][lang],
         offers: {
@@ -562,9 +611,10 @@ function renderProduct(p, lang) {
     const related = PRODUCTS.filter((r) => r.id !== p.id).map((r) => r.id).map((id) => {
         const r = byId[id];
         return `<a class="tile" href="${URLS[id][lang]}">
-                <img src="${r.img}" alt="${escAttr(strip(t(r.alt)))}" data-i18n-alt="${r.alt}" loading="lazy"/>
+                ${picture(r.img, strip(t(r.alt)), r.alt, '(max-width: 767px) 50vw, 220px')}
                 <div class="tile-body">
                     <p class="tile-name" data-i18n="${r.name}">${t(r.name)}</p>
+                    <p class="tile-sub" data-i18n="pp.${r.id}.subtitle">${t(`pp.${r.id}.subtitle`)}</p>
                     <p class="tile-price" data-i18n="${r.price}">${t(r.price)}</p>
                     <p class="tile-see" data-i18n="pp.related.see">${t('pp.related.see')}</p>
                 </div>
@@ -597,43 +647,55 @@ ${navHtml(lang)}
         <a href="${home}#produits" data-i18n="pp.crumb.products">${t('pp.crumb.products')}</a><span>›</span>
         <span data-i18n="${p.name}">${t(p.name)}</span>
     </div>
-    <div class="pp-grid">
-        <div class="pp-gallery">
-            <div class="pp-media">
-                <img src="${p.img}" alt="${escAttr(strip(t(p.alt)))}" data-i18n-alt="${p.alt}"/>
-            </div>${p.tree ? `
-            <figure class="pp-tree">
-                <img src="${p.tree.img}" width="${p.tree.w}" height="${p.tree.h}" loading="lazy" decoding="async" alt="${escAttr(strip(t(p.tree.alt)))}" data-i18n-alt="${p.tree.alt}"/>
-                <figcaption data-i18n="${p.tree.caption}">${t(p.tree.caption)}</figcaption>
-            </figure>` : ''}
+    <header class="pp-head">
+        ${i(p.badge, 'p', 'pp-badge')}
+        ${i(p.name, 'h1')}
+        ${i(`pp.${p.id}.subtitle`, 'p', 'pp-sub')}
+    </header>
+    <div class="pp-top">
+        <div class="pp-media">
+            ${picture(p.img, strip(t(p.alt)), p.alt, '(max-width: 767px) 100vw, 460px', { eager: true })}
         </div>
-        <div class="pp-info">
-            ${i(p.badge, 'p', 'pp-badge')}
-            ${i(p.name, 'h1')}
-            ${i(p.price, 'p', 'pp-price')}${bundle}
-            ${i(p.intro, 'p', 'pp-text')}
-            <ul class="pp-feats">${p.keypoints.map((k) => i(k, 'li')).join('')}</ul>${thickness}
+        <div class="pp-buy">
+            ${i(p.price, 'p', 'pp-price')}${bundle}${thickness}
             <div class="pp-actions">
                 <a href="/checkout.html" class="btn-primary" data-i18n="${p.buy}">${t(p.buy)}</a>
                 <a href="https://wa.me/${WA}?text=${encodeURIComponent(waText)}" class="btn-ghost" target="_blank" rel="noopener noreferrer" data-i18n="pp.whatsapp">${t('pp.whatsapp')}</a>
             </div>
-            <div class="pp-delivery">
-                <h2 data-i18n="pp.delivery.title">${t('pp.delivery.title')}</h2>
-                <p data-i18n="pp.delivery.text">${t('pp.delivery.text')}</p>
-                <a href="${URLS.ship[lang]}#retrait" data-i18n="pp.delivery.link">${t('pp.delivery.link')}</a>
-            </div>
         </div>
-    </div>${p.sections.map((sec) => sectionHtml(lang, sec)).join('')}${faqHtml(lang, p.faq)}${reads}
+    </div>
+    <div class="pp-col">
+    <section class="pp-section pp-keys">
+        ${i(p.intro, 'p', 'pp-text')}
+        <ul class="pp-feats">${p.keypoints.map((k) => i(k, 'li')).join('')}</ul>
+    </section>${p.sections.map((sec) => sectionHtml(lang, sec, p)).join('')}${faqHtml(lang, p.faq)}
+    <section class="pp-section">
+        <div class="pp-delivery">
+            <h2 data-i18n="pp.delivery.title">${t('pp.delivery.title')}</h2>
+            <p data-i18n="pp.delivery.text">${t('pp.delivery.text')}</p>
+            <a href="${URLS.ship[lang]}#retrait" data-i18n="pp.delivery.link">${t('pp.delivery.link')}</a>
+        </div>
+    </section>
     <section class="pp-section">
         <h2 data-i18n="pp.related.title">${t('pp.related.title')}</h2>
         <div class="tiles">
             ${related}
         </div>
-    </section>
+    </section>${reads}
+    </div>
 </div>
 </main>
 ${footerHtml(lang)}
 ${fabHtml(lang)}${thicknessScript}
+<script>
+    /* Mobile : le bouton WhatsApp flottant ne recouvre jamais Commander */
+    (function () {
+        var fab = document.querySelector('.whatsapp-fab'), buy = document.querySelector('.pp-actions');
+        if (!fab || !buy || !('IntersectionObserver' in window)) return;
+        var mq = window.matchMedia('(max-width: 767px)');
+        new IntersectionObserver(function (e) { fab.classList.toggle('fab-hidden', mq.matches && e[0].isIntersecting); }, { rootMargin: '0px 0px -60px 0px' }).observe(buy);
+    })();
+</script>
 ${tail}`;
 }
 

@@ -1,0 +1,91 @@
+{
+ "/baton-siwak-premium.jpg": [
+  [
+   "baton-siwak-premium-480.webp",
+   480,
+   480
+  ],
+  [
+   "baton-siwak-premium-800.webp",
+   800,
+   800
+  ],
+  [
+   "baton-siwak-premium-1200.webp",
+   1200,
+   1200
+  ]
+ ],
+ "/allo-togo-batonnets.png": [
+  [
+   "allo-togo-batonnets-480.webp",
+   480,
+   443
+  ],
+  [
+   "allo-togo-batonnets-800.webp",
+   800,
+   738
+  ],
+  [
+   "allo-togo-batonnets-804.webp",
+   804,
+   742
+  ]
+ ],
+ "/etui-siwak.png": [
+  [
+   "etui-siwak-480.webp",
+   480,
+   465
+  ],
+  [
+   "etui-siwak-800.webp",
+   800,
+   775
+  ],
+  [
+   "etui-siwak-1200.webp",
+   1200,
+   1163
+  ]
+ ],
+ "/dentifrice-siwak-clou-de-girofle.jpg": [
+  [
+   "dentifrice-siwak-clou-de-girofle-458.webp",
+   458,
+   458
+  ]
+ ],
+ "/dentifrice-siwak-charbon-actif.jpg": [
+  [
+   "dentifrice-siwak-charbon-actif-480.webp",
+   480,
+   299
+  ],
+  [
+   "dentifrice-siwak-charbon-actif-790.webp",
+   790,
+   492
+  ]
+ ],
+ "/arbre-salvadora-persica.webp": [
+  [
+   "arbre-salvadora-persica-480.webp",
+   480,
+   481
+  ],
+  [
+   "arbre-salvadora-persica-507.webp",
+   507,
+   508
+  ]
+ ],
+ "/fagara-zanthoxylum.webp": [
+  [
+   "fagara-zanthoxylum-387.webp",
+   387,
+   516
+  ]
+ ]
+}

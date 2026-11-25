@@ -55,7 +55,7 @@ const translations = {
 
         "product2.badge": "L'Alternative Fraîcheur · Importé du Togo",
         "product2.name": "Allo Togo",
-        "product2.desc": "L'alternative fraîcheur au siwak, au goût vif et légèrement piquant.",
+        "product2.desc": "Bâton à mâcher issu de l'arbre fagara, venu du Togo.",
         "product2.price": "CHF 6.00 pour 5 pièces",
         "product2.image.alt": "Bâtonnets à mâcher Allo Togo attachés en petits fagots de bois clair",
 
@@ -110,7 +110,7 @@ const translations = {
         "modal1.thickness.guide.any": "laissez-nous sélectionner l'épaisseur selon nos meilleures récoltes du moment.",
 
         /* ── INDEX : POPUP PRODUIT 2 ── */
-        "modal2.desc": "Lot de 5 bâtonnets à mâcher importés du Togo. Leur goût vif, avec un léger picotement, change agréablement du siwak.",
+        "modal2.desc": "Bâton à mâcher issu de l'arbre fagara, venu du Togo. Son goût vif, avec un léger picotement, change agréablement du siwak.",
 
         /* ── INDEX : TÉMOIGNAGES ── */
         "reviews.eyebrow": "Témoignages",
@@ -371,6 +371,12 @@ const translations = {
         "pp.p3.k5": "🌿 Prolonge la vie de votre siwak en le gardant propre entre deux usages",
         "pp.p4.k5": "🌿 Complète parfaitement le bâton de siwak dans la journée",
         "pp.p5.k5": "🌿 Se combine avec le bâton de siwak pour une routine 100 % siwak",
+        "pp.p1.subtitle": "Bâton à mâcher issu de la racine de Salvadora persica, récolté à la main au Pakistan.",
+        "pp.p2.subtitle": "Bâton à mâcher issu de l'arbre fagara, venu du Togo.",
+        "pp.p3.subtitle": "Étui de protection pour emporter votre siwak partout, à l'abri de la poussière.",
+        "pp.p4.subtitle": "Dentifrice au siwak et au clou de girofle, pour un brossage aux notes épicées.",
+        "pp.p5.subtitle": "Dentifrice noir au charbon actif et au siwak, pour une routine originale.",
+        "nav.close": "Fermer",
         "footer.info.shipping": "Livraison & retrait",
         "pp.crumb.home": "Accueil",
         "pp.crumb.products": "Produits",
@@ -617,7 +623,7 @@ const translations = {
 
         "product2.badge": "The Fresh Alternative · Imported from Togo",
         "product2.name": "Allo Togo",
-        "product2.desc": "The fresh alternative to siwak, with a sharp, slightly spicy taste.",
+        "product2.desc": "Chewing stick from the fagara tree, from Togo.",
         "product2.price": "CHF 6.00 per 5 piece",
         "product2.image.alt": "Allo Togo chewing sticks tied into small bundles of light-coloured wood",
 
@@ -672,7 +678,7 @@ const translations = {
         "modal1.thickness.guide.any": "let us select the thickness from our best current harvest.",
 
         /* ── INDEX : POPUP 2 ── */
-        "modal2.desc": "A pack of 5 chewing sticks imported from Togo. Their sharp taste, with a light tingle, makes a pleasant change from siwak.",
+        "modal2.desc": "Chewing stick from the fagara tree, from Togo. Its sharp taste, with a light tingle, makes a pleasant change from siwak.",
 
         /* ── INDEX : REVIEWS ── */
         "reviews.eyebrow": "Testimonials",
@@ -934,6 +940,12 @@ const translations = {
         "pp.p3.k5": "🌿 Extends the life of your siwak by keeping it clean between uses",
         "pp.p4.k5": "🌿 The perfect partner for the siwak stick during the day",
         "pp.p5.k5": "🌿 Pairs with the siwak stick for a 100% siwak routine",
+        "pp.p1.subtitle": "Chewing stick from the root of Salvadora persica, hand-harvested in Pakistan.",
+        "pp.p2.subtitle": "Chewing stick from the fagara tree, from Togo.",
+        "pp.p3.subtitle": "Protective case to take your siwak anywhere, safe from dust.",
+        "pp.p4.subtitle": "Siwak and clove toothpaste, for brushing with spicy notes.",
+        "pp.p5.subtitle": "Black toothpaste with activated charcoal and siwak, for an original routine.",
+        "nav.close": "Close",
         "footer.info.shipping": "Delivery & pickup",
         "pp.crumb.home": "Home",
         "pp.crumb.products": "Products",
@@ -1162,7 +1174,7 @@ const translations = {
 
         "product2.badge": "Die frische Alternative · Aus Togo importiert",
         "product2.name": "Allo Togo",
-        "product2.desc": "Die frische Alternative zum Siwak, lebhaft und leicht scharf im Geschmack.",
+        "product2.desc": "Kauholz vom Fagara-Baum, aus Togo.",
         "product2.price": "CHF 6.00 pro 5 Stück",
         "product2.image.alt": "Allo-Togo-Kauhölzer aus hellem Holz, zu kleinen Bündeln geschnürt",
 
@@ -1217,7 +1229,7 @@ const translations = {
         "modal1.thickness.guide.any": "lassen Sie uns die Stärke aus unserer besten aktuellen Ernte auswählen.",
 
         /* ── POPUP 2 ── */
-        "modal2.desc": "5er-Pack Kaustäbe, direkt aus Togo importiert. Ihr lebhafter Geschmack mit leichtem Kribbeln ist eine angenehme Abwechslung zum Siwak.",
+        "modal2.desc": "Kauholz vom Fagara-Baum, aus Togo. Sein lebhafter Geschmack mit leichtem Kribbeln ist eine angenehme Abwechslung zum Siwak.",
 
         /* ── REVIEWS ── */
         "reviews.eyebrow": "Kundenstimmen",
@@ -1479,6 +1491,12 @@ const translations = {
         "pp.p3.k5": "🌿 Verlängert die Lebensdauer Ihres Siwak, weil er zwischen zwei Anwendungen sauber bleibt",
         "pp.p4.k5": "🌿 Die ideale Ergänzung zum Siwak-Stab im Laufe des Tages",
         "pp.p5.k5": "🌿 Lässt sich mit dem Siwak-Stab zu einer 100-%-Siwak-Routine kombinieren",
+        "pp.p1.subtitle": "Kauholz aus der Wurzel von Salvadora persica, von Hand in Pakistan geerntet.",
+        "pp.p2.subtitle": "Kauholz vom Fagara-Baum, aus Togo.",
+        "pp.p3.subtitle": "Schutzetui, um Ihren Siwak staubgeschützt überallhin mitzunehmen.",
+        "pp.p4.subtitle": "Zahnpasta mit Siwak und Gewürznelke, für ein Putzen mit würziger Note.",
+        "pp.p5.subtitle": "Schwarze Zahnpasta mit Aktivkohle und Siwak, für eine originelle Routine.",
+        "nav.close": "Schliessen",
         "footer.info.shipping": "Versand & Abholung",
         "pp.crumb.home": "Startseite",
         "pp.crumb.products": "Produkte",
