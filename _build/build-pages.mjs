@@ -71,10 +71,9 @@ const PRODUCTS = [
         },
     },
     {
-        // Prix de l'étui à confirmer (5 CHF affichés, 6 CHF au checkout) : pas de balisage Product tant que ce n'est pas tranché.
         id: 'p3', img: '/imgetui.png', alt: 'modal3.image.alt', badge: 'product3.badge', name: 'product3.name',
         paras: ['modal3.desc'], feats: ['modal3.feat1', 'modal3.feat2', 'modal3.feat3', 'modal3.feat4'],
-        price: 'product3.price', buy: 'modal3.buy', offerPrice: null,
+        price: 'product3.price', buy: 'modal3.buy', offerPrice: '6.00',
         reads: ['article-siwak.html'], related: ['p1', 'p2'],
         meta: {
             fr: { title: 'Étui de protection pour Siwak — Hygiène nomade | SIVÀA Geneva', desc: "Étui de protection pour siwak : garde votre bâton à l'abri de l'humidité et de la poussière, partout avec vous. Livraison Swiss Post dans toute la Suisse ou retrait à Genève." },
