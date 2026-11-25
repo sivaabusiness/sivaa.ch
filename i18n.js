@@ -353,6 +353,8 @@ const translations = {
         "pp.p5.faq.5.q": "Comment conserver le tube ?",
         "pp.p5.faq.5.a": "Bouchez-le après chaque utilisation et rangez-le à l'abri de la chaleur.",
         "pp.faq.title": "Questions fréquentes",
+        "blog.thickness.image.alt": "Deux bâtons de siwak côte à côte, un épais et un fin, aux fibres apparentes",
+        "blog.togo.image.alt": "Un bâton de siwak à côté de bâtonnets Allo Togo en fagara attachés",
         "footer.info.shipping": "Livraison & retrait",
         "pp.crumb.home": "Accueil",
         "pp.crumb.products": "Produits",
@@ -516,7 +518,7 @@ const translations = {
         "contact.email.cta": "Envoyer un email →",
         "contact.info.title": "Informations pratiques",
         "contact.info.hours.label": "Horaires",
-        "contact.info.hours.value": "Lundi – Vendredi, 9h – 18h",
+        "contact.info.hours.value": "Disponible 7j/7, sur rendez-vous",
         "contact.info.atelier.label": "Lieu de retrait",
         "contact.info.atelier.value": "Quai des Vernets 11, 1227 Genève, Suisse",
         "contact.info.delivery.label": "Livraison",
@@ -899,6 +901,8 @@ const translations = {
         "pp.p5.faq.5.q": "How should I store the tube?",
         "pp.p5.faq.5.a": "Cap it after each use and keep it away from heat.",
         "pp.faq.title": "Frequently asked questions",
+        "blog.thickness.image.alt": "Two siwak sticks side by side, one thick and one thin, with visible fibres",
+        "blog.togo.image.alt": "A siwak stick next to bundled Allo Togo sticks made of fagara wood",
         "footer.info.shipping": "Delivery & pickup",
         "pp.crumb.home": "Home",
         "pp.crumb.products": "Products",
@@ -1044,7 +1048,7 @@ const translations = {
         "contact.email.cta": "Send an email →",
         "contact.info.title": "Practical information",
         "contact.info.hours.label": "Hours",
-        "contact.info.hours.value": "Monday – Friday, 9am – 6pm",
+        "contact.info.hours.value": "Available 7 days a week, by appointment",
         "contact.info.atelier.label": "Pickup point",
         "contact.info.atelier.value": "Quai des Vernets 11, 1227 Geneva, Switzerland",
         "contact.info.delivery.label": "Delivery",
@@ -1427,6 +1431,8 @@ const translations = {
         "pp.p5.faq.5.q": "Wie bewahre ich die Tube auf?",
         "pp.p5.faq.5.a": "Nach jedem Gebrauch verschliessen und vor Wärme geschützt aufbewahren.",
         "pp.faq.title": "Häufige Fragen",
+        "blog.thickness.image.alt": "Zwei Siwak-Stäbe nebeneinander, ein dicker und ein dünner, mit sichtbaren Fasern",
+        "blog.togo.image.alt": "Ein Siwak-Stab neben gebündelten Allo-Togo-Kaustäben aus Fagara-Holz",
         "footer.info.shipping": "Versand & Abholung",
         "pp.crumb.home": "Startseite",
         "pp.crumb.products": "Produkte",
@@ -1572,7 +1578,7 @@ const translations = {
         "contact.email.cta": "E-Mail senden →",
         "contact.info.title": "Praktische Informationen",
         "contact.info.hours.label": "Öffnungszeiten",
-        "contact.info.hours.value": "Montag – Freitag, 9–18 Uhr",
+        "contact.info.hours.value": "7 Tage die Woche, nach Vereinbarung",
         "contact.info.atelier.label": "Abholort",
         "contact.info.atelier.value": "Quai des Vernets 11, 1227 Genf, Schweiz",
         "contact.info.delivery.label": "Lieferung",
@@ -1632,9 +1638,10 @@ function getStoredLang() {
         const saved = localStorage.getItem('sivaa_lang');
         if (saved && translations[saved]) return saved;
     } catch (e) {}
-    const nav = (navigator.language || 'fr').slice(0, 2).toLowerCase();
-    if (translations[nav]) return nav;
-    return 'fr';
+    // Sans choix du visiteur : la langue de la page (français par défaut), jamais celle du navigateur,
+    // pour que Google et les visiteurs voient la page dans sa langue d'origine.
+    const pageLang = (document.documentElement.getAttribute('lang') || 'fr').slice(0, 2).toLowerCase();
+    return translations[pageLang] ? pageLang : 'fr';
 }
 
 // Choix de langue par l'utilisateur : si la page existe dans cette langue

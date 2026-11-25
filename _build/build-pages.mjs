@@ -539,7 +539,8 @@ function renderProduct(p, lang) {
         <ul class="reads">${p.reads.map((f) => `<li><a href="/${f}">${articleTitle(f)} →</a></li>`).join('')}</ul>
     </section>` : '';
 
-    const related = p.related.map((id) => {
+    // « Vous aimerez aussi » : toujours les 4 autres produits
+    const related = PRODUCTS.filter((r) => r.id !== p.id).map((r) => r.id).map((id) => {
         const r = byId[id];
         return `<a class="tile" href="${URLS[id][lang]}">
                 <img src="${r.img}" alt="${escAttr(strip(t(r.alt)))}" data-i18n-alt="${r.alt}" loading="lazy"/>
