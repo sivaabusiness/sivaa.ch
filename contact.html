@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="sivaa.png" type="image/png">
-    <title>Contact | SIVÀA Geneva — Atelier Genevois</title>
-    <meta name="description" content="Contactez l'atelier SIVÀA Geneva. Questions sur le Siwak, votre commande ou nos produits — réponse rapide garantie." />
+    <title>Contact | SIVÀA Geneva — Siwak à Genève</title>
+    <meta name="description" content="Contactez SIVÀA Geneva. Questions sur le Siwak, votre commande ou nos produits — réponse rapide garantie." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Inter:wght@100;300;400;500;600;700;900&display=swap" rel="stylesheet" />
@@ -84,6 +84,9 @@
         .contact-card-body .cta-link:hover{text-decoration:underline;}
 
         /* INFO BOX */
+        .map-box{margin-top:1rem;border:1px solid var(--outline-variant);border-radius:.75rem;overflow:hidden;background:var(--surface-low);}
+        .map-box iframe{display:block;width:100%;height:220px;border:0;}
+        .map-box a{display:block;padding:.75rem 1rem;font-size:.8rem;color:var(--primary);}
         .info-box{background:var(--surface-lowest);border:1px solid var(--outline-variant);border-radius:.75rem;padding:1.5rem;margin-top:1.5rem;}
         .info-box h4{font-family:'Newsreader',serif;font-size:1rem;margin-bottom:1rem;}
         .info-row{display:flex;gap:.75rem;align-items:flex-start;margin-bottom:.85rem;font-size:.8rem;color:var(--text-variant);}
@@ -140,9 +143,9 @@
 
 <!-- PAGE HEADER -->
 <div class="page-header container animate-fade-up">
-    <span class="label-sm" data-i18n="contact.header.eyebrow">Atelier Genevois</span>
-    <h1><span data-i18n="contact.header.title.part1">Nous</span> <em class="accent" data-i18n="contact.header.title.part2">contacter</em></h1>
-    <p style="color:var(--text-variant);margin-top:.75rem;font-size:.95rem;" data-i18n="contact.header.subtitle">Nous répondons en général dans les 2–4 heures en journée.</p>
+    <span class="label-sm" data-i18n="contact.header.eyebrow">Siwak à Genève</span>
+    <h1><span data-i18n="contact.header.title.part1">Me</span> <em class="accent" data-i18n="contact.header.title.part2">contacter</em></h1>
+    <p style="color:var(--text-variant);margin-top:.75rem;font-size:.95rem;" data-i18n="contact.header.subtitle">Je réponds en général dans les 2–4 heures en journée.</p>
 </div>
 
 <!-- CONTACT -->
@@ -188,7 +191,7 @@
 
                 <div style="display:flex;gap:1rem;flex-wrap:wrap;align-items:center;">
                     <button class="btn-primary" style="padding:.9rem 2rem;font-size:.95rem;" onclick="sendContact()">
-                        <span data-i18n="contact.send">Envoyer le message</span>
+                        <span data-i18n="contact.send">Envoyer sur WhatsApp</span>
                         <svg class="icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
                     </button>
                     <p style="font-size:.72rem;color:var(--outline);" data-i18n="contact.required">* champs obligatoires</p>
@@ -200,8 +203,8 @@
                 <div class="check">
                     <svg style="width:2rem;height:2rem;color:var(--primary);" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
                 </div>
-                <h3 data-i18n="contact.success.title">Message envoyé !</h3>
-                <p data-i18n="contact.success.subtitle">Nous vous répondons dans les 2–4 heures en journée.<br/>En attendant, consultez notre <a href="index.html#faq" style="color:var(--primary);">FAQ</a>.</p>
+                <h3 data-i18n="contact.success.title">WhatsApp s'est ouvert !</h3>
+                <p data-i18n="contact.success.subtitle">Envoyez le message pré-rempli dans WhatsApp, je vous réponds dans les 2–4 heures en journée.</p>
                 <button class="btn-ghost" onclick="resetForm()" style="margin-top:1.5rem;" data-i18n="contact.success.again">Envoyer un autre message</button>
             </div>
         </div>
@@ -232,22 +235,28 @@
                 </div>
                 <div class="info-row">
                     <svg class="icon-sm" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                    <div><strong data-i18n="contact.info.atelier.label">Atelier</strong><br/><span data-i18n="contact.info.atelier.value">Quai des Vernets 11<br/>1227 Genève, Suisse</span></div>
+                    <div><strong data-i18n="contact.info.atelier.label">Lieu de retrait</strong><br/><span data-i18n="contact.info.atelier.value">Quai des Vernets 11, 1227 Genève, Suisse</span></div>
                 </div>
                 <div class="info-row">
                     <svg class="icon-sm" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-                    <div><strong data-i18n="contact.info.delivery.label">Livraison</strong><br/><span data-i18n="contact.info.delivery.value">Swiss Post · 2–3 jours ouvrés<br/>CHF 9.00 · toute la Suisse</span></div>
+                    <div><strong data-i18n="contact.info.delivery.label">Livraison</strong><br/><span data-i18n="contact.info.delivery.value">Swiss Post · 2–3 jours ouvrés, CHF 10.00 · toute la Suisse</span></div>
                 </div>
                 <div class="info-row" style="margin-bottom:0;">
                     <svg class="icon-sm" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-                    <div><strong data-i18n="contact.info.returns.label">Retours</strong><br/><span data-i18n="contact.info.returns.value">14 jours sans justification<br/>Échange ou remboursement</span></div>
+                    <div><strong data-i18n="contact.info.returns.label">Retours</strong><br/><span data-i18n="contact.info.returns.value">14 jours sans justification, échange ou remboursement</span></div>
                 </div>
+            </div>
+
+            <!-- Lieu de retrait -->
+            <div class="map-box">
+                <iframe src="https://www.google.com/maps?q=Quai+des+Vernets+11,+1227+Gen%C3%A8ve&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen title="Retrait aux Acacias (Genève)" data-i18n-title="pp.map.title"></iframe>
+                <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Quai%20des%20Vernets%2011%2C%201227%20Gen%C3%A8ve" target="_blank" rel="noopener noreferrer" data-i18n="pp.map.directions">Itinéraire →</a>
             </div>
 
             <div style="background:var(--secondary-container);border-radius:.75rem;padding:1.25rem;margin-top:1rem;">
                 <p style="font-size:.78rem;color:var(--text-variant);line-height:1.7;">
                     <strong style="color:var(--text);" data-i18n="contact.order.note">Vous avez passé commande ?</strong><br/>
-                    <span data-i18n="contact.order.desc">Pour toute question sur votre commande, munissez-vous de votre numéro (SIVAA-XXXX-XXXXX) et contactez-nous par WhatsApp pour un traitement prioritaire.</span>
+                    <span data-i18n="contact.order.desc">Pour toute question sur votre commande, munissez-vous de votre numéro (SIVAA-XXXX-XXXXX) et contactez-moi par WhatsApp pour un traitement prioritaire.</span>
                 </p>
             </div>
         </div>
@@ -260,11 +269,11 @@
     <div class="container">
         <div class="footer-grid">
             <div class="footer-brand"><a href="index.html" style="font-family:'Newsreader',serif;font-size:1.4rem;font-weight:300;letter-spacing:0.12em;color:#d7e7d4;text-decoration:none;">SIVÀA <span style="color:#9dd75a;font-size:0.9rem;letter-spacing:0.06em;">Geneva</span></a><p data-i18n="footer.tagline">L'excellence suisse au service d'un rituel millénaire.</p></div>
-            <div class="footer-col"><h4 data-i18n="footer.col.products">Produits</h4><ul><li><a href="checkout.html" data-i18n="footer.product.siwak">Siwak Premium</a></li><li><a href="checkout.html" data-i18n="footer.product.togo">Allo Togo</a></li><a href="etui-siwak.html" data-i18n="footer.product.etui">Étui de Protection pour Siwak</a></li><li><a href="checkout.html">Commander</a></li></ul></div>
-            <div class="footer-col"><h4 data-i18n="footer.col.info">Informations</h4><ul><li><a href="blog.html" data-i18n="footer.info.journal">Journal</a></li><li><a href="index.html">À propos</a></li><li><a href="livraison-retrait.html" data-i18n="footer.info.shipping">Livraison &amp; retrait</a></li><li><a href="contact.html" data-i18n="footer.info.contact">Contact</a></li></ul></div>
+            <div class="footer-col"><h4 data-i18n="footer.col.products">Produits</h4><ul><li><a href="checkout.html" data-i18n="footer.product.siwak">Bâton de Siwak Premium</a></li><li><a href="checkout.html" data-i18n="footer.product.togo">Allo Togo</a></li><a href="etui-siwak.html" data-i18n="footer.product.etui">Étui de Protection Siwak</a></li><li><a href="checkout.html">Commander</a></li></ul></div>
+            <div class="footer-col"><h4 data-i18n="footer.col.info">Informations</h4><ul><li><a href="blog.html" data-i18n="footer.info.journal">Journal</a></li><li><a href="index.html">À propos</a></li><li><a href="livraison-retrait.html" data-i18n="footer.info.shipping">Livraison & retrait</a></li><li><a href="contact.html" data-i18n="footer.info.contact">Contact</a></li></ul></div>
             <div class="footer-col"><h4 data-i18n="footer.col.legal">Légal</h4><ul><li><a href="mentions-legales.html" data-i18n="footer.legal.cgv">CGV</a></li><li><a href="politique-confidentialite.html" data-i18n="footer.legal.privacy">Confidentialité</a></li><li><a href="contact.html" data-i18n="footer.legal.returns">Retours</a></li></ul></div>
         </div>
-        <div class="footer-bottom"><p data-i18n="footer.copyright">© 2026 SIVÀA Geneva · Genève, Suisse</p><div style="display:flex;gap:1.25rem;"><a href="#">CGV</a><a href="#">Confidentialité</a></div></div>
+        <div class="footer-bottom"><p data-i18n="footer.copyright">© 2026 SIVÀA Geneva · Genève, Suisse.</p><div style="display:flex;gap:1.25rem;"><a href="#">CGV</a><a href="#">Confidentialité</a></div></div>
     </div>
 </footer>
 

@@ -150,12 +150,22 @@
         }
         .btn-ghost:hover { background: #2a382b; }
         .btn-more { border: 1px solid rgba(157,215,90,0.35); font-size: 0.875rem; padding: 0.5rem 1rem; white-space: nowrap; justify-content: center; }
-        .card-siv .btn-more { margin: -0.25rem 0 1rem; }
         .btn-more:hover { border-color: #9dd75a; }
         /* ═══════════════════════════════════
            UTILITIES
         ═══════════════════════════════════ */
         .card-siv { background: #111f13; border-radius: 0.5rem; scroll-margin-top: 7rem; }
+        /* Cartes produits : même structure, boutons alignés en bas */
+        .products-grid, .dentifrice-grid { align-items: stretch; }
+        .products-grid > .card-siv, .dentifrice-grid > .card-siv { display: flex; flex-direction: column; height: 100%; }
+        .card-body { display: flex; flex-direction: column; flex: 1; padding: 1.25rem 1.5rem 1.5rem; }
+        .card-title { font-size: 1.1rem; font-weight: 400; color: #d7e7d4; line-height: 1.35; min-height: 2.7em; margin-bottom: 0.5rem;
+            display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; overflow-wrap: anywhere; hyphens: auto; }
+        .card-desc { color: #c2c9b4; font-size: 0.875rem; line-height: 1.6; min-height: 3.2em; margin-bottom: 1.25rem;
+            display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .card-foot { margin-top: auto; display: flex; flex-direction: column; align-items: stretch; gap: 0.75rem; }
+        .card-price { font-family: 'Newsreader', serif; font-size: 1.2rem; color: #9dd75a; }
+        .card-foot .btn-more { width: 100%; }
         .shadow-siv { box-shadow: 0 8px 32px rgba(9,22,11,0.6); }
         .shadow-siv-lg { box-shadow: 0 16px 48px rgba(9,22,11,0.8); }
         .glow-primary { filter: drop-shadow(0 0 20px rgba(157,215,90,0.3)); }
@@ -429,11 +439,11 @@
         ═══════════════════════════════════ */
         .product-img-wrap {
             position: relative;
-            height: 14rem;
+            aspect-ratio: 4 / 3;
             overflow: hidden;
             background: #152317;
+            flex-shrink: 0;
         }
-        @media(min-width: 480px) { .product-img-wrap { height: 16rem; } }
         .product-img-wrap img {
             width: 100%; height: 100%; object-fit: cover;
             transition: transform 0.5s;
@@ -522,7 +532,7 @@
                 <span style="color:#c2c9b4;" data-i18n="hero.title.part4">Genf</span>
             </h1>
 
-            <p class="hero-animate-3" style="color:#c2c9b4;font-size:clamp(0.95rem,2vw,1.125rem);line-height:1.8;max-width:36rem;margin-bottom:2rem;" data-i18n="hero.subtitle">Die natürliche Zahnbürste, die die Welt seit 7000 Jahren verwendet, ausgewählt mit Schweizer Präzision. Antibakteriell, aufhellend, biologisch abbaubar. Lieferung in der ganzen Schweiz: Versand innerhalb von 48 Std. + 2–3 Tage.</p>
+            <p class="hero-animate-3" style="color:#c2c9b4;font-size:clamp(0.95rem,2vw,1.125rem);line-height:1.8;max-width:36rem;margin-bottom:2rem;" data-i18n="hero.subtitle">Die natürliche Zahnbürste, die seit Jahrhunderten traditionell verwendet wird. Der Holzstab wird gekaut, bis eine Bürste entsteht, und hinterlässt ein sauberes Gefühl und frischen Atem. Lieferung in die ganze Schweiz: Versand innerhalb von 48 Std. + 2–3 Tage.</p>
 
             <div class="hero-animate-4" style="display:flex;gap:0.875rem;flex-wrap:wrap;">
                 <a href="/checkout.html" class="btn-primary" style="font-size:clamp(0.875rem,2vw,1rem);" data-i18n="hero.cta.order">Jetzt bestellen →</a>
@@ -542,7 +552,7 @@
                 <img src="https://i.pinimg.com/1200x/80/d2/39/80d2397cf2e81cda78fa062dd9b48d03.jpg" alt="Premium SIVÀA Geneva Siwak-Stab, Schweizer natürliche Zahnbürste" data-i18n-alt="hero.image.alt" loading="eager">
             </div>
             <div class="hero-badge-float shadow-siv">
-                <span style="font-size:0.875rem;font-weight:500;color:#d7e7d4;" data-i18n="hero.badge.float">⭐ 4.9/5 — Von der WHO anerkannt</span>
+                <span style="font-size:0.875rem;font-weight:500;color:#d7e7d4;" data-i18n="hero.badge.float">🌿 Eine von der <a href="https://iris.who.int/bitstreams/1f64ff17-718e-44d0-9935-26501fa61991/download" target="_blank" rel="noopener" style="color:#9dd75a;">WHO</a> geförderte Praxis</span>
             </div>
         </div>
 
@@ -556,7 +566,7 @@
 <section id="produits" style="max-width:80rem;margin:0 auto;" class="section-pad">
     <div class="reveal" style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:2.5rem;">
         <div>
-            <p style="font-size:0.7rem;color:#9dd75a;text-transform:uppercase;letter-spacing:0.2em;margin-bottom:0.75rem;" data-i18n="products.eyebrow">Die Botanische Werkstatt</p>
+            <p style="font-size:0.7rem;color:#9dd75a;text-transform:uppercase;letter-spacing:0.2em;margin-bottom:0.75rem;" data-i18n="products.eyebrow">Die botanische Auswahl</p>
             <h2 class="section-title">
                 <span data-i18n="products.title.part1">Meine</span>
                 <em style="font-style:normal;color:#9dd75a;" data-i18n="products.title.part2">Kollektion</em>
@@ -573,39 +583,12 @@
                 <img src="/siwako.jpg" alt="SIVÀA Premium Siwak-Stab, natürliche Salvadora persica Zahnbürste" data-i18n-alt="product1.image.alt" loading="lazy">
                 <div style="position:absolute;top:0.75rem;left:0.75rem;background:rgba(127,153,90,0.85);color:white;font-size:0.7rem;padding:0.25rem 0.75rem;border-radius:9999px;backdrop-filter:blur(4px);" data-i18n="product1.badge">Handgeerntet · Pakistan</div>
             </div>
-            <div style="padding:1.5rem;">
-                <h3 style="font-size:1.1rem;font-weight:400;color:#d7e7d4;margin-bottom:0.5rem;" data-i18n="product1.name">Premium Siwak-Stab</h3>
-                <p style="color:#c2c9b4;font-size:0.875rem;line-height:1.6;margin-bottom:1rem;" data-i18n="product1.desc">Natürlich antibakteriell. Reich an Kieselsäure, Tanninen und Mineralien. Gebrauchsfertig.</p>
-                <a href="/de/siwak-premium.html" onclick="event.stopPropagation()" class="btn-ghost btn-more" data-i18n="btn.more">Mehr erfahren</a>
-                <ul style="list-style:none;margin:0 0 1rem;display:flex;flex-direction:column;gap:0.4rem;">
-                    <li style="color:#c2c9b4;font-size:0.82rem;" data-i18n="modal1.feat1">🌿 70+ aktive Mineralien einschliesslich natürliches Fluorid</li>
-                    <li style="color:#c2c9b4;font-size:0.82rem;" data-i18n="modal1.feat2">🌿 Nachweislich antibakteriell gegen Plaque</li>
-                    <li style="color:#c2c9b4;font-size:0.82rem;" data-i18n="modal1.feat3">🌿 Natürliche Aufhellung ohne Abrieb</li>
-                    <li style="color:#c2c9b4;font-size:0.82rem;" data-i18n="modal1.feat4">🌿 Null Plastik · 100% biologisch abbaubar</li>
-                </ul>
-                <div style="background:#152317;border-radius:0.5rem;padding:0.65rem;font-size:0.75rem;color:#8c9380;margin-bottom:1.25rem;" data-i18n="modal1.shipping">🚚 Versandkosten Swiss Post · CHF 10.00 · Versand innerhalb von 48 Std. + 2–3 Tage</div>
-                <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;">
-                    <span style="font-family:'Newsreader',serif;font-size:1.2rem;color:#9dd75a;" data-i18n="product1.price">CHF 6.00 pro Stück</span>
-                    <a href="/checkout.html" class="btn-primary" style="font-size:0.875rem;padding:0.5rem 1rem;" data-i18n="modal1.buy">🛍 Jetzt kaufen</a>
-                </div>
-
-                <div class="thickness-picker" onclick="event.stopPropagation()">
-                    <p class="thickness-picker-label" data-i18n="modal1.thickness.label">Stärke des Stäbchens</p>
-                    <div class="thickness-options">
-                        <label class="thickness-pill">
-                            <input type="radio" name="thickness-card1" value="fin">
-                            <span data-i18n="modal1.thickness.thin">Dünn</span>
-                        </label>
-                        <label class="thickness-pill">
-                            <input type="radio" name="thickness-card1" value="epais">
-                            <span data-i18n="modal1.thickness.thick">Dick</span>
-                        </label>
-                        <label class="thickness-pill">
-                            <input type="radio" name="thickness-card1" value="peu-importe" checked="">
-                            <span data-i18n="modal1.thickness.any">Egal</span>
-                        </label>
-                    </div>
-                    <p class="thickness-sizes" data-i18n="thickness.sizes">Dünn ≈ 1–1,5 cm · Dick ≈ 2–2,5 cm Durchmesser</p>
+            <div class="card-body">
+                <h3 class="card-title" data-i18n="product1.name">Premium Siwak-Stab</h3>
+                <p class="card-desc" data-i18n="product1.desc">Salvadora-persica-Wurzel, von Hand geerntet. Ohne Wasser und Zahnpasta verwendbar.</p>
+                <div class="card-foot">
+                    <span class="card-price" data-i18n="product1.price">CHF 6.00 pro Stück</span>
+                    <a href="/de/siwak-premium.html" onclick="event.stopPropagation()" class="btn-ghost btn-more" data-i18n="btn.more">Mehr erfahren</a>
                 </div>
             </div>
         </article>
@@ -616,39 +599,12 @@
                 <img src="/allo-togo.png" alt="Allo Togo Kaustab, natürliche Siwak-Alternative aus Togo" data-i18n-alt="product2.image.alt" loading="lazy">
                 <div style="position:absolute;top:0.75rem;left:0.75rem;background:rgba(127,153,90,0.85);color:white;font-size:0.7rem;padding:0.25rem 0.75rem;border-radius:9999px;backdrop-filter:blur(4px);" data-i18n="product2.badge">Kaustab aus Togo</div>
             </div>
-            <div style="padding:1.5rem;">
-                <h3 style="font-size:1.1rem;font-weight:400;color:#d7e7d4;margin-bottom:0.5rem;" data-i18n="product2.name">Allo Togo</h3>
-                <p style="color:#c2c9b4;font-size:0.875rem;line-height:1.6;margin-bottom:1rem;" data-i18n="product2.desc">Kaustab aus Fagara, aus Togo. Mit Siwak austauschbar.</p>
-                <a href="/de/allo-togo.html" onclick="event.stopPropagation()" class="btn-ghost btn-more" data-i18n="btn.more">Mehr erfahren</a>
-                <ul style="list-style:none;margin:0 0 1rem;display:flex;flex-direction:column;gap:0.4rem;">
-                    <li style="color:#c2c9b4;font-size:0.82rem;" data-i18n="modal2.feat1">🌿 Natürliches Fagara-Holz (Zanthoxylum zanthoxyloides)</li>
-                    <li style="color:#c2c9b4;font-size:0.82rem;" data-i18n="modal2.feat2">🌿 Leichtes Kribbeln, typisch für Fagara</li>
-                    <li style="color:#c2c9b4;font-size:0.82rem;" data-i18n="modal2.feat3">🌿 Traditioneller Kaustab aus Westafrika</li>
-                    <li style="color:#c2c9b4;font-size:0.82rem;" data-i18n="modal2.feat4">🌿 5er-Pack, direkt aus Togo importiert</li>
-                </ul>
-                <div style="background:#152317;border-radius:0.5rem;padding:0.65rem;font-size:0.75rem;color:#8c9380;margin-bottom:1.25rem;" data-i18n="modal1.shipping">🚚 Versandkosten Swiss Post · CHF 10.00 · Versand innerhalb von 48 Std. + 2–3 Tage</div>
-                <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;">
-                    <span style="font-family:'Newsreader',serif;font-size:1.2rem;color:#9dd75a;" data-i18n="product2.price">CHF 6.00 pro 5 Stück</span>
-                    <a href="/checkout.html" class="btn-primary" style="font-size:0.875rem;padding:0.5rem 1rem;" data-i18n="modal1.buy">🛍 Jetzt kaufen</a>
-                </div>
-
-                <div class="thickness-picker" onclick="event.stopPropagation()">
-                    <p class="thickness-picker-label" data-i18n="modal1.thickness.label">Stärke des Stäbchens</p>
-                    <div class="thickness-options">
-                        <label class="thickness-pill">
-                            <input type="radio" name="thickness-card2" value="fin">
-                            <span data-i18n="modal1.thickness.thin">Dünn</span>
-                        </label>
-                        <label class="thickness-pill">
-                            <input type="radio" name="thickness-card2" value="epais">
-                            <span data-i18n="modal1.thickness.thick">Dick</span>
-                        </label>
-                        <label class="thickness-pill">
-                            <input type="radio" name="thickness-card2" value="peu-importe" checked="">
-                            <span data-i18n="modal1.thickness.any">Egal</span>
-                        </label>
-                    </div>
-                    <p class="thickness-sizes" data-i18n="thickness.sizes">Dünn ≈ 1–1,5 cm · Dick ≈ 2–2,5 cm Durchmesser</p>
+            <div class="card-body">
+                <h3 class="card-title" data-i18n="product2.name">Allo Togo</h3>
+                <p class="card-desc" data-i18n="product2.desc">Fagara-Stäbe aus Togo, lebhaft und leicht scharf im Geschmack.</p>
+                <div class="card-foot">
+                    <span class="card-price" data-i18n="product2.price">CHF 6.00 pro 5 Stück</span>
+                    <a href="/de/allo-togo.html" onclick="event.stopPropagation()" class="btn-ghost btn-more" data-i18n="btn.more">Mehr erfahren</a>
                 </div>
             </div>
         </article>
@@ -660,19 +616,12 @@
                 <img src="/imgetui.png" alt="Schutzetui für Siwak, hygienisches Reiseetui" style="object-fit: contain; padding: 0.5rem;" loading="lazy" data-i18n-alt="product3.image.alt">
                 <div style="position:absolute;top:0.75rem;left:0.75rem;background:rgba(127,153,90,0.85);color:white;font-size:0.7rem;padding:0.25rem 0.75rem;border-radius:9999px;backdrop-filter:blur(4px);" data-i18n="product3.badge">Unverzichtbares Zubehör</div>
             </div>
-            <div style="padding:1.5rem;">
-                <h3 style="font-size:1.1rem;font-weight:400;color:#d7e7d4;margin-bottom:0.5rem;" data-i18n="product3.name">Siwak Schutzetui</h3>
-                <p style="color:#c2c9b4;font-size:0.875rem;line-height:1.6;margin-bottom:1rem;" data-i18n="product3.desc">Schützen Sie Ihren Siwak und halten Sie ihn überall frisch.</p>
-                <a href="/de/siwak-etui.html" onclick="event.stopPropagation()" class="btn-ghost btn-more" data-i18n="btn.more">Mehr erfahren</a>
-                <ul style="list-style:none;margin:0 0 1rem;display:flex;flex-direction:column;gap:0.4rem;">
-                    <li style="color:#c2c9b4;font-size:0.82rem;" data-i18n="modal3.feat1">🌿 Dickes, solides und langlebiges Material</li>
-                    <li style="color:#c2c9b4;font-size:0.82rem;" data-i18n="modal3.feat2">🌿 Staubdichte Aufbewahrung und platzsparend</li>
-                    <li style="color:#c2c9b4;font-size:0.82rem;" data-i18n="modal3.feat4">🌿 Verlängert die Lebensdauer Ihres natürlichen Siwak</li>
-                </ul>
-                <div style="background:#152317;border-radius:0.5rem;padding:0.65rem;font-size:0.75rem;color:#8c9380;margin-bottom:1.25rem;" data-i18n="modal3.shipping">🚚 Versandkosten Swiss Post · CHF 10.00 · Versand innerhalb von 48 Std. + 2–3 Tage</div>
-                <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;">
-                    <span style="font-family:'Newsreader',serif;font-size:1.2rem;color:#9dd75a;" data-i18n="product3.price">CHF 6.00 pro Stück</span>
-                    <a href="/checkout.html" class="btn-primary" style="font-size:0.875rem;padding:0.5rem 1rem;" data-i18n="modal3.buy">🛍 Jetzt kaufen</a>
+            <div class="card-body">
+                <h3 class="card-title" data-i18n="product3.name">Siwak Schutzetui</h3>
+                <p class="card-desc" data-i18n="product3.desc">Schützt Ihren Siwak überall vor Staub und Feuchtigkeit.</p>
+                <div class="card-foot">
+                    <span class="card-price" data-i18n="product3.price">CHF 6.00 pro Stück</span>
+                    <a href="/de/siwak-etui.html" onclick="event.stopPropagation()" class="btn-ghost btn-more" data-i18n="btn.more">Mehr erfahren</a>
                 </div>
             </div>
         </article>
@@ -746,22 +695,15 @@
         <!-- PRODUIT 4 -->
         <article id="dentifrice-girofle" class="card-siv reveal reveal-delay-1" style="overflow:hidden;cursor:pointer;" onclick="openModal('modal-4')">
             <div class="product-img-wrap">
-                <img src="/dentifrice-girofle.jpg" alt="Siwak-Zahnpasta mit Gewürznelke SIVÀA Geneva" data-i18n-alt="product4.image.alt" loading="lazy">
-                <div style="position:absolute;top:0.75rem;left:0.75rem;background:rgba(127,153,90,0.85);color:white;font-size:0.7rem;padding:0.25rem 0.75rem;border-radius:9999px;backdrop-filter:blur(4px);" data-i18n="product4.badge">Kariesschutz · Gewürznelke</div>
+                <img src="/dentifrice-girofle.jpg" alt="SIVÀA Geneva Siwak-Zahnpasta mit Gewürznelke" data-i18n-alt="product4.image.alt" loading="lazy">
+                <div style="position:absolute;top:0.75rem;left:0.75rem;background:rgba(127,153,90,0.85);color:white;font-size:0.7rem;padding:0.25rem 0.75rem;border-radius:9999px;backdrop-filter:blur(4px);" data-i18n="product4.badge">Siwak · Gewürznelke</div>
             </div>
-            <div style="padding:1.5rem;">
-                <h3 style="font-size:1.1rem;font-weight:400;color:#d7e7d4;margin-bottom:0.5rem;" data-i18n="product4.name">Siwak-Zahnpasta — Gewürznelke</h3>
-                <p style="color:#c2c9b4;font-size:0.875rem;line-height:1.6;margin-bottom:1rem;" data-i18n="product4.desc">Die reinigende Kraft von Siwak kombiniert mit der beruhigenden Wirkung von Gewürznelke, für einen verstärkten Kariesschutz im Alltag.</p>
-                <a href="/de/siwak-zahnpasta-gewuerznelke.html" onclick="event.stopPropagation()" class="btn-ghost btn-more" data-i18n="btn.more">Mehr erfahren</a>
-                <ul style="list-style:none;margin:0 0 1rem;display:flex;flex-direction:column;gap:0.4rem;">
-                    <li style="color:#c2c9b4;font-size:0.82rem;" data-i18n="modal4.feat1">🌿 Verstärkter Kariesschutz durch Siwak-Extrakte</li>
-                    <li style="color:#c2c9b4;font-size:0.82rem;" data-i18n="modal4.feat2">🌿 Gewürznelke: natürliche beruhigende und antibakterielle Wirkung</li>
-                    <li style="color:#c2c9b4;font-size:0.82rem;" data-i18n="modal4.feat3">🌿 Lang anhaltender frischer Atem, ohne aggressives chemisches Fluorid</li>
-                </ul>
-                <div style="background:#152317;border-radius:0.5rem;padding:0.65rem;font-size:0.75rem;color:#8c9380;margin-bottom:1.25rem;" data-i18n="modal1.shipping">🚚 Versandkosten Swiss Post · CHF 10.00 · Versand innerhalb von 48 Std. + 2–3 Tage</div>
-                <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;">
-                    <span style="font-family:'Newsreader',serif;font-size:1.2rem;color:#9dd75a;" data-i18n="product4.price">CHF 10.00 pro Stück</span>
-                    <a href="/checkout.html" class="btn-primary" style="font-size:0.875rem;padding:0.5rem 1rem;" data-i18n="modal1.buy">🛍 Jetzt kaufen</a>
+            <div class="card-body">
+                <h3 class="card-title" data-i18n="product4.name">Siwak-Zahnpasta — Gewürznelke</h3>
+                <p class="card-desc" data-i18n="product4.desc">Siwak- und Gewürznelkenextrakte, warm und würzig im Geschmack.</p>
+                <div class="card-foot">
+                    <span class="card-price" data-i18n="product4.price">CHF 10.00 pro Stück</span>
+                    <a href="/de/siwak-zahnpasta-gewuerznelke.html" onclick="event.stopPropagation()" class="btn-ghost btn-more" data-i18n="btn.more">Mehr erfahren</a>
                 </div>
             </div>
         </article>
@@ -769,22 +711,15 @@
         <!-- PRODUIT 5 -->
         <article id="dentifrice-charbon" class="card-siv reveal reveal-delay-2" style="overflow:hidden;cursor:pointer;" onclick="openModal('modal-5')">
             <div class="product-img-wrap">
-                <img src="/dentifrice-au-siwak-et-charbon-actif.jpg" alt="Siwak-Zahnpasta mit Aktivkohle SIVÀA Geneva" data-i18n-alt="product5.image.alt" loading="lazy">
-                <div style="position:absolute;top:0.75rem;left:0.75rem;background:rgba(127,153,90,0.85);color:white;font-size:0.7rem;padding:0.25rem 0.75rem;border-radius:9999px;backdrop-filter:blur(4px);" data-i18n="product5.badge">Intensive Weiße · Aktivkohle</div>
+                <img src="/dentifrice-au-siwak-et-charbon-actif.jpg" alt="SIVÀA Geneva Siwak-Zahnpasta mit Aktivkohle" data-i18n-alt="product5.image.alt" loading="lazy">
+                <div style="position:absolute;top:0.75rem;left:0.75rem;background:rgba(127,153,90,0.85);color:white;font-size:0.7rem;padding:0.25rem 0.75rem;border-radius:9999px;backdrop-filter:blur(4px);" data-i18n="product5.badge">Siwak · Aktivkohle</div>
             </div>
-            <div style="padding:1.5rem;">
-                <h3 style="font-size:1.1rem;font-weight:400;color:#d7e7d4;margin-bottom:0.5rem;" data-i18n="product5.name">Siwak-Zahnpasta — Aktivkohle</h3>
-                <p style="color:#c2c9b4;font-size:0.875rem;line-height:1.6;margin-bottom:1rem;" data-i18n="product5.desc">Reinigende Aktivkohle kombiniert mit den althergebrachten Tugenden von Siwak, für eine intensive natürliche Aufhellung und einen perfekt gesunden Mund.</p>
-                <a href="/de/siwak-zahnpasta-aktivkohle.html" onclick="event.stopPropagation()" class="btn-ghost btn-more" data-i18n="btn.more">Mehr erfahren</a>
-                <ul style="list-style:none;margin:0 0 1rem;display:flex;flex-direction:column;gap:0.4rem;">
-                    <li style="color:#c2c9b4;font-size:0.82rem;" data-i18n="modal5.feat1">🌿 Aktivkohle: absorbiert Flecken und reinigt tiefgehend</li>
-                    <li style="color:#c2c9b4;font-size:0.82rem;" data-i18n="modal5.feat2">🌿 Sichtbare Weiße bereits ab den ersten Anwendungen</li>
-                    <li style="color:#c2c9b4;font-size:0.82rem;" data-i18n="modal5.feat3">🌿 Mit Siwak angereicherte Formel, ohne Peroxid oder chemische Schleifmittel</li>
-                </ul>
-                <div style="background:#152317;border-radius:0.5rem;padding:0.65rem;font-size:0.75rem;color:#8c9380;margin-bottom:1.25rem;" data-i18n="modal1.shipping">🚚 Versandkosten Swiss Post · CHF 10.00 · Versand innerhalb von 48 Std. + 2–3 Tage</div>
-                <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;">
-                    <span style="font-family:'Newsreader',serif;font-size:1.2rem;color:#9dd75a;" data-i18n="product5.price">CHF 10.00 pro Stück</span>
-                    <a href="/checkout.html" class="btn-primary" style="font-size:0.875rem;padding:0.5rem 1rem;" data-i18n="modal1.buy">🛍 Jetzt kaufen</a>
+            <div class="card-body">
+                <h3 class="card-title" data-i18n="product5.name">Siwak-Zahnpasta — Aktivkohle</h3>
+                <p class="card-desc" data-i18n="product5.desc">Aktivkohle und Siwak-Extrakte für ein sauberes Mundgefühl.</p>
+                <div class="card-foot">
+                    <span class="card-price" data-i18n="product5.price">CHF 10.00 pro Stück</span>
+                    <a href="/de/siwak-zahnpasta-aktivkohle.html" onclick="event.stopPropagation()" class="btn-ghost btn-more" data-i18n="btn.more">Mehr erfahren</a>
                 </div>
             </div>
         </article>
@@ -803,7 +738,7 @@
                 <span data-i18n="reviews.title.part1">Was meine</span>
                 <em style="font-style:normal;color:#9dd75a;" data-i18n="reviews.title.part2">Kunden</em>
             </h2>
-            <p style="color:#c2c9b4;font-size:0.875rem;margin-top:0.75rem;" data-i18n="reviews.subtitle">4.9/5 · Bewertungen aus Genf und der ganzen Schweiz</p>
+            <p style="color:#c2c9b4;font-size:0.875rem;margin-top:0.75rem;" data-i18n="reviews.subtitle">Bewertungen aus Genf und der ganzen Schweiz</p>
         </div>
 
         <div class="reviews-grid">
@@ -851,8 +786,6 @@
         <!-- Stats -->
         <div style="margin-top:2.5rem;display:flex;justify-content:center;gap:clamp(1.5rem,5vw,4rem);text-align:center;flex-wrap:wrap;">
             <div class="reveal"><p style="font-family:'Newsreader',serif;font-size:2rem;color:#9dd75a;">7000</p><p style="font-size:0.72rem;color:#c2c9b4;text-transform:uppercase;letter-spacing:0.1em;margin-top:0.25rem;" data-i18n="stats.reviews">Seit jeher</p></div>
-            <div class="reveal reveal-delay-1"><p style="font-family:'Newsreader',serif;font-size:2rem;color:#9dd75a;">4.9</p><p style="font-size:0.72rem;color:#c2c9b4;text-transform:uppercase;letter-spacing:0.1em;margin-top:0.25rem;" data-i18n="stats.rating">Durchschnittsnote</p></div>
-            <div class="reveal reveal-delay-2"><p style="font-family:'Newsreader',serif;font-size:2rem;color:#9dd75a;">98%</p><p style="font-size:0.72rem;color:#c2c9b4;text-transform:uppercase;letter-spacing:0.1em;margin-top:0.25rem;" data-i18n="stats.recommend">Empfehlen</p></div>
             <div class="reveal reveal-delay-3"><p style="font-family:'Newsreader',serif;font-size:2rem;color:#9dd75a;">48h</p><p style="font-size:0.72rem;color:#c2c9b4;text-transform:uppercase;letter-spacing:0.1em;margin-top:0.25rem;" data-i18n="stats.delivery">Versand</p></div>
         </div>
     </div>
@@ -874,64 +807,65 @@
 
         <details style="background:#111f13;border-radius:0.75rem;overflow:hidden;" class="reveal reveal-delay-1">
             <summary style="display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.25rem 1.5rem;">
-                <span style="font-weight:500;color:#d7e7d4;" data-i18n="faq.q1">Wie verwendet man Siwak zum ersten Mal?</span>
+                <span style="font-weight:500;color:#d7e7d4;" data-i18n="faq.q1">Wie verwende ich Siwak zum ersten Mal?</span>
                 <span style="color:#8c9380;font-size:1.25rem;flex-shrink:0;">+</span>
             </summary>
-            <div style="padding:0 1.5rem 1.25rem;color:#c2c9b4;font-size:0.875rem;line-height:1.7;border-top:1px solid rgba(66,73,57,0.2);padding-top:1rem;" data-i18n="faq.a1">Tauchen Sie die Spitze des Stabs 5 Minuten in Wasser, um ihn weicher zu machen. Kauen Sie sanft, um die Fasern auszufransen und eine natürliche Bürste zu formen. Reiben Sie Ihre Zähne und Ihr Zahnfleisch 2-3 Minuten in kreisenden Bewegungen. Ausspülen. Schneiden Sie die benutzte Spitze ab und beginnen Sie erneut.</div>
+            <div style="padding:0 1.5rem 1.25rem;color:#c2c9b4;font-size:0.875rem;line-height:1.7;border-top:1px solid rgba(66,73,57,0.2);padding-top:1rem;" data-i18n="faq.a1">Rinde etwa 1 cm abschälen, die Spitze kauen, bis sich die Fasern lösen, und dann sanft über die Zähne reiben. Die ausführliche Anleitung finden Sie auf der Produktseite jedes Stabs.</div>
         </details>
-
-        <details style="background:#111f13;border-radius:0.75rem;overflow:hidden;" class="reveal reveal-delay-2">
+        <details style="background:#111f13;border-radius:0.75rem;overflow:hidden;" class="reveal reveal-delay-1">
             <summary style="display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.25rem 1.5rem;">
-                <span style="font-weight:500;color:#d7e7d4;" data-i18n="faq.q2">Wie lange hält ein Siwak-Stab?</span>
+                <span style="font-weight:500;color:#d7e7d4;" data-i18n="faq.q2">Wie lange hält ein Stab?</span>
                 <span style="color:#8c9380;font-size:1.25rem;flex-shrink:0;">+</span>
             </summary>
-            <div style="padding:0 1.5rem 1.25rem;color:#c2c9b4;font-size:0.875rem;line-height:1.7;border-top:1px solid rgba(66,73,57,0.2);padding-top:1rem;" data-i18n="faq.a2">Ein SIVÀA-Stab hält je nach Gebrauch durchschnittlich 2 bis 4 Wochen. Schneiden Sie nach jeder Anwendung die benutzte Spitze (ca. 1cm) ab, um immer eine frische und hygienische Oberfläche zu haben.</div>
+            <div style="padding:0 1.5rem 1.25rem;color:#c2c9b4;font-size:0.875rem;line-height:1.7;border-top:1px solid rgba(66,73,57,0.2);padding-top:1rem;" data-i18n="faq.a2">Ein Stab hält mindestens einen Monat, je nach Gebrauch oft länger: Mit jeder neuen Spitze wird er etwa 1 cm kürzer.</div>
         </details>
-
-        <details style="background:#111f13;border-radius:0.75rem;overflow:hidden;" class="reveal reveal-delay-3">
+        <details style="background:#111f13;border-radius:0.75rem;overflow:hidden;" class="reveal reveal-delay-1">
             <summary style="display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.25rem 1.5rem;">
-                <span style="font-weight:500;color:#d7e7d4;" data-i18n="faq.q3">Wie sind die Lieferzeiten und -kosten?</span>
+                <span style="font-weight:500;color:#d7e7d4;" data-i18n="faq.q3">Hellt Siwak die Zähne auf?</span>
                 <span style="color:#8c9380;font-size:1.25rem;flex-shrink:0;">+</span>
             </summary>
-            <div style="padding:0 1.5rem 1.25rem;color:#c2c9b4;font-size:0.875rem;line-height:1.7;border-top:1px solid rgba(66,73,57,0.2);padding-top:1rem;" data-i18n="faq.a3">Lieferung in 2-3 Werktagen via Swiss Post für CHF 10.00. Alle Bestellungen vor 14 Uhr werden am selben Tag versendet (Werktage). Sie erhalten eine Bestätigungsmail mit Sendungsnummer.</div>
+            <div style="padding:0 1.5rem 1.25rem;color:#c2c9b4;font-size:0.875rem;line-height:1.7;border-top:1px solid rgba(66,73,57,0.2);padding-top:1rem;" data-i18n="faq.a3">Siwak wird traditionell zur Zahnreinigung verwendet und hinterlässt ein sauberes Gefühl. Es ist keine Aufhellungsbehandlung: Bei Fragen zur Zahnfarbe wenden Sie sich an Ihre Zahnärztin oder Ihren Zahnarzt.</div>
         </details>
-
-        <details style="background:#111f13;border-radius:0.75rem;overflow:hidden;" class="reveal reveal-delay-3">
+        <details style="background:#111f13;border-radius:0.75rem;overflow:hidden;" class="reveal reveal-delay-1">
+            <summary style="display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.25rem 1.5rem;">
+                <span style="font-weight:500;color:#d7e7d4;" data-i18n="faq.q4">Ist Siwak für die Mundhygiene sinnvoll?</span>
+                <span style="color:#8c9380;font-size:1.25rem;flex-shrink:0;">+</span>
+            </summary>
+            <div style="padding:0 1.5rem 1.25rem;color:#c2c9b4;font-size:0.875rem;line-height:1.7;border-top:1px solid rgba(66,73,57,0.2);padding-top:1rem;" data-i18n="faq.a4">Siwak wird seit Jahrhunderten zur Zahnpflege verwendet, und seine Nutzung wurde von der <a href="https://iris.who.int/bitstreams/1f64ff17-718e-44d0-9935-26501fa61991/download" target="_blank" rel="noopener" style="color:#9dd75a;">WHO</a> gefördert. Am besten ergänzt er eine gute Routine: Zähneputzen mit Zahnpasta und regelmässige Kontrollen beim Zahnarzt.</div>
+        </details>
+        <details style="background:#111f13;border-radius:0.75rem;overflow:hidden;" class="reveal reveal-delay-1">
+            <summary style="display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.25rem 1.5rem;">
+                <span style="font-weight:500;color:#d7e7d4;" data-i18n="faq.q5">Soll ich zusätzlich zum Siwak Zahnpasta verwenden?</span>
+                <span style="color:#8c9380;font-size:1.25rem;flex-shrink:0;">+</span>
+            </summary>
+            <div style="padding:0 1.5rem 1.25rem;color:#c2c9b4;font-size:0.875rem;line-height:1.7;border-top:1px solid rgba(66,73,57,0.2);padding-top:1rem;" data-i18n="faq.a5">Ja, ich empfehle, Ihr gewohntes Zähneputzen mit Zahnpasta morgens und abends beizubehalten und Siwak tagsüber ergänzend zu verwenden.</div>
+        </details>
+        <details style="background:#111f13;border-radius:0.75rem;overflow:hidden;" class="reveal reveal-delay-1">
+            <summary style="display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.25rem 1.5rem;">
+                <span style="font-weight:500;color:#d7e7d4;" data-i18n="faq.q6">Wo finde ich hochwertigen Siwak in der Schweiz (Migros, Coop, Manor)?</span>
+                <span style="color:#8c9380;font-size:1.25rem;flex-shrink:0;">+</span>
+            </summary>
+            <div style="padding:0 1.5rem 1.25rem;color:#c2c9b4;font-size:0.875rem;line-height:1.7;border-top:1px solid rgba(66,73,57,0.2);padding-top:1rem;" data-i18n="faq.a6">Frischer Siwak ist im Detailhandel oder in Apotheken oft schwer zu finden. Bei SIVÀA Geneva bestellen Sie online: Versand mit Swiss Post in die ganze Schweiz (Versand innerhalb von 48 Std. + 2–3 Tage) oder kostenlose Abholung in Acacias, Genf (Zahlung mit Twint oder Revolut).</div>
+        </details>
+        <details style="background:#111f13;border-radius:0.75rem;overflow:hidden;" class="reveal reveal-delay-1">
             <summary style="display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.25rem 1.5rem;">
                 <span style="font-weight:500;color:#d7e7d4;" data-i18n="faq.payment.q">Welche Zahlungsmethoden akzeptieren Sie?</span>
                 <span style="color:#8c9380;font-size:1.25rem;flex-shrink:0;">+</span>
             </summary>
             <div style="padding:0 1.5rem 1.25rem;color:#c2c9b4;font-size:0.875rem;line-height:1.7;border-top:1px solid rgba(66,73,57,0.2);padding-top:1rem;" data-i18n="faq.payment.a">Ich akzeptiere Twint und Revolut. Mindestbestellwert CHF 15.00 (Artikel).</div>
         </details>
-
-        <details style="background:#111f13;border-radius:0.75rem;overflow:hidden;" class="reveal reveal-delay-3">
+        <details style="background:#111f13;border-radius:0.75rem;overflow:hidden;" class="reveal reveal-delay-1">
             <summary style="display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.25rem 1.5rem;">
-                <span style="font-weight:500;color:#d7e7d4;" data-i18n="faq.q4">Soll ich zusätzlich zum Siwak Zahnpasta verwenden?</span>
+                <span style="font-weight:500;color:#d7e7d4;" data-i18n="faq.q7">Ich möchte wählen, ob mein Stab dünn oder dick ist. Wie?</span>
                 <span style="color:#8c9380;font-size:1.25rem;flex-shrink:0;">+</span>
             </summary>
-            <div style="padding:0 1.5rem 1.25rem;color:#c2c9b4;font-size:0.875rem;line-height:1.7;border-top:1px solid rgba(66,73,57,0.2);padding-top:1rem;" data-i18n="faq.a4">Persönlich verwende ich an Tagen, an denen ich einen frischeren Mund möchte, manchmal Zahnpasta mit Siwak. Aber Siwak enthält von Natur aus eigene Reinigungsmittel, milde Schleifmittel und antibakterielle Wirkstoffe. Er genügt also allein. Machen Sie es nach Gefühl!</div>
-        </details>
-
-        <details style="background:#111f13;border-radius:0.75rem;overflow:hidden;" class="reveal reveal-delay-3">
-            <summary style="display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.25rem 1.5rem;">
-                <span style="font-weight:500;color:#d7e7d4;" data-i18n="faq.q6">Ist Siwak so wirksam wie eine normale Zahnbürste?</span>
-                <span style="color:#8c9380;font-size:1.25rem;flex-shrink:0;">+</span>
-            </summary>
-            <div style="padding:0 1.5rem 1.25rem;color:#c2c9b4;font-size:0.875rem;line-height:1.7;border-top:1px solid rgba(66,73,57,0.2);padding-top:1rem;" data-i18n="faq.a6">Ja, mehrere im Journal of Periodontology veröffentlichte Studien bestätigen, dass Siwak dank seiner über 70 natürlichen Wirkstoffe (Kieselsäure, Tannine, Alkaloide, natürliches Fluorid) genauso wirksam gegen Plaque und Zahnfleischentzündungen ist wie eine herkömmliche Zahnbürste. Der entscheidende Faktor ist jedoch die Technik, mit der Sie ihn verwenden.</div>
-        </details>
-
-        <details style="background:#111f13;border-radius:0.75rem;overflow:hidden;" class="reveal reveal-delay-3">
-            <summary style="display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.25rem 1.5rem;">
-                <span style="font-weight:500;color:#d7e7d4;" data-i18n="faq.q7">Ich möchte wählen, ob mein Kaustab dünn oder dick ist. Wie?</span>
-                <span style="color:#8c9380;font-size:1.25rem;flex-shrink:0;">+</span>
-            </summary>
-            <div style="padding:0 1.5rem 1.25rem;color:#c2c9b4;font-size:0.875rem;line-height:1.7;border-top:1px solid rgba(66,73,57,0.2);padding-top:1rem;" data-i18n="faq.a7">Keine Sorge, indem Sie Ihrer Bestellung eine Nachricht hinzufügen, wähle ich den Kaustab aus, der am besten zu Ihren Wünschen passt.</div>
+            <div style="padding:0 1.5rem 1.25rem;color:#c2c9b4;font-size:0.875rem;line-height:1.7;border-top:1px solid rgba(66,73,57,0.2);padding-top:1rem;" data-i18n="faq.a7">Wählen Sie die Stärke bei der Bestellung oder fügen Sie eine Nachricht hinzu: Ich wähle den Stab aus, der am besten zu Ihnen passt.</div>
         </details>
 
     </div>
     <div style="text-align:center;margin-top:2.5rem;">
         <p style="color:#c2c9b4;font-size:0.875rem;margin-bottom:1rem;" data-i18n="faq.noQuestion">Ihre Frage ist nicht aufgeführt?</p>
-        <a href="/contact.html" class="btn-ghost" style="border:1px solid rgba(66,73,57,0.3);font-size:0.875rem;" data-i18n="faq.contactBtn">💬 Meine Werkstatt kontaktieren</a>
+        <a href="/contact.html" class="btn-ghost" style="border:1px solid rgba(66,73,57,0.3);font-size:0.875rem;" data-i18n="faq.contactBtn">💬 Kontakt aufnehmen</a>
     </div>
 </section>
 
@@ -959,10 +893,10 @@
         <div style="text-align:center;margin-bottom:2.5rem;">
             <p style="font-size:0.7rem;color:#9dd75a;text-transform:uppercase;letter-spacing:0.2em;margin-bottom:0.75rem;" data-i18n="loc.eyebrow">Standort &amp; Prestige</p>
             <h2 class="section-title">
-                <span data-i18n="loc.title.part1">Ihre Werkstatt in</span>
+                <span data-i18n="loc.title.part1">Ihr Siwak in</span>
                 <em style="font-style:normal;color:#9dd75a;" data-i18n="loc.title.part2">Genf</em>
             </h2>
-            <p style="color:#c2c9b4;font-size:0.9rem;margin-top:0.75rem;max-width:36rem;margin-left:auto;margin-right:auto;" data-i18n="loc.subtitle">Im Herzen der <strong style="color:#d7e7d4;">Acacias, Genf</strong> gelegen, empfängt Sie meine Werkstatt nach Vereinbarung für eine persönliche Übergabe.</p>
+            <p style="color:#c2c9b4;font-size:0.9rem;margin-top:0.75rem;max-width:36rem;margin-left:auto;margin-right:auto;" data-i18n="loc.subtitle">Abholung in <strong style="color:#d7e7d4;">Acacias, Genf</strong>, nur wenige Schritte von Plainpalais, nach Vereinbarung für eine persönliche Übergabe.</p>
         </div>
 
         <div class="maps-grid">
@@ -1088,19 +1022,11 @@
         <div style="padding:1.5rem;">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.75rem;">
                 <h3 id="modal1-title" style="font-size:1.25rem;font-weight:400;color:#d7e7d4;" data-i18n="product1.name">Premium Siwak-Stab</h3>
-                <span style="font-size:0.75rem;background:#152317;color:#c2c9b4;padding:0.25rem 0.75rem;border-radius:9999px;" data-i18n="modal1.rating">4.9 / 5 · 7000 Jahre Nutzung</span>
             </div>
+            <p style="color:#c2c9b4;font-size:0.875rem;line-height:1.7;margin-bottom:1rem;" data-i18n="modal1.desc">Ein Siwak-Stab aus der Wurzel von Salvadora persica, von Hand in Pakistan geerntet. Er wird ohne Wasser und Zahnpasta verwendet, wo immer Sie sind.</p>
             
-            <p style="color:#c2c9b4;font-size:0.875rem;line-height:1.7;margin-bottom:0.75rem;" data-i18n="modal1.desc.intro">Aus den Wurzeln des <strong>Salvadora-persica</strong>-Baums gewonnen, wird Siwak verantwortungsvoll auf trockenen Böden geerntet. Die Anwendung ist einfach: Schälen Sie die Rinde etwa 1 Zentimeter ab und kauen Sie das Holz dann sanft mit den Backenzähnen. Innerhalb von Sekunden lösen sich die Fasern zu einem natürlichen Pinsel mit weichen Borsten, bereit für die Zahnreinigung.</p>
 
-            <p style="color:#c2c9b4;font-size:0.875rem;line-height:1.7;margin-bottom:1rem;" data-i18n="pp1.desc">Mehr als nur Zähneputzen. Beim Kauen der Spitze setzt der Stab einen natürlichen, kieselsäurereichen Saft frei, der den Zahnschmelz poliert, ohne ihn anzugreifen. Praktisch und diskret, ohne Wasser und ohne Zahnpasta verwendbar, wo immer Sie sind.</p>
             
-            <ul style="list-style:none;margin:0 0 1rem;display:flex;flex-direction:column;gap:0.5rem;">
-                <li style="color:#c2c9b4;font-size:0.875rem;" data-i18n="modal1.feat1">🌿 70+ aktive Mineralien einschliesslich natürliches Fluorid</li>
-                <li style="color:#c2c9b4;font-size:0.875rem;" data-i18n="modal1.feat2">🌿 Nachweislich antibakteriell gegen Plaque</li>
-                <li style="color:#c2c9b4;font-size:0.875rem;" data-i18n="modal1.feat3">🌿 Natürliche Aufhellung ohne Abrieb</li>
-                <li style="color:#c2c9b4;font-size:0.875rem;" data-i18n="modal1.feat4">🌿 Null Plastik · 100% biologisch abbaubar</li>
-            </ul>
             
             <div style="background:#152317;border-radius:0.5rem;padding:0.75rem;font-size:0.75rem;color:#8c9380;margin-bottom:1.25rem;" data-i18n="modal1.shipping">🚚 Versandkosten Swiss Post · CHF 10.00 · Versand innerhalb von 48 Std. + 2–3 Tage</div>
             <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;">
@@ -1153,19 +1079,11 @@
         <div style="padding:1.5rem;">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.75rem;">
                 <h3 id="modal2-title" style="font-size:1.25rem;font-weight:400;color:#d7e7d4;" data-i18n="product2.name">Allo Togo</h3>
-              <span style="font-size:0.75rem;background:#152317;color:#c2c9b4;padding:0.25rem 0.75rem;border-radius:9999px;" data-i18n="modal2.rating">4.9 / 5 </span>
             </div>
             
-            <p style="color:#c2c9b4;font-size:0.875rem;line-height:1.7;margin-bottom:0.75rem;" data-i18n="modal2.desc.intro">Allo Togo stammt aus Westafrika und wird aus <strong>Fagara</strong> (<em>Zanthoxylum zanthoxyloides</em>) geschnitten, einem Strauch, dessen Wurzel seit Generationen als Kaustab dient. Fagara enthält natürliche Stoffe, die beim Kauen ein leichtes Kribbeln im Mund hinterlassen.</p>
 
-            <p style="color:#c2c9b4;font-size:0.875rem;line-height:1.7;margin-bottom:1rem;" data-i18n="modal2.desc">Anders als der Siwak mit seinem holzigen, leicht pfeffrigen Geschmack schmeckt Allo Togo lebhaft und leicht scharf. Er wird gleich verwendet und kann den Siwak im Alltag ersetzen.</p>
+            <p style="color:#c2c9b4;font-size:0.875rem;line-height:1.7;margin-bottom:1rem;" data-i18n="modal2.desc">5er-Pack Kaustäbe aus Fagara-Holz, direkt aus Togo. Ihr lebhafter Geschmack mit leichtem Kribbeln ist eine angenehme Abwechslung zum Siwak.</p>
             
-            <ul style="list-style:none;margin:0 0 1rem;display:flex;flex-direction:column;gap:0.5rem;">
-                <li style="color:#c2c9b4;font-size:0.875rem;" data-i18n="modal2.feat1">🌿 Natürliches Fagara-Holz (Zanthoxylum zanthoxyloides)</li>
-                <li style="color:#c2c9b4;font-size:0.875rem;" data-i18n="modal2.feat2">🌿 Leichtes Kribbeln, typisch für Fagara</li>
-                <li style="color:#c2c9b4;font-size:0.875rem;" data-i18n="modal2.feat3">🌿 Traditioneller Kaustab aus Westafrika</li>
-                <li style="color:#c2c9b4;font-size:0.875rem;" data-i18n="modal2.feat4">🌿 5er-Pack, direkt aus Togo importiert</li>
-            </ul>
             
             <div style="background:#152317;border-radius:0.5rem;padding:0.75rem;font-size:0.75rem;color:#8c9380;margin-bottom:1.25rem;" data-i18n="modal1.shipping">🚚 Versandkosten Swiss Post · CHF 10.00 · Versand innerhalb von 48 Std. + 2–3 Tage</div>
             <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;">
@@ -1220,14 +1138,8 @@
                 <h3 id="modal3-title" style="font-size:1.25rem;font-weight:400;color:#d7e7d4;" data-i18n="product3.name">Siwak Schutzetui</h3>
             </div>
 
-            <p style="color:#c2c9b4;font-size:0.875rem;line-height:1.7;margin-bottom:1rem;" data-i18n="modal3.desc">Entdecken Sie mein Schutzetui für Siwak, das unverzichtbare Zubehör, um Ihren Salvadora Persica-Stab vor Feuchtigkeit und Staub zu schützen. Ideal für die Zahnhygiene unterwegs, verlängert dieses Etui die Frische Ihres natürlichen Miswak und verhindert die Vermehrung von Bakterien auf Reisen.</p>
+            <p style="color:#c2c9b4;font-size:0.875rem;line-height:1.7;margin-bottom:1rem;" data-i18n="modal3.desc">Ein Etui, um Ihren Siwak geschützt vor Staub und Feuchtigkeit mitzunehmen. Praktisch in Tasche, Hosentasche oder Kulturbeutel.</p>
 
-            <ul style="list-style:none;margin:0 0 1rem;display:flex;flex-direction:column;gap:0.5rem;">
-                <li style="color:#c2c9b4;font-size:0.875rem;" data-i18n="modal3.feat1">🌿 Dickes, solides und langlebiges Material</li>
-                <li style="color:#c2c9b4;font-size:0.875rem;" data-i18n="modal3.feat2">🌿 Staubdichte Aufbewahrung und platzsparend</li>
-                <li style="color:#c2c9b4;font-size:0.875rem;" data-i18n="modal3.feat3">🌿 Tragbar, einfach zu öffnen und zu verwenden</li>
-                <li style="color:#c2c9b4;font-size:0.875rem;" data-i18n="modal3.feat4">🌿 Verlängert die Lebensdauer Ihres natürlichen Siwak</li>
-            </ul>
             <div style="background:#152317;border-radius:0.5rem;padding:0.75rem;font-size:0.75rem;color:#8c9380;margin-bottom:1.25rem;" data-i18n="modal3.shipping">🚚 Versandkosten Swiss Post · CHF 10.00 · Versand innerhalb von 48 Std. + 2–3 Tage</div>
             <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;">
                 <div>
@@ -1250,24 +1162,17 @@
 <div id="modal-4" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal4-title" onclick="if(event.target===this)closeModal('modal-4')">
     <div class="modal-box">
         <div style="position:relative;height:14rem;overflow:hidden;background:#152317;flex-shrink:0;">
-            <img src="/dentifrice-girofle.jpg" data-i18n-alt="product4.image.alt" alt="Siwak-Zahnpasta mit Gewürznelke SIVÀA Geneva" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
+            <img src="/dentifrice-girofle.jpg" data-i18n-alt="product4.image.alt" alt="SIVÀA Geneva Siwak-Zahnpasta mit Gewürznelke" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
             <button onclick="closeModal('modal-4')" type="button" aria-label="Fermer" style="position:absolute;top:0.75rem;right:0.75rem;background:rgba(0,0,0,0.5);border:none;width:2rem;height:2rem;border-radius:50%;color:white;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1rem;">✕</button>
         </div>
         <div style="padding:1.5rem;">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.75rem;">
                 <h3 id="modal4-title" style="font-size:1.25rem;font-weight:400;color:#d7e7d4;" data-i18n="product4.name">Siwak-Zahnpasta — Gewürznelke</h3>
-                <span style="font-size:0.75rem;background:#152317;color:#c2c9b4;padding:0.25rem 0.75rem;border-radius:9999px;" data-i18n="modal4.rating">4.8 / 5</span>
             </div>
 
-            <p style="color:#c2c9b4;font-size:0.875rem;line-height:1.7;margin-bottom:0.75rem;" data-i18n="modal4.desc.intro">Hergestellt aus natürlichen Extrakten von <strong>Siwak (Salvadora Persica)</strong> und Gewürznelke, vereint diese traditionelle Zahnpasta jahrhundertealte Vorteile mit Schweizer Qualitätsstandards.</p>
 
-            <p style="color:#c2c9b4;font-size:0.875rem;line-height:1.7;margin-bottom:1rem;" data-i18n="modal4.desc">Die für ihre beruhigenden und antibakteriellen Eigenschaften bekannte Gewürznelke verstärkt die reinigende Wirkung von Siwak für einen vollständigen Kariesschutz und beruhigt gleichzeitig empfindliches Zahnfleisch bei jedem Zähneputzen.</p>
+            <p style="color:#c2c9b4;font-size:0.875rem;line-height:1.7;margin-bottom:1rem;" data-i18n="modal4.desc">Zahnpasta mit Siwak- und Gewürznelkenextrakten, warm und würzig im Geschmack. Morgens und abends mit Ihrer gewohnten Zahnbürste verwenden.</p>
 
-            <ul style="list-style:none;margin:0 0 1rem;display:flex;flex-direction:column;gap:0.5rem;">
-                <li style="color:#c2c9b4;font-size:0.875rem;" data-i18n="modal4.feat1">🌿 Verstärkter Kariesschutz durch Siwak-Extrakte</li>
-                <li style="color:#c2c9b4;font-size:0.875rem;" data-i18n="modal4.feat2">🌿 Gewürznelke: natürliche beruhigende und antibakterielle Wirkung</li>
-                <li style="color:#c2c9b4;font-size:0.875rem;" data-i18n="modal4.feat3">🌿 Lang anhaltender frischer Atem, ohne aggressives chemisches Fluorid</li>
-            </ul>
 
             <div style="background:#152317;border-radius:0.5rem;padding:0.75rem;font-size:0.75rem;color:#8c9380;margin-bottom:1.25rem;" data-i18n="modal1.shipping">🚚 Versandkosten Swiss Post · CHF 10.00 · Versand innerhalb von 48 Std. + 2–3 Tage</div>
             <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;">
@@ -1291,24 +1196,17 @@
 <div id="modal-5" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal5-title" onclick="if(event.target===this)closeModal('modal-5')">
     <div class="modal-box">
         <div style="position:relative;height:14rem;overflow:hidden;background:#152317;flex-shrink:0;">
-            <img src="/dentifrice-au-siwak-et-charbon-actif.jpg" data-i18n-alt="product5.image.alt" alt="Siwak-Zahnpasta mit Aktivkohle SIVÀA Geneva" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
+            <img src="/dentifrice-au-siwak-et-charbon-actif.jpg" data-i18n-alt="product5.image.alt" alt="SIVÀA Geneva Siwak-Zahnpasta mit Aktivkohle" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
             <button onclick="closeModal('modal-5')" type="button" aria-label="Fermer" style="position:absolute;top:0.75rem;right:0.75rem;background:rgba(0,0,0,0.5);border:none;width:2rem;height:2rem;border-radius:50%;color:white;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1rem;">✕</button>
         </div>
         <div style="padding:1.5rem;">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.75rem;">
                 <h3 id="modal5-title" style="font-size:1.25rem;font-weight:400;color:#d7e7d4;" data-i18n="product5.name">Siwak-Zahnpasta — Aktivkohle</h3>
-                <span style="font-size:0.75rem;background:#152317;color:#c2c9b4;padding:0.25rem 0.75rem;border-radius:9999px;" data-i18n="modal5.rating">4.8 / 5</span>
             </div>
 
-            <p style="color:#c2c9b4;font-size:0.875rem;line-height:1.7;margin-bottom:0.75rem;" data-i18n="modal5.desc.intro">Für strahlende Weiße konzipiert, vereint diese Zahnpasta die absorbierende Kraft von <strong>Aktivkohle</strong> mit der traditionellen Wirksamkeit von Siwak (Salvadora Persica), für eine Tiefenreinigung, die den Zahnschmelz schont.</p>
 
-            <p style="color:#c2c9b4;font-size:0.875rem;line-height:1.7;margin-bottom:1rem;" data-i18n="modal5.desc">Die Aktivkohle bindet die für die Vergilbung der Zähne verantwortlichen Pigmente und reinigt die Mundhöhle, während die Siwak-Extrakte die antibakterielle Wirkung verstärken und das Zahnfleisch bei jedem Zähneputzen beruhigen.</p>
+            <p style="color:#c2c9b4;font-size:0.875rem;line-height:1.7;margin-bottom:1rem;" data-i18n="modal5.desc">Schwarze Zahnpasta mit Aktivkohle und Siwak-Extrakten. Eine originelle Alternative für ein sauberes Mundgefühl nach dem Putzen.</p>
 
-            <ul style="list-style:none;margin:0 0 1rem;display:flex;flex-direction:column;gap:0.5rem;">
-                <li style="color:#c2c9b4;font-size:0.875rem;" data-i18n="modal5.feat1">🌿 Aktivkohle: absorbiert Flecken und reinigt tiefgehend</li>
-                <li style="color:#c2c9b4;font-size:0.875rem;" data-i18n="modal5.feat2">🌿 Sichtbare Weiße bereits ab den ersten Anwendungen</li>
-                <li style="color:#c2c9b4;font-size:0.875rem;" data-i18n="modal5.feat3">🌿 Mit Siwak angereicherte Formel, ohne Peroxid oder chemische Schleifmittel</li>
-            </ul>
 
             <div style="background:#152317;border-radius:0.5rem;padding:0.75rem;font-size:0.75rem;color:#8c9380;margin-bottom:1.25rem;" data-i18n="modal1.shipping">🚚 Versandkosten Swiss Post · CHF 10.00 · Versand innerhalb von 48 Std. + 2–3 Tage</div>
             <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;">
@@ -1477,26 +1375,50 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Wie verwendet man Siwak zum ersten Mal?",
+      "name": "Wie verwende ich Siwak zum ersten Mal?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Tauchen Sie die Spitze des Stabs 5 Minuten in Wasser, um ihn weicher zu machen. Kauen Sie sanft, um die Fasern auszufransen und eine natürliche Bürste zu formen. Reiben Sie Ihre Zähne und Ihr Zahnfleisch 2-3 Minuten in kreisenden Bewegungen. Ausspülen. Schneiden Sie die benutzte Spitze ab und beginnen Sie erneut."
+        "text": "Rinde etwa 1 cm abschälen, die Spitze kauen, bis sich die Fasern lösen, und dann sanft über die Zähne reiben. Die ausführliche Anleitung finden Sie auf der Produktseite jedes Stabs."
       }
     },
     {
       "@type": "Question",
-      "name": "Wie lange hält ein Siwak-Stab?",
+      "name": "Wie lange hält ein Stab?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ein SIVÀA-Stab hält je nach Gebrauch durchschnittlich 2 bis 4 Wochen. Schneiden Sie nach jeder Anwendung die benutzte Spitze (ca. 1cm) ab, um immer eine frische und hygienische Oberfläche zu haben."
+        "text": "Ein Stab hält mindestens einen Monat, je nach Gebrauch oft länger: Mit jeder neuen Spitze wird er etwa 1 cm kürzer."
       }
     },
     {
       "@type": "Question",
-      "name": "Wie sind die Lieferzeiten und -kosten?",
+      "name": "Hellt Siwak die Zähne auf?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Lieferung in 2-3 Werktagen via Swiss Post für CHF 10.00. Alle Bestellungen vor 14 Uhr werden am selben Tag versendet (Werktage). Sie erhalten eine Bestätigungsmail mit Sendungsnummer."
+        "text": "Siwak wird traditionell zur Zahnreinigung verwendet und hinterlässt ein sauberes Gefühl. Es ist keine Aufhellungsbehandlung: Bei Fragen zur Zahnfarbe wenden Sie sich an Ihre Zahnärztin oder Ihren Zahnarzt."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ist Siwak für die Mundhygiene sinnvoll?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Siwak wird seit Jahrhunderten zur Zahnpflege verwendet, und seine Nutzung wurde von der WHO gefördert. Am besten ergänzt er eine gute Routine: Zähneputzen mit Zahnpasta und regelmässige Kontrollen beim Zahnarzt."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Soll ich zusätzlich zum Siwak Zahnpasta verwenden?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, ich empfehle, Ihr gewohntes Zähneputzen mit Zahnpasta morgens und abends beizubehalten und Siwak tagsüber ergänzend zu verwenden."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wo finde ich hochwertigen Siwak in der Schweiz (Migros, Coop, Manor)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Frischer Siwak ist im Detailhandel oder in Apotheken oft schwer zu finden. Bei SIVÀA Geneva bestellen Sie online: Versand mit Swiss Post in die ganze Schweiz (Versand innerhalb von 48 Std. + 2–3 Tage) oder kostenlose Abholung in Acacias, Genf (Zahlung mit Twint oder Revolut)."
       }
     },
     {
@@ -1509,26 +1431,10 @@
     },
     {
       "@type": "Question",
-      "name": "Soll ich zusätzlich zum Siwak Zahnpasta verwenden?",
+      "name": "Ich möchte wählen, ob mein Stab dünn oder dick ist. Wie?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Persönlich verwende ich an Tagen, an denen ich einen frischeren Mund möchte, manchmal Zahnpasta mit Siwak. Aber Siwak enthält von Natur aus eigene Reinigungsmittel, milde Schleifmittel und antibakterielle Wirkstoffe. Er genügt also allein. Machen Sie es nach Gefühl!"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Ist Siwak so wirksam wie eine normale Zahnbürste?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja, mehrere im Journal of Periodontology veröffentlichte Studien bestätigen, dass Siwak dank seiner über 70 natürlichen Wirkstoffe (Kieselsäure, Tannine, Alkaloide, natürliches Fluorid) genauso wirksam gegen Plaque und Zahnfleischentzündungen ist wie eine herkömmliche Zahnbürste. Der entscheidende Faktor ist jedoch die Technik, mit der Sie ihn verwenden."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Ich möchte wählen, ob mein Kaustab dünn oder dick ist. Wie?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Keine Sorge, indem Sie Ihrer Bestellung eine Nachricht hinzufügen, wähle ich den Kaustab aus, der am besten zu Ihren Wünschen passt."
+        "text": "Wählen Sie die Stärke bei der Bestellung oder fügen Sie eine Nachricht hinzu: Ich wähle den Stab aus, der am besten zu Ihnen passt."
       }
     }
   ]

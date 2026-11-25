@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>SIVÀA Geneva — Siwak de Luxe &amp; Hygiène Dentaire Naturelle à Genève</title>
     <link rel="icon" href="sivaa.png" type="image/png">
-    <meta name="description" content="Spécialiste du siwak premium à Genève. Adoptez la brosse à dents naturelle (Salvadora Persica) aux propriétés blanchissantes et antibactériennes. Recommandé par l'OMS. Livraison en Suisse : expédition sous 48h + 2–3 jours.">    <link rel="canonical" href="https://sivaa.ch/"/>
+    <meta name="description" content="Siwak premium à Genève : bâton à mâcher en Salvadora persica, brosse à dents naturelle utilisée traditionnellement. Retrait aux Acacias ou livraison Swiss Post dans toute la Suisse (expédition sous 48h + 2–3 jours).">    <link rel="canonical" href="https://sivaa.ch/"/>
     <link rel="alternate" hreflang="fr" href="https://sivaa.ch/"/>
     <link rel="alternate" hreflang="de" href="https://sivaa.ch/de/"/>
     <link rel="alternate" hreflang="x-default" href="https://sivaa.ch/"/>
     <meta name="keywords" content="Siwak de luxe, Genève, hygiène dentaire naturelle, Twint Genève, Siwak Genève, brosse à dents naturelle Suisse, miswak Genève, Acacias"/>
-    <meta name="keywords" content="siwak, miswak, brosse à dent naturelle, salvadora persica, blanchir les dents, hygiène bucco-dentaire, siwak genève, siwak suisse">
+    <meta name="keywords" content="siwak, miswak, brosse à dent naturelle, salvadora persica, hygiène bucco-dentaire, siwak genève, siwak suisse">
     <meta property="og:title" content="Sivàa Geneva | Le vrai Siwak naturel">
-    <meta property="og:description" content="La brosse à dents naturelle utilisée depuis des millénaires. Blanchit, purifie et renforce les gencives. Livraison rapide en Suisse.">
+    <meta property="og:description" content="La brosse à dents naturelle utilisée depuis des siècles. Sensation de propreté, zéro plastique. Livraison rapide en Suisse.">
     <meta property="og:image" content="https://sivaa.ch/natural-siwak.jpg">
     <meta property="og:url" content="https://sivaa.ch/">
     <meta name="geo.region" content="CH-GE"/>
@@ -149,12 +149,22 @@
         }
         .btn-ghost:hover { background: #2a382b; }
         .btn-more { border: 1px solid rgba(157,215,90,0.35); font-size: 0.875rem; padding: 0.5rem 1rem; white-space: nowrap; justify-content: center; }
-        .card-siv .btn-more { margin: -0.25rem 0 1rem; }
         .btn-more:hover { border-color: #9dd75a; }
         /* ═══════════════════════════════════
            UTILITIES
         ═══════════════════════════════════ */
         .card-siv { background: #111f13; border-radius: 0.5rem; scroll-margin-top: 7rem; }
+        /* Cartes produits : même structure, boutons alignés en bas */
+        .products-grid, .dentifrice-grid { align-items: stretch; }
+        .products-grid > .card-siv, .dentifrice-grid > .card-siv { display: flex; flex-direction: column; height: 100%; }
+        .card-body { display: flex; flex-direction: column; flex: 1; padding: 1.25rem 1.5rem 1.5rem; }
+        .card-title { font-size: 1.1rem; font-weight: 400; color: #d7e7d4; line-height: 1.35; min-height: 2.7em; margin-bottom: 0.5rem;
+            display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; overflow-wrap: anywhere; hyphens: auto; }
+        .card-desc { color: #c2c9b4; font-size: 0.875rem; line-height: 1.6; min-height: 3.2em; margin-bottom: 1.25rem;
+            display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .card-foot { margin-top: auto; display: flex; flex-direction: column; align-items: stretch; gap: 0.75rem; }
+        .card-price { font-family: 'Newsreader', serif; font-size: 1.2rem; color: #9dd75a; }
+        .card-foot .btn-more { width: 100%; }
         .shadow-siv { box-shadow: 0 8px 32px rgba(9,22,11,0.6); }
         .shadow-siv-lg { box-shadow: 0 16px 48px rgba(9,22,11,0.8); }
         .glow-primary { filter: drop-shadow(0 0 20px rgba(157,215,90,0.3)); }
@@ -428,11 +438,11 @@
         ═══════════════════════════════════ */
         .product-img-wrap {
             position: relative;
-            height: 14rem;
+            aspect-ratio: 4 / 3;
             overflow: hidden;
             background: #152317;
+            flex-shrink: 0;
         }
-        @media(min-width: 480px) { .product-img-wrap { height: 16rem; } }
         .product-img-wrap img {
             width: 100%; height: 100%; object-fit: cover;
             transition: transform 0.5s;
@@ -511,7 +521,7 @@
         <div>
             <div class="hero-animate" style="display:inline-flex;align-items:center;gap:0.5rem;background:rgba(39,80,10,0.6);color:#a3d480;padding:0.45rem 1rem;border-radius:9999px;font-size:0.7rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:1.5rem;">
                 <span style="width:6px;height:6px;border-radius:50%;background:#9dd75a;flex-shrink:0;"></span>
-                <span data-i18n="hero.badge">Récolté à la main · Pakistan · Certifié Suisse</span>
+                <span data-i18n="hero.badge">Racine de Salvadora Persica · Certifié Suisse</span>
             </div>
 
             <h1 class="hero-title hero-animate-2">
@@ -521,9 +531,7 @@
                 <span style="color:#c2c9b4;" data-i18n="hero.title.part4">Genève</span>
             </h1>
 
-            <p class="hero-animate-3" style="color:#c2c9b4;font-size:clamp(0.95rem,2vw,1.125rem);line-height:1.8;max-width:36rem;margin-bottom:2rem;" data-i18n="hero.subtitle">
-                La brosse à dents naturelle que le monde utilise depuis 7000 ans — sélectionnée avec la précision suisse. Antibactérien, blanchissant, biodégradable. Livraison dans toute la Suisse : expédition sous 48h + 2–3 jours.
-            </p>
+            <p class="hero-animate-3" style="color:#c2c9b4;font-size:clamp(0.95rem,2vw,1.125rem);line-height:1.8;max-width:36rem;margin-bottom:2rem;" data-i18n="hero.subtitle">La brosse à dents naturelle utilisée traditionnellement depuis des siècles. Ce bâton de bois se mâche pour former une brosse et laisse une sensation de propreté et d'haleine fraîche. Livraison dans toute la Suisse : expédition sous 48h + 2–3 jours.</p>
 
             <div class="hero-animate-4" style="display:flex;gap:0.875rem;flex-wrap:wrap;">
                 <a href="checkout.html" class="btn-primary" style="font-size:clamp(0.875rem,2vw,1rem);" data-i18n="hero.cta.order">Commander maintenant →</a>
@@ -542,13 +550,13 @@
             <div class="hero-image shadow-siv-lg glow-primary">
                 <img
                         src="https://i.pinimg.com/1200x/80/d2/39/80d2397cf2e81cda78fa062dd9b48d03.jpg"
-                        alt="Bâton de Siwak de luxe SIVÀA Geneva — Hygiène dentaire naturelle Genève"
+                        alt="Bâton de Siwak premium SIVÀA Geneva, brosse à dents naturelle suisse"
                         data-i18n-alt="hero.image.alt"
                         loading="eager"
                 />
             </div>
             <div class="hero-badge-float shadow-siv">
-                <span style="font-size:0.875rem;font-weight:500;color:#d7e7d4;" data-i18n="hero.badge.float">⭐ 4.9/5 — <a href="https://iris.who.int/bitstreams/1f64ff17-718e-44d0-9935-26501fa61991/download" target="_blank" style="color:#9dd75a;text-decoration:underline;">reconnu par l'OMS</a></span>
+                <span style="font-size:0.875rem;font-weight:500;color:#d7e7d4;" data-i18n="hero.badge.float">🌿 Un usage encouragé par l'<a href="https://iris.who.int/bitstreams/1f64ff17-718e-44d0-9935-26501fa61991/download" target="_blank" rel="noopener" style="color:#9dd75a;">OMS</a></span>
             </div>
         </div>
 
@@ -562,9 +570,9 @@
 <section id="produits" style="max-width:80rem;margin:0 auto;" class="section-pad">
     <div class="reveal" style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:2.5rem;">
         <div>
-            <p style="font-size:0.7rem;color:#9dd75a;text-transform:uppercase;letter-spacing:0.2em;margin-bottom:0.75rem;" data-i18n="products.eyebrow">L'Atelier Botanique</p>
+            <p style="font-size:0.7rem;color:#9dd75a;text-transform:uppercase;letter-spacing:0.2em;margin-bottom:0.75rem;" data-i18n="products.eyebrow">La Sélection Botanique</p>
             <h2 class="section-title">
-                <span data-i18n="products.title.part1">Notre</span>
+                <span data-i18n="products.title.part1">Ma</span>
                 <em style="font-style:normal;color:#9dd75a;" data-i18n="products.title.part2">Collection</em>
             </h2>
         </div>
@@ -576,42 +584,15 @@
         <!-- PRODUIT 1 -->
         <article id="siwak-premium" class="card-siv reveal reveal-delay-1" style="overflow:hidden;cursor:pointer;" onclick="openModal('modal-1')">
             <div class="product-img-wrap">
-                <img src="siwako.jpg" alt="Bâton de Siwak Premium — Siwak de luxe Genève" data-i18n-alt="product1.image.alt" loading="lazy"/>
+                <img src="siwako.jpg" alt="Bâton de Siwak Premium SIVÀA, brosse à dents naturelle en Salvadora persica" data-i18n-alt="product1.image.alt" loading="lazy"/>
                 <div style="position:absolute;top:0.75rem;left:0.75rem;background:rgba(127,153,90,0.85);color:white;font-size:0.7rem;padding:0.25rem 0.75rem;border-radius:9999px;backdrop-filter:blur(4px);" data-i18n="product1.badge">Récolté à la main · Pakistan</div>
             </div>
-            <div style="padding:1.5rem;">
-                <h3 style="font-size:1.1rem;font-weight:400;color:#d7e7d4;margin-bottom:0.5rem;" data-i18n="product1.name">Bâton de Siwak Premium</h3>
-                <p style="color:#c2c9b4;font-size:0.875rem;line-height:1.6;margin-bottom:1rem;" data-i18n="product1.desc">Antibactérien naturel. Riche en silice, tanins et minéraux. Prêt à l'emploi.</p>
-                <a href="siwak-premium.html" onclick="event.stopPropagation()" class="btn-ghost btn-more" data-i18n="btn.more">En savoir plus</a>
-                <ul style="list-style:none;margin:0 0 1rem;display:flex;flex-direction:column;gap:0.4rem;">
-                    <li style="color:#c2c9b4;font-size:0.82rem;" data-i18n="modal1.feat1">🌿 70+ minéraux actifs dont fluor naturel</li>
-                    <li style="color:#c2c9b4;font-size:0.82rem;" data-i18n="modal1.feat2">🌿 Antibactérien prouvé contre la plaque</li>
-                    <li style="color:#c2c9b4;font-size:0.82rem;" data-i18n="modal1.feat3">🌿 Blanchiment naturel sans abrasion</li>
-                    <li style="color:#c2c9b4;font-size:0.82rem;" data-i18n="modal1.feat4">🌿 Zéro plastique · 100% biodégradable</li>
-                </ul>
-                <div style="background:#152317;border-radius:0.5rem;padding:0.65rem;font-size:0.75rem;color:#8c9380;margin-bottom:1.25rem;" data-i18n="modal1.shipping">🚚 Frais de livraison Swiss Post · CHF 10.00 · expédition sous 48h + 2–3 jours</div>
-                <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;">
-                    <span style="font-family:'Newsreader',serif;font-size:1.2rem;color:#9dd75a;" data-i18n="product1.price">CHF 6.00 par pièce</span>
-                    <a href="checkout.html" class="btn-primary" style="font-size:0.875rem;padding:0.5rem 1rem;" data-i18n="modal1.buy">Acheter maintenant</a>
-                </div>
-
-                <div class="thickness-picker" onclick="event.stopPropagation()">
-                    <p class="thickness-picker-label" data-i18n="modal1.thickness.label">Épaisseur du bâton</p>
-                    <div class="thickness-options">
-                        <label class="thickness-pill">
-                            <input type="radio" name="thickness-card1" value="fin" />
-                            <span data-i18n="modal1.thickness.thin">Fin</span>
-                        </label>
-                        <label class="thickness-pill">
-                            <input type="radio" name="thickness-card1" value="epais" />
-                            <span data-i18n="modal1.thickness.thick">Épais</span>
-                        </label>
-                        <label class="thickness-pill">
-                            <input type="radio" name="thickness-card1" value="peu-importe" checked />
-                            <span data-i18n="modal1.thickness.any">Peu importe</span>
-                        </label>
-                    </div>
-                    <p class="thickness-sizes" data-i18n="thickness.sizes">Fin ≈ 1–1,5 cm · Épais ≈ 2–2,5 cm de diamètre</p>
+            <div class="card-body">
+                <h3 class="card-title" data-i18n="product1.name">Bâton de Siwak Premium</h3>
+                <p class="card-desc" data-i18n="product1.desc">Racine de Salvadora persica, récoltée à la main. S'utilise sans eau ni dentifrice.</p>
+                <div class="card-foot">
+                    <span class="card-price" data-i18n="product1.price">CHF 6.00 par pièce</span>
+                    <a href="siwak-premium.html" onclick="event.stopPropagation()" class="btn-ghost btn-more" data-i18n="btn.more">En savoir plus</a>
                 </div>
             </div>
         </article>
@@ -619,42 +600,15 @@
         <!-- PRODUIT 2 -->
         <article id="allo-togo" class="card-siv reveal reveal-delay-2" style="overflow:hidden;cursor:pointer;" onclick="openModal('modal-2')">
             <div class="product-img-wrap">
-                <img src="allo-togo.png" alt="Allo Togo — Bâton à mâcher naturel Genève" data-i18n-alt="product2.image.alt" loading="lazy"/>
+                <img src="allo-togo.png" alt="Bâton à mâcher Allo Togo, alternative naturelle au Siwak venant du Togo" data-i18n-alt="product2.image.alt" loading="lazy"/>
                 <div style="position:absolute;top:0.75rem;left:0.75rem;background:rgba(127,153,90,0.85);color:white;font-size:0.7rem;padding:0.25rem 0.75rem;border-radius:9999px;backdrop-filter:blur(4px);" data-i18n="product2.badge">Bâton à mâcher venant du Togo</div>
             </div>
-            <div style="padding:1.5rem;">
-                <h3 style="font-size:1.1rem;font-weight:400;color:#d7e7d4;margin-bottom:0.5rem;" data-i18n="product2.name">Allo Togo</h3>
-                <p style="color:#c2c9b4;font-size:0.875rem;line-height:1.6;margin-bottom:1rem;" data-i18n="product2.desc">Bâton à mâcher en Fagara, venant du Togo. Interchangeable avec le Siwak.</p>
-                <a href="allo-togo.html" onclick="event.stopPropagation()" class="btn-ghost btn-more" data-i18n="btn.more">En savoir plus</a>
-                <ul style="list-style:none;margin:0 0 1rem;display:flex;flex-direction:column;gap:0.4rem;">
-                    <li style="color:#c2c9b4;font-size:0.82rem;" data-i18n="modal2.feat1">🌿 Bois naturel de Fagara (Zanthoxylum zanthoxyloides)</li>
-                    <li style="color:#c2c9b4;font-size:0.82rem;" data-i18n="modal2.feat2">🌿 Légère sensation de picotement, typique du Fagara</li>
-                    <li style="color:#c2c9b4;font-size:0.82rem;" data-i18n="modal2.feat3">🌿 Frotte-dents traditionnel d'Afrique de l'Ouest</li>
-                    <li style="color:#c2c9b4;font-size:0.82rem;" data-i18n="modal2.feat4">🌿 Lot de 5 bâtonnets, importé directement du Togo</li>
-                </ul>
-                <div style="background:#152317;border-radius:0.5rem;padding:0.65rem;font-size:0.75rem;color:#8c9380;margin-bottom:1.25rem;" data-i18n="modal1.shipping">🚚 Frais de livraison Swiss Post · CHF 10.00 · expédition sous 48h + 2–3 jours</div>
-                <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;">
-                    <span style="font-family:'Newsreader',serif;font-size:1.2rem;color:#9dd75a;" data-i18n="product2.price">CHF 6.00 pour 5 pièces</span>
-                    <a href="checkout.html" class="btn-primary" style="font-size:0.875rem;padding:0.5rem 1rem;" data-i18n="modal1.buy">Acheter maintenant</a>
-                </div>
-
-                <div class="thickness-picker" onclick="event.stopPropagation()">
-                    <p class="thickness-picker-label" data-i18n="modal1.thickness.label">Épaisseur du bâton</p>
-                    <div class="thickness-options">
-                        <label class="thickness-pill">
-                            <input type="radio" name="thickness-card2" value="fin" />
-                            <span data-i18n="modal1.thickness.thin">Fin</span>
-                        </label>
-                        <label class="thickness-pill">
-                            <input type="radio" name="thickness-card2" value="epais" />
-                            <span data-i18n="modal1.thickness.thick">Épais</span>
-                        </label>
-                        <label class="thickness-pill">
-                            <input type="radio" name="thickness-card2" value="peu-importe" checked />
-                            <span data-i18n="modal1.thickness.any">Peu importe</span>
-                        </label>
-                    </div>
-                    <p class="thickness-sizes" data-i18n="thickness.sizes">Fin ≈ 1–1,5 cm · Épais ≈ 2–2,5 cm de diamètre</p>
+            <div class="card-body">
+                <h3 class="card-title" data-i18n="product2.name">Allo Togo</h3>
+                <p class="card-desc" data-i18n="product2.desc">Bâtonnets de fagara du Togo, au goût vif et légèrement piquant.</p>
+                <div class="card-foot">
+                    <span class="card-price" data-i18n="product2.price">CHF 6.00 pour 5 pièces</span>
+                    <a href="allo-togo.html" onclick="event.stopPropagation()" class="btn-ghost btn-more" data-i18n="btn.more">En savoir plus</a>
                 </div>
             </div>
         </article>
@@ -663,22 +617,15 @@
 
         <article id="etui-siwak" class="card-siv reveal reveal-delay-3" style="overflow:hidden;cursor:pointer;" onclick="openModal('modal-3')">
             <div class="product-img-wrap" style="background:#09160b;">
-                <img src="imgetui.png" alt="Étui Siwak Naturel — Hygiène dentaire nomade" style="object-fit: contain; padding: 0.5rem;" loading="lazy" data-i18n-alt="product3.image.alt"/>
+                <img src="imgetui.png" alt="Étui de protection pour Siwak, étui hygiénique nomade" style="object-fit: contain; padding: 0.5rem;" loading="lazy" data-i18n-alt="product3.image.alt"/>
                 <div style="position:absolute;top:0.75rem;left:0.75rem;background:rgba(127,153,90,0.85);color:white;font-size:0.7rem;padding:0.25rem 0.75rem;border-radius:9999px;backdrop-filter:blur(4px);" data-i18n="product3.badge">Accessoire Indispensable</div>
             </div>
-            <div style="padding:1.5rem;">
-                <h3 style="font-size:1.1rem;font-weight:400;color:#d7e7d4;margin-bottom:0.5rem;" data-i18n="product3.name">Étui de Siwak</h3>
-                <p style="color:#c2c9b4;font-size:0.875rem;line-height:1.6;margin-bottom:1rem;" data-i18n="product3.desc">Protégez votre Siwak et gardez-le frais où que vous alliez.</p>
-                <a href="etui-siwak.html" onclick="event.stopPropagation()" class="btn-ghost btn-more" data-i18n="btn.more">En savoir plus</a>
-                <ul style="list-style:none;margin:0 0 1rem;display:flex;flex-direction:column;gap:0.4rem;">
-                    <li style="color:#c2c9b4;font-size:0.82rem;" data-i18n="modal3.feat1">🌿 Matériel épais, solide et durable</li>
-                    <li style="color:#c2c9b4;font-size:0.82rem;" data-i18n="modal3.feat2">🌿 Stockage anti-poussière et gain de place</li>
-                    <li style="color:#c2c9b4;font-size:0.82rem;" data-i18n="modal3.feat4">🌿 Prolonge la durée de vie du Siwak</li>
-                </ul>
-                <div style="background:#152317;border-radius:0.5rem;padding:0.65rem;font-size:0.75rem;color:#8c9380;margin-bottom:1.25rem;" data-i18n="modal3.shipping">🚚 Frais de livraison Swiss Post · CHF 10.00 · expédition sous 48h + 2–3 jours</div>
-                <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;">
-                    <span style="font-family:'Newsreader',serif;font-size:1.2rem;color:#9dd75a;" data-i18n="product3.price">CHF 6.00 l'unité</span>
-                    <a href="checkout.html" class="btn-primary" style="font-size:0.875rem;padding:0.5rem 1rem;" data-i18n="modal3.buy">Acheter maintenant</a>
+            <div class="card-body">
+                <h3 class="card-title" data-i18n="product3.name">Étui de Protection Siwak</h3>
+                <p class="card-desc" data-i18n="product3.desc">Protège votre siwak de la poussière et de l'humidité, partout.</p>
+                <div class="card-foot">
+                    <span class="card-price" data-i18n="product3.price">CHF 6.00 l'unité</span>
+                    <a href="etui-siwak.html" onclick="event.stopPropagation()" class="btn-ghost btn-more" data-i18n="btn.more">En savoir plus</a>
                 </div>
             </div>
         </article>
@@ -752,22 +699,15 @@
         <!-- PRODUIT 4 -->
         <article id="dentifrice-girofle" class="card-siv reveal reveal-delay-1" style="overflow:hidden;cursor:pointer;" onclick="openModal('modal-4')">
             <div class="product-img-wrap">
-                <img src="dentifrice-girofle.jpg" alt="Dentifrice Siwak au Clou de Girofle — SIVÀA Geneva" data-i18n-alt="product4.image.alt" loading="lazy"/>
-                <div style="position:absolute;top:0.75rem;left:0.75rem;background:rgba(127,153,90,0.85);color:white;font-size:0.7rem;padding:0.25rem 0.75rem;border-radius:9999px;backdrop-filter:blur(4px);" data-i18n="product4.badge">Protection Anticavité · Clou de Girofle</div>
+                <img src="dentifrice-girofle.jpg" alt="Dentifrice Siwak au clou de girofle SIVÀA Geneva" data-i18n-alt="product4.image.alt" loading="lazy"/>
+                <div style="position:absolute;top:0.75rem;left:0.75rem;background:rgba(127,153,90,0.85);color:white;font-size:0.7rem;padding:0.25rem 0.75rem;border-radius:9999px;backdrop-filter:blur(4px);" data-i18n="product4.badge">Siwak · Clou de girofle</div>
             </div>
-            <div style="padding:1.5rem;">
-                <h3 style="font-size:1.1rem;font-weight:400;color:#d7e7d4;margin-bottom:0.5rem;" data-i18n="product4.name">Dentifrice Siwak — Clou de Girofle</h3>
-                <p style="color:#c2c9b4;font-size:0.875rem;line-height:1.6;margin-bottom:1rem;" data-i18n="product4.desc">Le pouvoir nettoyant du Siwak associé à l'action apaisante du clou de girofle, pour une protection anticavité renforcée au quotidien.</p>
-                <a href="dentifrice-siwak-clou-de-girofle.html" onclick="event.stopPropagation()" class="btn-ghost btn-more" data-i18n="btn.more">En savoir plus</a>
-                <ul style="list-style:none;margin:0 0 1rem;display:flex;flex-direction:column;gap:0.4rem;">
-                    <li style="color:#c2c9b4;font-size:0.82rem;" data-i18n="modal4.feat1">🌿 Protection anticavité renforcée par les extraits de Siwak</li>
-                    <li style="color:#c2c9b4;font-size:0.82rem;" data-i18n="modal4.feat2">🌿 Clou de girofle : action apaisante et antibactérienne naturelle</li>
-                    <li style="color:#c2c9b4;font-size:0.82rem;" data-i18n="modal4.feat3">🌿 Haleine fraîche longue durée, sans fluor chimique agressif</li>
-                </ul>
-                <div style="background:#152317;border-radius:0.5rem;padding:0.65rem;font-size:0.75rem;color:#8c9380;margin-bottom:1.25rem;" data-i18n="modal1.shipping">🚚 Frais de livraison Swiss Post · CHF 10.00 · expédition sous 48h + 2–3 jours</div>
-                <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;">
-                    <span style="font-family:'Newsreader',serif;font-size:1.2rem;color:#9dd75a;" data-i18n="product4.price">CHF 10.00 par pièce</span>
-                    <a href="checkout.html" class="btn-primary" style="font-size:0.875rem;padding:0.5rem 1rem;" data-i18n="modal1.buy">Acheter maintenant</a>
+            <div class="card-body">
+                <h3 class="card-title" data-i18n="product4.name">Dentifrice Siwak — Clou de Girofle</h3>
+                <p class="card-desc" data-i18n="product4.desc">Extraits de siwak et clou de girofle, au goût chaud et épicé.</p>
+                <div class="card-foot">
+                    <span class="card-price" data-i18n="product4.price">CHF 10.00 par pièce</span>
+                    <a href="dentifrice-siwak-clou-de-girofle.html" onclick="event.stopPropagation()" class="btn-ghost btn-more" data-i18n="btn.more">En savoir plus</a>
                 </div>
             </div>
         </article>
@@ -775,22 +715,15 @@
         <!-- PRODUIT 5 -->
         <article id="dentifrice-charbon" class="card-siv reveal reveal-delay-2" style="overflow:hidden;cursor:pointer;" onclick="openModal('modal-5')">
             <div class="product-img-wrap">
-                <img src="dentifrice-au-siwak-et-charbon-actif.jpg" alt="Dentifrice Siwak au Charbon Actif — SIVÀA Geneva" data-i18n-alt="product5.image.alt" loading="lazy"/>
-                <div style="position:absolute;top:0.75rem;left:0.75rem;background:rgba(127,153,90,0.85);color:white;font-size:0.7rem;padding:0.25rem 0.75rem;border-radius:9999px;backdrop-filter:blur(4px);" data-i18n="product5.badge">Blancheur Intense · Charbon Actif</div>
+                <img src="dentifrice-au-siwak-et-charbon-actif.jpg" alt="Dentifrice Siwak au charbon actif SIVÀA Geneva" data-i18n-alt="product5.image.alt" loading="lazy"/>
+                <div style="position:absolute;top:0.75rem;left:0.75rem;background:rgba(127,153,90,0.85);color:white;font-size:0.7rem;padding:0.25rem 0.75rem;border-radius:9999px;backdrop-filter:blur(4px);" data-i18n="product5.badge">Siwak · Charbon actif</div>
             </div>
-            <div style="padding:1.5rem;">
-                <h3 style="font-size:1.1rem;font-weight:400;color:#d7e7d4;margin-bottom:0.5rem;" data-i18n="product5.name">Dentifrice Siwak — Charbon Actif</h3>
-                <p style="color:#c2c9b4;font-size:0.875rem;line-height:1.6;margin-bottom:1rem;" data-i18n="product5.desc">Le charbon actif purifiant associé aux vertus ancestrales du Siwak, pour un blanchiment naturel intense et une bouche parfaitement saine.</p>
-                <a href="dentifrice-siwak-charbon-actif.html" onclick="event.stopPropagation()" class="btn-ghost btn-more" data-i18n="btn.more">En savoir plus</a>
-                <ul style="list-style:none;margin:0 0 1rem;display:flex;flex-direction:column;gap:0.4rem;">
-                    <li style="color:#c2c9b4;font-size:0.82rem;" data-i18n="modal5.feat1">🌿 Charbon actif : absorbe les taches et purifie en profondeur</li>
-                    <li style="color:#c2c9b4;font-size:0.82rem;" data-i18n="modal5.feat2">🌿 Blancheur visible dès les premières utilisations</li>
-                    <li style="color:#c2c9b4;font-size:0.82rem;" data-i18n="modal5.feat3">🌿 Formule enrichie au Siwak, sans peroxyde ni abrasifs chimiques</li>
-                </ul>
-                <div style="background:#152317;border-radius:0.5rem;padding:0.65rem;font-size:0.75rem;color:#8c9380;margin-bottom:1.25rem;" data-i18n="modal1.shipping">🚚 Frais de livraison Swiss Post · CHF 10.00 · expédition sous 48h + 2–3 jours</div>
-                <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;">
-                    <span style="font-family:'Newsreader',serif;font-size:1.2rem;color:#9dd75a;" data-i18n="product5.price">CHF 10.00 par pièce</span>
-                    <a href="checkout.html" class="btn-primary" style="font-size:0.875rem;padding:0.5rem 1rem;" data-i18n="modal1.buy">Acheter maintenant</a>
+            <div class="card-body">
+                <h3 class="card-title" data-i18n="product5.name">Dentifrice Siwak — Charbon Actif</h3>
+                <p class="card-desc" data-i18n="product5.desc">Charbon actif et extraits de siwak, pour une sensation de bouche nette.</p>
+                <div class="card-foot">
+                    <span class="card-price" data-i18n="product5.price">CHF 10.00 par pièce</span>
+                    <a href="dentifrice-siwak-charbon-actif.html" onclick="event.stopPropagation()" class="btn-ghost btn-more" data-i18n="btn.more">En savoir plus</a>
                 </div>
             </div>
         </article>
@@ -806,24 +739,24 @@
         <div style="text-align:center;margin-bottom:3rem;">
             <p style="font-size:0.7rem;color:#9dd75a;text-transform:uppercase;letter-spacing:0.2em;margin-bottom:0.75rem;" data-i18n="reviews.eyebrow">Témoignages</p>
             <h2 class="section-title">
-                <span data-i18n="reviews.title.part1">Ce que disent nos</span>
+                <span data-i18n="reviews.title.part1">Ce que disent mes</span>
                 <em style="font-style:normal;color:#9dd75a;" data-i18n="reviews.title.part2">clients</em>
             </h2>
-            <p style="color:#c2c9b4;font-size:0.875rem;margin-top:0.75rem;" data-i18n="reviews.subtitle">4.9/5 · Des avis depuis Genève et toute la Suisse</p>
+            <p style="color:#c2c9b4;font-size:0.875rem;margin-top:0.75rem;" data-i18n="reviews.subtitle">Des avis depuis Genève et toute la Suisse</p>
         </div>
 
         <div class="reviews-grid">
             <!-- Avis 1 -->
             <div class="reveal reveal-delay-1" style="background:#111f13;border-radius:0.75rem;padding:1.75rem;display:flex;flex-direction:column;gap:1.25rem;">
                 <div>⭐⭐⭐⭐⭐</div>
-                <blockquote style="font-family:'Newsreader',serif;font-size:1rem;color:#d7e7d4;line-height:1.7;font-style:italic;" data-i18n="review1.text">"Je cherchais une alternative naturelle depuis longtemps. Le Siwak SIVÀA a complètement remplacé ma brosse à dents électrique. Dents plus blanches en 2 semaines, gencives apaisées."</blockquote>
+                <blockquote style="font-family:'Newsreader',serif;font-size:1rem;color:#d7e7d4;line-height:1.7;font-style:italic;" data-i18n="review1.text">"Une découverte exceptionnelle ! Les notes mentholées de l'Allo procurent une fraîcheur intense et durable. Son léger effet anesthésiant naturel a soulagé mes gencives sensibles instantanément. Un vrai bonheur."</blockquote>
                 <div style="display:flex;align-items:center;gap:0.75rem;padding-top:0.75rem;border-top:1px solid rgba(66,73,57,0.2);flex-wrap:wrap;">
                     <div style="width:2.25rem;height:2.25rem;border-radius:50%;background:#27500a;display:flex;align-items:center;justify-content:center;color:#9dd75a;font-weight:600;flex-shrink:0;">S</div>
                     <div>
                         <p style="font-size:0.875rem;font-weight:500;color:#d7e7d4;" data-i18n="review1.name">Sophie</p>
                         <p style="font-size:0.75rem;color:#8c9380;" data-i18n="review1.location">Genève · Mars 2026</p>
                     </div>
-                    <span style="margin-left:auto;font-size:0.7rem;background:#2a382b;color:#c2c9b4;padding:0.2rem 0.6rem;border-radius:9999px;" data-i18n="review1.tag">Siwak Premium</span>
+                    <span style="margin-left:auto;font-size:0.7rem;background:#2a382b;color:#c2c9b4;padding:0.2rem 0.6rem;border-radius:9999px;" data-i18n="review1.tag">Allo Togo</span>
                 </div>
             </div>
             <!-- Avis 2 -->
@@ -836,7 +769,7 @@
                         <p style="font-size:0.875rem;font-weight:500;color:#d7e7d4;" data-i18n="review2.name">Mark</p>
                         <p style="font-size:0.75rem;color:#8c9380;" data-i18n="review2.location">Lausanne · Février 2026</p>
                     </div>
-                    <span style="margin-left:auto;font-size:0.7rem;background:#2a382b;color:#c2c9b4;padding:0.2rem 0.6rem;border-radius:9999px;" data-i18n="review2.tag">Siwak &amp; Allo Togo</span>
+                    <span style="margin-left:auto;font-size:0.7rem;background:#2a382b;color:#c2c9b4;padding:0.2rem 0.6rem;border-radius:9999px;" data-i18n="review2.tag">Siwak Premium</span>
                 </div>
             </div>
             <!-- Avis 3 -->
@@ -849,7 +782,7 @@
                         <p style="font-size:0.875rem;font-weight:500;color:#d7e7d4;" data-i18n="review3.name">Inès</p>
                         <p style="font-size:0.75rem;color:#8c9380;" data-i18n="review3.location">Zürich · Avril 2026</p>
                     </div>
-                    <span style="margin-left:auto;font-size:0.7rem;background:#2a382b;color:#c2c9b4;padding:0.2rem 0.6rem;border-radius:9999px;" data-i18n="review3.tag">Allo Togo</span>
+                    <span style="margin-left:auto;font-size:0.7rem;background:#2a382b;color:#c2c9b4;padding:0.2rem 0.6rem;border-radius:9999px;" data-i18n="review3.tag">Kit Hygiène</span>
                 </div>
             </div>
         </div>
@@ -857,8 +790,6 @@
         <!-- Stats -->
         <div style="margin-top:2.5rem;display:flex;justify-content:center;gap:clamp(1.5rem,5vw,4rem);text-align:center;flex-wrap:wrap;">
             <div class="reveal"><p style="font-family:'Newsreader',serif;font-size:2rem;color:#9dd75a;">7000</p><p style="font-size:0.72rem;color:#c2c9b4;text-transform:uppercase;letter-spacing:0.1em;margin-top:0.25rem;" data-i18n="stats.reviews">Année d'usage ancestral</p></div>
-            <div class="reveal reveal-delay-1"><p style="font-family:'Newsreader',serif;font-size:2rem;color:#9dd75a;">4.9</p><p style="font-size:0.72rem;color:#c2c9b4;text-transform:uppercase;letter-spacing:0.1em;margin-top:0.25rem;" data-i18n="stats.rating">Note moyenne</p></div>
-            <div class="reveal reveal-delay-2"><p style="font-family:'Newsreader',serif;font-size:2rem;color:#9dd75a;">98%</p><p style="font-size:0.72rem;color:#c2c9b4;text-transform:uppercase;letter-spacing:0.1em;margin-top:0.25rem;" data-i18n="stats.recommend">Recommandent</p></div>
             <div class="reveal reveal-delay-3"><p style="font-family:'Newsreader',serif;font-size:2rem;color:#9dd75a;">48h</p><p style="font-size:0.72rem;color:#c2c9b4;text-transform:uppercase;letter-spacing:0.1em;margin-top:0.25rem;" data-i18n="stats.delivery">Expédition</p></div>
         </div>
     </div>
@@ -880,64 +811,65 @@
 
         <details style="background:#111f13;border-radius:0.75rem;overflow:hidden;" class="reveal reveal-delay-1">
             <summary style="display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.25rem 1.5rem;">
-                <span style="font-weight:500;color:#d7e7d4;" data-i18n="faq.q1">Est-ce que le siwak blanchit vraiment les dents ?</span>
+                <span style="font-weight:500;color:#d7e7d4;" data-i18n="faq.q1">Comment utiliser le siwak pour la première fois ?</span>
                 <span style="color:#8c9380;font-size:1.25rem;flex-shrink:0;">+</span>
             </summary>
-            <div style="padding:0 1.5rem 1.25rem;color:#c2c9b4;font-size:0.875rem;line-height:1.7;border-top:1px solid rgba(66,73,57,0.2);padding-top:1rem;" data-i18n="faq.a1">Oui, la racine de Salvadora Persica contient de la silice, un agent naturel qui polit et blanchit les dents de manière naturelle en éliminant les taches superficielles (café, thé), sans rayer l'émail.</div>
+            <div style="padding:0 1.5rem 1.25rem;color:#c2c9b4;font-size:0.875rem;line-height:1.7;border-top:1px solid rgba(66,73,57,0.2);padding-top:1rem;" data-i18n="faq.a1">Retirez l'écorce sur environ 1 cm, mâchonnez la pointe jusqu'à ce que les fibres s'écartent, puis frottez doucement les dents. Le mode d'emploi détaillé figure sur la fiche de chaque bâton.</div>
         </details>
-
-        <details style="background:#111f13;border-radius:0.75rem;overflow:hidden;" class="reveal reveal-delay-2">
+        <details style="background:#111f13;border-radius:0.75rem;overflow:hidden;" class="reveal reveal-delay-1">
             <summary style="display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.25rem 1.5rem;">
-                <span style="font-weight:500;color:#d7e7d4;" data-i18n="faq.q2">Est-ce que le siwak abîme les dents ou est-il dangereux ?</span>
+                <span style="font-weight:500;color:#d7e7d4;" data-i18n="faq.q2">Combien de temps dure un bâton ?</span>
                 <span style="color:#8c9380;font-size:1.25rem;flex-shrink:0;">+</span>
             </summary>
-            <div style="padding:0 1.5rem 1.25rem;color:#c2c9b4;font-size:0.875rem;line-height:1.7;border-top:1px solid rgba(66,73,57,0.2);padding-top:1rem;" data-i18n="faq.a2">Non, bien au contraire ! Le siwak est 100% sûr. Contrairement aux brosses à dents à poils durs ou aux dentifrices industriels très abrasifs, les fibres naturelles de ce bois nettoient en douceur. Il renforce les gencives et ne détériore pas l'émail.</div>
+            <div style="padding:0 1.5rem 1.25rem;color:#c2c9b4;font-size:0.875rem;line-height:1.7;border-top:1px solid rgba(66,73,57,0.2);padding-top:1rem;" data-i18n="faq.a2">Un bâton tient au moins un mois, souvent davantage selon l'usage : à chaque nouvelle pointe, il raccourcit d'environ 1 cm.</div>
         </details>
-
-        <details style="background:#111f13;border-radius:0.75rem;overflow:hidden;" class="reveal reveal-delay-3">
+        <details style="background:#111f13;border-radius:0.75rem;overflow:hidden;" class="reveal reveal-delay-1">
             <summary style="display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.25rem 1.5rem;">
-                <span style="font-weight:500;color:#d7e7d4;" data-i18n="faq.q3">Le miswak est-il réellement bénéfique pour l'hygiène bucco-dentaire ?</span>
+                <span style="font-weight:500;color:#d7e7d4;" data-i18n="faq.q3">Le siwak blanchit-il les dents ?</span>
                 <span style="color:#8c9380;font-size:1.25rem;flex-shrink:0;">+</span>
             </summary>
-            <div style="padding:0 1.5rem 1.25rem;color:#c2c9b4;font-size:0.875rem;line-height:1.7;border-top:1px solid rgba(66,73,57,0.2);padding-top:1rem;" data-i18n="faq.a3">Absolument. Son efficacité est validée scientifiquement et son usage est <a href="https://iris.who.int/bitstreams/1f64ff17-718e-44d0-9935-26501fa61991/download" target="_blank" style="color:#9dd75a;text-decoration:underline;">reconnu par l'OMS</a>. Comme mentionné dans leurs rapports, <a href="https://iris.who.int/bitstreams/40631c8e-2b2c-455a-87bf-a4901f872f6b/download" target="_blank" style="color:#9dd75a;text-decoration:underline;">ce bois pour soins dentaires réduit la plaque, purifie l'haleine et blanchit les dents de manière naturelle</a>. Il élimine radicalement la plaque dentaire et possède des propriétés antibactériennes prouvées.</div>
+            <div style="padding:0 1.5rem 1.25rem;color:#c2c9b4;font-size:0.875rem;line-height:1.7;border-top:1px solid rgba(66,73,57,0.2);padding-top:1rem;" data-i18n="faq.a3">Le siwak est utilisé traditionnellement pour nettoyer les dents et laisse une sensation de propreté. Ce n'est pas un traitement blanchissant : pour toute question sur la couleur de vos dents, demandez conseil à votre dentiste.</div>
         </details>
-
-        <details style="background:#111f13;border-radius:0.75rem;overflow:hidden;" class="reveal reveal-delay-3">
+        <details style="background:#111f13;border-radius:0.75rem;overflow:hidden;" class="reveal reveal-delay-1">
+            <summary style="display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.25rem 1.5rem;">
+                <span style="font-weight:500;color:#d7e7d4;" data-i18n="faq.q4">Le siwak est-il utile pour l'hygiène bucco-dentaire ?</span>
+                <span style="color:#8c9380;font-size:1.25rem;flex-shrink:0;">+</span>
+            </summary>
+            <div style="padding:0 1.5rem 1.25rem;color:#c2c9b4;font-size:0.875rem;line-height:1.7;border-top:1px solid rgba(66,73,57,0.2);padding-top:1rem;" data-i18n="faq.a4">Le siwak est utilisé depuis des siècles pour le soin des dents, et son usage a été encouragé par l'<a href="https://iris.who.int/bitstreams/1f64ff17-718e-44d0-9935-26501fa61991/download" target="_blank" rel="noopener" style="color:#9dd75a;">OMS</a>. Il s'utilise de préférence en complément d'une bonne routine : brossage avec un dentifrice et contrôles réguliers chez le dentiste.</div>
+        </details>
+        <details style="background:#111f13;border-radius:0.75rem;overflow:hidden;" class="reveal reveal-delay-1">
+            <summary style="display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.25rem 1.5rem;">
+                <span style="font-weight:500;color:#d7e7d4;" data-i18n="faq.q5">Dois-je utiliser du dentifrice en plus du siwak ?</span>
+                <span style="color:#8c9380;font-size:1.25rem;flex-shrink:0;">+</span>
+            </summary>
+            <div style="padding:0 1.5rem 1.25rem;color:#c2c9b4;font-size:0.875rem;line-height:1.7;border-top:1px solid rgba(66,73,57,0.2);padding-top:1rem;" data-i18n="faq.a5">Oui, je vous conseille de garder votre brossage habituel avec un dentifrice, matin et soir, et d'utiliser le siwak en complément dans la journée.</div>
+        </details>
+        <details style="background:#111f13;border-radius:0.75rem;overflow:hidden;" class="reveal reveal-delay-1">
+            <summary style="display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.25rem 1.5rem;">
+                <span style="font-weight:500;color:#d7e7d4;" data-i18n="faq.q6">Où trouver du siwak de qualité en Suisse (Migros, Coop, Manor) ?</span>
+                <span style="color:#8c9380;font-size:1.25rem;flex-shrink:0;">+</span>
+            </summary>
+            <div style="padding:0 1.5rem 1.25rem;color:#c2c9b4;font-size:0.875rem;line-height:1.7;border-top:1px solid rgba(66,73,57,0.2);padding-top:1rem;" data-i18n="faq.a6">Il est souvent difficile de trouver du siwak frais en grande distribution ou en pharmacie. Chez SIVÀA Geneva, vous le commandez en ligne : livraison Swiss Post dans toute la Suisse (expédition sous 48h + 2–3 jours) ou retrait gratuit aux Acacias, à Genève (paiement Twint ou Revolut).</div>
+        </details>
+        <details style="background:#111f13;border-radius:0.75rem;overflow:hidden;" class="reveal reveal-delay-1">
             <summary style="display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.25rem 1.5rem;">
                 <span style="font-weight:500;color:#d7e7d4;" data-i18n="faq.payment.q">Quels modes de paiement acceptez-vous ?</span>
                 <span style="color:#8c9380;font-size:1.25rem;flex-shrink:0;">+</span>
             </summary>
             <div style="padding:0 1.5rem 1.25rem;color:#c2c9b4;font-size:0.875rem;line-height:1.7;border-top:1px solid rgba(66,73,57,0.2);padding-top:1rem;" data-i18n="faq.payment.a">J'accepte Twint et Revolut. Minimum CHF 15.00 d'articles.</div>
         </details>
-
-        <details style="background:#111f13;border-radius:0.75rem;overflow:hidden;" class="reveal reveal-delay-3">
+        <details style="background:#111f13;border-radius:0.75rem;overflow:hidden;" class="reveal reveal-delay-1">
             <summary style="display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.25rem 1.5rem;">
-                <span style="font-weight:500;color:#d7e7d4;" data-i18n="faq.q4">Dois-je utiliser du dentifrice en plus du Siwak ?</span>
+                <span style="font-weight:500;color:#d7e7d4;" data-i18n="faq.q7">Je souhaite choisir si mon bâton sera fin ou épais, comment faire ?</span>
                 <span style="color:#8c9380;font-size:1.25rem;flex-shrink:0;">+</span>
             </summary>
-            <div style="padding:0 1.5rem 1.25rem;color:#c2c9b4;font-size:0.875rem;line-height:1.7;border-top:1px solid rgba(66,73,57,0.2);padding-top:1rem;" data-i18n="faq.a4">Oui, plusieurs études publiées dans le Journal of Periodontology confirment que le Siwak est aussi efficace qu'une brosse à dents conventionnelle pour réduire la plaque et l'inflammation gingivale, grâce à ses 70+ composés actifs naturels (silice, tanins, alcaloïdes, fluor naturel). Néanmoins, le facteur le plus déterminant sera la technique avec laquelle vous l'utilisez.</div>
-        </details>
-
-        <details style="background:#111f13;border-radius:0.75rem;overflow:hidden;" class="reveal reveal-delay-3">
-            <summary style="display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.25rem 1.5rem;">
-                <span style="font-weight:500;color:#d7e7d4;" data-i18n="faq.q6">Où trouver du vrai siwak de haute qualité en Suisse (Migros, Coop, Manor) ?</span>
-                <span style="color:#8c9380;font-size:1.25rem;flex-shrink:0;">+</span>
-            </summary>
-            <div style="padding:0 1.5rem 1.25rem;color:#c2c9b4;font-size:0.875rem;line-height:1.7;border-top:1px solid rgba(66,73,57,0.2);padding-top:1rem;" data-i18n="faq.a6">Il est souvent difficile de trouver du siwak frais en grande distribution (Coop, Migros, Manor) ou en pharmacie. Chez Sivàa Geneva, nous sommes l'alternative locale spécialisée : un siwak premium, certifié, disponible en livraison Swiss Post (expédition sous 48h + 2–3 jours) ou en retrait dans notre atelier à Genève (paiement Twint accepté).</div>
-        </details>
-
-        <details style="background:#111f13;border-radius:0.75rem;overflow:hidden;" class="reveal reveal-delay-3">
-            <summary style="display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.25rem 1.5rem;">
-                <span style="font-weight:500;color:#d7e7d4;" data-i18n="faq.q7">Je souhaite choisir si mon bâton à mâcher sera fin ou épais, comment faire ?</span>
-                <span style="color:#8c9380;font-size:1.25rem;flex-shrink:0;">+</span>
-            </summary>
-            <div style="padding:0 1.5rem 1.25rem;color:#c2c9b4;font-size:0.875rem;line-height:1.7;border-top:1px solid rgba(66,73,57,0.2);padding-top:1rem;" data-i18n="faq.a7">Ne vous inquiétez pas, en ajoutant votre message à votre commande je vous sélectionnerai le bâton à mâcher le plus adapté à vos envies.</div>
+            <div style="padding:0 1.5rem 1.25rem;color:#c2c9b4;font-size:0.875rem;line-height:1.7;border-top:1px solid rgba(66,73,57,0.2);padding-top:1rem;" data-i18n="faq.a7">Choisissez l'épaisseur au moment de la commande, ou ajoutez un message : je sélectionnerai le bâton le plus adapté à vos envies.</div>
         </details>
 
     </div>
     <div style="text-align:center;margin-top:2.5rem;">
         <p style="color:#c2c9b4;font-size:0.875rem;margin-bottom:1rem;" data-i18n="faq.noQuestion">Votre question n'est pas listée ?</p>
-        <a href="contact.html" class="btn-ghost" style="border:1px solid rgba(66,73,57,0.3);font-size:0.875rem;" data-i18n="faq.contactBtn">💬 Contacter notre atelier</a>
+        <a href="contact.html" class="btn-ghost" style="border:1px solid rgba(66,73,57,0.3);font-size:0.875rem;" data-i18n="faq.contactBtn">💬 Me contacter</a>
     </div>
 </section>
 
@@ -951,7 +883,7 @@
             <span data-i18n="cta.title.part1">Commencez votre rituel</span>
             <em style="font-style:normal;color:#9dd75a;" data-i18n="cta.title.part2">aujourd'hui</em>
         </h2>
-        <p style="color:#c2c9b4;font-size:clamp(0.95rem,2vw,1.125rem);margin-bottom:2.5rem;max-width:36rem;margin-left:auto;margin-right:auto;" data-i18n="cta.subtitle">Rejoignez les centaines de Genevois qui ont adopté le rituel du Siwak.</p>
+        <p style="color:#c2c9b4;font-size:clamp(0.95rem,2vw,1.125rem);margin-bottom:2.5rem;max-width:36rem;margin-left:auto;margin-right:auto;" data-i18n="cta.subtitle">Rejoignez les centaines de Genevois qui ont adopté le rituel du Siwak. Naturel, efficace, éternel.</p>
         <a href="checkout.html" class="btn-primary" style="font-size:1rem;padding:1rem 2rem;" data-i18n="cta.button">Commander mon Siwak →</a>
     </div>
 </section>
@@ -963,12 +895,12 @@
 <section class="maps-section reveal" style="padding:4rem 0;" itemscope itemtype="https://schema.org/LocalBusiness">
     <div style="max-width:80rem;margin:0 auto;padding:0 1.25rem;">
         <div style="text-align:center;margin-bottom:2.5rem;">
-            <p style="font-size:0.7rem;color:#9dd75a;text-transform:uppercase;letter-spacing:0.2em;margin-bottom:0.75rem;" data-i18n="loc.eyebrow">Localisation &amp; Prestige</p>
+            <p style="font-size:0.7rem;color:#9dd75a;text-transform:uppercase;letter-spacing:0.2em;margin-bottom:0.75rem;" data-i18n="loc.eyebrow">Localisation & Prestige</p>
             <h2 class="section-title">
-                <span data-i18n="loc.title.part1">Votre atelier à</span>
+                <span data-i18n="loc.title.part1">Votre siwak à</span>
                 <em style="font-style:normal;color:#9dd75a;" data-i18n="loc.title.part2">Genève</em>
             </h2>
-            <p style="color:#c2c9b4;font-size:0.9rem;margin-top:0.75rem;max-width:36rem;margin-left:auto;margin-right:auto;" data-i18n="loc.subtitle">Situé au cœur des <strong style="color:#d7e7d4;">Acacias, Genève</strong>, notre atelier vous accueille sur rendez-vous.</p>
+            <p style="color:#c2c9b4;font-size:0.9rem;margin-top:0.75rem;max-width:36rem;margin-left:auto;margin-right:auto;" data-i18n="loc.subtitle">Retrait aux <strong style="color:#d7e7d4;">Acacias, Genève</strong>, à deux pas de Plainpalais, sur rendez-vous pour une remise en main propre.</p>
         </div>
 
         <div class="maps-grid">
@@ -1004,7 +936,7 @@
                         <div style="width:2.5rem;height:2.5rem;background:rgba(39,80,10,0.6);border-radius:0.5rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.1rem;">🕐</div>
                         <div>
                             <h4 style="font-size:0.875rem;font-weight:600;color:#d7e7d4;margin-bottom:0.25rem;font-family:'Inter',sans-serif;" data-i18n="loc.appointment.title">Retrait sur rendez-vous</h4>
-                            <p style="font-size:0.8rem;color:#8c9e89;line-height:1.6;" data-i18n="loc.appointment.desc">Disponible 7j/7 — Contactez-moi pour un horaire adapté.</p>
+                            <p style="font-size:0.8rem;color:#8c9e89;line-height:1.6;" data-i18n="loc.appointment.desc">Disponible 7j/7, Contactez-moi pour convenir d'un horaire adapté à vos disponibilités.</p>
                         </div>
                     </div>
                 </div>
@@ -1013,7 +945,7 @@
                     <div style="display:flex;gap:0.875rem;align-items:flex-start;">
                         <div style="width:2.5rem;height:2.5rem;background:rgba(39,80,10,0.6);border-radius:0.5rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.1rem;">💳</div>
                         <div>
-                            <h4 style="font-size:0.875rem;font-weight:600;color:#d7e7d4;margin-bottom:0.25rem;font-family:'Inter',sans-serif;" data-i18n="loc.payment.title">Twint Genève & Revolut</h4>
+                            <h4 style="font-size:0.875rem;font-weight:600;color:#d7e7d4;margin-bottom:0.25rem;font-family:'Inter',sans-serif;" data-i18n="loc.payment.title">Paiement Twint Genève & Revolut</h4>
                             <p style="font-size:0.8rem;color:#8c9e89;line-height:1.6;" data-i18n="loc.payment.desc">Règlement sécurisé à réception.  Minimum CHF 15.00 pour échange en main propre.</p>
                         </div>
                     </div>
@@ -1047,9 +979,9 @@
             <div class="footer-col">
                 <h4 data-i18n="footer.col.products">Produits</h4>
                 <ul>
-                    <li><a href="siwak-premium.html" data-i18n="footer.product.siwak">Siwak Premium</a></li>
+                    <li><a href="siwak-premium.html" data-i18n="footer.product.siwak">Bâton de Siwak Premium</a></li>
                     <li><a href="allo-togo.html" data-i18n="footer.product.togo">Allo Togo</a></li>
-                    <li><a href="etui-siwak.html" data-i18n="footer.product.etui">Étui de Protection pour Siwak</a></li>
+                    <li><a href="etui-siwak.html" data-i18n="footer.product.etui">Étui de Protection Siwak</a></li>
                     <li><a href="dentifrice-siwak-clou-de-girofle.html" data-i18n="product4.name">Dentifrice Siwak — Clou de Girofle</a></li>
                     <li><a href="dentifrice-siwak-charbon-actif.html" data-i18n="product5.name">Dentifrice Siwak — Charbon Actif</a></li>
                     <li><a href="checkout.html" data-i18n="nav.order">Commander</a></li>
@@ -1059,13 +991,13 @@
                 <h4 data-i18n="footer.col.info">Informations</h4>
                 <ul>
                     <li><a href="blog.html" data-i18n="footer.info.journal">Journal</a></li>
-                    <li><a href="livraison-retrait.html" data-i18n="footer.info.shipping">Livraison &amp; retrait</a></li><li><a href="contact.html" data-i18n="footer.info.contact">Contact</a></li>
+                    <li><a href="livraison-retrait.html" data-i18n="footer.info.shipping">Livraison & retrait</a></li><li><a href="contact.html" data-i18n="footer.info.contact">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4 data-i18n="footer.col.legal">Légal</h4>
                 <ul>
-                    <li><a href="mentions-legales.html" data-i18n="footer.legal.cgv">Mentions Légales</a></li>
+                    <li><a href="mentions-legales.html" data-i18n="footer.legal.cgv">CGV</a></li>
                     <li><a href="politique-confidentialite.html" data-i18n="footer.legal.privacy">Confidentialité</a></li>
                     <li><a href="contact.html" data-i18n="footer.legal.returns">Retours</a></li>
                 </ul>
@@ -1074,7 +1006,7 @@
         <div class="footer-bottom">
             <p data-i18n="footer.copyright">© 2026 SIVÀA Geneva · Genève, Suisse.</p>
             <div style="display:flex;gap:1.25rem;">
-                <a href="mentions-legales.html" data-i18n="footer.legal.cgv">Mentions légales</a>
+                <a href="mentions-legales.html" data-i18n="footer.legal.cgv">CGV</a>
                 <a href="politique-confidentialite.html" data-i18n="footer.legal.privacy">Confidentialité</a>
             </div>
         </div>
@@ -1106,25 +1038,17 @@
 <div id="modal-1" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal1-title" onclick="if(event.target===this)closeModal('modal-1')">
     <div class="modal-box">
         <div style="position:relative;height:14rem;overflow:hidden;background:#152317;flex-shrink:0;">
-            <img src="siwako.jpg" data-i18n-alt="product1.image.alt" alt="Bâton de Siwak Premium SIVÀA - Hygiène dentaire nomade" style="width:100%;height:100%;object-fit:cover;" loading="lazy"/>
+            <img src="siwako.jpg" data-i18n-alt="product1.image.alt" alt="Bâton de Siwak Premium SIVÀA, brosse à dents naturelle en Salvadora persica" style="width:100%;height:100%;object-fit:cover;" loading="lazy"/>
             <button onclick="closeModal('modal-1')" type="button" aria-label="Fermer" style="position:absolute;top:0.75rem;right:0.75rem;background:rgba(0,0,0,0.5);border:none;width:2rem;height:2rem;border-radius:50%;color:white;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1rem;">✕</button>
         </div>
         <div style="padding:1.5rem;">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.75rem;">
-                <h3 id="modal1-title" style="font-size:1.25rem;font-weight:400;color:#d7e7d4;" data-i18n="product1.name">Bâton de Siwak Premium – L'Original</h3>
-                <span style="font-size:0.75rem;background:#152317;color:#c2c9b4;padding:0.25rem 0.75rem;border-radius:9999px;" data-i18n="modal1.rating">4.9 / 5 </span>
+                <h3 id="modal1-title" style="font-size:1.25rem;font-weight:400;color:#d7e7d4;" data-i18n="product1.name">Bâton de Siwak Premium</h3>
             </div>
+            <p style="color:#c2c9b4;font-size:0.875rem;line-height:1.7;margin-bottom:1rem;" data-i18n="modal1.desc">Bâton de siwak taillé dans la racine de Salvadora persica, récolté à la main au Pakistan. Il s'utilise sans eau ni dentifrice, où que vous soyez.</p>
             
-            <p style="color:#c2c9b4;font-size:0.875rem;line-height:1.7;margin-bottom:0.75rem;" data-i18n="modal1.desc.intro">Issu des racines de l'arbre <strong>Salvadora Persica</strong>, le Siwak est récolté de manière responsable dans des sols arides. La préparation est simple : épluchez l'écorce sur environ 1 centimètre, puis mordillez doucement le bois à l'aide de vos molaires. En quelques secondes, les fibres se séparent pour former un pinceau naturel aux poils souples, prêt à nettoyer vos dents.</p>
 
-            <p style="color:#c2c9b4;font-size:0.875rem;line-height:1.7;margin-bottom:1rem;" data-i18n="pp1.desc">Allez plus loin qu'un simple brossage. En mâchant l'extrémité de ce bâton, vous libérez une sève naturelle riche en silice qui polit l'émail sans l'agresser. Pratique et discret, il s'utilise sans eau ni dentifrice, où que vous soyez.</p>
             
-            <ul style="list-style:none;margin:0 0 1rem;display:flex;flex-direction:column;gap:0.5rem;">
-                <li style="color:#c2c9b4;font-size:0.875rem;" data-i18n="modal1.feat1">🌿 100% Nomade : parfait après un café, au bureau ou en voiture</li>
-                <li style="color:#c2c9b4;font-size:0.875rem;" data-i18n="modal1.feat2">🌿 Double action : les fibres brossent, la sève naturelle désinfecte</li>
-                <li style="color:#c2c9b4;font-size:0.875rem;" data-i18n="modal1.feat3">🌿 Économique : un seul bâton dure plusieurs semaines</li>
-                <li style="color:#c2c9b4;font-size:0.875rem;" data-i18n="modal1.feat4">🌿 Validé par la science : hygiène reconnue par l'OMS</li>
-            </ul>
             
             <div style="background:#152317;border-radius:0.5rem;padding:0.75rem;font-size:0.75rem;color:#8c9380;margin-bottom:1.25rem;" data-i18n="modal1.shipping">🚚 Frais de livraison Swiss Post · CHF 10.00 · expédition sous 48h + 2–3 jours</div>
             <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;">
@@ -1171,25 +1095,17 @@
 <div id="modal-2" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal2-title" onclick="if(event.target===this)closeModal('modal-2')">
     <div class="modal-box">
         <div style="position:relative;height:14rem;overflow:hidden;background:#152317;flex-shrink:0;">
-            <img src="allo-togo.png" data-i18n-alt="product2.image.alt" alt="Allo Togo — bâtonnets à mâcher en Fagara venant du Togo" style="width:100%;height:100%;object-fit:cover;" loading="lazy"/>
+            <img src="allo-togo.png" data-i18n-alt="product2.image.alt" alt="Bâton à mâcher Allo Togo, alternative naturelle au Siwak venant du Togo" style="width:100%;height:100%;object-fit:cover;" loading="lazy"/>
             <button onclick="closeModal('modal-2')" type="button" aria-label="Fermer" style="position:absolute;top:0.75rem;right:0.75rem;background:rgba(0,0,0,0.5);border:none;width:2rem;height:2rem;border-radius:50%;color:white;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1rem;">✕</button>
         </div>
         <div style="padding:1.5rem;">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.75rem;">
-                <h3 id="modal2-title" style="font-size:1.25rem;font-weight:400;color:#d7e7d4;" data-i18n="product2.name">Allo du Togo – L'Alternative Fraîcheur</h3>
-              <span style="font-size:0.75rem;background:#152317;color:#c2c9b4;padding:0.25rem 0.75rem;border-radius:9999px;" data-i18n="modal2.rating">4.9 / 5 </span>
+                <h3 id="modal2-title" style="font-size:1.25rem;font-weight:400;color:#d7e7d4;" data-i18n="product2.name">Allo Togo</h3>
             </div>
             
-            <p style="color:#c2c9b4;font-size:0.875rem;line-height:1.7;margin-bottom:0.75rem;" data-i18n="modal2.desc.intro">Issu d'Afrique de l'Ouest, l'Allo Togo est taillé dans le <strong>Fagara</strong> (<em>Zanthoxylum zanthoxyloides</em>), un arbuste dont la racine sert depuis des générations de frotte-dents. Le Fagara contient des composés naturels qui laissent une légère sensation de picotement en bouche lors de la mastication.</p>
 
-            <p style="color:#c2c9b4;font-size:0.875rem;line-height:1.7;margin-bottom:1rem;" data-i18n="modal2.desc">Contrairement au Siwak, au goût boisé et légèrement poivré, l'Allo Togo a un goût vif et légèrement piquant. Il s'utilise de la même façon et peut remplacer le Siwak au quotidien.</p>
+            <p style="color:#c2c9b4;font-size:0.875rem;line-height:1.7;margin-bottom:1rem;" data-i18n="modal2.desc">Lot de 5 bâtonnets en bois de fagara, importés du Togo. Leur goût vif, avec un léger picotement, change agréablement du siwak.</p>
             
-            <ul style="list-style:none;margin:0 0 1rem;display:flex;flex-direction:column;gap:0.5rem;">
-                <li style="color:#c2c9b4;font-size:0.875rem;" data-i18n="modal2.feat1">🌿 Bois naturel de Fagara (Zanthoxylum zanthoxyloides)</li>
-                <li style="color:#c2c9b4;font-size:0.875rem;" data-i18n="modal2.feat2">🌿 Légère sensation de picotement, typique du Fagara</li>
-                <li style="color:#c2c9b4;font-size:0.875rem;" data-i18n="modal2.feat3">🌿 Frotte-dents traditionnel d'Afrique de l'Ouest</li>
-                <li style="color:#c2c9b4;font-size:0.875rem;" data-i18n="modal2.feat4">🌿 Lot de 5 bâtonnets, importé directement du Togo</li>
-            </ul>
             
             <div style="background:#152317;border-radius:0.5rem;padding:0.75rem;font-size:0.75rem;color:#8c9380;margin-bottom:1.25rem;" data-i18n="modal1.shipping">🚚 Frais de livraison Swiss Post · CHF 10.00 · expédition sous 48h + 2–3 jours</div>
             <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;">
@@ -1236,22 +1152,16 @@
     <div id="modal-3" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal3-title" onclick="if(event.target===this)closeModal('modal-3')">
     <div class="modal-box">
         <div style="position:relative;height:14rem;overflow:hidden;background:#09160b;flex-shrink:0;">
-            <img src="imgetui.png" alt="Étui de protection pour Siwak naturel" style="width:100%;height:100%;object-fit:contain;padding:1rem;" loading="lazy" data-i18n-alt="modal3.image.alt"/>
+            <img src="imgetui.png" alt="Étui de transport pour Siwak naturel" style="width:100%;height:100%;object-fit:contain;padding:1rem;" loading="lazy" data-i18n-alt="modal3.image.alt"/>
             <button onclick="closeModal('modal-3')" type="button" aria-label="Fermer" style="position:absolute;top:0.75rem;right:0.75rem;background:rgba(0,0,0,0.5);border:none;width:2rem;height:2rem;border-radius:50%;color:white;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1rem;z-index:10;">✕</button>
         </div>
         <div style="padding:1.5rem;">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.75rem;">
-                <h3 id="modal3-title" style="font-size:1.25rem;font-weight:400;color:#d7e7d4;" data-i18n="product3.name">Étui de Protection pour Siwak</h3>
+                <h3 id="modal3-title" style="font-size:1.25rem;font-weight:400;color:#d7e7d4;" data-i18n="product3.name">Étui de Protection Siwak</h3>
             </div>
 
-            <p style="color:#c2c9b4;font-size:0.875rem;line-height:1.7;margin-bottom:1rem;" data-i18n="modal3.desc">Découvrez notre étui de protection pour Siwak, l'accessoire indispensable pour conserver votre bâtonnet de Salvadora Persica à l'abri de l'humidité et de la poussière. Idéal pour une hygiène dentaire nomade, cet étui prolonge la fraîcheur de votre miswak naturel tout en évitant la prolifération des bactéries lors de vos déplacements.</p>
+            <p style="color:#c2c9b4;font-size:0.875rem;line-height:1.7;margin-bottom:1rem;" data-i18n="modal3.desc">Un étui pour transporter votre siwak à l'abri de la poussière et de l'humidité. Pratique dans un sac, une poche ou une trousse de voyage.</p>
 
-            <ul style="list-style:none;margin:0 0 1rem;display:flex;flex-direction:column;gap:0.5rem;">
-                <li style="color:#c2c9b4;font-size:0.875rem;" data-i18n="modal3.feat1">🌿 Matériel épais, solide et durable</li>
-                <li style="color:#c2c9b4;font-size:0.875rem;" data-i18n="modal3.feat2">🌿 Stockage anti-poussière et gain de place</li>
-                <li style="color:#c2c9b4;font-size:0.875rem;" data-i18n="modal3.feat3">🌿 Portable, facile à ouvrir et à utiliser</li>
-                <li style="color:#c2c9b4;font-size:0.875rem;" data-i18n="modal3.feat4">🌿 Prolonge la durée de vie de votre Siwak naturel</li>
-            </ul>
             <div style="background:#152317;border-radius:0.5rem;padding:0.75rem;font-size:0.75rem;color:#8c9380;margin-bottom:1.25rem;" data-i18n="modal3.shipping">🚚 Frais de livraison Swiss Post · CHF 10.00 · expédition sous 48h + 2–3 jours</div>
             <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;">
                 <div>
@@ -1274,24 +1184,17 @@
 <div id="modal-4" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal4-title" onclick="if(event.target===this)closeModal('modal-4')">
     <div class="modal-box">
         <div style="position:relative;height:14rem;overflow:hidden;background:#152317;flex-shrink:0;">
-            <img src="dentifrice-girofle.jpg" data-i18n-alt="product4.image.alt" alt="Dentifrice Siwak au Clou de Girofle SIVÀA — Protection anticavité" style="width:100%;height:100%;object-fit:cover;" loading="lazy"/>
+            <img src="dentifrice-girofle.jpg" data-i18n-alt="product4.image.alt" alt="Dentifrice Siwak au clou de girofle SIVÀA Geneva" style="width:100%;height:100%;object-fit:cover;" loading="lazy"/>
             <button onclick="closeModal('modal-4')" type="button" aria-label="Fermer" style="position:absolute;top:0.75rem;right:0.75rem;background:rgba(0,0,0,0.5);border:none;width:2rem;height:2rem;border-radius:50%;color:white;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1rem;">✕</button>
         </div>
         <div style="padding:1.5rem;">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.75rem;">
                 <h3 id="modal4-title" style="font-size:1.25rem;font-weight:400;color:#d7e7d4;" data-i18n="product4.name">Dentifrice Siwak — Clou de Girofle</h3>
-                <span style="font-size:0.75rem;background:#152317;color:#c2c9b4;padding:0.25rem 0.75rem;border-radius:9999px;" data-i18n="modal4.rating">4.8 / 5</span>
             </div>
 
-            <p style="color:#c2c9b4;font-size:0.875rem;line-height:1.7;margin-bottom:0.75rem;" data-i18n="modal4.desc.intro">Formulé à partir d'extraits naturels de <strong>Siwak (Salvadora Persica)</strong> et de clou de girofle, ce dentifrice traditionnel réunit des bienfaits reconnus depuis des siècles avec les standards suisses de qualité.</p>
 
-            <p style="color:#c2c9b4;font-size:0.875rem;line-height:1.7;margin-bottom:1rem;" data-i18n="modal4.desc">Le clou de girofle, réputé pour ses propriétés apaisantes et antibactériennes, vient renforcer l'action nettoyante du Siwak pour une protection anticavité complète, tout en apaisant les gencives sensibles à chaque brossage.</p>
+            <p style="color:#c2c9b4;font-size:0.875rem;line-height:1.7;margin-bottom:1rem;" data-i18n="modal4.desc">Dentifrice aux extraits de siwak et de clou de girofle, au goût chaud et épicé. Il s'utilise matin et soir avec votre brosse à dents habituelle.</p>
 
-            <ul style="list-style:none;margin:0 0 1rem;display:flex;flex-direction:column;gap:0.5rem;">
-                <li style="color:#c2c9b4;font-size:0.875rem;" data-i18n="modal4.feat1">🌿 Protection anticavité renforcée par les extraits de Siwak</li>
-                <li style="color:#c2c9b4;font-size:0.875rem;" data-i18n="modal4.feat2">🌿 Clou de girofle : action apaisante et antibactérienne naturelle</li>
-                <li style="color:#c2c9b4;font-size:0.875rem;" data-i18n="modal4.feat3">🌿 Haleine fraîche longue durée, sans fluor chimique agressif</li>
-            </ul>
 
             <div style="background:#152317;border-radius:0.5rem;padding:0.75rem;font-size:0.75rem;color:#8c9380;margin-bottom:1.25rem;" data-i18n="modal1.shipping">🚚 Frais de livraison Swiss Post · CHF 10.00 · expédition sous 48h + 2–3 jours</div>
             <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;">
@@ -1315,24 +1218,17 @@
 <div id="modal-5" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal5-title" onclick="if(event.target===this)closeModal('modal-5')">
     <div class="modal-box">
         <div style="position:relative;height:14rem;overflow:hidden;background:#152317;flex-shrink:0;">
-            <img src="dentifrice-au-siwak-et-charbon-actif.jpg" data-i18n-alt="product5.image.alt" alt="Dentifrice Siwak au Charbon Actif SIVÀA — Blancheur intense" style="width:100%;height:100%;object-fit:cover;" loading="lazy"/>
+            <img src="dentifrice-au-siwak-et-charbon-actif.jpg" data-i18n-alt="product5.image.alt" alt="Dentifrice Siwak au charbon actif SIVÀA Geneva" style="width:100%;height:100%;object-fit:cover;" loading="lazy"/>
             <button onclick="closeModal('modal-5')" type="button" aria-label="Fermer" style="position:absolute;top:0.75rem;right:0.75rem;background:rgba(0,0,0,0.5);border:none;width:2rem;height:2rem;border-radius:50%;color:white;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1rem;">✕</button>
         </div>
         <div style="padding:1.5rem;">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.75rem;">
                 <h3 id="modal5-title" style="font-size:1.25rem;font-weight:400;color:#d7e7d4;" data-i18n="product5.name">Dentifrice Siwak — Charbon Actif</h3>
-                <span style="font-size:0.75rem;background:#152317;color:#c2c9b4;padding:0.25rem 0.75rem;border-radius:9999px;" data-i18n="modal5.rating">4.8 / 5</span>
             </div>
 
-            <p style="color:#c2c9b4;font-size:0.875rem;line-height:1.7;margin-bottom:0.75rem;" data-i18n="modal5.desc.intro">Conçu pour une blancheur éclatante, ce dentifrice associe la puissance absorbante du <strong>charbon actif</strong> à l'efficacité traditionnelle du Siwak (Salvadora Persica), pour un nettoyage en profondeur qui respecte l'émail.</p>
 
-            <p style="color:#c2c9b4;font-size:0.875rem;line-height:1.7;margin-bottom:1rem;" data-i18n="modal5.desc">Le charbon actif capte les pigments responsables du jaunissement des dents et purifie la cavité buccale, tandis que les extraits de Siwak renforcent l'action antibactérienne et apaisent les gencives à chaque brossage.</p>
+            <p style="color:#c2c9b4;font-size:0.875rem;line-height:1.7;margin-bottom:1rem;" data-i18n="modal5.desc">Dentifrice noir au charbon actif et aux extraits de siwak. Une alternative originale, pour un brossage qui laisse une sensation de bouche nette.</p>
 
-            <ul style="list-style:none;margin:0 0 1rem;display:flex;flex-direction:column;gap:0.5rem;">
-                <li style="color:#c2c9b4;font-size:0.875rem;" data-i18n="modal5.feat1">🌿 Charbon actif : absorbe les taches et purifie en profondeur</li>
-                <li style="color:#c2c9b4;font-size:0.875rem;" data-i18n="modal5.feat2">🌿 Blancheur visible dès les premières utilisations</li>
-                <li style="color:#c2c9b4;font-size:0.875rem;" data-i18n="modal5.feat3">🌿 Formule enrichie au Siwak, sans peroxyde ni abrasifs chimiques</li>
-            </ul>
 
             <div style="background:#152317;border-radius:0.5rem;padding:0.75rem;font-size:0.75rem;color:#8c9380;margin-bottom:1.25rem;" data-i18n="modal1.shipping">🚚 Frais de livraison Swiss Post · CHF 10.00 · expédition sous 48h + 2–3 jours</div>
             <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;">
@@ -1501,26 +1397,50 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Est-ce que le siwak blanchit vraiment les dents ?",
+      "name": "Comment utiliser le siwak pour la première fois ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Oui, la racine de Salvadora Persica contient de la silice, un agent naturel qui polit et blanchit les dents de manière naturelle en éliminant les taches superficielles (café, thé), sans rayer l'émail."
+        "text": "Retirez l'écorce sur environ 1 cm, mâchonnez la pointe jusqu'à ce que les fibres s'écartent, puis frottez doucement les dents. Le mode d'emploi détaillé figure sur la fiche de chaque bâton."
       }
     },
     {
       "@type": "Question",
-      "name": "Est-ce que le siwak abîme les dents ou est-il dangereux ?",
+      "name": "Combien de temps dure un bâton ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Non, bien au contraire ! Le siwak est 100% sûr. Contrairement aux brosses à dents à poils durs ou aux dentifrices industriels très abrasifs, les fibres naturelles de ce bois nettoient en douceur. Il renforce les gencives et ne détériore pas l'émail."
+        "text": "Un bâton tient au moins un mois, souvent davantage selon l'usage : à chaque nouvelle pointe, il raccourcit d'environ 1 cm."
       }
     },
     {
       "@type": "Question",
-      "name": "Le miswak est-il réellement bénéfique pour l'hygiène bucco-dentaire ?",
+      "name": "Le siwak blanchit-il les dents ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Absolument. Son efficacité est validée scientifiquement et son usage est recommandé par l'Organisation Mondiale de la Santé (OMS). Il élimine radicalement la plaque dentaire, purifie l'haleine et possède des propriétés antibactériennes prouvées."
+        "text": "Le siwak est utilisé traditionnellement pour nettoyer les dents et laisse une sensation de propreté. Ce n'est pas un traitement blanchissant : pour toute question sur la couleur de vos dents, demandez conseil à votre dentiste."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Le siwak est-il utile pour l'hygiène bucco-dentaire ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Le siwak est utilisé depuis des siècles pour le soin des dents, et son usage a été encouragé par l'OMS. Il s'utilise de préférence en complément d'une bonne routine : brossage avec un dentifrice et contrôles réguliers chez le dentiste."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Dois-je utiliser du dentifrice en plus du siwak ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, je vous conseille de garder votre brossage habituel avec un dentifrice, matin et soir, et d'utiliser le siwak en complément dans la journée."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Où trouver du siwak de qualité en Suisse (Migros, Coop, Manor) ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Il est souvent difficile de trouver du siwak frais en grande distribution ou en pharmacie. Chez SIVÀA Geneva, vous le commandez en ligne : livraison Swiss Post dans toute la Suisse (expédition sous 48h + 2–3 jours) ou retrait gratuit aux Acacias, à Genève (paiement Twint ou Revolut)."
       }
     },
     {
@@ -1533,26 +1453,10 @@
     },
     {
       "@type": "Question",
-      "name": "Où trouver du vrai siwak de haute qualité en Suisse (Migros, Coop, Manor) ?",
+      "name": "Je souhaite choisir si mon bâton sera fin ou épais, comment faire ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Il est souvent difficile de trouver du siwak frais en grande distribution (Coop, Migros, Manor) ou en pharmacie. Chez Sivàa Geneva, je suis l'alternative locale spécialisée : un siwak premium, certifié, disponible en livraison Swiss Post (expédition sous 48h + 2–3 jours) ou en retrait dans mon atelier à Genève (paiement Twint accepté)."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Dois-je utiliser du dentifrice en plus du Siwak ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Le Siwak contient naturellement ses propres agents nettoyants, du fluor naturel et des antibactériens. Il se suffit donc à lui tout seul pour l'hygiène bucco-dentaire ! Vous pouvez alterner avec un dentifrice si vous le souhaitez."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Je souhaite choisir si mon bâton à mâcher sera fin ou épais, comment faire ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ne vous inquiétez pas, en ajoutant votre message à votre commande je vous sélectionnerai le bâton à mâcher le plus adapté à vos envies."
+        "text": "Choisissez l'épaisseur au moment de la commande, ou ajoutez un message : je sélectionnerai le bâton le plus adapté à vos envies."
       }
     }
   ]
