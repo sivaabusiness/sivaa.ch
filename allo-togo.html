@@ -38,6 +38,7 @@
         "url": "https://sivaa.ch/allo-togo.html",
         "priceCurrency": "CHF",
         "price": "6.00",
+        "availability": "https://schema.org/InStock",
         "seller": {
           "@type": "Organization",
           "name": "SIVÀA Geneva"
@@ -91,6 +92,67 @@
           "position": 3,
           "name": "Allo Togo",
           "item": "https://sivaa.ch/allo-togo.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quel goût a l'Allo Togo ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un goût vif et légèrement piquant. Le fagara laisse un léger picotement en bouche pendant la mastication : c'est typique de ce bois."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de bâtonnets contient le lot ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le lot contient 5 bâtonnets, pour CHF 6.00. Chaque bâtonnet s'utilise plusieurs fois : on rafraîchit l'extrémité dès que les fibres sont usées."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment l'utiliser et couper l'extrémité ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Mâchez l'extrémité jusqu'à ce que les fibres se séparent, puis frottez doucement les dents. Quand les fibres sont usées, coupez l'extrémité avec un couteau ou des ciseaux pour retrouver des fibres neuves."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment conserver les bâtonnets ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Rincez le bâtonnet après usage et rangez-le au sec, à l'abri de la poussière. Gardez les autres bâtonnets du lot dans un endroit sec."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Fin ou épais : lequel choisir ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le fin (≈ 1 à 1,5 cm de diamètre) est plus souple et permet un nettoyage précis entre les dents. L'épais (≈ 2 à 2,5 cm) est plus robuste, pour un usage quotidien intensif. Vous pouvez aussi nous laisser choisir selon nos meilleures récoltes du moment."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle différence avec le siwak ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "L'Allo Togo est taillé dans le fagara (Zanthoxylum zanthoxyloides) d'Afrique de l'Ouest et a un goût vif, avec un léger picotement. Le siwak vient de l'arbre Salvadora persica et a un goût boisé, plus doux. Les deux s'utilisent de la même façon. Comparatif complet : Siwak ou Allo Togo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment se passent la livraison et le retrait ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Swiss Post livre dans toute la Suisse en 2 à 3 jours ouvrés, après une expédition sous 48h, pour CHF 10.00 par commande. À Genève, le retrait est gratuit aux Acacias (Quai des Vernets 11, 1227 Genève), sur rendez-vous fixé par WhatsApp. Commande possible dès CHF 15.00 d'articles."
+          }
         }
       ]
     }
@@ -167,6 +229,29 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(9,22,11,.7);b
 .tile-name{font-family:'Newsreader',serif;font-size:1.1rem;color:var(--text)}
 .tile-price{font-size:.85rem;color:var(--primary)}
 .tile-see{font-size:.8rem;color:var(--text-variant);margin-top:auto}
+.pp-gallery{display:flex;flex-direction:column;gap:1rem}
+.pp-tree{background:var(--surface-low);border:1px solid var(--outline-variant);border-radius:1rem;overflow:hidden}
+.pp-tree img{width:100%;height:auto;max-height:28rem;object-fit:cover}
+.pp-tree figcaption{padding:.9rem 1.1rem;font-size:.82rem;line-height:1.6;color:var(--text-variant)}
+.pp-tree figcaption em{color:var(--text)}
+.pp-local{background:linear-gradient(135deg,rgba(39,80,10,.35),rgba(24,45,18,.75));border:1px solid rgba(157,215,90,.2);border-radius:.75rem;padding:1.5rem 1.75rem}
+.pp-local h2{margin-bottom:.75rem}
+.pp-local p{color:#c2c9b4;font-size:.95rem;line-height:1.8;max-width:52rem}
+.faq{display:flex;flex-direction:column;gap:.6rem;max-width:52rem}
+.faq details{background:var(--surface-low);border:1px solid var(--outline-variant);border-radius:.6rem}
+.faq details[open]{border-color:rgba(157,215,90,.3)}
+.faq summary{list-style:none;cursor:pointer;padding:1rem 1.25rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;font-size:.92rem;font-weight:500;color:var(--text)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'+';color:var(--primary);font-size:1.2rem;flex-shrink:0;transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq summary:focus-visible{outline:2px solid var(--primary);outline-offset:2px;border-radius:.6rem}
+.faq .faq-a{padding:0 1.25rem 1.1rem;color:var(--text-variant);font-size:.88rem;line-height:1.75}
+.map{display:grid;gap:1.25rem;align-items:start}
+@media(min-width:900px){.map{grid-template-columns:1fr 2fr}}
+.map-frame{position:relative;width:100%;aspect-ratio:16/10;border-radius:.75rem;overflow:hidden;border:1px solid var(--outline-variant);background:var(--surface-low)}
+.map-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(.3) contrast(1.05)}
+.map-info p{color:var(--text-variant);font-size:.92rem;line-height:1.7;margin-bottom:1rem}
+.map-info strong{color:var(--text);font-weight:500}
 .ship h1{font-size:clamp(2.2rem,5vw,3.5rem);font-weight:300;line-height:1.15;margin-bottom:1.25rem}
 .ship .intro{font-size:1.05rem;color:var(--text-variant);line-height:1.8;max-width:42rem;margin-bottom:2.5rem}
 .ship-grid{display:grid;gap:1rem}
@@ -209,8 +294,14 @@ footer{background:var(--surface-lowest);border-top:1px solid rgba(46,58,44,.3);p
         <span data-i18n="product2.name">Allo Togo</span>
     </div>
     <div class="pp-grid">
-        <div class="pp-media">
-            <img src="/allo-togo.png" alt="Bâton à mâcher Allo Togo, alternative naturelle au Siwak venant du Togo" data-i18n-alt="product2.image.alt"/>
+        <div class="pp-gallery">
+            <div class="pp-media">
+                <img src="/allo-togo.png" alt="Bâton à mâcher Allo Togo, alternative naturelle au Siwak venant du Togo" data-i18n-alt="product2.image.alt"/>
+            </div>
+            <figure class="pp-tree">
+                <img src="/fagara-zanthoxylum.webp" width="387" height="516" loading="lazy" decoding="async" alt="Tronc de fagara (Zanthoxylum zanthoxyloides) couvert d'épines, l'arbuste dont vient le bâton Allo Togo" data-i18n-alt="pp.tree.p2.alt"/>
+                <figcaption data-i18n="pp.tree.p2.caption">Le fagara (<em>Zanthoxylum zanthoxyloides</em>), reconnaissable aux épines de son tronc. Le bâton Allo vient des racines et des branches de cet arbuste d'Afrique de l'Ouest.</figcaption>
+            </figure>
         </div>
         <div class="pp-info">
             <p class="pp-badge" data-i18n="product2.badge">Bâton à mâcher venant du Togo</p>
@@ -238,11 +329,39 @@ footer{background:var(--surface-lowest);border-top:1px solid rgba(46,58,44,.3);p
             </div>
             <div class="pp-delivery">
                 <h2 data-i18n="pp.delivery.title">Livraison & retrait</h2>
-                <p data-i18n="pp.delivery.text">Expédition Swiss Post dans toute la Suisse (CHF 10.00, envoi sous 48h puis 2–3 jours ouvrés) ou retrait gratuit aux Acacias (Genève) sur rendez-vous. Minimum CHF 15.00 d'articles. Paiement Twint ou Revolut.</p>
+                <p data-i18n="pp.delivery.text">Expédition Swiss Post dans toute la Suisse (CHF 10.00, envoi sous 48h puis 2–3 jours ouvrés) ou retrait gratuit aux Acacias (Genève), Quai des Vernets 11, 1227 Genève, sur rendez-vous. Minimum CHF 15.00 d'articles. Paiement Twint ou Revolut.</p>
                 <a href="/livraison-retrait.html" data-i18n="pp.delivery.link">Tous les détails →</a>
             </div>
         </div>
     </div>
+    <section class="pp-section pp-local">
+        <h2 data-i18n="pp.local.title">Livré partout en Suisse</h2>
+        <p data-i18n="pp.local.text">À Genève, vous pouvez retirer votre commande gratuitement aux Acacias, à deux pas de Plainpalais, de Carouge et de Lancy. Partout ailleurs, Swiss Post vous livre en 2 à 3 jours ouvrés après une expédition sous 48h : Lausanne, Berne, Bâle, Lucerne, Zurich… Les frais de port sont de CHF 10.00 par commande, quelle que soit la ville, et le paiement se fait par Twint ou Revolut.</p>
+    </section>
+    <section class="pp-section">
+        <h2 data-i18n="pfaq.title">Questions fréquentes</h2>
+        <div class="faq">
+            <details><summary data-i18n="pfaq.p2.1.q">Quel goût a l'Allo Togo ?</summary><div class="faq-a" data-i18n="pfaq.p2.1.a">Un goût vif et légèrement piquant. Le fagara laisse un léger picotement en bouche pendant la mastication : c'est typique de ce bois.</div></details>
+            <details><summary data-i18n="pfaq.p2.2.q">Combien de bâtonnets contient le lot ?</summary><div class="faq-a" data-i18n="pfaq.p2.2.a">Le lot contient 5 bâtonnets, pour CHF 6.00. Chaque bâtonnet s'utilise plusieurs fois : on rafraîchit l'extrémité dès que les fibres sont usées.</div></details>
+            <details><summary data-i18n="pfaq.p2.3.q">Comment l'utiliser et couper l'extrémité ?</summary><div class="faq-a" data-i18n="pfaq.p2.3.a">Mâchez l'extrémité jusqu'à ce que les fibres se séparent, puis frottez doucement les dents. Quand les fibres sont usées, coupez l'extrémité avec un couteau ou des ciseaux pour retrouver des fibres neuves.</div></details>
+            <details><summary data-i18n="pfaq.p2.4.q">Comment conserver les bâtonnets ?</summary><div class="faq-a" data-i18n="pfaq.p2.4.a">Rincez le bâtonnet après usage et rangez-le au sec, à l'abri de la poussière. Gardez les autres bâtonnets du lot dans un endroit sec.</div></details>
+            <details><summary data-i18n="pfaq.p2.5.q">Fin ou épais : lequel choisir ?</summary><div class="faq-a" data-i18n="pfaq.p2.5.a">Le fin (≈ 1 à 1,5 cm de diamètre) est plus souple et permet un nettoyage précis entre les dents. L'épais (≈ 2 à 2,5 cm) est plus robuste, pour un usage quotidien intensif. Vous pouvez aussi nous laisser choisir selon nos meilleures récoltes du moment.</div></details>
+            <details><summary data-i18n="pfaq.p2.6.q">Quelle différence avec le siwak ?</summary><div class="faq-a" data-i18n="pfaq.p2.6.a">L'Allo Togo est taillé dans le fagara (Zanthoxylum zanthoxyloides) d'Afrique de l'Ouest et a un goût vif, avec un léger picotement. Le siwak vient de l'arbre Salvadora persica et a un goût boisé, plus doux. Les deux s'utilisent de la même façon. Comparatif complet : <a href="/siwak-ou-allo-togo.html" style="color:#9dd75a;">Siwak ou Allo Togo</a>.</div></details>
+            <details><summary data-i18n="pfaq.ship.q">Comment se passent la livraison et le retrait ?</summary><div class="faq-a" data-i18n="pfaq.ship.a">Swiss Post livre dans toute la Suisse en 2 à 3 jours ouvrés, après une expédition sous 48h, pour CHF 10.00 par commande. À Genève, le retrait est gratuit aux Acacias (Quai des Vernets 11, 1227 Genève), sur rendez-vous fixé par WhatsApp. Commande possible dès CHF 15.00 d'articles.</div></details>
+        </div>
+    </section>
+    <section class="pp-section">
+        <h2 data-i18n="pp.map.title">Retrait aux Acacias (Genève)</h2>
+        <div class="map">
+            <div class="map-info">
+                <p><strong data-i18n="pp.map.address">Quai des Vernets 11, 1227 Genève</strong></p>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=Quai%20des%20Vernets%2011%2C%201227%20Gen%C3%A8ve" class="btn-ghost" target="_blank" rel="noopener noreferrer" data-i18n="pp.map.directions">Itinéraire →</a>
+            </div>
+            <div class="map-frame">
+                <iframe src="https://www.google.com/maps?q=Quai+des+Vernets+11,+1227+Gen%C3%A8ve&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen title="Retrait aux Acacias (Genève)" data-i18n-title="pp.map.title"></iframe>
+            </div>
+        </div>
+    </section>
     <section class="pp-section">
         <h2 data-i18n="pp.read.title">À lire aussi</h2>
         <ul class="reads"><li><a href="/siwak-ou-allo-togo.html">Siwak ou Allo Togo : différences et lequel utiliser selon le moment →</a></li><li><a href="/siwak-epais-vs-fin.html">Siwak Épais ou Fin : Lequel Choisir ? →</a></li></ul>

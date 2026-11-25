@@ -1,0 +1,2 @@
+# Le dossier _build contient l'outil de génération des pages : il ne doit pas être servi.
+RedirectMatch 404 ^/_build(/.*)?$

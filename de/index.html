@@ -148,6 +148,10 @@
             background: #202d21;
             border: none; cursor: pointer; 
         }
+        .btn-ghost:hover { background: #2a382b; }
+        .btn-more { border: 1px solid rgba(157,215,90,0.35); font-size: 0.875rem; padding: 0.5rem 1rem; white-space: nowrap; justify-content: center; }
+        .card-siv .btn-more { margin: -0.25rem 0 1rem; }
+        .btn-more:hover { border-color: #9dd75a; }
         /* ═══════════════════════════════════
            UTILITIES
         ═══════════════════════════════════ */
@@ -269,7 +273,12 @@
             .buy-action-wrapper {
                 flex-direction: row-reverse; /* Aligne le WA à droite et Acheter à gauche */
                 align-items: center;
+                flex-wrap: wrap;
+                justify-content: flex-end;
+                width: 100%;
             }
+            /* « En savoir plus » passe sur sa propre ligne, pleine largeur */
+            .buy-action-wrapper .btn-more { order: 3; flex-basis: 100%; }
         }
 
         /* Sur ordinateur (≥768px) : Bouton WA au-dessus du bouton Acheter */
@@ -567,7 +576,7 @@
             <div style="padding:1.5rem;">
                 <h3 style="font-size:1.1rem;font-weight:400;color:#d7e7d4;margin-bottom:0.5rem;" data-i18n="product1.name">Premium Siwak-Stab</h3>
                 <p style="color:#c2c9b4;font-size:0.875rem;line-height:1.6;margin-bottom:1rem;" data-i18n="product1.desc">Natürlich antibakteriell. Reich an Kieselsäure, Tanninen und Mineralien. Gebrauchsfertig.</p>
-                <a href="/de/siwak-premium.html" onclick="event.stopPropagation()" style="display:inline-block;font-size:0.8rem;color:#9dd75a;margin:-0.5rem 0 1rem;" data-i18n="pp.card.link">Zum Produkt →</a>
+                <a href="/de/siwak-premium.html" onclick="event.stopPropagation()" class="btn-ghost btn-more" data-i18n="btn.more">Mehr erfahren</a>
                 <ul style="list-style:none;margin:0 0 1rem;display:flex;flex-direction:column;gap:0.4rem;">
                     <li style="color:#c2c9b4;font-size:0.82rem;" data-i18n="modal1.feat1">🌿 70+ aktive Mineralien einschliesslich natürliches Fluorid</li>
                     <li style="color:#c2c9b4;font-size:0.82rem;" data-i18n="modal1.feat2">🌿 Nachweislich antibakteriell gegen Plaque</li>
@@ -610,7 +619,7 @@
             <div style="padding:1.5rem;">
                 <h3 style="font-size:1.1rem;font-weight:400;color:#d7e7d4;margin-bottom:0.5rem;" data-i18n="product2.name">Allo Togo</h3>
                 <p style="color:#c2c9b4;font-size:0.875rem;line-height:1.6;margin-bottom:1rem;" data-i18n="product2.desc">Kaustab aus Fagara, aus Togo. Mit Siwak austauschbar.</p>
-                <a href="/de/allo-togo.html" onclick="event.stopPropagation()" style="display:inline-block;font-size:0.8rem;color:#9dd75a;margin:-0.5rem 0 1rem;" data-i18n="pp.card.link">Zum Produkt →</a>
+                <a href="/de/allo-togo.html" onclick="event.stopPropagation()" class="btn-ghost btn-more" data-i18n="btn.more">Mehr erfahren</a>
                 <ul style="list-style:none;margin:0 0 1rem;display:flex;flex-direction:column;gap:0.4rem;">
                     <li style="color:#c2c9b4;font-size:0.82rem;" data-i18n="modal2.feat1">🌿 Natürliches Fagara-Holz (Zanthoxylum zanthoxyloides)</li>
                     <li style="color:#c2c9b4;font-size:0.82rem;" data-i18n="modal2.feat2">🌿 Leichtes Kribbeln, typisch für Fagara</li>
@@ -654,7 +663,7 @@
             <div style="padding:1.5rem;">
                 <h3 style="font-size:1.1rem;font-weight:400;color:#d7e7d4;margin-bottom:0.5rem;" data-i18n="product3.name">Siwak Schutzetui</h3>
                 <p style="color:#c2c9b4;font-size:0.875rem;line-height:1.6;margin-bottom:1rem;" data-i18n="product3.desc">Schützen Sie Ihren Siwak und halten Sie ihn überall frisch.</p>
-                <a href="/de/siwak-etui.html" onclick="event.stopPropagation()" style="display:inline-block;font-size:0.8rem;color:#9dd75a;margin:-0.5rem 0 1rem;" data-i18n="pp.card.link">Zum Produkt →</a>
+                <a href="/de/siwak-etui.html" onclick="event.stopPropagation()" class="btn-ghost btn-more" data-i18n="btn.more">Mehr erfahren</a>
                 <ul style="list-style:none;margin:0 0 1rem;display:flex;flex-direction:column;gap:0.4rem;">
                     <li style="color:#c2c9b4;font-size:0.82rem;" data-i18n="modal3.feat1">🌿 Dickes, solides und langlebiges Material</li>
                     <li style="color:#c2c9b4;font-size:0.82rem;" data-i18n="modal3.feat2">🌿 Staubdichte Aufbewahrung und platzsparend</li>
@@ -743,7 +752,7 @@
             <div style="padding:1.5rem;">
                 <h3 style="font-size:1.1rem;font-weight:400;color:#d7e7d4;margin-bottom:0.5rem;" data-i18n="product4.name">Siwak-Zahnpasta — Gewürznelke</h3>
                 <p style="color:#c2c9b4;font-size:0.875rem;line-height:1.6;margin-bottom:1rem;" data-i18n="product4.desc">Die reinigende Kraft von Siwak kombiniert mit der beruhigenden Wirkung von Gewürznelke, für einen verstärkten Kariesschutz im Alltag.</p>
-                <a href="/de/siwak-zahnpasta-gewuerznelke.html" onclick="event.stopPropagation()" style="display:inline-block;font-size:0.8rem;color:#9dd75a;margin:-0.5rem 0 1rem;" data-i18n="pp.card.link">Zum Produkt →</a>
+                <a href="/de/siwak-zahnpasta-gewuerznelke.html" onclick="event.stopPropagation()" class="btn-ghost btn-more" data-i18n="btn.more">Mehr erfahren</a>
                 <ul style="list-style:none;margin:0 0 1rem;display:flex;flex-direction:column;gap:0.4rem;">
                     <li style="color:#c2c9b4;font-size:0.82rem;" data-i18n="modal4.feat1">🌿 Verstärkter Kariesschutz durch Siwak-Extrakte</li>
                     <li style="color:#c2c9b4;font-size:0.82rem;" data-i18n="modal4.feat2">🌿 Gewürznelke: natürliche beruhigende und antibakterielle Wirkung</li>
@@ -766,7 +775,7 @@
             <div style="padding:1.5rem;">
                 <h3 style="font-size:1.1rem;font-weight:400;color:#d7e7d4;margin-bottom:0.5rem;" data-i18n="product5.name">Siwak-Zahnpasta — Aktivkohle</h3>
                 <p style="color:#c2c9b4;font-size:0.875rem;line-height:1.6;margin-bottom:1rem;" data-i18n="product5.desc">Reinigende Aktivkohle kombiniert mit den althergebrachten Tugenden von Siwak, für eine intensive natürliche Aufhellung und einen perfekt gesunden Mund.</p>
-                <a href="/de/siwak-zahnpasta-aktivkohle.html" onclick="event.stopPropagation()" style="display:inline-block;font-size:0.8rem;color:#9dd75a;margin:-0.5rem 0 1rem;" data-i18n="pp.card.link">Zum Produkt →</a>
+                <a href="/de/siwak-zahnpasta-aktivkohle.html" onclick="event.stopPropagation()" class="btn-ghost btn-more" data-i18n="btn.more">Mehr erfahren</a>
                 <ul style="list-style:none;margin:0 0 1rem;display:flex;flex-direction:column;gap:0.4rem;">
                     <li style="color:#c2c9b4;font-size:0.82rem;" data-i18n="modal5.feat1">🌿 Aktivkohle: absorbiert Flecken und reinigt tiefgehend</li>
                     <li style="color:#c2c9b4;font-size:0.82rem;" data-i18n="modal5.feat2">🌿 Sichtbare Weiße bereits ab den ersten Anwendungen</li>
@@ -1104,6 +1113,7 @@
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path></svg>
                     </a>
                     <a href="/checkout.html" class="btn-primary" onclick="closeModal('modal-1')" data-i18n="modal1.buy">🛍 Jetzt kaufen</a>
+                    <a href="/de/siwak-premium.html" class="btn-ghost btn-more" data-i18n="btn.more">Mehr erfahren</a>
                 </div>
             </div>
 
@@ -1168,6 +1178,7 @@
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path></svg>
                     </a>
                 <a href="/checkout.html" class="btn-primary" onclick="closeModal('modal-2')" data-i18n="modal1.buy">🛍 Jetzt kaufen</a>
+                    <a href="/de/allo-togo.html" class="btn-ghost btn-more" data-i18n="btn.more">Mehr erfahren</a>
             </div>
                 </div>
 
@@ -1228,6 +1239,7 @@
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path></svg>
                     </a>
                 <a href="/checkout.html" class="btn-primary" onclick="closeModal('modal-3')" data-i18n="modal3.buy">🛍 Jetzt kaufen</a>
+                    <a href="/de/siwak-etui.html" class="btn-ghost btn-more" data-i18n="btn.more">Mehr erfahren</a>
             </div>
                  </div>
         </div>
@@ -1268,6 +1280,7 @@
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path></svg>
                     </a>
                     <a href="/checkout.html" class="btn-primary" onclick="closeModal('modal-4')" data-i18n="modal4.buy">🛍 Jetzt kaufen</a>
+                    <a href="/de/siwak-zahnpasta-gewuerznelke.html" class="btn-ghost btn-more" data-i18n="btn.more">Mehr erfahren</a>
                 </div>
             </div>
         </div>
@@ -1308,6 +1321,7 @@
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path></svg>
                     </a>
                     <a href="/checkout.html" class="btn-primary" onclick="closeModal('modal-5')" data-i18n="modal5.buy">🛍 Jetzt kaufen</a>
+                    <a href="/de/siwak-zahnpasta-aktivkohle.html" class="btn-ghost btn-more" data-i18n="btn.more">Mehr erfahren</a>
                 </div>
             </div>
         </div>

@@ -38,6 +38,7 @@
         "url": "https://sivaa.ch/dentifrice-siwak-clou-de-girofle.html",
         "priceCurrency": "CHF",
         "price": "10.00",
+        "availability": "https://schema.org/InStock",
         "seller": {
           "@type": "Organization",
           "name": "SIVÀA Geneva"
@@ -91,6 +92,59 @@
           "position": 3,
           "name": "Dentifrice Siwak — Clou de Girofle",
           "item": "https://sivaa.ch/dentifrice-siwak-clou-de-girofle.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Comment utiliser ce dentifrice ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Comme un dentifrice classique : une petite quantité sur la brosse à dents, puis un brossage soigneux de deux minutes, matin et soir."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Que contient-il ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Il associe des extraits de siwak (Salvadora persica) et de clou de girofle. La liste complète des ingrédients figure sur l'emballage."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Pour qui est-il fait ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pour celles et ceux qui aiment le goût chaud et épicé du clou de girofle et veulent un dentifrice aux extraits de siwak. En cas de doute (enfants, grossesse, allergie), demandez conseil à votre dentiste ou à votre pharmacien."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Peut-on l'utiliser avec un siwak ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui. Le dentifrice s'utilise avec votre brosse à dents habituelle, et le siwak peut compléter votre routine dans la journée, par exemple après un repas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle différence avec le dentifrice au charbon actif ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Celui-ci mise sur la fraîcheur et le goût épicé du clou de girofle. Le dentifrice au charbon actif, de couleur noire, est pensé pour un sourire plus éclatant. Les deux contiennent des extraits de siwak."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment se passent la livraison et le retrait ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Swiss Post livre dans toute la Suisse en 2 à 3 jours ouvrés, après une expédition sous 48h, pour CHF 10.00 par commande. À Genève, le retrait est gratuit aux Acacias (Quai des Vernets 11, 1227 Genève), sur rendez-vous fixé par WhatsApp. Commande possible dès CHF 15.00 d'articles."
+          }
         }
       ]
     }
@@ -167,6 +221,29 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(9,22,11,.7);b
 .tile-name{font-family:'Newsreader',serif;font-size:1.1rem;color:var(--text)}
 .tile-price{font-size:.85rem;color:var(--primary)}
 .tile-see{font-size:.8rem;color:var(--text-variant);margin-top:auto}
+.pp-gallery{display:flex;flex-direction:column;gap:1rem}
+.pp-tree{background:var(--surface-low);border:1px solid var(--outline-variant);border-radius:1rem;overflow:hidden}
+.pp-tree img{width:100%;height:auto;max-height:28rem;object-fit:cover}
+.pp-tree figcaption{padding:.9rem 1.1rem;font-size:.82rem;line-height:1.6;color:var(--text-variant)}
+.pp-tree figcaption em{color:var(--text)}
+.pp-local{background:linear-gradient(135deg,rgba(39,80,10,.35),rgba(24,45,18,.75));border:1px solid rgba(157,215,90,.2);border-radius:.75rem;padding:1.5rem 1.75rem}
+.pp-local h2{margin-bottom:.75rem}
+.pp-local p{color:#c2c9b4;font-size:.95rem;line-height:1.8;max-width:52rem}
+.faq{display:flex;flex-direction:column;gap:.6rem;max-width:52rem}
+.faq details{background:var(--surface-low);border:1px solid var(--outline-variant);border-radius:.6rem}
+.faq details[open]{border-color:rgba(157,215,90,.3)}
+.faq summary{list-style:none;cursor:pointer;padding:1rem 1.25rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;font-size:.92rem;font-weight:500;color:var(--text)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'+';color:var(--primary);font-size:1.2rem;flex-shrink:0;transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq summary:focus-visible{outline:2px solid var(--primary);outline-offset:2px;border-radius:.6rem}
+.faq .faq-a{padding:0 1.25rem 1.1rem;color:var(--text-variant);font-size:.88rem;line-height:1.75}
+.map{display:grid;gap:1.25rem;align-items:start}
+@media(min-width:900px){.map{grid-template-columns:1fr 2fr}}
+.map-frame{position:relative;width:100%;aspect-ratio:16/10;border-radius:.75rem;overflow:hidden;border:1px solid var(--outline-variant);background:var(--surface-low)}
+.map-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(.3) contrast(1.05)}
+.map-info p{color:var(--text-variant);font-size:.92rem;line-height:1.7;margin-bottom:1rem}
+.map-info strong{color:var(--text);font-weight:500}
 .ship h1{font-size:clamp(2.2rem,5vw,3.5rem);font-weight:300;line-height:1.15;margin-bottom:1.25rem}
 .ship .intro{font-size:1.05rem;color:var(--text-variant);line-height:1.8;max-width:42rem;margin-bottom:2.5rem}
 .ship-grid{display:grid;gap:1rem}
@@ -209,8 +286,10 @@ footer{background:var(--surface-lowest);border-top:1px solid rgba(46,58,44,.3);p
         <span data-i18n="product4.name">Dentifrice Siwak — Clou de Girofle</span>
     </div>
     <div class="pp-grid">
-        <div class="pp-media">
-            <img src="/dentifrice-girofle.jpg" alt="Dentifrice Siwak au Clou de Girofle SIVÀA Geneva" data-i18n-alt="product4.image.alt"/>
+        <div class="pp-gallery">
+            <div class="pp-media">
+                <img src="/dentifrice-girofle.jpg" alt="Dentifrice Siwak au Clou de Girofle SIVÀA Geneva" data-i18n-alt="product4.image.alt"/>
+            </div>
         </div>
         <div class="pp-info">
             <p class="pp-badge" data-i18n="product4.badge">Protection Anticavité · Clou de Girofle</p>
@@ -225,11 +304,38 @@ footer{background:var(--surface-lowest);border-top:1px solid rgba(46,58,44,.3);p
             </div>
             <div class="pp-delivery">
                 <h2 data-i18n="pp.delivery.title">Livraison & retrait</h2>
-                <p data-i18n="pp.delivery.text">Expédition Swiss Post dans toute la Suisse (CHF 10.00, envoi sous 48h puis 2–3 jours ouvrés) ou retrait gratuit aux Acacias (Genève) sur rendez-vous. Minimum CHF 15.00 d'articles. Paiement Twint ou Revolut.</p>
+                <p data-i18n="pp.delivery.text">Expédition Swiss Post dans toute la Suisse (CHF 10.00, envoi sous 48h puis 2–3 jours ouvrés) ou retrait gratuit aux Acacias (Genève), Quai des Vernets 11, 1227 Genève, sur rendez-vous. Minimum CHF 15.00 d'articles. Paiement Twint ou Revolut.</p>
                 <a href="/livraison-retrait.html" data-i18n="pp.delivery.link">Tous les détails →</a>
             </div>
         </div>
     </div>
+    <section class="pp-section pp-local">
+        <h2 data-i18n="pp.local.title">Livré partout en Suisse</h2>
+        <p data-i18n="pp.local.text">À Genève, vous pouvez retirer votre commande gratuitement aux Acacias, à deux pas de Plainpalais, de Carouge et de Lancy. Partout ailleurs, Swiss Post vous livre en 2 à 3 jours ouvrés après une expédition sous 48h : Lausanne, Berne, Bâle, Lucerne, Zurich… Les frais de port sont de CHF 10.00 par commande, quelle que soit la ville, et le paiement se fait par Twint ou Revolut.</p>
+    </section>
+    <section class="pp-section">
+        <h2 data-i18n="pfaq.title">Questions fréquentes</h2>
+        <div class="faq">
+            <details><summary data-i18n="pfaq.p4.1.q">Comment utiliser ce dentifrice ?</summary><div class="faq-a" data-i18n="pfaq.p4.1.a">Comme un dentifrice classique : une petite quantité sur la brosse à dents, puis un brossage soigneux de deux minutes, matin et soir.</div></details>
+            <details><summary data-i18n="pfaq.p4.2.q">Que contient-il ?</summary><div class="faq-a" data-i18n="pfaq.p4.2.a">Il associe des extraits de siwak (Salvadora persica) et de clou de girofle. La liste complète des ingrédients figure sur l'emballage.</div></details>
+            <details><summary data-i18n="pfaq.p4.3.q">Pour qui est-il fait ?</summary><div class="faq-a" data-i18n="pfaq.p4.3.a">Pour celles et ceux qui aiment le goût chaud et épicé du clou de girofle et veulent un dentifrice aux extraits de siwak. En cas de doute (enfants, grossesse, allergie), demandez conseil à votre dentiste ou à votre pharmacien.</div></details>
+            <details><summary data-i18n="pfaq.p4.4.q">Peut-on l'utiliser avec un siwak ?</summary><div class="faq-a" data-i18n="pfaq.p4.4.a">Oui. Le dentifrice s'utilise avec votre brosse à dents habituelle, et le siwak peut compléter votre routine dans la journée, par exemple après un repas.</div></details>
+            <details><summary data-i18n="pfaq.p4.5.q">Quelle différence avec le dentifrice au charbon actif ?</summary><div class="faq-a" data-i18n="pfaq.p4.5.a">Celui-ci mise sur la fraîcheur et le goût épicé du clou de girofle. Le dentifrice au charbon actif, de couleur noire, est pensé pour un sourire plus éclatant. Les deux contiennent des extraits de siwak.</div></details>
+            <details><summary data-i18n="pfaq.ship.q">Comment se passent la livraison et le retrait ?</summary><div class="faq-a" data-i18n="pfaq.ship.a">Swiss Post livre dans toute la Suisse en 2 à 3 jours ouvrés, après une expédition sous 48h, pour CHF 10.00 par commande. À Genève, le retrait est gratuit aux Acacias (Quai des Vernets 11, 1227 Genève), sur rendez-vous fixé par WhatsApp. Commande possible dès CHF 15.00 d'articles.</div></details>
+        </div>
+    </section>
+    <section class="pp-section">
+        <h2 data-i18n="pp.map.title">Retrait aux Acacias (Genève)</h2>
+        <div class="map">
+            <div class="map-info">
+                <p><strong data-i18n="pp.map.address">Quai des Vernets 11, 1227 Genève</strong></p>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=Quai%20des%20Vernets%2011%2C%201227%20Gen%C3%A8ve" class="btn-ghost" target="_blank" rel="noopener noreferrer" data-i18n="pp.map.directions">Itinéraire →</a>
+            </div>
+            <div class="map-frame">
+                <iframe src="https://www.google.com/maps?q=Quai+des+Vernets+11,+1227+Gen%C3%A8ve&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen title="Retrait aux Acacias (Genève)" data-i18n-title="pp.map.title"></iframe>
+            </div>
+        </div>
+    </section>
     <section class="pp-section">
         <h2 data-i18n="pp.read.title">À lire aussi</h2>
         <ul class="reads"><li><a href="/siwak-vs-brosse-a-dents.html">Faut-il Remplacer sa Brosse à Dents par le Siwak ? →</a></li><li><a href="/article-siwak.html">Qu'est-ce que le Siwak ? Bienfaits, utilisation et Sunna →</a></li></ul>

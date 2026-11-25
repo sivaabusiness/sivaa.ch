@@ -38,6 +38,7 @@
         "url": "https://sivaa.ch/de/siwak-zahnpasta-gewuerznelke.html",
         "priceCurrency": "CHF",
         "price": "10.00",
+        "availability": "https://schema.org/InStock",
         "seller": {
           "@type": "Organization",
           "name": "SIVÀA Geneva"
@@ -91,6 +92,59 @@
           "position": 3,
           "name": "Siwak-Zahnpasta — Gewürznelke",
           "item": "https://sivaa.ch/de/siwak-zahnpasta-gewuerznelke.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Wie verwende ich diese Zahnpasta?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Wie eine gewöhnliche Zahnpasta: eine kleine Menge auf die Zahnbürste, dann zwei Minuten gründlich putzen, morgens und abends."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Was ist drin?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sie verbindet Extrakte aus Siwak (Salvadora persica) und Gewürznelke. Die vollständige Zutatenliste steht auf der Verpackung."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Für wen ist sie gedacht?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Für alle, die den warmen, würzigen Geschmack der Gewürznelke mögen und eine Zahnpasta mit Siwak-Extrakten suchen. Im Zweifelsfall (Kinder, Schwangerschaft, Allergie) fragen Sie Ihre Zahnärztin, Ihren Zahnarzt oder Ihre Apotheke."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kann ich sie zusammen mit Siwak verwenden?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. Die Zahnpasta verwenden Sie mit Ihrer gewohnten Zahnbürste, und der Siwak kann Ihre Routine tagsüber ergänzen, zum Beispiel nach einer Mahlzeit."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Was ist der Unterschied zur Aktivkohle-Zahnpasta?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Diese setzt auf Frische und den würzigen Geschmack der Gewürznelke. Die schwarze Aktivkohle-Zahnpasta ist für ein strahlenderes Lächeln gedacht. Beide enthalten Siwak-Extrakte."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wie funktionieren Versand und Abholung?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Swiss Post liefert in die ganze Schweiz in 2 bis 3 Werktagen, nach Versand innerhalb von 48 Std., für CHF 10.00 pro Bestellung. In Genf ist die Abholung in Acacias (Quai des Vernets 11, 1227 Genf) kostenlos, nach Vereinbarung per WhatsApp. Bestellungen ab CHF 15.00 Warenwert."
+          }
         }
       ]
     }
@@ -167,6 +221,29 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(9,22,11,.7);b
 .tile-name{font-family:'Newsreader',serif;font-size:1.1rem;color:var(--text)}
 .tile-price{font-size:.85rem;color:var(--primary)}
 .tile-see{font-size:.8rem;color:var(--text-variant);margin-top:auto}
+.pp-gallery{display:flex;flex-direction:column;gap:1rem}
+.pp-tree{background:var(--surface-low);border:1px solid var(--outline-variant);border-radius:1rem;overflow:hidden}
+.pp-tree img{width:100%;height:auto;max-height:28rem;object-fit:cover}
+.pp-tree figcaption{padding:.9rem 1.1rem;font-size:.82rem;line-height:1.6;color:var(--text-variant)}
+.pp-tree figcaption em{color:var(--text)}
+.pp-local{background:linear-gradient(135deg,rgba(39,80,10,.35),rgba(24,45,18,.75));border:1px solid rgba(157,215,90,.2);border-radius:.75rem;padding:1.5rem 1.75rem}
+.pp-local h2{margin-bottom:.75rem}
+.pp-local p{color:#c2c9b4;font-size:.95rem;line-height:1.8;max-width:52rem}
+.faq{display:flex;flex-direction:column;gap:.6rem;max-width:52rem}
+.faq details{background:var(--surface-low);border:1px solid var(--outline-variant);border-radius:.6rem}
+.faq details[open]{border-color:rgba(157,215,90,.3)}
+.faq summary{list-style:none;cursor:pointer;padding:1rem 1.25rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;font-size:.92rem;font-weight:500;color:var(--text)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'+';color:var(--primary);font-size:1.2rem;flex-shrink:0;transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq summary:focus-visible{outline:2px solid var(--primary);outline-offset:2px;border-radius:.6rem}
+.faq .faq-a{padding:0 1.25rem 1.1rem;color:var(--text-variant);font-size:.88rem;line-height:1.75}
+.map{display:grid;gap:1.25rem;align-items:start}
+@media(min-width:900px){.map{grid-template-columns:1fr 2fr}}
+.map-frame{position:relative;width:100%;aspect-ratio:16/10;border-radius:.75rem;overflow:hidden;border:1px solid var(--outline-variant);background:var(--surface-low)}
+.map-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(.3) contrast(1.05)}
+.map-info p{color:var(--text-variant);font-size:.92rem;line-height:1.7;margin-bottom:1rem}
+.map-info strong{color:var(--text);font-weight:500}
 .ship h1{font-size:clamp(2.2rem,5vw,3.5rem);font-weight:300;line-height:1.15;margin-bottom:1.25rem}
 .ship .intro{font-size:1.05rem;color:var(--text-variant);line-height:1.8;max-width:42rem;margin-bottom:2.5rem}
 .ship-grid{display:grid;gap:1rem}
@@ -209,8 +286,10 @@ footer{background:var(--surface-lowest);border-top:1px solid rgba(46,58,44,.3);p
         <span data-i18n="product4.name">Siwak-Zahnpasta — Gewürznelke</span>
     </div>
     <div class="pp-grid">
-        <div class="pp-media">
-            <img src="/dentifrice-girofle.jpg" alt="Siwak-Zahnpasta mit Gewürznelke SIVÀA Geneva" data-i18n-alt="product4.image.alt"/>
+        <div class="pp-gallery">
+            <div class="pp-media">
+                <img src="/dentifrice-girofle.jpg" alt="Siwak-Zahnpasta mit Gewürznelke SIVÀA Geneva" data-i18n-alt="product4.image.alt"/>
+            </div>
         </div>
         <div class="pp-info">
             <p class="pp-badge" data-i18n="product4.badge">Kariesschutz · Gewürznelke</p>
@@ -225,11 +304,38 @@ footer{background:var(--surface-lowest);border-top:1px solid rgba(46,58,44,.3);p
             </div>
             <div class="pp-delivery">
                 <h2 data-i18n="pp.delivery.title">Versand & Abholung</h2>
-                <p data-i18n="pp.delivery.text">Versand mit Swiss Post in die ganze Schweiz (CHF 10.00, Versand innerhalb von 48 Std., dann 2–3 Werktage) oder kostenlose Abholung in Acacias (Genf) nach Vereinbarung. Mindestbestellwert CHF 15.00. Zahlung mit Twint oder Revolut.</p>
+                <p data-i18n="pp.delivery.text">Versand mit Swiss Post in die ganze Schweiz (CHF 10.00, Versand innerhalb von 48 Std., dann 2–3 Werktage) oder kostenlose Abholung in Acacias (Genf), Quai des Vernets 11, 1227 Genf, nach Vereinbarung. Mindestbestellwert CHF 15.00. Zahlung mit Twint oder Revolut.</p>
                 <a href="/de/versand-abholung.html" data-i18n="pp.delivery.link">Alle Details →</a>
             </div>
         </div>
     </div>
+    <section class="pp-section pp-local">
+        <h2 data-i18n="pp.local.title">Siwak kaufen in Zürich, Basel und der ganzen Schweiz</h2>
+        <p data-i18n="pp.local.text">Sie suchen Siwak in Zürich oder Basel? Bestellen Sie einfach online: Swiss Post liefert in die ganze Schweiz, mit Versand innerhalb von 48 Std. nach Zahlungseingang und Zustellung in 2–3 Werktagen. Die Versandkosten betragen pauschal CHF 10.00 pro Bestellung, ob nach Zürich, Basel, Bern, Luzern oder Winterthur. Bezahlt wird bequem mit Twint oder Revolut. Wer in Genf wohnt, kann die Bestellung auch kostenlos in Acacias abholen.</p>
+    </section>
+    <section class="pp-section">
+        <h2 data-i18n="pfaq.title">Häufige Fragen</h2>
+        <div class="faq">
+            <details><summary data-i18n="pfaq.p4.1.q">Wie verwende ich diese Zahnpasta?</summary><div class="faq-a" data-i18n="pfaq.p4.1.a">Wie eine gewöhnliche Zahnpasta: eine kleine Menge auf die Zahnbürste, dann zwei Minuten gründlich putzen, morgens und abends.</div></details>
+            <details><summary data-i18n="pfaq.p4.2.q">Was ist drin?</summary><div class="faq-a" data-i18n="pfaq.p4.2.a">Sie verbindet Extrakte aus Siwak (Salvadora persica) und Gewürznelke. Die vollständige Zutatenliste steht auf der Verpackung.</div></details>
+            <details><summary data-i18n="pfaq.p4.3.q">Für wen ist sie gedacht?</summary><div class="faq-a" data-i18n="pfaq.p4.3.a">Für alle, die den warmen, würzigen Geschmack der Gewürznelke mögen und eine Zahnpasta mit Siwak-Extrakten suchen. Im Zweifelsfall (Kinder, Schwangerschaft, Allergie) fragen Sie Ihre Zahnärztin, Ihren Zahnarzt oder Ihre Apotheke.</div></details>
+            <details><summary data-i18n="pfaq.p4.4.q">Kann ich sie zusammen mit Siwak verwenden?</summary><div class="faq-a" data-i18n="pfaq.p4.4.a">Ja. Die Zahnpasta verwenden Sie mit Ihrer gewohnten Zahnbürste, und der Siwak kann Ihre Routine tagsüber ergänzen, zum Beispiel nach einer Mahlzeit.</div></details>
+            <details><summary data-i18n="pfaq.p4.5.q">Was ist der Unterschied zur Aktivkohle-Zahnpasta?</summary><div class="faq-a" data-i18n="pfaq.p4.5.a">Diese setzt auf Frische und den würzigen Geschmack der Gewürznelke. Die schwarze Aktivkohle-Zahnpasta ist für ein strahlenderes Lächeln gedacht. Beide enthalten Siwak-Extrakte.</div></details>
+            <details><summary data-i18n="pfaq.ship.q">Wie funktionieren Versand und Abholung?</summary><div class="faq-a" data-i18n="pfaq.ship.a">Swiss Post liefert in die ganze Schweiz in 2 bis 3 Werktagen, nach Versand innerhalb von 48 Std., für CHF 10.00 pro Bestellung. In Genf ist die Abholung in Acacias (Quai des Vernets 11, 1227 Genf) kostenlos, nach Vereinbarung per WhatsApp. Bestellungen ab CHF 15.00 Warenwert.</div></details>
+        </div>
+    </section>
+    <section class="pp-section">
+        <h2 data-i18n="pp.map.title">Abholung in Acacias (Genf)</h2>
+        <div class="map">
+            <div class="map-info">
+                <p><strong data-i18n="pp.map.address">Quai des Vernets 11, 1227 Genf</strong></p>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=Quai%20des%20Vernets%2011%2C%201227%20Gen%C3%A8ve" class="btn-ghost" target="_blank" rel="noopener noreferrer" data-i18n="pp.map.directions">Route planen →</a>
+            </div>
+            <div class="map-frame">
+                <iframe src="https://www.google.com/maps?q=Quai+des+Vernets+11,+1227+Gen%C3%A8ve&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen title="Abholung in Acacias (Genf)" data-i18n-title="pp.map.title"></iframe>
+            </div>
+        </div>
+    </section>
     <section class="pp-section">
         <h2 data-i18n="pp.related.title">Das könnte Ihnen auch gefallen</h2>
         <div class="tiles">

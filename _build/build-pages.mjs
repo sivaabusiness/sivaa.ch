@@ -55,6 +55,8 @@ const PRODUCTS = [
         paras: ['modal1.desc.intro', 'pp1.desc'], feats: ['modal1.feat1', 'modal1.feat2', 'modal1.feat3', 'modal1.feat4'],
         price: 'product1.price', buy: 'modal1.buy', bundle: true, thickness: 'sivaa_siwak_thickness', offerPrice: '6.00',
         reads: ['article-siwak.html', 'siwak-epais-vs-fin.html', 'siwak-vs-brosse-a-dents.html'], related: ['p2', 'p3', 'p4'],
+        tree: { img: '/arbre-salvadora-persica.webp', w: 507, h: 508, alt: 'pp.tree.p1.alt', caption: 'pp.tree.p1.caption' },
+        faq: ['pfaq.p1.1', 'pfaq.p1.2', 'pfaq.p1.3', 'pfaq.p1.4', 'pfaq.p1.5', 'pfaq.p1.6', 'pfaq.ship'],
         meta: {
             fr: { title: 'Bâton de Siwak Premium — Acheter du siwak naturel en Suisse | SIVÀA Geneva', desc: 'Bâton de siwak (miswak) premium en Salvadora persica, récolté à la main. CHF 6.00 la pièce, prix dégressif dès 2 pièces. Livraison Swiss Post dans toute la Suisse ou retrait à Genève.' },
             de: { title: 'Premium Siwak-Stab kaufen — Natürlicher Miswak in der Schweiz | SIVÀA Geneva', desc: 'Premium Siwak-Stab (Miswak) aus Salvadora persica, von Hand geerntet. CHF 6.00 pro Stück, Staffelpreise ab 2 Stück. Versand mit Swiss Post in die ganze Schweiz.' },
@@ -65,6 +67,8 @@ const PRODUCTS = [
         paras: ['modal2.desc.intro', 'modal2.desc'], feats: ['modal2.feat1', 'modal2.feat2', 'modal2.feat3', 'modal2.feat4'],
         price: 'product2.price', buy: 'modal1.buy', thickness: 'sivaa_allotogo_thickness', offerPrice: '6.00',
         reads: ['siwak-ou-allo-togo.html', 'siwak-epais-vs-fin.html'], related: ['p1', 'p3', 'p5'],
+        tree: { img: '/fagara-zanthoxylum.webp', w: 387, h: 516, alt: 'pp.tree.p2.alt', caption: 'pp.tree.p2.caption' },
+        faq: ['pfaq.p2.1', 'pfaq.p2.2', 'pfaq.p2.3', 'pfaq.p2.4', 'pfaq.p2.5', 'pfaq.p2.6', 'pfaq.ship'],
         meta: {
             fr: { title: 'Allo Togo — Bâton à mâcher en Fagara, lot de 5 | SIVÀA Geneva', desc: "Allo Togo : bâtonnets à mâcher en Fagara importés du Togo, alternative au siwak au goût vif. CHF 6.00 le lot de 5. Livraison Swiss Post dans toute la Suisse ou retrait à Genève." },
             de: { title: 'Allo Togo kaufen — Kaustab aus Fagara, 5er-Pack | SIVÀA Geneva', desc: 'Allo Togo: Kaustäbe aus Fagara, direkt aus Togo, eine Siwak-Alternative mit lebhaftem Geschmack. CHF 6.00 für 5 Stück. Versand mit Swiss Post in die ganze Schweiz.' },
@@ -75,6 +79,7 @@ const PRODUCTS = [
         paras: ['modal3.desc'], feats: ['modal3.feat1', 'modal3.feat2', 'modal3.feat3', 'modal3.feat4'],
         price: 'product3.price', buy: 'modal3.buy', offerPrice: '6.00',
         reads: ['article-siwak.html'], related: ['p1', 'p2'],
+        faq: ['pfaq.p3.1', 'pfaq.p3.2', 'pfaq.p3.3', 'pfaq.p3.4', 'pfaq.ship'],
         meta: {
             fr: { title: 'Étui de protection pour Siwak — Hygiène nomade | SIVÀA Geneva', desc: "Étui de protection pour siwak : garde votre bâton à l'abri de l'humidité et de la poussière, partout avec vous. Livraison Swiss Post dans toute la Suisse ou retrait à Genève." },
             de: { title: 'Siwak-Etui kaufen — Schutzetui für unterwegs | SIVÀA Geneva', desc: 'Schutzetui für Siwak: schützt Ihren Kaustab vor Feuchtigkeit und Staub, überall dabei. Versand mit Swiss Post in die ganze Schweiz.' },
@@ -85,6 +90,7 @@ const PRODUCTS = [
         paras: ['modal4.desc.intro', 'modal4.desc'], feats: ['modal4.feat1', 'modal4.feat2', 'modal4.feat3'],
         price: 'product4.price', buy: 'modal4.buy', offerPrice: '10.00',
         reads: ['siwak-vs-brosse-a-dents.html', 'article-siwak.html'], related: ['p5', 'p1'],
+        faq: ['pfaq.p4.1', 'pfaq.p4.2', 'pfaq.p4.3', 'pfaq.p4.4', 'pfaq.p4.5', 'pfaq.ship'],
         meta: {
             fr: { title: 'Dentifrice Siwak au Clou de Girofle — Protection anticavité | SIVÀA Geneva', desc: "Dentifrice au siwak (Salvadora persica) et clou de girofle : protection anticavité, gencives apaisées, haleine fraîche. CHF 10.00. Livraison Swiss Post dans toute la Suisse." },
             de: { title: 'Siwak-Zahnpasta mit Gewürznelke — Kariesschutz | SIVÀA Geneva', desc: 'Zahnpasta mit Siwak (Salvadora persica) und Gewürznelke: Kariesschutz, beruhigtes Zahnfleisch, frischer Atem. CHF 10.00. Versand mit Swiss Post in die ganze Schweiz.' },
@@ -95,6 +101,7 @@ const PRODUCTS = [
         paras: ['modal5.desc.intro', 'modal5.desc'], feats: ['modal5.feat1', 'modal5.feat2', 'modal5.feat3'],
         price: 'product5.price', buy: 'modal5.buy', offerPrice: '10.00',
         reads: ['siwak-vs-brosse-a-dents.html', 'article-siwak.html'], related: ['p4', 'p1'],
+        faq: ['pfaq.p5.1', 'pfaq.p5.2', 'pfaq.p5.3', 'pfaq.p5.4', 'pfaq.p5.5', 'pfaq.ship'],
         meta: {
             fr: { title: 'Dentifrice Siwak au Charbon Actif — Blancheur naturelle | SIVÀA Geneva', desc: 'Dentifrice au siwak et charbon actif : blancheur naturelle, sans peroxyde. CHF 10.00. Livraison Swiss Post dans toute la Suisse ou retrait à Genève.' },
             de: { title: 'Siwak-Zahnpasta mit Aktivkohle — Natürliche Weisse | SIVÀA Geneva', desc: 'Zahnpasta mit Siwak und Aktivkohle: natürliche Zahnaufhellung, ohne Peroxid. CHF 10.00. Versand mit Swiss Post in die ganze Schweiz.' },
@@ -178,6 +185,29 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(9,22,11,.7);b
 .tile-name{font-family:'Newsreader',serif;font-size:1.1rem;color:var(--text)}
 .tile-price{font-size:.85rem;color:var(--primary)}
 .tile-see{font-size:.8rem;color:var(--text-variant);margin-top:auto}
+.pp-gallery{display:flex;flex-direction:column;gap:1rem}
+.pp-tree{background:var(--surface-low);border:1px solid var(--outline-variant);border-radius:1rem;overflow:hidden}
+.pp-tree img{width:100%;height:auto;max-height:28rem;object-fit:cover}
+.pp-tree figcaption{padding:.9rem 1.1rem;font-size:.82rem;line-height:1.6;color:var(--text-variant)}
+.pp-tree figcaption em{color:var(--text)}
+.pp-local{background:linear-gradient(135deg,rgba(39,80,10,.35),rgba(24,45,18,.75));border:1px solid rgba(157,215,90,.2);border-radius:.75rem;padding:1.5rem 1.75rem}
+.pp-local h2{margin-bottom:.75rem}
+.pp-local p{color:#c2c9b4;font-size:.95rem;line-height:1.8;max-width:52rem}
+.faq{display:flex;flex-direction:column;gap:.6rem;max-width:52rem}
+.faq details{background:var(--surface-low);border:1px solid var(--outline-variant);border-radius:.6rem}
+.faq details[open]{border-color:rgba(157,215,90,.3)}
+.faq summary{list-style:none;cursor:pointer;padding:1rem 1.25rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;font-size:.92rem;font-weight:500;color:var(--text)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'+';color:var(--primary);font-size:1.2rem;flex-shrink:0;transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq summary:focus-visible{outline:2px solid var(--primary);outline-offset:2px;border-radius:.6rem}
+.faq .faq-a{padding:0 1.25rem 1.1rem;color:var(--text-variant);font-size:.88rem;line-height:1.75}
+.map{display:grid;gap:1.25rem;align-items:start}
+@media(min-width:900px){.map{grid-template-columns:1fr 2fr}}
+.map-frame{position:relative;width:100%;aspect-ratio:16/10;border-radius:.75rem;overflow:hidden;border:1px solid var(--outline-variant);background:var(--surface-low)}
+.map-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(.3) contrast(1.05)}
+.map-info p{color:var(--text-variant);font-size:.92rem;line-height:1.7;margin-bottom:1rem}
+.map-info strong{color:var(--text);font-weight:500}
 .ship h1{font-size:clamp(2.2rem,5vw,3.5rem);font-weight:300;line-height:1.15;margin-bottom:1.25rem}
 .ship .intro{font-size:1.05rem;color:var(--text-variant);line-height:1.8;max-width:42rem;margin-bottom:2.5rem}
 .ship-grid{display:grid;gap:1rem}
@@ -303,6 +333,44 @@ function crumbsLd(lang, items) {
     };
 }
 
+/* ── Carte Google Maps (retrait aux Acacias) ────────────────── */
+const MAP_EMBED = 'https://www.google.com/maps?q=Quai+des+Vernets+11,+1227+Gen%C3%A8ve&output=embed';
+const MAP_DIRECTIONS = 'https://www.google.com/maps/dir/?api=1&destination=Quai%20des%20Vernets%2011%2C%201227%20Gen%C3%A8ve';
+function mapHtml(lang) {
+    const t = (k) => tr(lang, k);
+    return `
+    <section class="pp-section">
+        <h2 data-i18n="pp.map.title">${t('pp.map.title')}</h2>
+        <div class="map">
+            <div class="map-info">
+                <p><strong data-i18n="pp.map.address">${t('pp.map.address')}</strong></p>
+                <a href="${MAP_DIRECTIONS}" class="btn-ghost" target="_blank" rel="noopener noreferrer" data-i18n="pp.map.directions">${t('pp.map.directions')}</a>
+            </div>
+            <div class="map-frame">
+                <iframe src="${MAP_EMBED}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen title="${escAttr(strip(t('pp.map.title')))}" data-i18n-title="pp.map.title"></iframe>
+            </div>
+        </div>
+    </section>`;
+}
+
+/* ── FAQ : accordéon visible + FAQPage (mêmes textes) ───────── */
+function faqHtml(lang, keys) {
+    const t = (k) => tr(lang, k);
+    return `
+    <section class="pp-section">
+        <h2 data-i18n="pfaq.title">${t('pfaq.title')}</h2>
+        <div class="faq">
+            ${keys.map((k) => `<details><summary data-i18n="${k}.q">${t(k + '.q')}</summary><div class="faq-a" data-i18n="${k}.a">${t(k + '.a')}</div></details>`).join('\n            ')}
+        </div>
+    </section>`;
+}
+function faqLdFor(lang, keys) {
+    return {
+        '@type': 'FAQPage',
+        mainEntity: keys.map((k) => ({ '@type': 'Question', name: strip(tr(lang, k + '.q')), acceptedAnswer: { '@type': 'Answer', text: strip(tr(lang, k + '.a')) } })),
+    };
+}
+
 /* ── Fiche produit ──────────────────────────────────────────── */
 function renderProduct(p, lang) {
     const t = (k) => tr(lang, k);
@@ -325,6 +393,7 @@ function renderProduct(p, lang) {
                 url: SITE + URLS[p.id][lang],
                 priceCurrency: 'CHF',
                 price: p.offerPrice,
+                availability: 'https://schema.org/InStock',
                 seller: { '@type': 'Organization', name: 'SIVÀA Geneva' },
                 shippingDetails: {
                     '@type': 'OfferShippingDetails',
@@ -339,6 +408,8 @@ function renderProduct(p, lang) {
             },
         });
     }
+
+    if (p.faq) graph.push(faqLdFor(lang, p.faq));
 
     const bundle = p.bundle ? `
             <div class="pp-bundle">
@@ -402,8 +473,14 @@ ${navHtml(lang)}
         <span data-i18n="${p.name}">${t(p.name)}</span>
     </div>
     <div class="pp-grid">
-        <div class="pp-media">
-            <img src="${p.img}" alt="${escAttr(strip(t(p.alt)))}" data-i18n-alt="${p.alt}"/>
+        <div class="pp-gallery">
+            <div class="pp-media">
+                <img src="${p.img}" alt="${escAttr(strip(t(p.alt)))}" data-i18n-alt="${p.alt}"/>
+            </div>${p.tree ? `
+            <figure class="pp-tree">
+                <img src="${p.tree.img}" width="${p.tree.w}" height="${p.tree.h}" loading="lazy" decoding="async" alt="${escAttr(strip(t(p.tree.alt)))}" data-i18n-alt="${p.tree.alt}"/>
+                <figcaption data-i18n="${p.tree.caption}">${t(p.tree.caption)}</figcaption>
+            </figure>` : ''}
         </div>
         <div class="pp-info">
             ${i(p.badge, 'p', 'pp-badge')}
@@ -421,7 +498,11 @@ ${navHtml(lang)}
                 <a href="${URLS.ship[lang]}" data-i18n="pp.delivery.link">${t('pp.delivery.link')}</a>
             </div>
         </div>
-    </div>${reads}
+    </div>
+    <section class="pp-section pp-local">
+        <h2 data-i18n="pp.local.title">${t('pp.local.title')}</h2>
+        <p data-i18n="pp.local.text">${t('pp.local.text')}</p>
+    </section>${p.faq ? faqHtml(lang, p.faq) : ''}${mapHtml(lang)}${reads}
     <section class="pp-section">
         <h2 data-i18n="pp.related.title">${t('pp.related.title')}</h2>
         <div class="tiles">
@@ -459,7 +540,7 @@ ${navHtml(lang)}
     <p class="intro" data-i18n="ship.intro">${t('ship.intro')}</p>
     <div class="ship-grid">
         ${['post', 'pickup', 'min', 'pay', 'abroad', 'returns'].map(card).join('\n        ')}
-    </div>
+    </div>${mapHtml(lang)}
     <div class="ship-actions">
         <a href="/checkout.html" class="btn-primary" data-i18n="ship.cta">${t('ship.cta')}</a>
         <a href="https://wa.me/${WA}?text=${encodeURIComponent(waText)}" class="btn-ghost" target="_blank" rel="noopener noreferrer" data-i18n="ship.contact">${t('ship.contact')}</a>
