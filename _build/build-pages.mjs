@@ -323,6 +323,16 @@ footer{background:var(--surface-lowest);border-top:1px solid rgba(46,58,44,.3);p
 .pp-buy .pp-bundle{order:3;margin-bottom:1rem}
 .pp-buy .thickness{order:4;margin-bottom:0}
 }
+/* Mobile (≤ 480 px) : interface légèrement réduite (texte -1 px, titres -2 à -4 px, espacements -12 %), boutons ≥ 44 px, champs à 16 px */
+@media(max-width:480px){
+html{font-size:15px}
+.pp-head h1{font-size:1.75rem}
+.pp-section{margin-top:3.25rem}
+.pp-section h2,.pp-delivery h2{font-size:1.35rem}
+.ship h1{font-size:1.9rem}
+.ship-card h2{font-size:1.15rem}
+.btn-primary,.btn-ghost{min-height:44px}
+}
 .whatsapp-fab{transition:opacity .2s,transform .2s}
 .whatsapp-fab.fab-hidden{opacity:0;transform:translateY(12px);pointer-events:none}
 

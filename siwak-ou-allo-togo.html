@@ -219,6 +219,16 @@
         .product-tile-price { font-size: 0.85rem; color: var(--primary); margin: 0 0 0.75rem !important; }
         .product-tile .btn-primary { align-self: flex-start; margin-top: auto; }
     </style>
+<style id="sivaa-mobile-scale">
+    /* Mobile (≤ 480 px) : interface légèrement réduite. Les champs restent à 16 px (pas de zoom iOS), les boutons à 44 px minimum. */
+    @media (max-width: 480px) {
+        html { font-size: 15px; }
+        .section-pad { padding-top: 3.75rem; padding-bottom: 3.75rem; }
+        .form-group input, .form-group select, .form-group textarea { padding: 0.6rem 0.9rem; line-height: 1.3; }
+        .btn-primary, .btn-ghost, .btn-more { min-height: 44px; }
+        .modal-close { width: 44px; height: 44px; }
+    }
+</style>
 </head>
 <body>
 

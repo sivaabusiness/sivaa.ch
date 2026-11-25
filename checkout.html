@@ -49,7 +49,9 @@
         .lang-opt.active { color: var(--primary); font-weight: 600; }
         .page-header .label-sm { color: var(--primary); display: block; margin-bottom: 0.75rem; }
         .page-header h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; }
-        .checkout-grid { display: grid; gap: 3rem; padding-bottom: 6rem; }
+        .checkout-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 3rem; padding-bottom: 6rem; }
+        .checkout-grid > * { min-width: 0; }
+        .promo-row button { flex-shrink: 0; }
         @media (min-width: 1024px) { .checkout-grid { grid-template-columns: 1fr 400px; } }
         .form-block { margin-bottom: 2.5rem; }
         .form-block-title { font-family: 'Newsreader', serif; font-size: 1.2rem; font-weight: 400; margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--outline-variant); }
@@ -132,7 +134,7 @@
         .summary-total .lbl { font-family: 'Newsreader', serif; font-size: 1.1rem; }
         .summary-total .amt { font-family: 'Newsreader', serif; font-size: 1.6rem; color: var(--primary); }
         .promo-row { display: flex; gap: 0.5rem; margin-top: 1rem; }
-        .promo-row input { flex: 1; background: var(--surface-mid); border: 1px solid var(--outline-variant); border-radius: 0.4rem; padding: 0.6rem 0.875rem; color: var(--text); font-size: 0.8rem; font-family: 'Inter', sans-serif; outline: none; transition: border-color 0.2s; }
+        .promo-row input { flex: 1 1 auto; min-width: 0; width: 100%; background: var(--surface-mid); border: 1px solid var(--outline-variant); border-radius: 0.4rem; padding: 0.6rem 0.875rem; color: var(--text); font-size: 0.8rem; font-family: 'Inter', sans-serif; outline: none; transition: border-color 0.2s; }
         .promo-row input:focus { border-color: var(--primary); }
         .promo-row button { background: var(--surface-highest); color: var(--text-variant); border: none; border-radius: 0.4rem; padding: 0.6rem 1rem; font-size: 0.8rem; cursor: pointer; transition: all 0.2s; white-space: nowrap; }
         .promo-row button:hover { background: var(--primary); color: var(--dark-green); }
@@ -168,6 +170,16 @@
             /* iOS zoome sur les champs dont le texte fait moins de 16 px */
         @media (max-width: 767px) { input:not([type="radio"]):not([type="checkbox"]), select, textarea { font-size: 16px !important; } }
     </style>
+<style id="sivaa-mobile-scale">
+    /* Mobile (≤ 480 px) : interface légèrement réduite. Les champs restent à 16 px (pas de zoom iOS), les boutons à 44 px minimum. */
+    @media (max-width: 480px) {
+        html { font-size: 15px; }
+        .section-pad { padding-top: 3.75rem; padding-bottom: 3.75rem; }
+        .form-group input, .form-group select, .form-group textarea { padding: 0.6rem 0.9rem; line-height: 1.3; }
+        .btn-primary, .btn-ghost, .btn-more { min-height: 44px; }
+        .modal-close { width: 44px; height: 44px; }
+    }
+</style>
 </head>
 <body>
 
