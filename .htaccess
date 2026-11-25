@@ -1,2 +1,12 @@
 # Le dossier _build contient l'outil de génération des pages : il ne doit pas être servi.
 RedirectMatch 404 ^/_build(/.*)?$
+
+# Anciennes adresses des images (renommées) → nouvelles adresses
+Redirect 301 /siwako.jpg /baton-siwak-premium.jpg
+Redirect 301 /allo-togo.png /allo-togo-batonnets.png
+Redirect 301 /imgetui.png /etui-siwak.png
+Redirect 301 /dentifrice-girofle.jpg /dentifrice-siwak-clou-de-girofle.jpg
+Redirect 301 /dentifrice-au-siwak-et-charbon-actif.jpg /dentifrice-siwak-charbon-actif.jpg
+Redirect 301 /siwakblog1.png /baton-siwak-naturel.png
+Redirect 301 /xylitol.jpeg /xylitol-poudre-bouleau.jpg
+Redirect 301 /xyxy.jpg /xylitol-siwak-brosse-bambou.jpg

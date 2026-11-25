@@ -51,10 +51,10 @@ const URLS = {
 
 const steps = (id, n) => Array.from({ length: n }, (_, i) => `pp.${id}.use.${i + 1}`);
 const faqs = (id, n) => Array.from({ length: n }, (_, i) => `pp.${id}.faq.${i + 1}`);
-const keys = (id) => [1, 2, 3, 4].map((i) => `pp.${id}.k${i}`);
+const keys = (id) => [1, 2, 3, 4, 5].map((i) => `pp.${id}.k${i}`);
 const PRODUCTS = [
     {
-        id: 'p1', img: '/siwako.jpg', alt: 'product1.image.alt', badge: 'product1.badge', name: 'product1.name',
+        id: 'p1', img: '/baton-siwak-premium.jpg', alt: 'product1.image.alt', badge: 'product1.badge', name: 'product1.name',
         intro: 'pp.p1.intro', keypoints: keys('p1'), price: 'product1.price', buy: 'modal1.buy', bundle: true,
         thickness: 'sivaa_siwak_thickness', offerPrice: '6.00',
         tree: { img: '/arbre-salvadora-persica.webp', w: 507, h: 508, alt: 'pp.tree.p1.alt', caption: 'pp.tree.p1.caption' },
@@ -72,7 +72,7 @@ const PRODUCTS = [
         },
     },
     {
-        id: 'p2', img: '/allo-togo.png', alt: 'product2.image.alt', badge: 'product2.badge', name: 'product2.name',
+        id: 'p2', img: '/allo-togo-batonnets.png', alt: 'product2.image.alt', badge: 'product2.badge', name: 'product2.name',
         intro: 'pp.p2.intro', keypoints: keys('p2'), price: 'product2.price', buy: 'modal1.buy',
         thickness: 'sivaa_allotogo_thickness', offerPrice: '6.00',
         tree: { img: '/fagara-zanthoxylum.webp', w: 387, h: 516, alt: 'pp.tree.p2.alt', caption: 'pp.tree.p2.caption' },
@@ -85,12 +85,12 @@ const PRODUCTS = [
         faq: faqs('p2', 5),
         reads: ['siwak-ou-allo-togo.html', 'siwak-epais-vs-fin.html'], related: ['p1', 'p3', 'p5'],
         desc: {
-            fr: 'Allo Togo : 5 bâtonnets à mâcher en bois de fagara, importés du Togo, au goût vif. CHF 6.00 le lot. Retrait aux Acacias (Genève) ou livraison Swiss Post dans toute la Suisse.',
-            de: 'Allo Togo: 5 Kaustäbe aus Fagara-Holz, direkt aus Togo, mit lebhaftem Geschmack. CHF 6.00 pro Packung. Versand mit Swiss Post nach Zürich, Basel und in die ganze Schweiz.',
+            fr: 'Allo Togo, l\'alternative fraîcheur au siwak : 5 bâtonnets à mâcher importés du Togo, au goût vif. CHF 6.00 le lot. Retrait aux Acacias (Genève) ou livraison Swiss Post dans toute la Suisse.',
+            de: 'Allo Togo, die frische Alternative zum Siwak: 5 Kaustäbe, direkt aus Togo importiert, mit lebhaftem Geschmack. CHF 6.00 pro Packung. Versand mit Swiss Post nach Zürich, Basel und in die ganze Schweiz.',
         },
     },
     {
-        id: 'p3', img: '/imgetui.png', alt: 'modal3.image.alt', badge: 'product3.badge', name: 'product3.name',
+        id: 'p3', img: '/etui-siwak.png', alt: 'product3.image.alt', badge: 'product3.badge', name: 'product3.name',
         intro: 'pp.p3.intro', keypoints: keys('p3'), price: 'product3.price', buy: 'modal3.buy', offerPrice: '6.00',
         sections: [
             { type: 'text', title: 'pp.p3.why.title', paras: ['pp.p3.why.1', 'pp.p3.why.2'] },
@@ -105,7 +105,7 @@ const PRODUCTS = [
         },
     },
     {
-        id: 'p4', img: '/dentifrice-girofle.jpg', alt: 'product4.image.alt', badge: 'product4.badge', name: 'product4.name',
+        id: 'p4', img: '/dentifrice-siwak-clou-de-girofle.jpg', alt: 'product4.image.alt', badge: 'product4.badge', name: 'product4.name',
         intro: 'pp.p4.intro', keypoints: keys('p4'), price: 'product4.price', buy: 'modal4.buy', offerPrice: '10.00',
         sections: [
             { type: 'text', title: 'pp.p4.inside.title', paras: ['pp.p4.inside.1'] },
@@ -120,7 +120,7 @@ const PRODUCTS = [
         },
     },
     {
-        id: 'p5', img: '/dentifrice-au-siwak-et-charbon-actif.jpg', alt: 'product5.image.alt', badge: 'product5.badge', name: 'product5.name',
+        id: 'p5', img: '/dentifrice-siwak-charbon-actif.jpg', alt: 'product5.image.alt', badge: 'product5.badge', name: 'product5.name',
         intro: 'pp.p5.intro', keypoints: keys('p5'), price: 'product5.price', buy: 'modal5.buy', offerPrice: '10.00',
         sections: [
             { type: 'text', title: 'pp.p5.inside.title', paras: ['pp.p5.inside.1'] },
@@ -267,6 +267,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(9,22,11,.7);b
 .ship-card p{color:var(--text-variant);font-size:.92rem;line-height:1.8}
 .ship-card p strong{color:var(--text);font-weight:500}
 .ship-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2.5rem}
+/* WhatsApp */
+.whatsapp-fab { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 50; }.whatsapp-btn {width: 3.5rem; height: 3.5rem; border-radius: 50%;background: #25D366; border: none; cursor: pointer;display: flex; align-items: center; justify-content: center;box-shadow: 0 4px 14px rgba(0,0,0,0.4); transition: transform 0.2s;}.whatsapp-btn:hover { transform: scale(1.1); }.whatsapp-btn svg { width: 1.75rem; height: 1.75rem; fill: white; }
+/* Sur mobile, laisser de la place sous le dernier contenu pour le bouton flottant */
+@media(max-width:767px){body footer{padding-bottom:5.5rem}}
 footer{background:var(--surface-lowest);border-top:1px solid rgba(46,58,44,.3);padding:3rem 0 2rem;margin-top:4rem}
 .footer-grid{display:grid;gap:2rem;margin-bottom:2.5rem}
 @media(min-width:768px){.footer-grid{grid-template-columns:2fr 1fr 1fr 1fr}}
@@ -370,6 +374,21 @@ function footerHtml(lang) {
     </div>
 </footer>`;
 }
+
+/* Bouton WhatsApp flottant : identique à celui de l'accueil */
+const FAB_FR = `<div class="whatsapp-fab">
+    <a
+            href="https://wa.me/41779496504?text=Bonjour%20SIVÀA%20Geneva%2C%20j%27ai%20une%20question%20sur%20le%20Siwak%20%F0%9F%8C%BF"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Contacter SIVÀA Geneva sur WhatsApp"
+    >
+        <button class="whatsapp-btn" type="button" aria-hidden="true">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        </button>
+    </a>
+</div>`;
+const fabHtml = (lang) => (lang === 'de' ? FAB_FR.replace('text=Bonjour%20', 'text=Hallo%20') : FAB_FR);
 
 const tail = `<script src="${I18N_SRC}"></script>
 </body>
@@ -613,7 +632,8 @@ ${navHtml(lang)}
     </section>
 </div>
 </main>
-${footerHtml(lang)}${thicknessScript}
+${footerHtml(lang)}
+${fabHtml(lang)}${thicknessScript}
 ${tail}`;
 }
 
@@ -650,6 +670,7 @@ ${navHtml(lang)}
 </div>
 </main>
 ${footerHtml(lang)}
+${fabHtml(lang)}
 ${tail}`;
 }
 

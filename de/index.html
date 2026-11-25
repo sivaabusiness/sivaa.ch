@@ -164,6 +164,8 @@
         .card-desc { color: #c2c9b4; font-size: 0.875rem; line-height: 1.6; min-height: 3.2em; margin-bottom: 1.25rem;
             display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
         .card-foot { margin-top: auto; display: flex; flex-direction: column; align-items: stretch; gap: 0.75rem; }
+        .card-ship { background: #152317; border-radius: 0.5rem; padding: 0.6rem 0.75rem; font-size: 0.75rem; line-height: 1.5; color: #8c9380;
+            min-height: calc(3em + 1.2rem); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
         .card-price { font-family: 'Newsreader', serif; font-size: 1.2rem; color: #9dd75a; }
         .card-foot .btn-more { width: 100%; }
         .shadow-siv { box-shadow: 0 8px 32px rgba(9,22,11,0.6); }
@@ -549,7 +551,7 @@
         <!-- IMAGE -->
         <div style="position:relative;" class="hero-animate-3">
             <div class="hero-image shadow-siv-lg glow-primary">
-                <img src="https://i.pinimg.com/1200x/80/d2/39/80d2397cf2e81cda78fa062dd9b48d03.jpg" alt="Premium SIVÀA Geneva Siwak-Stab, Schweizer natürliche Zahnbürste" data-i18n-alt="hero.image.alt" loading="eager">
+                <img src="https://i.pinimg.com/1200x/80/d2/39/80d2397cf2e81cda78fa062dd9b48d03.jpg" alt="Bâtons de siwak bruts éparpillés sur une planche en bois clair" data-i18n-alt="Bâtons de siwak bruts éparpillés sur une planche en bois clair" loading="eager">
             </div>
             <div class="hero-badge-float shadow-siv">
                 <span style="font-size:0.875rem;font-weight:500;color:#d7e7d4;" data-i18n="hero.badge.float">🌿 Eine von der <a href="https://iris.who.int/bitstreams/1f64ff17-718e-44d0-9935-26501fa61991/download" target="_blank" rel="noopener" style="color:#9dd75a;">WHO</a> geförderte Praxis</span>
@@ -580,13 +582,14 @@
         <!-- PRODUIT 1 -->
         <article id="siwak-premium" class="card-siv reveal reveal-delay-1" style="overflow:hidden;cursor:pointer;" onclick="openModal('modal-1')">
             <div class="product-img-wrap">
-                <img src="/siwako.jpg" alt="SIVÀA Premium Siwak-Stab, natürliche Salvadora persica Zahnbürste" data-i18n-alt="product1.image.alt" loading="lazy">
+                <img src="/baton-siwak-premium.jpg" alt="Cinq bâtons de siwak premium SIVÀA en sachets individuels, disposés en éventail" data-i18n-alt="Cinq bâtons de siwak premium SIVÀA en sachets individuels, disposés en éventail" loading="lazy">
                 <div style="position:absolute;top:0.75rem;left:0.75rem;background:rgba(127,153,90,0.85);color:white;font-size:0.7rem;padding:0.25rem 0.75rem;border-radius:9999px;backdrop-filter:blur(4px);" data-i18n="product1.badge">Handgeerntet · Pakistan</div>
             </div>
             <div class="card-body">
                 <h3 class="card-title" data-i18n="product1.name">Premium Siwak-Stab</h3>
                 <p class="card-desc" data-i18n="product1.desc">Salvadora-persica-Wurzel, von Hand geerntet. Ohne Wasser und Zahnpasta verwendbar.</p>
                 <div class="card-foot">
+                    <p class="card-ship" data-i18n="modal1.shipping">🚚 Versandkosten Swiss Post · CHF 10.00 · Versand innerhalb von 48 Std. + 2–3 Tage</p>
                     <span class="card-price" data-i18n="product1.price">CHF 6.00 pro Stück</span>
                     <a href="/de/siwak-premium.html" onclick="event.stopPropagation()" class="btn-ghost btn-more" data-i18n="btn.more">Mehr erfahren</a>
                 </div>
@@ -596,13 +599,14 @@
         <!-- PRODUIT 2 -->
         <article id="allo-togo" class="card-siv reveal reveal-delay-2" style="overflow:hidden;cursor:pointer;" onclick="openModal('modal-2')">
             <div class="product-img-wrap">
-                <img src="/allo-togo.png" alt="Allo Togo Kaustab, natürliche Siwak-Alternative aus Togo" data-i18n-alt="product2.image.alt" loading="lazy">
-                <div style="position:absolute;top:0.75rem;left:0.75rem;background:rgba(127,153,90,0.85);color:white;font-size:0.7rem;padding:0.25rem 0.75rem;border-radius:9999px;backdrop-filter:blur(4px);" data-i18n="product2.badge">Kaustab aus Togo</div>
+                <img src="/allo-togo-batonnets.png" alt="Bâtonnets à mâcher Allo Togo attachés en petits fagots de bois clair" data-i18n-alt="Bâtonnets à mâcher Allo Togo attachés en petits fagots de bois clair" loading="lazy">
+                <div style="position:absolute;top:0.75rem;left:0.75rem;background:rgba(127,153,90,0.85);color:white;font-size:0.7rem;padding:0.25rem 0.75rem;border-radius:9999px;backdrop-filter:blur(4px);" data-i18n="product2.badge">Die frische Alternative · Aus Togo importiert</div>
             </div>
             <div class="card-body">
                 <h3 class="card-title" data-i18n="product2.name">Allo Togo</h3>
-                <p class="card-desc" data-i18n="product2.desc">Fagara-Stäbe aus Togo, lebhaft und leicht scharf im Geschmack.</p>
+                <p class="card-desc" data-i18n="product2.desc">Die frische Alternative zum Siwak, lebhaft und leicht scharf im Geschmack.</p>
                 <div class="card-foot">
+                    <p class="card-ship" data-i18n="modal1.shipping">🚚 Versandkosten Swiss Post · CHF 10.00 · Versand innerhalb von 48 Std. + 2–3 Tage</p>
                     <span class="card-price" data-i18n="product2.price">CHF 6.00 pro 5 Stück</span>
                     <a href="/de/allo-togo.html" onclick="event.stopPropagation()" class="btn-ghost btn-more" data-i18n="btn.more">Mehr erfahren</a>
                 </div>
@@ -613,13 +617,14 @@
 
         <article id="etui-siwak" class="card-siv reveal reveal-delay-3" style="overflow:hidden;cursor:pointer;" onclick="openModal('modal-3')">
             <div class="product-img-wrap" style="background:#09160b;">
-                <img src="/imgetui.png" alt="Schutzetui für Siwak, hygienisches Reiseetui" style="object-fit: contain; padding: 0.5rem;" loading="lazy" data-i18n-alt="product3.image.alt">
+                <img src="/etui-siwak.png" alt="Étui siwak vert mat de 21 cm, avec ses dimensions indiquées" style="object-fit: contain; padding: 0.5rem;" loading="lazy" data-i18n-alt="Étui siwak vert mat de 21 cm, avec ses dimensions indiquées">
                 <div style="position:absolute;top:0.75rem;left:0.75rem;background:rgba(127,153,90,0.85);color:white;font-size:0.7rem;padding:0.25rem 0.75rem;border-radius:9999px;backdrop-filter:blur(4px);" data-i18n="product3.badge">Unverzichtbares Zubehör</div>
             </div>
             <div class="card-body">
                 <h3 class="card-title" data-i18n="product3.name">Siwak Schutzetui</h3>
                 <p class="card-desc" data-i18n="product3.desc">Schützt Ihren Siwak überall vor Staub und Feuchtigkeit.</p>
                 <div class="card-foot">
+                    <p class="card-ship" data-i18n="modal1.shipping">🚚 Versandkosten Swiss Post · CHF 10.00 · Versand innerhalb von 48 Std. + 2–3 Tage</p>
                     <span class="card-price" data-i18n="product3.price">CHF 6.00 pro Stück</span>
                     <a href="/de/siwak-etui.html" onclick="event.stopPropagation()" class="btn-ghost btn-more" data-i18n="btn.more">Mehr erfahren</a>
                 </div>
@@ -695,13 +700,14 @@
         <!-- PRODUIT 4 -->
         <article id="dentifrice-girofle" class="card-siv reveal reveal-delay-1" style="overflow:hidden;cursor:pointer;" onclick="openModal('modal-4')">
             <div class="product-img-wrap">
-                <img src="/dentifrice-girofle.jpg" alt="SIVÀA Geneva Siwak-Zahnpasta mit Gewürznelke" data-i18n-alt="product4.image.alt" loading="lazy">
+                <img src="/dentifrice-siwak-clou-de-girofle.jpg" alt="Tube et boîte de dentifrice au siwak et au clou de girofle" data-i18n-alt="Tube et boîte de dentifrice au siwak et au clou de girofle" loading="lazy">
                 <div style="position:absolute;top:0.75rem;left:0.75rem;background:rgba(127,153,90,0.85);color:white;font-size:0.7rem;padding:0.25rem 0.75rem;border-radius:9999px;backdrop-filter:blur(4px);" data-i18n="product4.badge">Siwak · Gewürznelke</div>
             </div>
             <div class="card-body">
                 <h3 class="card-title" data-i18n="product4.name">Siwak-Zahnpasta — Gewürznelke</h3>
                 <p class="card-desc" data-i18n="product4.desc">Siwak- und Gewürznelkenextrakte, warm und würzig im Geschmack.</p>
                 <div class="card-foot">
+                    <p class="card-ship" data-i18n="modal1.shipping">🚚 Versandkosten Swiss Post · CHF 10.00 · Versand innerhalb von 48 Std. + 2–3 Tage</p>
                     <span class="card-price" data-i18n="product4.price">CHF 10.00 pro Stück</span>
                     <a href="/de/siwak-zahnpasta-gewuerznelke.html" onclick="event.stopPropagation()" class="btn-ghost btn-more" data-i18n="btn.more">Mehr erfahren</a>
                 </div>
@@ -711,13 +717,14 @@
         <!-- PRODUIT 5 -->
         <article id="dentifrice-charbon" class="card-siv reveal reveal-delay-2" style="overflow:hidden;cursor:pointer;" onclick="openModal('modal-5')">
             <div class="product-img-wrap">
-                <img src="/dentifrice-au-siwak-et-charbon-actif.jpg" alt="SIVÀA Geneva Siwak-Zahnpasta mit Aktivkohle" data-i18n-alt="product5.image.alt" loading="lazy">
+                <img src="/dentifrice-siwak-charbon-actif.jpg" alt="Tube et boîte de dentifrice noir au siwak et au charbon actif" data-i18n-alt="Tube et boîte de dentifrice noir au siwak et au charbon actif" loading="lazy">
                 <div style="position:absolute;top:0.75rem;left:0.75rem;background:rgba(127,153,90,0.85);color:white;font-size:0.7rem;padding:0.25rem 0.75rem;border-radius:9999px;backdrop-filter:blur(4px);" data-i18n="product5.badge">Siwak · Aktivkohle</div>
             </div>
             <div class="card-body">
                 <h3 class="card-title" data-i18n="product5.name">Siwak-Zahnpasta — Aktivkohle</h3>
                 <p class="card-desc" data-i18n="product5.desc">Aktivkohle und Siwak-Extrakte für ein sauberes Mundgefühl.</p>
                 <div class="card-foot">
+                    <p class="card-ship" data-i18n="modal1.shipping">🚚 Versandkosten Swiss Post · CHF 10.00 · Versand innerhalb von 48 Std. + 2–3 Tage</p>
                     <span class="card-price" data-i18n="product5.price">CHF 10.00 pro Stück</span>
                     <a href="/de/siwak-zahnpasta-aktivkohle.html" onclick="event.stopPropagation()" class="btn-ghost btn-more" data-i18n="btn.more">Mehr erfahren</a>
                 </div>
@@ -1016,7 +1023,7 @@
 <div id="modal-1" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal1-title" onclick="if(event.target===this)closeModal('modal-1')">
     <div class="modal-box">
         <div style="position:relative;height:14rem;overflow:hidden;background:#152317;flex-shrink:0;">
-            <img src="/siwako.jpg" data-i18n-alt="product1.image.alt" alt="SIVÀA Premium Siwak-Stab, natürliche Salvadora persica Zahnbürste" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
+            <img src="/baton-siwak-premium.jpg" data-i18n-alt="Bâtons de siwak en racine de Salvadora persica, emballés un par un" alt="Bâtons de siwak en racine de Salvadora persica, emballés un par un" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
             <button onclick="closeModal('modal-1')" type="button" aria-label="Fermer" style="position:absolute;top:0.75rem;right:0.75rem;background:rgba(0,0,0,0.5);border:none;width:2rem;height:2rem;border-radius:50%;color:white;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1rem;">✕</button>
         </div>
         <div style="padding:1.5rem;">
@@ -1073,7 +1080,7 @@
 <div id="modal-2" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal2-title" onclick="if(event.target===this)closeModal('modal-2')">
     <div class="modal-box">
         <div style="position:relative;height:14rem;overflow:hidden;background:#152317;flex-shrink:0;">
-            <img src="/allo-togo.png" data-i18n-alt="product2.image.alt" alt="Allo Togo Kaustab, natürliche Siwak-Alternative aus Togo" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
+            <img src="/allo-togo-batonnets.png" data-i18n-alt="Lot de bâtonnets à mâcher Allo Togo en bois clair, importés du Togo" alt="Lot de bâtonnets à mâcher Allo Togo en bois clair, importés du Togo" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
             <button onclick="closeModal('modal-2')" type="button" aria-label="Fermer" style="position:absolute;top:0.75rem;right:0.75rem;background:rgba(0,0,0,0.5);border:none;width:2rem;height:2rem;border-radius:50%;color:white;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1rem;">✕</button>
         </div>
         <div style="padding:1.5rem;">
@@ -1082,7 +1089,7 @@
             </div>
             
 
-            <p style="color:#c2c9b4;font-size:0.875rem;line-height:1.7;margin-bottom:1rem;" data-i18n="modal2.desc">5er-Pack Kaustäbe aus Fagara-Holz, direkt aus Togo. Ihr lebhafter Geschmack mit leichtem Kribbeln ist eine angenehme Abwechslung zum Siwak.</p>
+            <p style="color:#c2c9b4;font-size:0.875rem;line-height:1.7;margin-bottom:1rem;" data-i18n="modal2.desc">5er-Pack Kaustäbe, direkt aus Togo importiert. Ihr lebhafter Geschmack mit leichtem Kribbeln ist eine angenehme Abwechslung zum Siwak.</p>
             
             
             <div style="background:#152317;border-radius:0.5rem;padding:0.75rem;font-size:0.75rem;color:#8c9380;margin-bottom:1.25rem;" data-i18n="modal1.shipping">🚚 Versandkosten Swiss Post · CHF 10.00 · Versand innerhalb von 48 Std. + 2–3 Tage</div>
@@ -1130,7 +1137,7 @@
     <div id="modal-3" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal3-title" onclick="if(event.target===this)closeModal('modal-3')">
     <div class="modal-box">
         <div style="position:relative;height:14rem;overflow:hidden;background:#09160b;flex-shrink:0;">
-            <img src="/imgetui.png" alt="Reiseetui für natürlichen Siwak" style="width:100%;height:100%;object-fit:contain;padding:1rem;" loading="lazy" data-i18n-alt="modal3.image.alt">
+            <img src="/etui-siwak.png" alt="Étui de transport vert pour bâton de siwak, facile à ouvrir et fermer" style="width:100%;height:100%;object-fit:contain;padding:1rem;" loading="lazy" data-i18n-alt="Étui de transport vert pour bâton de siwak, facile à ouvrir et fermer">
             <button onclick="closeModal('modal-3')" type="button" aria-label="Fermer" style="position:absolute;top:0.75rem;right:0.75rem;background:rgba(0,0,0,0.5);border:none;width:2rem;height:2rem;border-radius:50%;color:white;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1rem;z-index:10;">✕</button>
         </div>
         <div style="padding:1.5rem;">
@@ -1162,7 +1169,7 @@
 <div id="modal-4" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal4-title" onclick="if(event.target===this)closeModal('modal-4')">
     <div class="modal-box">
         <div style="position:relative;height:14rem;overflow:hidden;background:#152317;flex-shrink:0;">
-            <img src="/dentifrice-girofle.jpg" data-i18n-alt="product4.image.alt" alt="SIVÀA Geneva Siwak-Zahnpasta mit Gewürznelke" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
+            <img src="/dentifrice-siwak-clou-de-girofle.jpg" data-i18n-alt="Dentifrice au siwak parfum clou de girofle, présenté avec son emballage brun" alt="Dentifrice au siwak parfum clou de girofle, présenté avec son emballage brun" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
             <button onclick="closeModal('modal-4')" type="button" aria-label="Fermer" style="position:absolute;top:0.75rem;right:0.75rem;background:rgba(0,0,0,0.5);border:none;width:2rem;height:2rem;border-radius:50%;color:white;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1rem;">✕</button>
         </div>
         <div style="padding:1.5rem;">
@@ -1196,7 +1203,7 @@
 <div id="modal-5" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal5-title" onclick="if(event.target===this)closeModal('modal-5')">
     <div class="modal-box">
         <div style="position:relative;height:14rem;overflow:hidden;background:#152317;flex-shrink:0;">
-            <img src="/dentifrice-au-siwak-et-charbon-actif.jpg" data-i18n-alt="product5.image.alt" alt="SIVÀA Geneva Siwak-Zahnpasta mit Aktivkohle" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
+            <img src="/dentifrice-siwak-charbon-actif.jpg" data-i18n-alt="Dentifrice au siwak et charbon actif dans son emballage noir et or" alt="Dentifrice au siwak et charbon actif dans son emballage noir et or" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
             <button onclick="closeModal('modal-5')" type="button" aria-label="Fermer" style="position:absolute;top:0.75rem;right:0.75rem;background:rgba(0,0,0,0.5);border:none;width:2rem;height:2rem;border-radius:50%;color:white;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1rem;">✕</button>
         </div>
         <div style="padding:1.5rem;">
