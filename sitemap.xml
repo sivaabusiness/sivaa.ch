@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://sivaa.ch/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sivaa.ch/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://sivaa.ch/de/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sivaa.ch/"/>
   </url>
   <url>
     <loc>https://sivaa.ch/checkout.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -62,7 +65,7 @@
   </url>
   <url>
     <loc>https://sivaa.ch/mentions-legales.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
@@ -71,5 +74,122 @@
     <lastmod>2026-09-13</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://sivaa.ch/de/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sivaa.ch/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://sivaa.ch/de/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sivaa.ch/"/>
+  </url>
+  <url>
+    <loc>https://sivaa.ch/siwak-premium.html</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sivaa.ch/siwak-premium.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://sivaa.ch/de/siwak-premium.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sivaa.ch/siwak-premium.html"/>
+  </url>
+  <url>
+    <loc>https://sivaa.ch/de/siwak-premium.html</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sivaa.ch/siwak-premium.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://sivaa.ch/de/siwak-premium.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sivaa.ch/siwak-premium.html"/>
+  </url>
+  <url>
+    <loc>https://sivaa.ch/allo-togo.html</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sivaa.ch/allo-togo.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://sivaa.ch/de/allo-togo.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sivaa.ch/allo-togo.html"/>
+  </url>
+  <url>
+    <loc>https://sivaa.ch/de/allo-togo.html</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sivaa.ch/allo-togo.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://sivaa.ch/de/allo-togo.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sivaa.ch/allo-togo.html"/>
+  </url>
+  <url>
+    <loc>https://sivaa.ch/etui-siwak.html</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sivaa.ch/etui-siwak.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://sivaa.ch/de/siwak-etui.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sivaa.ch/etui-siwak.html"/>
+  </url>
+  <url>
+    <loc>https://sivaa.ch/de/siwak-etui.html</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sivaa.ch/etui-siwak.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://sivaa.ch/de/siwak-etui.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sivaa.ch/etui-siwak.html"/>
+  </url>
+  <url>
+    <loc>https://sivaa.ch/dentifrice-siwak-clou-de-girofle.html</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sivaa.ch/dentifrice-siwak-clou-de-girofle.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://sivaa.ch/de/siwak-zahnpasta-gewuerznelke.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sivaa.ch/dentifrice-siwak-clou-de-girofle.html"/>
+  </url>
+  <url>
+    <loc>https://sivaa.ch/de/siwak-zahnpasta-gewuerznelke.html</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sivaa.ch/dentifrice-siwak-clou-de-girofle.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://sivaa.ch/de/siwak-zahnpasta-gewuerznelke.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sivaa.ch/dentifrice-siwak-clou-de-girofle.html"/>
+  </url>
+  <url>
+    <loc>https://sivaa.ch/dentifrice-siwak-charbon-actif.html</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sivaa.ch/dentifrice-siwak-charbon-actif.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://sivaa.ch/de/siwak-zahnpasta-aktivkohle.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sivaa.ch/dentifrice-siwak-charbon-actif.html"/>
+  </url>
+  <url>
+    <loc>https://sivaa.ch/de/siwak-zahnpasta-aktivkohle.html</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sivaa.ch/dentifrice-siwak-charbon-actif.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://sivaa.ch/de/siwak-zahnpasta-aktivkohle.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sivaa.ch/dentifrice-siwak-charbon-actif.html"/>
+  </url>
+  <url>
+    <loc>https://sivaa.ch/livraison-retrait.html</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sivaa.ch/livraison-retrait.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://sivaa.ch/de/versand-abholung.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sivaa.ch/livraison-retrait.html"/>
+  </url>
+  <url>
+    <loc>https://sivaa.ch/de/versand-abholung.html</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sivaa.ch/livraison-retrait.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://sivaa.ch/de/versand-abholung.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sivaa.ch/livraison-retrait.html"/>
   </url>
 </urlset>

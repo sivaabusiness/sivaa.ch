@@ -56,7 +56,7 @@ const translations = {
         "product2.badge": "Bâton à mâcher venant du Togo",
         "product2.name": "Allo Togo",
         "product2.desc": "Bâton à mâcher en Fagara, venant du Togo. Interchangeable avec le Siwak.",
-        "product2.price": "CHF 6.00 pour 5 pièce",
+        "product2.price": "CHF 6.00 pour 5 pièces",
         "product2.image.alt": "Bâton à mâcher Allo Togo, alternative naturelle au Siwak venant du Togo",
 
        "product3.badge": "Accessoire Indispensable",
@@ -210,6 +210,52 @@ const translations = {
         "footer.col.info": "Informations",
         "footer.info.journal": "Journal",
         "footer.info.contact": "Contact",
+        "modal1.desc.intro": "Issu des racines de l'arbre <strong>Salvadora Persica</strong>, le Siwak est récolté de manière responsable dans des sols arides. La préparation est simple : épluchez l'écorce sur environ 1 centimètre, puis mordillez doucement le bois à l'aide de vos molaires. En quelques secondes, les fibres se séparent pour former un pinceau naturel aux poils souples, prêt à nettoyer vos dents.",
+        "pp1.desc": "Allez plus loin qu'un simple brossage. En mâchant l'extrémité de ce bâton, vous libérez une sève naturelle riche en silice qui polit l'émail sans l'agresser. Pratique et discret, il s'utilise sans eau ni dentifrice, où que vous soyez.",
+        "prestige.eyebrow": "Excellence & Confiance",
+        "prestige.title": "Garanties Prestige",
+        "prestige.pay.title": "Paiement Twint ou Revolut",
+        "prestige.pay.text": "Paiement simple par <strong>Twint ou Revolut</strong>. Je valide chaque commande personnellement.",
+        "prestige.min.title": "Livraison possible dès 15 CHF",
+        "prestige.min.text": "Commande possible dès <strong>CHF 15.00 d'articles</strong>, en livraison comme en retrait.",
+        "prestige.pickup.title": "Remise en Main Propre — Acacias, Genève",
+        "prestige.pickup.text": "Retrait gratuit aux Acacias (Quai des Vernets 11, Genève). <a href=\"/contact.html\" style=\"color:#9dd75a;\">Contactez-moi</a> pour coordonner votre retrait.",
+        "prestige.post.title": "Livraison Swiss Post",
+        "prestige.post.text": "Expédition sous 48h dès réception du paiement. Livraison dans <strong>toute la Suisse</strong> en 2–3 jours ouvrés. <a href=\"/livraison-retrait.html\" style=\"color:#9dd75a;\">Tous les détails</a>",
+        "toothpaste.eyebrow": "Le Rituel Complet",
+        "toothpaste.title.part1": "Nos",
+        "toothpaste.title.part2": "Dentifrices",
+        "toothpaste.title.part3": "Siwak",
+        "footer.address": "📍 Quai des Vernets 11, 1227 Genève (Acacias)",
+        "footer.info.shipping": "Livraison & retrait",
+        "pp.crumb.home": "Accueil",
+        "pp.crumb.products": "Produits",
+        "pp.bundle.title": "Prix dégressif",
+        "pp.whatsapp": "Une question ? WhatsApp",
+        "pp.card.link": "Fiche produit →",
+        "pp.delivery.title": "Livraison & retrait",
+        "pp.delivery.text": "Expédition Swiss Post dans toute la Suisse (CHF 10.00, envoi sous 48h puis 2–3 jours ouvrés) ou retrait gratuit aux Acacias (Genève) sur rendez-vous. Minimum CHF 15.00 d'articles. Paiement Twint ou Revolut.",
+        "pp.delivery.link": "Tous les détails →",
+        "pp.related.title": "Vous aimerez aussi",
+        "pp.related.see": "Voir le produit →",
+        "pp.read.title": "À lire aussi",
+        "ship.eyebrow": "Commander depuis toute la Suisse",
+        "ship.title": "Livraison & retrait",
+        "ship.intro": "Vos produits SIVÀA sont expédiés par Swiss Post partout en Suisse, ou vous les récupérez gratuitement en main propre à Genève. Voici tout ce qu'il faut savoir avant de commander.",
+        "ship.post.title": "Livraison Swiss Post dans toute la Suisse",
+        "ship.post.text": "Frais de port : <strong>CHF 10.00 par commande</strong>. Votre colis est expédié <strong>sous 48h</strong> après réception du paiement, puis livré en <strong>2 à 3 jours ouvrés</strong>. Le tarif et les délais sont les mêmes partout en Suisse : Genève, Carouge, Lancy, Nyon, Lausanne, Fribourg, Berne, Bâle, Zurich ou ailleurs.",
+        "ship.pickup.title": "Retrait gratuit aux Acacias (Genève)",
+        "ship.pickup.text": "Vous êtes à Genève ? Choisissez le <strong>retrait en main propre, gratuit</strong>, aux Acacias (Quai des Vernets 11, 1227 Genève), à deux pas de Plainpalais et de Carouge. Après votre commande, je vous contacte sur WhatsApp pour fixer l'heure et le lieu exact du retrait.",
+        "ship.min.title": "Minimum de commande",
+        "ship.min.text": "Les commandes sont possibles dès <strong>CHF 15.00 d'articles</strong> (hors frais de port), en livraison comme en retrait. Par exemple : 3 bâtons de Siwak, ou un dentifrice et un Allo Togo.",
+        "ship.pay.title": "Paiement",
+        "ship.pay.text": "Paiement par <strong>Twint</strong> ou <strong>Revolut</strong>. Pour une livraison, le paiement se fait avant l'expédition et la capture est à joindre à la commande. Pour un retrait, vous pouvez aussi payer sur place en Twint.",
+        "ship.abroad.title": "Livraison hors de Suisse",
+        "ship.abroad.text": "Pour le moment, les commandes sont livrées <strong>uniquement en Suisse</strong>.",
+        "ship.returns.title": "Retours",
+        "ship.returns.text": "Vous disposez de 14 jours après réception pour exercer votre droit de rétractation. Les conditions complètes figurent dans les <a href=\"/mentions-legales.html\" style=\"color:#9dd75a;\">mentions légales</a>.",
+        "ship.cta": "Commander maintenant →",
+        "ship.contact": "Une question sur votre livraison ? Écrivez-moi sur WhatsApp",
         "footer.col.legal": "Légal",
         "footer.legal.cgv": "CGV",
         "footer.legal.privacy": "Confidentialité",
@@ -585,6 +631,52 @@ const translations = {
         "footer.col.info": "Information",
         "footer.info.journal": "Journal",
         "footer.info.contact": "Contact",
+        "modal1.desc.intro": "Taken from the roots of the <strong>Salvadora Persica</strong> tree, Siwak is harvested responsibly in arid soils. Preparation is simple: peel the bark back about 1 centimetre, then gently chew the wood with your molars. Within seconds, the fibres separate into a natural brush with soft bristles, ready to clean your teeth.",
+        "pp1.desc": "Go further than ordinary brushing. Chewing the tip of the stick releases a natural sap rich in silica that polishes enamel without harming it. Practical and discreet, it works without water or toothpaste, wherever you are.",
+        "prestige.eyebrow": "Excellence & Trust",
+        "prestige.title": "Our Guarantees",
+        "prestige.pay.title": "Payment by Twint or Revolut",
+        "prestige.pay.text": "Simple payment by <strong>Twint or Revolut</strong>. I personally confirm every order.",
+        "prestige.min.title": "Delivery from CHF 15",
+        "prestige.min.text": "Orders possible from <strong>CHF 15.00 of items</strong>, for both delivery and pickup.",
+        "prestige.pickup.title": "In-person pickup — Acacias, Geneva",
+        "prestige.pickup.text": "Free pickup at Acacias (Quai des Vernets 11, Geneva). <a href=\"/contact.html\" style=\"color:#9dd75a;\">Contact me</a> to arrange your pickup.",
+        "prestige.post.title": "Swiss Post delivery",
+        "prestige.post.text": "Dispatched within 48h of receiving payment. Delivered <strong>anywhere in Switzerland</strong> in 2–3 business days. <a href=\"/livraison-retrait.html\" style=\"color:#9dd75a;\">All the details</a>",
+        "toothpaste.eyebrow": "The Complete Ritual",
+        "toothpaste.title.part1": "Our",
+        "toothpaste.title.part2": "Siwak",
+        "toothpaste.title.part3": "Toothpastes",
+        "footer.address": "📍 Quai des Vernets 11, 1227 Geneva (Acacias)",
+        "footer.info.shipping": "Delivery & pickup",
+        "pp.crumb.home": "Home",
+        "pp.crumb.products": "Products",
+        "pp.bundle.title": "Volume pricing",
+        "pp.whatsapp": "Questions? WhatsApp",
+        "pp.card.link": "Product page →",
+        "pp.delivery.title": "Delivery & pickup",
+        "pp.delivery.text": "Swiss Post shipping across Switzerland (CHF 10.00, dispatched within 48h, then 2–3 business days) or free pickup at Acacias (Geneva) by appointment. Minimum CHF 15.00 of items. Payment by Twint or Revolut.",
+        "pp.delivery.link": "All the details →",
+        "pp.related.title": "You may also like",
+        "pp.related.see": "View product →",
+        "pp.read.title": "Further reading",
+        "ship.eyebrow": "Order from anywhere in Switzerland",
+        "ship.title": "Delivery & pickup",
+        "ship.intro": "Your SIVÀA products are shipped by Swiss Post anywhere in Switzerland, or you can collect them for free in person in Geneva. Here is everything you need to know before ordering.",
+        "ship.post.title": "Swiss Post delivery across Switzerland",
+        "ship.post.text": "Shipping fee: <strong>CHF 10.00 per order</strong>. Your parcel is dispatched <strong>within 48h</strong> of receiving payment, then delivered in <strong>2 to 3 business days</strong>. The price and delivery times are the same everywhere in Switzerland: Geneva, Carouge, Lancy, Nyon, Lausanne, Fribourg, Bern, Basel, Zurich and beyond.",
+        "ship.pickup.title": "Free pickup at Acacias (Geneva)",
+        "ship.pickup.text": "In Geneva? Choose <strong>free in-person pickup</strong> at Acacias (Quai des Vernets 11, 1227 Geneva), a short walk from Plainpalais and Carouge. After you order, I'll contact you on WhatsApp to set the time and exact place of pickup.",
+        "ship.min.title": "Minimum order",
+        "ship.min.text": "Orders are possible from <strong>CHF 15.00 of items</strong> (excluding shipping), for both delivery and pickup. For example: 3 Siwak sticks, or a toothpaste and an Allo Togo.",
+        "ship.pay.title": "Payment",
+        "ship.pay.text": "Payment by <strong>Twint</strong> or <strong>Revolut</strong>. For delivery, payment is made before dispatch and the screenshot must be attached to your order. For pickup, you can also pay on the spot with Twint.",
+        "ship.abroad.title": "Delivery outside Switzerland",
+        "ship.abroad.text": "For now, orders are delivered <strong>within Switzerland only</strong>.",
+        "ship.returns.title": "Returns",
+        "ship.returns.text": "You have 14 days after receipt to exercise your right of withdrawal. Full terms are in the <a href=\"/mentions-legales.html\" style=\"color:#9dd75a;\">legal notice</a>.",
+        "ship.cta": "Order now →",
+        "ship.contact": "A question about your delivery? Message me on WhatsApp",
         "footer.col.legal": "Legal",
         "footer.legal.cgv": "T&C",
         "footer.legal.privacy": "Privacy",
@@ -942,6 +1034,52 @@ const translations = {
         "footer.col.info": "Informationen",
         "footer.info.journal": "Journal",
         "footer.info.contact": "Kontakt",
+        "modal1.desc.intro": "Aus den Wurzeln des <strong>Salvadora-persica</strong>-Baums gewonnen, wird Siwak verantwortungsvoll auf trockenen Böden geerntet. Die Anwendung ist einfach: Schälen Sie die Rinde etwa 1 Zentimeter ab und kauen Sie das Holz dann sanft mit den Backenzähnen. Innerhalb von Sekunden lösen sich die Fasern zu einem natürlichen Pinsel mit weichen Borsten, bereit für die Zahnreinigung.",
+        "pp1.desc": "Mehr als nur Zähneputzen. Beim Kauen der Spitze setzt der Stab einen natürlichen, kieselsäurereichen Saft frei, der den Zahnschmelz poliert, ohne ihn anzugreifen. Praktisch und diskret, ohne Wasser und ohne Zahnpasta verwendbar, wo immer Sie sind.",
+        "prestige.eyebrow": "Exzellenz & Vertrauen",
+        "prestige.title": "Unsere Garantien",
+        "prestige.pay.title": "Zahlung mit Twint oder Revolut",
+        "prestige.pay.text": "Einfache Zahlung mit <strong>Twint oder Revolut</strong>. Ich bestätige jede Bestellung persönlich.",
+        "prestige.min.title": "Versand ab CHF 15",
+        "prestige.min.text": "Bestellungen ab <strong>CHF 15.00 Warenwert</strong> möglich, für Versand und Abholung.",
+        "prestige.pickup.title": "Persönliche Übergabe — Acacias, Genf",
+        "prestige.pickup.text": "Kostenlose Abholung in Acacias (Quai des Vernets 11, Genf). <a href=\"/contact.html\" style=\"color:#9dd75a;\">Kontaktieren Sie mich</a>, um die Abholung zu vereinbaren.",
+        "prestige.post.title": "Versand mit Swiss Post",
+        "prestige.post.text": "Versand innerhalb von 48 Std. nach Zahlungseingang. Lieferung in <strong>die ganze Schweiz</strong> in 2–3 Werktagen. <a href=\"/de/versand-abholung.html\" style=\"color:#9dd75a;\">Alle Details</a>",
+        "toothpaste.eyebrow": "Das komplette Ritual",
+        "toothpaste.title.part1": "Unsere",
+        "toothpaste.title.part2": "Siwak-",
+        "toothpaste.title.part3": "Zahnpasten",
+        "footer.address": "📍 Quai des Vernets 11, 1227 Genf (Acacias)",
+        "footer.info.shipping": "Versand & Abholung",
+        "pp.crumb.home": "Startseite",
+        "pp.crumb.products": "Produkte",
+        "pp.bundle.title": "Staffelpreise",
+        "pp.whatsapp": "Fragen? WhatsApp",
+        "pp.card.link": "Zum Produkt →",
+        "pp.delivery.title": "Versand & Abholung",
+        "pp.delivery.text": "Versand mit Swiss Post in die ganze Schweiz (CHF 10.00, Versand innerhalb von 48 Std., dann 2–3 Werktage) oder kostenlose Abholung in Acacias (Genf) nach Vereinbarung. Mindestbestellwert CHF 15.00. Zahlung mit Twint oder Revolut.",
+        "pp.delivery.link": "Alle Details →",
+        "pp.related.title": "Das könnte Ihnen auch gefallen",
+        "pp.related.see": "Zum Produkt →",
+        "pp.read.title": "Weiterlesen",
+        "ship.eyebrow": "Bestellen aus der ganzen Schweiz",
+        "ship.title": "Versand & Abholung",
+        "ship.intro": "Ihre SIVÀA-Produkte werden mit Swiss Post in die ganze Schweiz verschickt, oder Sie holen sie kostenlos persönlich in Genf ab. Hier finden Sie alles, was Sie vor der Bestellung wissen müssen.",
+        "ship.post.title": "Versand mit Swiss Post in die ganze Schweiz",
+        "ship.post.text": "Versandkosten: <strong>CHF 10.00 pro Bestellung</strong>. Ihr Paket wird <strong>innerhalb von 48 Std.</strong> nach Zahlungseingang verschickt und in <strong>2 bis 3 Werktagen</strong> zugestellt. Preis und Lieferzeit sind in der ganzen Schweiz gleich: Zürich, Basel, Bern, Luzern, St. Gallen, Winterthur, Freiburg, Lausanne, Genf und überall sonst.",
+        "ship.pickup.title": "Kostenlose Abholung in Acacias (Genf)",
+        "ship.pickup.text": "Sie sind in Genf? Wählen Sie die <strong>kostenlose persönliche Abholung</strong> in Acacias (Quai des Vernets 11, 1227 Genf), nur wenige Schritte von Plainpalais und Carouge entfernt. Nach Ihrer Bestellung kontaktiere ich Sie per WhatsApp, um Zeit und genauen Ort der Abholung festzulegen.",
+        "ship.min.title": "Mindestbestellwert",
+        "ship.min.text": "Bestellungen sind ab <strong>CHF 15.00 Warenwert</strong> (ohne Versandkosten) möglich, für Versand und Abholung gleichermassen. Zum Beispiel: 3 Siwak-Stäbe, oder eine Zahnpasta und ein Allo Togo.",
+        "ship.pay.title": "Zahlung",
+        "ship.pay.text": "Zahlung mit <strong>Twint</strong> oder <strong>Revolut</strong>. Beim Versand erfolgt die Zahlung vor dem Versand, und der Screenshot ist der Bestellung beizufügen. Bei Abholung können Sie auch vor Ort mit Twint bezahlen.",
+        "ship.abroad.title": "Versand ins Ausland",
+        "ship.abroad.text": "Derzeit werden Bestellungen <strong>nur innerhalb der Schweiz</strong> geliefert.",
+        "ship.returns.title": "Rücksendungen",
+        "ship.returns.text": "Sie haben ab Erhalt 14 Tage Zeit, um Ihr Widerrufsrecht auszuüben. Die vollständigen Bedingungen finden Sie im <a href=\"/mentions-legales.html\" style=\"color:#9dd75a;\">Impressum</a>.",
+        "ship.cta": "Jetzt bestellen →",
+        "ship.contact": "Eine Frage zur Lieferung? Schreiben Sie mir auf WhatsApp",
         "footer.col.legal": "Rechtliches",
         "footer.legal.cgv": "AGB",
         "footer.legal.privacy": "Datenschutz",
@@ -1109,7 +1247,12 @@ const LANG_META = {
     de: { flag: "🇩🇪", label: "Deutsch"  }
 };
 
+// Langue imposée par la page (pages /de/ générées : <html data-page-lang="de">)
+const PAGE_LANG = document.documentElement.getAttribute('data-page-lang');
+const HOME_URL = PAGE_LANG === 'de' ? '/de/' : '/';
+
 function getStoredLang() {
+    if (PAGE_LANG && translations[PAGE_LANG]) return PAGE_LANG;
     try {
         const saved = localStorage.getItem('sivaa_lang');
         if (saved && translations[saved]) return saved;
@@ -1119,7 +1262,27 @@ function getStoredLang() {
     return 'fr';
 }
 
+// Choix de langue par l'utilisateur : si la page existe dans cette langue
+// (balise hreflang), on y va ; sinon on traduit la page sur place.
 function switchLanguage(lang) {
+    if (!translations[lang]) return;
+    const alt = document.querySelector('link[rel="alternate"][hreflang="' + lang + '"]');
+    // On garde seulement le chemin : la navigation reste sur le domaine courant
+    const pathOf = (link) => new URL(link.getAttribute('href'), location.href).pathname;
+    let target = alt ? pathOf(alt) : null;
+    if (!target && PAGE_LANG && lang !== PAGE_LANG) {
+        const def = document.querySelector('link[rel="alternate"][hreflang="x-default"]');
+        target = def ? pathOf(def) : '/';
+    }
+    if (target && target !== location.pathname) {
+        try { localStorage.setItem('sivaa_lang', lang); } catch (e) {}
+        location.href = target + location.hash;
+        return;
+    }
+    applyLanguage(lang);
+}
+
+function applyLanguage(lang) {
     if (!translations[lang]) return;
     const dict = translations[lang];
 
@@ -1334,7 +1497,7 @@ function injectBurgerMenu() {
     overlay.setAttribute('aria-label', 'Menu de navigation');
     overlay.innerHTML = `
     <div class="sivaa-bh">
-      <a href="index.html" class="sivaa-bh-logo" onclick="closeBurger()">SIVÀA <span>Geneva</span></a>
+      <a href="${HOME_URL}" class="sivaa-bh-logo" onclick="closeBurger()">SIVÀA <span>Geneva</span></a>
       <button id="sivaa-burger-close" onclick="closeBurger()" aria-label="Fermer le menu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
@@ -1342,11 +1505,11 @@ function injectBurgerMenu() {
       </button>
     </div>
     <div class="sivaa-bnav" role="navigation">
-      <a href="index.html" class="sivaa-bnav-link" onclick="closeBurger()"><span data-i18n="nav.home">Accueil</span></a>
-      <a href="blog.html"    class="sivaa-bnav-link" onclick="closeBurger()"><span data-i18n="nav.journal">Journal</span></a>
-      <a href="contact.html" class="sivaa-bnav-link" onclick="closeBurger()"><span data-i18n="nav.contact">Contact</span></a>
+      <a href="${HOME_URL}" class="sivaa-bnav-link" onclick="closeBurger()"><span data-i18n="nav.home">Accueil</span></a>
+      <a href="/blog.html"    class="sivaa-bnav-link" onclick="closeBurger()"><span data-i18n="nav.journal">Journal</span></a>
+      <a href="/contact.html" class="sivaa-bnav-link" onclick="closeBurger()"><span data-i18n="nav.contact">Contact</span></a>
     </div>
-    <a href="checkout.html" class="sivaa-bcta" onclick="closeBurger()" data-i18n="nav.order">Commander</a>
+    <a href="/checkout.html" class="sivaa-bcta" onclick="closeBurger()" data-i18n="nav.order">Commander</a>
     <div class="sivaa-blang">
       <p class="sivaa-blang-label">Langue / Language / Sprache</p>
       <div class="sivaa-blang-row">
@@ -1385,7 +1548,7 @@ function injectBurgerMenu() {
         const mobileGroup = document.createElement('div');
         mobileGroup.className = 'sivaa-mobile-right';
         mobileGroup.innerHTML = `
-      <a href="checkout.html" class="sivaa-mobile-cta" data-i18n="nav.order">Commander</a>
+      <a href="/checkout.html" class="sivaa-mobile-cta" data-i18n="nav.order">Commander</a>
       <button id="burger-btn" onclick="toggleBurger()" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="burger-overlay">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="3" y1="6" x2="21" y2="6"/>
@@ -1463,7 +1626,7 @@ document.addEventListener('DOMContentLoaded', () => {
     injectBurgerMenu();
     injectLanguageSelector();        // desktop
     injectLanguageSelectorMobile();  // mobile
-    switchLanguage(getStoredLang());
+    applyLanguage(getStoredLang());
 });
 
 /* ────────────────────────────────────────────────────────────────

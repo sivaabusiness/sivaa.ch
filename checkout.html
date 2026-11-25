@@ -208,10 +208,10 @@
                     </label>
                     <label class="mode-option">
                         <input type="radio" name="delivery-mode" value="retrait" onchange="setDeliveryMode(this.value)" />
-                        <div><strong data-i18n="mode_pickup">Retrait en main propre à Carouge (gratuit)</strong><span data-i18n="mode_pickup_sub">Dès CHF 15.00 d'articles</span></div>
+                        <div><strong data-i18n="mode_pickup">Retrait en main propre aux Acacias, Genève (gratuit)</strong><span data-i18n="mode_pickup_sub">Dès CHF 15.00 d'articles</span></div>
                     </label>
                 </div>
-                <p class="pickup-note" id="pickup-note" style="display:none;" data-i18n="pickup_note">Je te contacte sur WhatsApp pour fixer le lieu et l'heure du retrait à Carouge.</p>
+                <p class="pickup-note" id="pickup-note" style="display:none;" data-i18n="pickup_note">Je te contacte sur WhatsApp pour fixer le lieu et l'heure du retrait aux Acacias.</p>
             </div>
 
             <div class="form-block">
@@ -563,12 +563,12 @@
         mode_title:        { fr:'Mode de réception', en:'How to receive your order', de:'Erhalt der Bestellung' },
         mode_delivery:     { fr:'Livraison Swiss Post (+10 CHF)', en:'Swiss Post delivery (+10 CHF)', de:'Lieferung Swiss Post (+10 CHF)' },
         mode_delivery_sub: { fr:'Expédition sous 48h, livraison en 2–3 jours ouvrés', en:'Shipped within 48h, delivered in 2–3 business days', de:'Versand innerhalb von 48 Std., Lieferung in 2–3 Werktagen' },
-        mode_pickup:       { fr:'Retrait en main propre à Carouge (gratuit)', en:'Hand pickup in Carouge (free)', de:'Persönliche Abholung in Carouge (kostenlos)' },
+        mode_pickup:       { fr:'Retrait en main propre aux Acacias, Genève (gratuit)', en:'Hand pickup at Acacias, Geneva (free)', de:'Persönliche Abholung in Acacias, Genf (kostenlos)' },
         mode_pickup_sub:   { fr:"Dès CHF 15.00 d'articles", en:'From CHF 15.00 of items', de:'Ab CHF 15.00 (Artikel)' },
-        pickup_note:       { fr:"Je te contacte sur WhatsApp pour fixer le lieu et l'heure du retrait à Carouge.", en:"I'll contact you on WhatsApp to set the place and time for pickup in Carouge.", de:'Ich kontaktiere dich per WhatsApp, um Ort und Zeit der Abholung in Carouge festzulegen.' },
+        pickup_note:       { fr:"Je te contacte sur WhatsApp pour fixer le lieu et l'heure du retrait aux Acacias.", en:"I'll contact you on WhatsApp to set the place and time for pickup at Acacias.", de:'Ich kontaktiere dich per WhatsApp, um Ort und Zeit der Abholung in Acacias festzulegen.' },
         pickup_pay_note:   { fr:"Paiement à l'avance conseillé (Twint ou Revolut). Vous pouvez aussi payer sur place en Twint : dans ce cas, la capture n'est pas nécessaire.", en:'Paying in advance is recommended (Twint or Revolut). You can also pay on the spot with Twint: in that case, no screenshot is needed.', de:'Vorauszahlung empfohlen (Twint oder Revolut). Sie können auch vor Ort mit Twint bezahlen: dann ist kein Screenshot nötig.' },
         shipping_label:    { fr:'<strong>Frais de livraison Swiss Post</strong>', en:'<strong>Swiss Post shipping fee</strong>', de:'<strong>Versandkosten Swiss Post</strong>' },
-        pickup_label:      { fr:'<strong>Retrait à Carouge</strong>', en:'<strong>Pickup in Carouge</strong>', de:'<strong>Abholung in Carouge</strong>' },
+        pickup_label:      { fr:'<strong>Retrait aux Acacias</strong>', en:'<strong>Pickup at Acacias</strong>', de:'<strong>Abholung in Acacias</strong>' },
         lock_min:          { fr:"Montant minimum : CHF {min} d'articles", en:'Minimum: CHF {min} of items', de:'Mindestbetrag: CHF {min} (Artikel)' },
         page_label: { fr:"Votre commande", en:"Your order", de:"Ihre Bestellung" },
         page_title: { fr:"Commander votre <em class=\"accent\">Siwak</em>", en:"Order your <em class=\"accent\">Siwak</em>", de:"Bestellen Sie Ihren <em class=\"accent\">Siwak</em>" },
@@ -903,7 +903,7 @@
         ].filter(Boolean).join('\n');
 
         const reception = deliveryMode === 'retrait'
-            ? '🤝 Retrait en main propre à Carouge (à fixer sur WhatsApp)'
+            ? '🤝 Retrait en main propre aux Acacias (à fixer sur WhatsApp)'
             : `📍 Livraison Swiss Post : ${adresse}, ${npa} ${ville}, ${pays}`;
         const paymentLine = fileReady ? '💳 Paiement : capture jointe' : '💳 Paiement : sur place (Twint)';
         const dateStr = new Date().toLocaleString('fr-CH');
@@ -960,6 +960,6 @@ ${dateStr}`;
     });
 </script>
 <script>window.onSivaaLanguageChange = applyCheckoutLanguage;</script>
-<script src="i18n.js?v=20261121b"></script>
+<script src="i18n.js?v=20261125"></script>
 </body>
 </html>
