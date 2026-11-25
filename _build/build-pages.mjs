@@ -202,12 +202,17 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(9,22,11,.7);b
 .faq details[open] summary::after{transform:rotate(45deg)}
 .faq summary:focus-visible{outline:2px solid var(--primary);outline-offset:2px;border-radius:.6rem}
 .faq .faq-a{padding:0 1.25rem 1.1rem;color:var(--text-variant);font-size:.88rem;line-height:1.75}
-.map{display:grid;gap:1.25rem;align-items:start}
-@media(min-width:900px){.map{grid-template-columns:1fr 2fr}}
-.map-frame{position:relative;width:100%;aspect-ratio:16/10;border-radius:.75rem;overflow:hidden;border:1px solid var(--outline-variant);background:var(--surface-low)}
-.map-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(.3) contrast(1.05)}
-.map-info p{color:var(--text-variant);font-size:.92rem;line-height:1.7;margin-bottom:1rem}
-.map-info strong{color:var(--text);font-weight:500}
+.map{display:grid;gap:1.25rem;align-items:start;max-width:56rem}
+@media(min-width:768px){.map{grid-template-columns:1fr 1fr}}
+.map-embed{border-radius:.75rem;overflow:hidden;border:1px solid rgba(66,73,57,.3);background:var(--surface-low)}
+.map-embed iframe{display:block;width:100%;height:220px;border:0}
+@media(min-width:768px){.map-embed iframe{height:240px}}
+.map-side{display:flex;flex-direction:column;gap:.75rem}
+.map-card{display:flex;gap:.875rem;align-items:flex-start;background:var(--surface-low);border-radius:.75rem;padding:1rem 1.1rem}
+.map-ico{width:2.25rem;height:2.25rem;background:rgba(39,80,10,.6);border-radius:.5rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1rem}
+.map-card h3{font-family:'Inter',sans-serif;font-size:.85rem;font-weight:600;color:var(--text);margin-bottom:.2rem}
+.map-card p{font-size:.8rem;color:var(--text-variant);line-height:1.6}
+.map-side .btn-ghost{align-self:flex-start;padding:.6rem 1.1rem;font-size:.82rem}
 .ship h1{font-size:clamp(2.2rem,5vw,3.5rem);font-weight:300;line-height:1.15;margin-bottom:1.25rem}
 .ship .intro{font-size:1.05rem;color:var(--text-variant);line-height:1.8;max-width:42rem;margin-bottom:2.5rem}
 .ship-grid{display:grid;gap:1rem}
@@ -342,12 +347,25 @@ function mapHtml(lang) {
     <section class="pp-section">
         <h2 data-i18n="pp.map.title">${t('pp.map.title')}</h2>
         <div class="map">
-            <div class="map-info">
-                <p><strong data-i18n="pp.map.address">${t('pp.map.address')}</strong></p>
-                <a href="${MAP_DIRECTIONS}" class="btn-ghost" target="_blank" rel="noopener noreferrer" data-i18n="pp.map.directions">${t('pp.map.directions')}</a>
+            <div class="map-embed">
+                <iframe src="${MAP_EMBED}&amp;hl=${lang}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen title="${escAttr(strip(t('pp.map.title')))}" data-i18n-title="pp.map.title"></iframe>
             </div>
-            <div class="map-frame">
-                <iframe src="${MAP_EMBED}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen title="${escAttr(strip(t('pp.map.title')))}" data-i18n-title="pp.map.title"></iframe>
+            <div class="map-side">
+                <div class="map-card">
+                    <div class="map-ico" aria-hidden="true">📍</div>
+                    <div>
+                        <h3>SIVÀA Geneva</h3>
+                        <p><span data-i18n="pp.map.address">${t('pp.map.address')}</span><br/><span data-i18n="loc.district">${t('loc.district')}</span></p>
+                    </div>
+                </div>
+                <div class="map-card">
+                    <div class="map-ico" aria-hidden="true">🕐</div>
+                    <div>
+                        <h3 data-i18n="loc.appointment.title">${t('loc.appointment.title')}</h3>
+                        <p data-i18n="loc.appointment.desc">${t('loc.appointment.desc')}</p>
+                    </div>
+                </div>
+                <a href="${MAP_DIRECTIONS}" class="btn-ghost" target="_blank" rel="noopener noreferrer" data-i18n="pp.map.directions">${t('pp.map.directions')}</a>
             </div>
         </div>
     </section>`;
