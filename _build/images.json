@@ -87,5 +87,85 @@
    387,
    516
   ]
+ ],
+ "/baton-siwak-naturel.png": [
+  [
+   "baton-siwak-naturel-480.webp",
+   480,
+   306
+  ],
+  [
+   "baton-siwak-naturel-800.webp",
+   800,
+   511
+  ],
+  [
+   "baton-siwak-naturel-890.webp",
+   890,
+   568
+  ]
+ ],
+ "/xylitol-siwak-brosse-bambou.jpg": [
+  [
+   "xylitol-siwak-brosse-bambou-480.webp",
+   480,
+   316
+  ],
+  [
+   "xylitol-siwak-brosse-bambou-800.webp",
+   800,
+   527
+  ]
+ ],
+ "/miswak-vs-brosse-a-dents.jpg": [
+  [
+   "miswak-vs-brosse-a-dents-480.webp",
+   480,
+   204
+  ],
+  [
+   "miswak-vs-brosse-a-dents-800.webp",
+   800,
+   340
+  ],
+  [
+   "miswak-vs-brosse-a-dents-1200.webp",
+   1200,
+   509
+  ]
+ ],
+ "/siwak-epais-vs-fin.webp": [
+  [
+   "siwak-epais-vs-fin-480.webp",
+   480,
+   204
+  ],
+  [
+   "siwak-epais-vs-fin-800.webp",
+   800,
+   340
+  ],
+  [
+   "siwak-epais-vs-fin-1200.webp",
+   1200,
+   509
+  ]
+ ],
+ "/siwak-ou-allo-togo.webp": [
+  [
+   "siwak-ou-allo-togo-480.webp",
+   480,
+   204
+  ],
+  [
+   "siwak-ou-allo-togo-800.webp",
+   800,
+   340
+  ],
+  [
+   "siwak-ou-allo-togo-1200.webp",
+   1200,
+   509
+  ]
  ]
 }

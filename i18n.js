@@ -1746,26 +1746,34 @@ function switchLanguage(lang) {
     applyLanguage(lang);
 }
 
-function applyLanguage(lang) {
+// Langue dans laquelle le HTML de la page est déjà écrit (FR à la racine, DE sous /de/)
+const STATIC_LANG = (document.documentElement.getAttribute('lang') || 'fr').slice(0, 2).toLowerCase();
+
+function applyLanguage(lang, initial) {
     if (!translations[lang]) return;
     const dict = translations[lang];
+    // Au chargement, si la page est déjà dans la bonne langue, inutile de réécrire tous les textes
+    // (évite un recalcul complet de la mise en page sur mobile)
+    const skipText = initial && lang === STATIC_LANG;
 
-    document.querySelectorAll('[data-i18n]').forEach(el => {
+    // Le menu injecté par ce script est écrit en français : on le traduit toujours
+    const textScope = skipText ? '#burger-overlay [data-i18n], .sivaa-mobile-right [data-i18n]' : '[data-i18n]';
+    document.querySelectorAll(textScope).forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (dict[key] !== undefined) el.innerHTML = dict[key];
     });
 
-    document.querySelectorAll('[data-i18n-alt]').forEach(el => {
+    if (!skipText) document.querySelectorAll('[data-i18n-alt]').forEach(el => {
         const key = el.getAttribute('data-i18n-alt');
         if (dict[key] !== undefined) el.setAttribute('alt', dict[key]);
     });
 
-    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    if (!skipText) document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
         const key = el.getAttribute('data-i18n-placeholder');
         if (dict[key] !== undefined) el.setAttribute('placeholder', dict[key]);
     });
 
-    document.querySelectorAll('[data-i18n-title]').forEach(el => {
+    if (!skipText) document.querySelectorAll('[data-i18n-title]').forEach(el => {
         const key = el.getAttribute('data-i18n-title');
         if (dict[key] !== undefined) el.setAttribute('title', dict[key]);
     });
@@ -2096,7 +2104,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const target = alt && new URL(alt.getAttribute('href'), location.href).pathname;
         if (target && target !== location.pathname) { location.replace(target + location.search + location.hash); return; }
     }
-    applyLanguage(lang);
+    applyLanguage(lang, true);
 });
 
 /* ────────────────────────────────────────────────────────────────
@@ -2151,4 +2159,125 @@ document.addEventListener('click', () => {
     const switcher = document.getElementById('sivaa-lang-switcher-mobile');
     if (menu) menu.classList.remove('open');
     if (switcher) switcher.classList.remove('open');
+});
+
+/* ════════════════════════════════════════════════════════════════
+   INTERACTIONS (toutes les pages)
+   - FAQ : une seule question ouverte à la fois, ouverture / fermeture animées
+   - Survol : transitions douces sur boutons, cartes et liens (états hover seulement,
+     l'apparence au repos ne change pas)
+   - Défilement : apparition discrète des blocs situés sous la ligne de flottaison
+   - prefers-reduced-motion : aucune animation de mouvement
+════════════════════════════════════════════════════════════════ */
+const SV_REDUCE = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : { matches: false };
+const SV_EASE = 'cubic-bezier(0.22, 0.61, 0.36, 1)';
+
+function injectInteractionStyles() {
+    const css = `
+@media (hover: hover) and (pointer: fine) {
+  .btn-primary, .btn-ghost, .btn-more, .nav-cta, .sivaa-mobile-cta {
+    transition: background-color .25s ease, border-color .25s ease, color .25s ease, box-shadow .3s ease, transform .3s ${SV_EASE};
+  }
+  .btn-primary:hover, .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 20px -10px rgba(157,215,90,.55); }
+  .btn-ghost:hover, .btn-more:hover { transform: translateY(-1px); }
+  .card-siv.sv-done, .tile, .blog-card, .map-card {
+    transition: background-color .3s ease, border-color .3s ease, box-shadow .4s ease, transform .4s ${SV_EASE};
+    transition-delay: 0s;
+  }
+  .card-siv.sv-done:hover, .tile:hover, .blog-card:hover { transform: translateY(-4px); box-shadow: 0 18px 36px -22px rgba(0,0,0,.75); }
+  .footer-col a, .footer-bottom a, .reads a, .cmp-link a, .pp-delivery a, .article-body a { transition: color .2s ease, opacity .2s ease; }
+  .reads a:hover, .cmp-link a:hover, .pp-delivery a:hover { opacity: .85; }
+}
+.btn-primary:active, .btn-ghost:active, .btn-more:active, .nav-cta:active, .sivaa-mobile-cta:active { transform: scale(.98); transition-duration: .08s; }
+details > summary > span:last-child { display: inline-block; transition: transform .3s ${SV_EASE}; }
+details[open] > summary > span:last-child { transform: rotate(45deg); }
+.faq summary::after { transition: transform .3s ${SV_EASE}; }
+.sv-reveal { opacity: 0; transform: translateY(18px); }
+.sv-reveal.sv-in { opacity: 1; transform: none; transition: opacity .6s ${SV_EASE}, transform .7s ${SV_EASE}; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  .sv-reveal { opacity: 1; transform: none; }
+  .btn-primary:hover, .btn-ghost:hover, .btn-more:hover, .nav-cta:hover, .card-siv:hover, .tile:hover, .blog-card:hover,
+  .btn-primary:active, .btn-ghost:active, .btn-more:active { transform: none !important; }
+  details > summary > span:last-child, .faq summary::after { transition: none; }
+}`;
+    const style = document.createElement('style');
+    style.id = 'sivaa-interactions';
+    style.textContent = css;
+    document.head.appendChild(style);
+}
+
+/* FAQ en accordéon : un seul <details> ouvert par groupe (même parent) */
+function initFaqAccordion() {
+    const running = new WeakMap();
+    const animate = (d, open) => {
+        const summary = d.querySelector(':scope > summary');
+        const prev = running.get(d);
+        const from = d.getBoundingClientRect().height;
+        if (prev) prev.cancel();
+        if (SV_REDUCE.matches) { d.open = open; delete d.dataset.svState; return; }
+        let to;
+        if (open) { d.open = true; to = d.getBoundingClientRect().height; }
+        else { to = summary.getBoundingClientRect().height + (d.offsetHeight - d.clientHeight); }
+        if (Math.abs(to - from) < 1) { d.open = open; delete d.dataset.svState; return; }
+        const overflow = d.style.overflow;
+        d.style.overflow = 'hidden';
+        const anim = d.animate({ height: [from + 'px', to + 'px'] }, { duration: open ? 340 : 260, easing: SV_EASE });
+        const answer = summary.nextElementSibling;
+        if (open && answer) answer.animate({ opacity: [0, 1], transform: ['translateY(-6px)', 'none'] }, { duration: 320, delay: 60, easing: SV_EASE, fill: 'backwards' });
+        running.set(d, anim);
+        anim.onfinish = () => { if (!open) d.open = false; d.style.overflow = overflow; running.delete(d); delete d.dataset.svState; };
+        anim.oncancel = () => { d.style.overflow = overflow; };
+    };
+    document.querySelectorAll('details').forEach((d) => {
+        const summary = d.querySelector(':scope > summary');
+        if (!summary) return;
+        summary.addEventListener('click', (e) => {
+            e.preventDefault();
+            // Question ouverte (et pas déjà en train de se fermer) : on la referme
+            if (d.open && d.dataset.svState !== 'closing') { d.dataset.svState = 'closing'; animate(d, false); return; }
+            d.dataset.svState = 'opening';
+            [...d.parentElement.children].forEach((o) => {
+                if (o !== d && o.tagName === 'DETAILS' && o.open && o.dataset.svState !== 'closing') { o.dataset.svState = 'closing'; animate(o, false); }
+            });
+            animate(d, true);
+        });
+    });
+}
+
+/* Cartes de l'accueil : une fois apparues, elles reçoivent les transitions de survol */
+function initRevealHandoff() {
+    document.querySelectorAll('.card-siv.reveal').forEach((card) => {
+        const done = () => card.classList.add('sv-done');
+        card.addEventListener('transitionend', (e) => { if (e.target === card && e.propertyName === 'transform') done(); });
+        if (SV_REDUCE.matches) done();
+    });
+}
+
+/* Apparition au défilement des blocs sous la ligne de flottaison (pages sans animations propres) */
+function initScrollReveal() {
+    if (SV_REDUCE.matches || !('IntersectionObserver' in window)) return;
+    const SEL = '.pp-section, .tiles > .tile, .ship-card, .map-card, .blog-card, .article-body > h2, .article-body > h3, .article-body > div, .article-body > figure, .article-body > table, .article-body > .table-wrap, .article-body > blockquote, .article-body > [data-lang-block] > h2, .article-body > [data-lang-block] > h3, .article-body > [data-lang-block] > div';
+    const fold = window.innerHeight;
+    const items = [...document.querySelectorAll(SEL)].filter((el) => !el.closest('.reveal, .modal-overlay') && el.getBoundingClientRect().top > fold);
+    if (!items.length) return;
+    const io = new IntersectionObserver((entries) => {
+        let n = 0;
+        entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            const el = entry.target;
+            el.style.transitionDelay = Math.min(n++ * 70, 210) + 'ms';
+            el.classList.add('sv-in');
+            io.unobserve(el);
+            el.addEventListener('transitionend', () => { el.classList.remove('sv-reveal', 'sv-in'); el.style.transitionDelay = ''; }, { once: true });
+        });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.01 });
+    items.forEach((el) => { el.classList.add('sv-reveal'); io.observe(el); });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    injectInteractionStyles();
+    initFaqAccordion();
+    initRevealHandoff();
+    initScrollReveal();
 });
