@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="sivaa.png" type="image/png">
     <title>Le Xylitol en Suisse : Bienfaits, utilisation et achat | SIVÀA Geneva</title>
-    <link rel="canonical" href="https://sivaa.ch/xylitol-bienfaits.html" />
+    <link rel="canonical" href="https://sivaa.ch/xylitol-bienfaits.html"/>
+    <link rel="alternate" hreflang="fr" href="https://sivaa.ch/xylitol-bienfaits.html"/>
+    <link rel="alternate" hreflang="de" href="https://sivaa.ch/de/journal/xylitol-vorteile.html"/>
+    <link rel="alternate" hreflang="x-default" href="https://sivaa.ch/xylitol-bienfaits.html"/>
     <meta name="description" content="Découvrez le xylitol (sucre de bouleau) en Suisse : ses bienfaits méconnus contre les caries, son faible indice glycémique, où en trouver et comment l'utiliser au quotidien." />
     <meta name="keywords" content="Xylitol Suisse, sucre de bouleau, substitut naturel sucre, bienfaits xylitol, caries dentaires xylitol, acheter xylitol Genève, alternative saine sucre" />
     <meta property="og:title" content="Le Xylitol en Suisse : Ce Substitut Naturel aux Bienfaits Insoupçonnés" />
@@ -27,10 +30,6 @@
         }
     </script>
 
-    <link rel="alternate" hreflang="fr" href="https://sivaa-geneva.ch/article-xylitol" />
-    <link rel="alternate" hreflang="en" href="https://sivaa-geneva.ch/en/article-xylitol" />
-    <link rel="alternate" hreflang="de" href="https://sivaa-geneva.ch/de/artikel-xylitol" />
-    <link rel="alternate" hreflang="x-default" href="https://sivaa-geneva.ch/article-xylitol" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -194,6 +193,13 @@
         .modal-close { width: 44px; height: 44px; }
     }
 </style>
+    <style id="sivaa-article-wrap">
+        /* Colonne d'article : jamais plus large que l'écran, coupure des mots longs (allemand) */
+        .article-layout { grid-template-columns: minmax(0, 1fr); }
+        @media (min-width: 1024px) { .article-layout { grid-template-columns: minmax(0, 1fr) 280px; } }
+        .article-layout > * { min-width: 0; }
+        .article-body { overflow-wrap: break-word; -webkit-hyphens: auto; hyphens: auto; }
+    </style>
 </head>
 <body>
 
@@ -389,9 +395,9 @@
 
             <div class="cta-sidebar">
                 <h4>Siwak Premium SIVÀA</h4>
-                <p>Complétez votre hygiène dentaire naturelle. Sélectionné à la main au Pakistan, certifié à Genève.</p>
+                <p>Complétez votre hygiène dentaire naturelle. Récolté à la main au Pakistan, choisi avec soin à Genève.</p>
                 <a href="checkout.html" class="btn-primary" style="width:100%;justify-content:center;">
-                    Commander · CHF 7
+                    Commander · CHF 6
                     <svg class="icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </a>
                 <p style="font-size:0.68rem;color:var(--outline);margin-top:0.75rem;">Livraison Swiss Post · expédition sous 48h + 2–3 jours</p>
@@ -426,7 +432,7 @@
                 <ul>
                     <li><a href="siwak-premium.html">Siwak Premium</a></li>
                     <li><a href="allo-togo.html">Allo Togo</a></li>
-                    <li><a href="etui-siwak.html" data-i18n="footer.product.etui">Étui de Protection pour Siwak</a></li>
+                    <li><a href="etui-siwak.html" data-i18n="footer.product.etui">Étui de Protection Siwak</a></li>
                     <li><a href="checkout.html">Commander</a></li>
                 </ul>
             </div>
@@ -434,7 +440,7 @@
                 <h4>Informations</h4>
                 <ul>
                     <li><a href="blog.html">Journal</a></li>
-                    <li><a href="livraison-retrait.html" data-i18n="footer.info.shipping">Livraison &amp; retrait</a></li>
+                    <li><a href="livraison-retrait.html" data-i18n="footer.info.shipping">Livraison & retrait</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
@@ -488,6 +494,6 @@
     sections.forEach(s => observer.observe(s));
 </script>
 
-<script src="i18n.js?v=20261125"></script>
+<script src="i18n.js?v=4fdbac3b1d"></script>
 </body>
 </html>

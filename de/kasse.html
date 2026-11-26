@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="de" class="dark" data-page-lang="de"><head>
+    <!-- Généré par _build/build-pages.mjs — ne pas modifier à la main -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bestellen | SIVÀA Geneva — Siwak mit Versand in die ganze Schweiz</title>
+    <link rel="canonical" href="https://sivaa.ch/de/kasse.html">
+    <link rel="alternate" hreflang="fr" href="https://sivaa.ch/checkout.html">
+    <link rel="alternate" hreflang="de" href="https://sivaa.ch/de/kasse.html">
+    <link rel="alternate" hreflang="x-default" href="https://sivaa.ch/checkout.html">
+    <meta name="description" content="Bestellen Sie Siwak, Allo Togo oder Siwak-Zahnpasta bei SIVÀA Geneva. Versand mit Swiss Post innerhalb von 48 Std. + 2–3 Tage oder kostenlose Abholung in Genf.">
+    <link rel="icon" href="/sivaa.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Inter:wght@100;300;400;500;600;700;900&amp;display=swap" rel="stylesheet">
+
+    <style>
+        :root { --bg: #09160b; --surface-lowest: #0d1c0f; --surface-low: #111f13; --surface-mid: #162518; --surface-high: #1c2e1e; --surface-highest: #223525; --primary: #9dd75a; --primary-fixed: #b5e87a; --primary-dim: #2a3d1a; --secondary: #8db87a; --secondary-container: #182d12; --text: #d7e7d4; --text-variant: #8c9e89; --outline: #424939; --outline-variant: #2e3a2c; --dark-green: #0a1f0c; --danger: #e05a5a; --danger-dim: #3d1a1a; color-scheme: dark; }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; font-size: 0.875rem; min-height: 100vh; }
+        h1,h2,h3,h4 { font-family: 'Newsreader', serif; color: var(--text); }
+        a { text-decoration: none; color: inherit; }
+        img { display: block; max-width: 100%; }
+        ::selection { background: #9dd75a33; color: #d7e7d4; }
+        ::-webkit-scrollbar { width: 6px; } ::-webkit-scrollbar-track { background: #09160b; } ::-webkit-scrollbar-thumb { background: #424939; border-radius: 3px; }
+        .label-sm { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
+        em.accent { font-style: normal; color: var(--primary); }
+        nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(9,22,11,.7);backdrop-filter:blur(20px);border-bottom:1px solid rgba(66,73,57,.3);}
+        .nav-inner{max-width:1280px;margin:0 auto;padding:0 1.5rem;height:64px;display:flex;align-items:center;justify-content:space-between;}
+        .nav-logo{font-family:'Newsreader',serif;font-size:1.25rem;font-weight:300;letter-spacing:.08em;}
+        .nav-logo span{color:var(--primary);}
+        .nav-links{display:flex;align-items:center;gap:2rem;}
+        .nav-links a{font-size:.8rem;color:var(--text-variant);transition:color .2s;}
+        .nav-links a:hover{color:var(--text);}
+        .nav-links .nav-cta{background:var(--primary);color:var(--dark-green);font-weight:600;padding:.45rem 1.1rem;border-radius:.4rem;font-size:.8rem;}
+        .nav-links .nav-cta:hover{background:var(--primary-fixed);color:var(--dark-green);}
+        @media(max-width:640px){.nav-links a:not(.nav-cta){display:none;}}
+
+        .page-header { padding: 9.5rem 1.5rem 3rem; }
+        @media(min-width: 768px) { .page-header { padding: 8.5rem 1.5rem 3rem; } }
+
+        .lang-wrap { position: relative; }
+        .lang-btn { display: flex; align-items: center; gap: 0.35rem; background: var(--surface-high); border: 1px solid var(--outline-variant); color: var(--text-variant); border-radius: 0.4rem; padding: 0.35rem 0.7rem; font-size: 0.75rem; cursor: pointer; font-family: 'Inter', sans-serif; transition: all 0.2s; }
+        .lang-btn:hover { border-color: var(--outline); color: var(--text); }
+        .chevron { width: 0.75em; height: 0.75em; transition: transform 0.2s; }
+        .lang-wrap.open .chevron { transform: rotate(180deg); }
+        .lang-dropdown { display: none; position: absolute; top: calc(100% + 6px); right: 0; background: var(--surface-high); border: 1px solid var(--outline-variant); border-radius: 0.5rem; overflow: hidden; min-width: 130px; box-shadow: 0 12px 32px rgba(0,0,0,0.5); z-index: 200; }
+        .lang-wrap.open .lang-dropdown { display: block; }
+        .lang-opt { display: flex; align-items: center; gap: 0.6rem; padding: 0.6rem 1rem; font-size: 0.78rem; color: var(--text-variant); cursor: pointer; transition: all 0.15s; }
+        .lang-opt:hover { background: var(--surface-highest); color: var(--text); }
+        .lang-opt.active { color: var(--primary); font-weight: 600; }
+        .page-header .label-sm { color: var(--primary); display: block; margin-bottom: 0.75rem; }
+        .page-header h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; }
+        .checkout-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 3rem; padding-bottom: 6rem; }
+        .checkout-grid > * { min-width: 0; }
+        .promo-row button { flex-shrink: 0; }
+        @media (min-width: 1024px) { .checkout-grid { grid-template-columns: 1fr 400px; } }
+        .form-block { margin-bottom: 2.5rem; }
+        .form-block-title { font-family: 'Newsreader', serif; font-size: 1.2rem; font-weight: 400; margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--outline-variant); }
+        .form-row { display: grid; gap: 1rem; }
+        @media (min-width: 640px) { .form-row.cols-2 { grid-template-columns: 1fr 1fr; } }
+        .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+        .form-group label { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--outline); }
+        .form-group input, .form-group select, .form-group textarea { background: var(--surface-low); border: 1px solid var(--outline-variant); border-radius: 0.5rem; padding: 0.75rem 1rem; color: var(--text); font-size: 0.875rem; font-family: 'Inter', sans-serif; outline: none; transition: border-color 0.2s; width: 100%; }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--primary); }
+        .form-group input.input-invalid { border-color: var(--danger); }
+        .field-error { display: none; font-size: 0.7rem; color: var(--danger); margin-top: 0.35rem; }
+        .field-error.show { display: block; }
+        .form-group select option { background: var(--surface-mid); }
+        .steps-payment { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.5rem; }
+        .step-pay { display: flex; gap: 0.875rem; align-items: flex-start; padding: 1rem; background: var(--surface-mid); border-radius: 0.5rem; border: 1px solid var(--outline-variant); }
+        .step-num { width: 1.6rem; height: 1.6rem; border-radius: 50%; background: var(--primary-dim); border: 1px solid rgba(157,215,90,0.3); color: var(--primary); font-size: 0.72rem; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .step-pay-content p { font-size: 0.83rem; color: var(--text); font-weight: 500; margin-bottom: 0.15rem; }
+        .step-pay-content span { font-size: 0.72rem; color: var(--text-variant); }
+        .btn-pay { display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem; width: 100%; padding: 0.9rem 1.25rem; border-radius: 0.5rem; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.9rem; border: none; cursor: pointer; transition: all 0.2s; text-decoration: none; }
+        .btn-pay-twint { background: #00B4E6; color: #fff; }
+        .btn-pay-twint:hover { background: #00c9ff; transform: translateY(-1px); box-shadow: 0 4px 14px rgba(0,180,230,0.3); }
+        .btn-pay-revolut { background: #191C33; color: #fff; border: 1px solid #3d3f5c; }
+        .btn-pay-revolut:hover { background: #252a50; transform: translateY(-1px); box-shadow: 0 4px 14px rgba(0,0,0,0.3); }
+        .upload-zone { border: 2px dashed var(--outline-variant); border-radius: 0.75rem; padding: 1.5rem; text-align: center; cursor: pointer; transition: border-color 0.2s, background 0.2s; position: relative; }
+        .upload-zone:hover { border-color: var(--outline); background: var(--surface-mid); }
+        .upload-zone.has-file { border-color: var(--primary); background: var(--primary-dim); }
+        .upload-zone input[type="file"] { position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%; }
+        .upload-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+        .upload-text { font-size: 0.82rem; color: var(--text-variant); line-height: 1.5; }
+        .upload-text strong { color: var(--primary); }
+        .upload-filename { margin-top: 0.5rem; font-size: 0.75rem; color: var(--primary); font-weight: 500; display: none; }
+        .upload-zone.has-file .upload-filename { display: block; }
+        .upload-zone.has-file .upload-hint { display: none; }
+        .warning-mandatory { display: flex; gap: 0.6rem; align-items: flex-start; background: var(--danger-dim); border: 1px solid rgba(224,90,90,0.3); border-radius: 0.5rem; padding: 0.875rem 1rem; margin-top: 1rem; }
+        .warning-mandatory p { font-size: 0.78rem; color: #f4a5a5; line-height: 1.5; }
+        .warning-mandatory strong { color: #e05a5a; }
+        .btn-confirm { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; width: 100%; padding: 1rem 1.5rem; border-radius: 0.5rem; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 1rem; border: none; transition: all 0.35s; margin-top: 1rem; }
+        .btn-confirm:disabled { background: var(--surface-highest); color: var(--outline); cursor: not-allowed; box-shadow: none; }
+        .btn-confirm:not(:disabled) { background: var(--primary); color: var(--dark-green); cursor: pointer; box-shadow: 0 0 28px rgba(157,215,90,0.3); }
+        .btn-confirm:not(:disabled):hover { background: var(--primary-fixed); }
+        .order-summary { background: var(--surface-low); border-radius: 0.75rem; padding: 2rem; height: fit-content; }
+        @media (min-width: 1024px) { .order-summary { position: sticky; top: 80px; } }
+        .order-summary h3 { font-family: 'Newsreader', serif; font-size: 1.3rem; font-weight: 300; margin-bottom: 1.5rem; }
+        .cart-item { display: flex; gap: 1rem; padding: 0.75rem 0; border-bottom: 1px solid var(--outline-variant); }
+        .cart-item:last-of-type { border-bottom: none; }
+        .cart-item-img { width: 56px; height: 56px; border-radius: 0.5rem; object-fit: cover; background: var(--surface-mid); flex-shrink: 0; }
+        .cart-item-body { flex: 1; }
+        .cart-item-name { font-size: 0.85rem; font-weight: 500; color: var(--text); margin-bottom: 0.25rem; }
+        .cart-item-sub { font-size: 0.75rem; color: var(--text-variant); }
+        .cart-item-price { font-size: 0.9rem; font-weight: 600; color: var(--primary); white-space: nowrap; }
+        .thickness-picker-mini { margin: 0.5rem 0 0.6rem; }
+        .thickness-picker-mini-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--outline); margin-bottom: 0.4rem; }
+        .thickness-mini-options { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+        .thickness-mini-pill { position: relative; cursor: pointer; }
+        .thickness-mini-pill input { position: absolute; opacity: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
+        .thickness-mini-pill span { display: inline-block; padding: 0.3rem 0.75rem; border-radius: 9999px; border: 1px solid var(--outline-variant); font-size: 0.72rem; color: var(--text-variant); transition: background-color 0.15s, border-color 0.15s, color 0.15s; }
+        .thickness-mini-pill input:checked + span { background: var(--primary); border-color: var(--primary); color: var(--dark-green); font-weight: 600; }
+        .thickness-mini-pill input:focus-visible + span { outline: 2px solid var(--primary); outline-offset: 2px; }
+        .qty-ctrl { display: inline-flex; align-items: center; background: var(--surface-mid); border-radius: 0.4rem; overflow: hidden; margin-top: 0.5rem; }
+        .qty-btn { background: none; border: none; color: var(--text-variant); width: 28px; height: 28px; cursor: pointer; font-size: 0.9rem; transition: all 0.15s; }
+        .qty-btn:hover { background: var(--surface-high); color: var(--primary); }
+        .qty-val { font-size: 0.8rem; color: var(--text); width: 28px; text-align: center; }
+        .upsell-toggle { display: flex; align-items: center; gap: 0.75rem; padding: 0.875rem 1rem; background: var(--surface-mid); border: 1px solid var(--outline-variant); border-radius: 0.5rem; cursor: pointer; transition: all 0.2s; margin-bottom: 0.75rem; }
+        .upsell-toggle:hover { border-color: var(--outline); }
+        .upsell-toggle.active { border-color: var(--primary); background: var(--primary-dim); }
+        .upsell-toggle input[type="checkbox"] { accent-color: var(--primary); width: 16px; height: 16px; flex-shrink: 0; cursor: pointer; }
+        .upsell-label { flex: 1; }
+        .upsell-label p { font-size: 0.85rem; font-weight: 500; color: var(--text); }
+        .upsell-label span { font-size: 0.72rem; color: var(--text-variant); }
+        .summary-divider { border: none; border-top: 1px solid var(--outline-variant); margin: 0.75rem 0; }
+        .mode-options { display: grid; gap: 0.6rem; }
+        .mode-option { display: flex; gap: 0.75rem; align-items: flex-start; padding: 0.85rem 1rem; border: 1px solid var(--outline-variant); border-radius: 0.75rem; cursor: pointer; transition: border-color .2s, background .2s; }
+        .mode-option:has(input:checked) { border-color: var(--primary); background: var(--secondary-container); }
+        .mode-option input { margin-top: 0.2rem; accent-color: var(--primary); }
+        .mode-option strong { display: block; color: var(--text); font-size: 0.9rem; }
+        .mode-option span { color: var(--text-variant); font-size: 0.75rem; }
+        .pickup-note { margin-top: 0.75rem; padding: 0.75rem 1rem; border-radius: 0.75rem; background: var(--secondary-container); color: var(--text-variant); font-size: 0.8rem; line-height: 1.6; }
+        .summary-line { display: flex; justify-content: space-between; font-size: 0.82rem; color: var(--text-variant); padding: 0.4rem 0; }
+        .summary-total { display: flex; justify-content: space-between; align-items: center; }
+        .summary-total .lbl { font-family: 'Newsreader', serif; font-size: 1.1rem; }
+        .summary-total .amt { font-family: 'Newsreader', serif; font-size: 1.6rem; color: var(--primary); }
+        .promo-row { display: flex; gap: 0.5rem; margin-top: 1rem; }
+        .promo-row input { flex: 1 1 auto; min-width: 0; width: 100%; background: var(--surface-mid); border: 1px solid var(--outline-variant); border-radius: 0.4rem; padding: 0.6rem 0.875rem; color: var(--text); font-size: 0.8rem; font-family: 'Inter', sans-serif; outline: none; transition: border-color 0.2s; }
+        .promo-row input:focus { border-color: var(--primary); }
+        .promo-row button { background: var(--surface-highest); color: var(--text-variant); border: none; border-radius: 0.4rem; padding: 0.6rem 1rem; font-size: 0.8rem; cursor: pointer; transition: all 0.2s; white-space: nowrap; }
+        .promo-row button:hover { background: var(--primary); color: var(--dark-green); }
+        .trust-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid var(--outline-variant); }
+        .trust-chip { display: flex; align-items: center; gap: 0.35rem; font-size: 0.7rem; color: var(--text-variant); }
+        .trust-chip svg { color: var(--primary); }
+        .toast { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%) translateY(120px); background: var(--surface-highest); border: 1px solid var(--outline); color: var(--text); padding: 0.875rem 1.5rem; border-radius: 0.75rem; font-size: 0.85rem; z-index: 9999; display: flex; align-items: center; gap: 0.6rem; box-shadow: 0 8px 32px rgba(0,0,0,0.4); transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1); white-space: nowrap; }
+        .toast.show { transform: translateX(-50%) translateY(0); }
+        .toast.success { border-color: rgba(157,215,90,0.4); }
+        .toast.error { border-color: rgba(224,90,90,0.4); }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .spinner { width: 1.1em; height: 1.1em; border: 2px solid rgba(10,31,12,0.3); border-top-color: var(--dark-green); border-radius: 50%; animation: spin 0.7s linear infinite; display: none; }
+        footer { background: var(--surface-lowest); border-top: 1px solid rgba(46,58,44,0.3); padding: 3rem 0 2rem; }
+        .footer-grid { display: grid; gap: 2rem; margin-bottom: 2.5rem; }
+        @media (min-width: 768px) { .footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr; } }
+        .footer-brand p { font-size: 0.78rem; color: var(--text-variant); line-height: 1.7; margin-top: 0.75rem; max-width: 20rem; }
+        .footer-col h4 { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text); margin-bottom: 1rem; font-family: 'Inter', sans-serif; }
+        .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+        .footer-col li a { font-size: 0.78rem; color: var(--text-variant); transition: color 0.2s; }
+        .footer-col li a:hover { color: var(--primary); }
+        .footer-bottom { border-top: 1px solid rgba(46,58,44,0.2); padding-top: 1.5rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; }
+        .footer-bottom p, .footer-bottom a { font-size: 0.72rem; color: var(--outline); }
+        .footer-bottom a:hover { color: var(--primary); }
+        .whatsapp-fab { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 50; display: flex; align-items: center; gap: 0.75rem; }
+        .whatsapp-tooltip { display: none; opacity: 0; background: var(--surface-highest); color: var(--text); font-size: 0.72rem; padding: 0.5rem 0.75rem; border-radius: 0.5rem; white-space: nowrap; box-shadow: 0 8px 32px rgba(9,22,11,0.6); transition: opacity 0.2s; pointer-events: none; }
+        @media (min-width: 640px) { .whatsapp-tooltip { display: block; } }
+        .whatsapp-fab:hover .whatsapp-tooltip { opacity: 1; }
+        .whatsapp-btn { width: 3.5rem; height: 3.5rem; border-radius: 50%; background: #25D366; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px rgba(0,0,0,0.4); transition: transform 0.2s; }
+        .whatsapp-btn:hover { transform: scale(1.1); }
+        .whatsapp-btn svg { width: 1.75rem; height: 1.75rem; fill: white; }
+        @keyframes fade-up { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fade-up { animation: fade-up 0.6s ease both; }
+            /* iOS zoome sur les champs dont le texte fait moins de 16 px */
+        @media (max-width: 767px) { input:not([type="radio"]):not([type="checkbox"]), select, textarea { font-size: 16px !important; } }
+    </style>
+<style id="sivaa-mobile-scale">
+    /* Mobile (≤ 480 px) : interface légèrement réduite. Les champs restent à 16 px (pas de zoom iOS), les boutons à 44 px minimum. */
+    @media (max-width: 480px) {
+        html { font-size: 15px; }
+        .section-pad { padding-top: 3.75rem; padding-bottom: 3.75rem; }
+        .form-group input, .form-group select, .form-group textarea { padding: 0.6rem 0.9rem; line-height: 1.3; }
+        .btn-primary, .btn-ghost, .btn-more { min-height: 44px; }
+        .modal-close { width: 44px; height: 44px; }
+    }
+</style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a href="/de/" style="font-family:'Newsreader',serif;font-size:1.4rem;font-weight:300;letter-spacing:0.12em;color:#d7e7d4;text-decoration:none;">SIVÀA <span style="color:#9dd75a;font-size:0.9rem;letter-spacing:0.06em;">Geneva</span></a>
+        <div class="nav-links">
+            <a href="/de/#produits" data-i18n="nav.products">Produkte</a>
+            <a href="/de/journal/" data-i18n="nav.journal">Journal</a>
+            <a href="/de/kontakt.html" data-i18n="nav.contact">Kontakt</a>
+            <a href="/de/kasse.html" class="nav-cta" data-i18n="nav.order">Bestellen</a>
+        </div>
+    </div>
+</nav>
+
+<div style="position: fixed; top: 4rem; left: 0; right: 0; z-index: 30; background: rgba(17, 31, 19, 0.9); border-bottom: 1px solid rgba(157,215,90,0.2); padding: 0.6rem 1rem; text-align: center; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);">
+    <p style="font-size: 0.75rem; color: #d7e7d4; margin: 0; display: flex; align-items: center; justify-content: center; gap: 0.4rem; flex-wrap: wrap;">
+        <span style="color:#9dd75a; font-weight: 600;"><span data-i18n="offer.label">Angebot:</span></span>
+        <span data-i18n="offer.p1">1 Stk. = 6 CHF</span> <span style="color:#424939;">|</span>
+        <span data-i18n="offer.p2">2 Stk. = 11 CHF</span> <span style="color:#424939;">|</span>
+        <span data-i18n="offer.p3">3 Stk. = 15 CHF</span>
+        <span style="background: rgba(157,215,90,0.1); border: 1px solid rgba(157,215,90,0.3); color: #9dd75a; padding: 0.2rem 0.6rem; border-radius: 9999px; font-size: 0.65rem; margin-left: 0.25rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em;" data-i18n="offer.hand">🤝 Persönliche Übergabe ab 3 Stk.</span>
+    </p>
+</div>
+
+<div class="page-header container animate-fade-up">
+    <span class="label-sm" data-i18n="page_label">Ihre Bestellung</span>
+    <h1 data-i18n="page_title">Bestellen Sie Ihren <em class="accent">Siwak</em></h1>
+</div>
+
+<div class="container">
+    <div class="checkout-grid">
+        <div class="animate-fade-up">
+            <div class="form-block">
+                <p class="form-block-title" data-i18n="mode_title">Erhalt der Bestellung</p>
+                <div class="mode-options">
+                    <label class="mode-option">
+                        <input type="radio" name="delivery-mode" value="livraison" checked="" onchange="setDeliveryMode(this.value)">
+                        <div><strong data-i18n="mode_delivery">Lieferung Swiss Post (+10 CHF)</strong><span data-i18n="mode_delivery_sub">Versand innerhalb von 48 Std., Lieferung in 2–3 Werktagen</span></div>
+                    </label>
+                    <label class="mode-option">
+                        <input type="radio" name="delivery-mode" value="retrait" onchange="setDeliveryMode(this.value)">
+                        <div><strong data-i18n="mode_pickup">Persönliche Abholung in Acacias, Genf (kostenlos)</strong><span data-i18n="mode_pickup_sub">Ab CHF 15.00 (Artikel)</span></div>
+                    </label>
+                </div>
+                <p class="pickup-note" id="pickup-note" style="display:none;" data-i18n="pickup_note">Ich kontaktiere dich per WhatsApp, um Ort und Zeit der Abholung in Acacias festzulegen.</p>
+            </div>
+
+            <div class="form-block">
+                <p class="form-block-title" data-i18n="form_coords">Ihre Angaben</p>
+                <div class="form-row cols-2">
+                    <div class="form-group">
+                        <label for="prenom" data-i18n="form_firstname">Vorname</label>
+                        <input type="text" id="prenom" oninput="checkFormLock()">
+                    </div>
+                    <div class="form-group">
+                        <label for="nom" data-i18n="form_lastname">Nachname</label>
+                        <input type="text" id="nom" oninput="checkFormLock()">
+                    </div>
+                </div>
+                <div class="form-row" style="margin-top:1rem;">
+                    <div class="form-group">
+                        <label for="phone" data-i18n="form_phone">Telefon (optional)</label>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <select id="phone-prefix" onchange="checkFormLock()" style="width: auto; flex-shrink: 0; padding: 0.75rem 0.5rem;">
+                                <option value="+41">🇨🇭 +41</option>
+                                <option value="+33">🇫🇷 +33</option>
+                            </select>
+                            <input type="tel" id="phone" oninput="checkFormLock()" style="flex-grow: 1;">
+                        </div>
+                        <p class="field-error" id="phone-error" data-i18n="error_phone">Ungültige Nummer (9 Ziffern nach der Vorwahl erwartet)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-block" id="shipping-block">
+                <p class="form-block-title" data-i18n="form_shipping">Lieferadresse</p>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="adresse" data-i18n="form_street">Strasse und Hausnummer</label>
+                        <input type="text" id="adresse" oninput="checkFormLock()">
+                    </div>
+                </div>
+                <div class="form-row cols-2" style="margin-top:1rem;">
+                    <div class="form-group">
+                        <label for="npa" data-i18n="form_zip">PLZ / Postleitzahl</label>
+                        <input type="text" id="npa" inputmode="numeric" maxlength="4" oninput="checkFormLock()">
+                        <p class="field-error" id="npa-error" data-i18n="error_npa">Ungültige Schweizer Postleitzahl (4 Ziffern, z.B. 1205)</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="ville" data-i18n="form_city">Ort</label>
+                        <input type="text" id="ville" oninput="checkFormLock()">
+                    </div>
+                </div>
+                <div class="form-row" style="margin-top:1rem;">
+                    <div class="form-group">
+                        <label for="pays" data-i18n="form_country">Land</label>
+                        <input type="text" id="pays" value="🇨🇭 Schweiz" readonly="" style="color: var(--text-variant); cursor: not-allowed; opacity: 0.8;">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-block">
+                <p class="form-block-title" id="payment-title" data-i18n="form_payment_title">Erforderliche Zahlungsschritte</p>
+                <p class="pickup-note" id="pickup-pay-note" style="display:none;margin:0 0 1rem;" data-i18n="pickup_pay_note">Vorauszahlung empfohlen (Twint oder Revolut). Sie können auch vor Ort mit Twint bezahlen: dann ist kein Screenshot nötig.</p>
+                <div class="steps-payment">
+                    <div class="step-pay">
+                        <div class="step-num">1</div>
+                        <div class="step-pay-content">
+                            <p data-i18n="step1_title">Bezahlen Sie per Twint oder Revolut</p>
+                            <span data-i18n="step1_sub">Klicken Sie unten auf die Schaltfläche Ihrer Wahl</span>
+                        </div>
+                    </div>
+                    <div class="step-pay">
+                        <div class="step-num">2</div>
+                        <div class="step-pay-content">
+                            <p data-i18n="step2_title">Machen Sie einen Screenshot der Bestätigung</p>
+                            <span data-i18n="step2_sub">In Ihrer Twint- oder Revolut-App</span>
+                        </div>
+                    </div>
+                    <div class="step-pay">
+                        <div class="step-num">3</div>
+                        <div class="step-pay-content">
+                            <p data-i18n="step3_title">Laden Sie den Screenshot unten hoch und bestätigen Sie</p>
+                            <span data-i18n="step3_sub">Die Schaltfläche wird automatisch aktiviert</span>
+                        </div>
+                        </div>
+                   <a class="btn-pay btn-pay-twint">
+                        <svg width="22" height="22" viewBox="0 0 60 60" fill="none"><rect width="60" height="60" rx="12" fill="rgba(255,255,255,0.15)"></rect><text x="50%" y="56%" dominant-baseline="middle" text-anchor="middle" font-family="Inter,sans-serif" font-weight="900" font-size="34" fill="white">T</text></svg>
+                        <span data-i18n="btn_twint">Mit Twint bezahlen · +41 77 949 65 04</span>
+                    </a>
+                    <a href="https://revolut.me/jameskoff" target="_blank" rel="noopener noreferrer" class="btn-pay btn-pay-revolut" onclick="markPayment('revolut')">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M13.1 1H4v22h4.3v-7.8H12l4.1 7.8H21l-4.6-8.3c2.4-1 3.9-3.1 3.9-5.8C20.4 4.4 17.3 1 13.1 1zm-.2 10.3H8.3V4.9h4.6c1.9 0 3.3 1.2 3.3 3.2 0 1.9-1.4 3.2-3.3 3.2z"></path></svg>
+                        <span data-i18n="btn_revolut">Mit Revolut bezahlen · revolut.me/jameskoff</span>
+                    </a>
+                </div>
+
+                <div class="form-group" style="margin-bottom:0.75rem;">
+                    <label><span data-i18n="proof_label">Screenshot Ihrer Zahlungsbestätigung</span><span id="proof-required-star" style="color:var(--danger);margin-left:2px;">*</span></label>
+                    <div class="upload-zone" id="uploadZone" style="margin-top:0.4rem;">
+                        <input type="file" id="paymentProof" accept="image/*,.pdf" onchange="handleFileUpload(this)">
+                        <div class="upload-icon">📎</div>
+                        <div class="upload-text upload-hint">
+                            <strong data-i18n="upload_cta">Klicken Sie, um Ihren Zahlungsbeleg anzuhängen</strong><br>
+                            <span data-i18n="upload_formats" style="font-size:0.72rem;">JPG, PNG oder PDF — max. 10 MB</span>
+                        </div>
+                        <p class="upload-filename" id="uploadFilename"></p>
+                    </div>
+                </div>
+
+                <div class="warning-mandatory" id="payment-warning">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="color:var(--danger);flex-shrink:0;margin-top:1px;"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                    <p data-i18n="warning_mandatory"><strong>⚠️ Pflichtschritt:</strong> Ohne Screenshot Ihrer Zahlung wird Ihre Bestellung nicht berücksichtigt und es erfolgt kein Versand.</p>
+                </div>
+
+                <div class="form-group" style="margin-top:1.5rem;">
+                    <label for="note" data-i18n="form_note_label">Notiz <span style="color:var(--outline);font-size:0.75rem;">(optional)</span></label>
+                    <textarea id="note" rows="2" style="resize:vertical;margin-top:0.4rem;"></textarea>
+                </div>
+            </div>
+
+            <div id="lock-status" style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.5rem;font-size:0.75rem;color:var(--text-variant);">
+                <span id="lockIcon">🔒</span>
+                <span id="lockMsg" data-i18n="lock_default">Füllen Sie alle Felder aus und laden Sie Ihren Beleg hoch, um fortzufahren</span>
+            </div>
+
+            <button class="btn-confirm" id="btnConfirm" disabled="" onclick="submitOrder()">
+                <span id="btnLabel" data-i18n="btn_confirm">Bestellung bestätigen · CHF </span>
+                <span id="btnTotal">21.00</span>
+                <div class="spinner" id="btnSpinner"></div>
+                <svg id="btnArrow" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+            </button>
+
+            <div id="orderSuccessPanel" style="display:none;margin-top:1rem;padding:1.25rem;background:var(--secondary-container);border:1px solid var(--primary-dim);border-radius:0.75rem;text-align:center;">
+                <p style="font-size:1.5rem;margin-bottom:0.5rem;">✅</p>
+                <p style="color:var(--text);font-weight:600;margin-bottom:0.4rem;" data-i18n="order_success_title">Bestellung vorbereitet!</p>
+                <p style="color:var(--text-variant);font-size:0.8rem;line-height:1.6;" data-i18n="order_success_body">WhatsApp wurde in einem neuen Tab mit Ihrer vorausgefüllten Bestellung geöffnet. Vergessen Sie nicht, Ihren Zahlungsbeleg direkt im Chat anzuhängen, bevor Sie die Nachricht senden.</p>
+                <a href="#" id="orderSuccessWaLink" target="_blank" rel="noopener noreferrer" class="btn-confirm" style="display:inline-flex;margin-top:0.85rem;text-decoration:none;">
+                    <span data-i18n="order_success_reopen">WhatsApp erneut öffnen</span>
+                </a>
+            </div>
+            <p style="text-align:center;color:var(--outline);font-size:0.72rem;margin-top:0.75rem;">🔒 <span data-i18n="secure_note"><strong>Zahlung per Twint oder Revolut</strong> · Daten geschützt nach Schweizer DSG</span></p>
+        </div>
+
+        <div>
+            <div class="order-summary">
+                <h3 data-i18n="summary_title">Ihr Warenkorb</h3>
+                <div class="cart-item">
+                    <img class="cart-item-img" src="/baton-siwak-premium.jpg" alt="SIVÀA Premium-Siwak-Stab in Verpackung, Artikel Ihrer Bestellung" data-i18n-alt="checkout.img.p1.alt">
+                    <div class="cart-item-body">
+                        <p class="cart-item-name" data-i18n="item_siwak_name">Premium Siwak-Etui</p>
+                        <p class="cart-item-sub" data-i18n="item_siwak_sub">Handgepflückt · Pakistan</p>
+                        <div class="thickness-picker-mini">
+                            <p class="thickness-picker-mini-label" data-i18n="thickness_label">Stärke des Stäbchens</p>
+                            <div class="thickness-mini-options">
+                                <label class="thickness-mini-pill">
+                                    <input type="radio" name="thickness-checkout" value="fin" onchange="setSiwakThickness('fin')">
+                                    <span data-i18n="thickness_fin">Dünn</span>
+                                </label>
+                                <label class="thickness-mini-pill">
+                                    <input type="radio" name="thickness-checkout" value="epais" onchange="setSiwakThickness('epais')">
+                                    <span data-i18n="thickness_epais">Dick</span>
+                                </label>
+                                <label class="thickness-mini-pill">
+                                    <input type="radio" name="thickness-checkout" value="peu-importe" onchange="setSiwakThickness('peu-importe')">
+                                    <span data-i18n="thickness_any">Egal</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="qty-ctrl">
+                            <button class="qty-btn" onclick="updateQty('siwak',-1)">−</button>
+                            <span class="qty-val" id="qty-siwak">1</span>
+                            <button class="qty-btn" onclick="updateQty('siwak',1)">+</button>
+                        </div>
+                    </div>
+                    <span class="cart-item-price" id="price-siwak">CHF 6.00</span>
+                </div>
+                <div class="cart-item">
+                    <img class="cart-item-img" src="/allo-togo-batonnets.png" alt="Allo-Togo-Kaustäbe aus hellem Holz, Artikel Ihrer Bestellung" data-i18n-alt="checkout.img.p2.alt">
+                    <div class="cart-item-body">
+                        <p class="cart-item-name" data-i18n="item_allotogo_name">Allo Togo</p>
+                        <p class="cart-item-sub" data-i18n="item_allotogo_sub">5er-Pack</p>
+                        <div class="thickness-picker-mini">
+                            <p class="thickness-picker-mini-label" data-i18n="thickness_label">Stärke des Stäbchens</p>
+                            <div class="thickness-mini-options">
+                                <label class="thickness-mini-pill">
+                                    <input type="radio" name="thickness-checkout-allotogo" value="fin" onchange="setAllotogoThickness('fin')">
+                                    <span data-i18n="thickness_fin">Dünn</span>
+                                </label>
+                                <label class="thickness-mini-pill">
+                                    <input type="radio" name="thickness-checkout-allotogo" value="epais" onchange="setAllotogoThickness('epais')">
+                                    <span data-i18n="thickness_epais">Dick</span>
+                                </label>
+                                <label class="thickness-mini-pill">
+                                    <input type="radio" name="thickness-checkout-allotogo" value="peu-importe" onchange="setAllotogoThickness('peu-importe')">
+                                    <span data-i18n="thickness_any">Egal</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="qty-ctrl">
+                            <button class="qty-btn" onclick="updateQty('allotogo',-1)">−</button>
+                            <span class="qty-val" id="qty-allotogo">1</span>
+                            <button class="qty-btn" onclick="updateQty('allotogo',1)">+</button>
+                        </div>
+                    </div>
+                    <span class="cart-item-price" id="price-allotogo">CHF 6.00</span>
+                </div>
+                <div class="cart-item">
+                    <img class="cart-item-img" src="/dentifrice-siwak-clou-de-girofle.jpg" alt="Siwak-Zahnpasta mit Gewürznelke, Artikel Ihrer Bestellung" data-i18n-alt="checkout.img.p4.alt">
+                    <div class="cart-item-body">
+                        <p class="cart-item-name" data-i18n="item_girofle_name">Siwak-Zahnpasta — Gewürznelke</p>
+                        <p class="cart-item-sub" data-i18n="item_girofle_sub">Siwak und Gewürznelke</p>
+                        <div class="qty-ctrl">
+                            <button class="qty-btn" onclick="updateQty('girofle',-1)">−</button>
+                            <span class="qty-val" id="qty-girofle">0</span>
+                            <button class="qty-btn" onclick="updateQty('girofle',1)">+</button>
+                        </div>
+                    </div>
+                    <span class="cart-item-price" id="price-girofle">CHF 0.00</span>
+                </div>
+                <div class="cart-item">
+                    <img class="cart-item-img" src="/dentifrice-siwak-charbon-actif.jpg" alt="Schwarze Siwak-Zahnpasta mit Aktivkohle, Artikel Ihrer Bestellung" data-i18n-alt="checkout.img.p5.alt">
+                    <div class="cart-item-body">
+                        <p class="cart-item-name" data-i18n="item_charbon_name">Siwak-Zahnpasta — Aktivkohle</p>
+                        <p class="cart-item-sub" data-i18n="item_charbon_sub">Siwak und Aktivkohle</p>
+                        <div class="qty-ctrl">
+                            <button class="qty-btn" onclick="updateQty('charbon',-1)">−</button>
+                            <span class="qty-val" id="qty-charbon">0</span>
+                            <button class="qty-btn" onclick="updateQty('charbon',1)">+</button>
+                        </div>
+                    </div>
+                    <span class="cart-item-price" id="price-charbon">CHF 0.00</span>
+                </div>
+                <div style="padding:0.875rem 0;border-bottom:1px solid var(--outline-variant);">
+                    <p style="font-size:0.68rem;color:var(--primary);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:0.5rem;" data-i18n="upsell_label">Vervollständigen Sie Ihr Ritual</p>
+                    <label class="upsell-toggle" id="upsellToggle" style="margin-bottom:0;">
+                        <input type="checkbox" id="upsellCheck" onchange="toggleUpsell()">
+                        <div class="upsell-label">
+                            <p data-i18n="upsell_name">Zusätzliches Siwak-Etui</p>
+                        </div>
+                        <div style="text-align:right;">
+                            <div style="font-weight:700;color:var(--primary);font-size:0.9rem;" id="upsellPriceDisplay">CHF 6</div>
+                            <s style="color:var(--outline);font-size:0.7rem;display:none;" id="upsellOrigPrice">CHF 6</s>
+                        </div>
+                    </label>
+                </div>
+                <div class="promo-row">
+                    <input type="text" id="promo-code" oninput="this.value=this.value.toUpperCase()">
+                    <button onclick="applyPromo()" data-i18n="btn_promo">Anwenden</button>
+                </div>
+                <p id="promo-feedback" style="font-size:0.72rem;margin-top:0.35rem;display:none;padding:0 0.25rem;"></p>
+                <hr class="summary-divider" style="margin-top:1.25rem;">
+                
+                <div class="summary-line"><span data-i18n="summary_subtotal">Zwischensumme</span><span id="subtotal">CHF 12.00</span></div>
+                
+                <div class="summary-line" id="volume-line" style="display:none;color:var(--primary);">
+                    <span data-i18n="summary_volume">Mengenrabatt</span>
+                    <span id="volume-amount">− CHF 0.00</span>
+                </div>
+
+                <div class="summary-line"><span id="shipping-label"><strong>Frais de livraison Swiss Post</strong></span><span id="shipping-amount">CHF 10.00</span></div>
+                <div class="summary-line" id="promo-line" style="display:none;color:var(--primary);"><span data-i18n="summary_promo">Promo-Code (Etui gratis)</span><span id="promo-amount">− CHF 0.00</span></div>
+                <hr class="summary-divider">
+                <div class="summary-total"><span class="lbl" data-i18n="summary_total">Total</span><span class="amt" id="total-display">CHF 21.00</span></div>
+                
+                <div class="trust-chips">
+                    <div class="trust-chip"><svg class="icon-sm" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"></rect><path d="M16 8h4l3 5v3h-7V8z"></path><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg><span data-i18n="trust_post">Swiss Post 48 Std.</span></div>
+                    <div class="trust-chip"><svg class="icon-sm" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg><span data-i18n="trust_secure">Sichere Zahlung</span></div>
+                    <div class="trust-chip"><svg class="icon-sm" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg><span data-i18n="trust_return">14 Tage Rückgabe</span></div>
+                    <div class="trust-chip"><svg class="icon-sm" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg><span data-i18n="trust_natural">100 % natürlich</span></div>
+                </div>
+            </div>
+            <div style="background:var(--secondary-container);border-radius:0.75rem;padding:1.25rem;margin-top:1rem;display:flex;gap:0.75rem;align-items:flex-start;">
+                <svg width="16" height="16" style="color:var(--primary);flex-shrink:0;margin-top:2px;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4M12 8h.01"></path></svg>
+                <p style="font-size:0.78rem;color:var(--text-variant);line-height:1.6;" data-i18n="info_note">Nach Erhalt Ihres Zahlungsbelegs validiere ich Ihre Bestellung manuell innerhalb von 24 Stunden und versende per Swiss Post.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="/de/" style="font-family:'Newsreader',serif;font-size:1.4rem;font-weight:300;letter-spacing:0.12em;color:#d7e7d4;text-decoration:none;">SIVÀA <span style="color:#9dd75a;font-size:0.9rem;letter-spacing:0.06em;">Geneva</span></a>
+                <p data-i18n="footer_brand">Schweizer Exzellenz im Dienst eines jahrtausendealten Rituals.</p>
+            </div>
+            <div class="footer-col">
+                <h4 data-i18n="footer_products">Produkte</h4>
+                <ul>
+                    <li><a href="/de/kasse.html" data-i18n="item_siwak_name">Premium Siwak-Etui</a></li>
+                    <li><a href="/de/kasse.html" data-i18n="item_allotogo_name">Allo Togo</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 data-i18n="footer_info">Informationen</h4>
+                <ul>
+                    <li><a href="/de/journal/" data-i18n="nav_journal">Journal</a></li>
+                    <li><a href="/de/versand-abholung.html" data-i18n="footer.info.shipping">Versand &amp; Abholung</a></li>
+                    <li><a href="/de/kontakt.html" data-i18n="nav_contact">Kontakt</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+    <h4 data-i18n="footer_legal">Rechtliches</h4>
+    <ul>
+        <li><a href="/de/impressum.html" data-i18n="footer_cgv">AGB</a></li>
+        <li><a href="/de/datenschutz.html" data-i18n="footer_privacy">Datenschutz</a></li>
+        <li><a href="/de/kontakt.html" data-i18n="footer_returns">Rückgabe</a></li>
+    </ul>
+</div>
+<div class="footer-bottom">
+    <p>© 2026 SIVÀA Geneva · Genf, Schweiz</p>
+    <div style="display:flex;gap:1.25rem;">
+        <a href="/de/impressum.html" data-i18n="footer_cgv">AGB</a>
+        <a href="/de/datenschutz.html" data-i18n="footer_privacy">Datenschutz</a>
+    </div>
+</div>
+</div></div></footer>
+
+<div class="whatsapp-fab">
+    <span class="whatsapp-tooltip" data-i18n="whatsapp_tip">Eine Frage? Ich antworte schnell 💬</span>
+    <a href="https://wa.me/41779496504?text=Hallo%20SIV%C3%80A%2C%20ich%20habe%20eine%20Frage%20zu%20meiner%20Bestellung%20%F0%9F%8C%BF" target="_blank" rel="noopener noreferrer">
+        <button class="whatsapp-btn"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path></svg></button>
+    </a>
+</div>
+
+<div class="toast" id="toast"><span id="toastMsg">—</span></div>
+
+<script>
+    const T = {
+        t_sending:   { fr:'📤 Envoi de votre commande…', en:'📤 Sending your order…', de:'📤 Ihre Bestellung wird gesendet…' },
+        t_success:   { fr:'✅ Commande confirmée !', en:'✅ Order confirmed!', de:'✅ Bestellung bestätigt!' },
+        t_error:     { fr:"❌ Erreur d'envoi. Réessayez ou contactez-moi via WhatsApp.", en:'❌ Send error. Please retry or contact me via WhatsApp.', de:'❌ Sendefehler. Bitte erneut versuchen oder über WhatsApp kontaktieren.' },
+        info_note:   { fr:"Après réception de votre preuve de paiement, je valide manuellement votre commande sous 24h et procède à l'expédition via Swiss Post.", en:'Upon receipt of your proof of payment, I manually validate your order within 24h and ship via Swiss Post.', de:'Nach Erhalt Ihres Zahlungsbelegs validiere ich Ihre Bestellung manuell innerhalb von 24 Stunden und versende per Swiss Post.' },
+        item_siwak_name:  { fr:'Bâton de Siwak Premium', en:'Premium Siwak Case', de:'Premium Siwak-Etui'  },
+        item_siwak_sub:   { fr:'Récolté à la main · Pakistan', en:'Hand-harvested · Pakistan', de:'Handgepflückt · Pakistan' },
+        item_allotogo_name: { fr:'Allo Togo' },
+        item_allotogo_sub: { fr:'Lot de 5 pièces', en:'Pack of 5', de:'5er-Pack' },
+        item_girofle_name: { fr:'Dentifrice Siwak — Clou de Girofle', en:'Siwak Toothpaste — Clove', de:'Siwak-Zahnpasta — Gewürznelke' },
+        item_girofle_sub:  { fr:'Siwak et clou de girofle', en:'Siwak and clove', de:'Siwak und Gewürznelke' },
+        item_charbon_name: { fr:'Dentifrice Siwak — Charbon Actif', en:'Siwak Toothpaste — Activated Charcoal', de:'Siwak-Zahnpasta — Aktivkohle' },
+        item_charbon_sub:  { fr:'Siwak et charbon actif', en:'Siwak and activated charcoal', de:'Siwak und Aktivkohle' },
+        thickness_label:  { fr:'Épaisseur du bâton', en:'Stick thickness', de:'Stärke des Stäbchens' },
+        thickness_fin:    { fr:'Fin', en:'Thin', de:'Dünn' },
+        thickness_epais:  { fr:'Épais', en:'Thick', de:'Dick' },
+        thickness_any:    { fr:'Peu importe', en:'No preference', de:'Egal' },
+        upsell_name:      { fr:'Étui de Siwak supplémentaire', en:'Additional Siwak case', de:'Zusätzliches Siwak-Etui' },
+        whatsapp_tip:    { fr:'Une question ? Je réponds vite 💬', en:'A question? I reply fast 💬', de:'Eine Frage? Ich antworte schnell 💬' },
+        error_npa:       { fr:'Code postal suisse invalide (4 chiffres, ex. 1205)', en:'Invalid Swiss postal code (4 digits, e.g. 1205)', de:'Ungültige Schweizer Postleitzahl (4 Ziffern, z.B. 1205)' },
+        error_phone:     { fr:"Numéro invalide (9 chiffres attendus après l'indicatif)", en:'Invalid number (9 digits expected after the prefix)', de:'Ungültige Nummer (9 Ziffern nach der Vorwahl erwartet)' },
+        order_success_title: { fr:'Commande préparée !', en:'Order ready!', de:'Bestellung vorbereitet!' },
+        order_success_body:  { fr:"WhatsApp s'est ouvert dans un nouvel onglet avec votre commande pré-remplie. N'oubliez pas de joindre votre preuve de paiement directement dans la conversation avant d'envoyer le message.", en:'WhatsApp opened in a new tab with your order pre-filled. Don\'t forget to attach your payment proof directly in the conversation before sending the message.', de:'WhatsApp wurde in einem neuen Tab mit Ihrer vorausgefüllten Bestellung geöffnet. Vergessen Sie nicht, Ihren Zahlungsbeleg direkt im Chat anzuhängen, bevor Sie die Nachricht senden.' },
+        order_success_reopen: { fr:'Réouvrir WhatsApp', en:'Reopen WhatsApp', de:'WhatsApp erneut öffnen' },
+        mode_title:        { fr:'Mode de réception', en:'How to receive your order', de:'Erhalt der Bestellung' },
+        mode_delivery:     { fr:'Livraison Swiss Post (+10 CHF)', en:'Swiss Post delivery (+10 CHF)', de:'Lieferung Swiss Post (+10 CHF)' },
+        mode_delivery_sub: { fr:'Expédition sous 48h, livraison en 2–3 jours ouvrés', en:'Shipped within 48h, delivered in 2–3 business days', de:'Versand innerhalb von 48 Std., Lieferung in 2–3 Werktagen' },
+        mode_pickup:       { fr:'Retrait en main propre aux Acacias, Genève (gratuit)', en:'Hand pickup at Acacias, Geneva (free)', de:'Persönliche Abholung in Acacias, Genf (kostenlos)' },
+        mode_pickup_sub:   { fr:"Dès CHF 15.00 d'articles", en:'From CHF 15.00 of items', de:'Ab CHF 15.00 (Artikel)' },
+        pickup_note:       { fr:"Je te contacte sur WhatsApp pour fixer le lieu et l'heure du retrait aux Acacias.", en:"I'll contact you on WhatsApp to set the place and time for pickup at Acacias.", de:'Ich kontaktiere dich per WhatsApp, um Ort und Zeit der Abholung in Acacias festzulegen.' },
+        pickup_pay_note:   { fr:"Paiement à l'avance conseillé (Twint ou Revolut). Vous pouvez aussi payer sur place en Twint : dans ce cas, la capture n'est pas nécessaire.", en:'Paying in advance is recommended (Twint or Revolut). You can also pay on the spot with Twint: in that case, no screenshot is needed.', de:'Vorauszahlung empfohlen (Twint oder Revolut). Sie können auch vor Ort mit Twint bezahlen: dann ist kein Screenshot nötig.' },
+        shipping_label:    { fr:'<strong>Frais de livraison Swiss Post</strong>', en:'<strong>Swiss Post shipping fee</strong>', de:'<strong>Versandkosten Swiss Post</strong>' },
+        pickup_label:      { fr:'<strong>Retrait aux Acacias</strong>', en:'<strong>Pickup at Acacias</strong>', de:'<strong>Abholung in Acacias</strong>' },
+        lock_min:          { fr:"Montant minimum : CHF {min} d'articles", en:'Minimum: CHF {min} of items', de:'Mindestbetrag: CHF {min} (Artikel)' },
+        page_label: { fr:"Votre commande", en:"Your order", de:"Ihre Bestellung" },
+        page_title: { fr:"Commander votre <em class=\"accent\">Siwak</em>", en:"Order your <em class=\"accent\">Siwak</em>", de:"Bestellen Sie Ihren <em class=\"accent\">Siwak</em>" },
+        form_coords: { fr:"Vos coordonnées", en:"Your details", de:"Ihre Angaben" },
+        form_firstname: { fr:"Prénom", en:"First name", de:"Vorname" },
+        form_lastname: { fr:"Nom", en:"Last name", de:"Nachname" },
+        form_phone: { fr:"Téléphone (optionnel)", en:"Phone (optional)", de:"Telefon (optional)" },
+        form_shipping: { fr:"Adresse de livraison", en:"Delivery address", de:"Lieferadresse" },
+        form_street: { fr:"Rue et numéro", en:"Street and number", de:"Strasse und Hausnummer" },
+        form_zip: { fr:"NPA / Code postal", en:"Postcode", de:"PLZ / Postleitzahl" },
+        form_city: { fr:"Ville", en:"City", de:"Ort" },
+        form_country: { fr:"Pays", en:"Country", de:"Land" },
+        country_value: { fr:"🇨🇭 Suisse", en:"🇨🇭 Switzerland", de:"🇨🇭 Schweiz" },
+        form_payment_title: { fr:"Étapes de paiement obligatoires", en:"Required payment steps", de:"Erforderliche Zahlungsschritte" },
+        step1_title: { fr:"Effectuez votre paiement via Twint ou Revolut", en:"Make your payment via Twint or Revolut", de:"Bezahlen Sie per Twint oder Revolut" },
+        step1_sub: { fr:"Cliquez sur le bouton de votre choix ci-dessous", en:"Click the button of your choice below", de:"Klicken Sie unten auf die Schaltfläche Ihrer Wahl" },
+        step2_title: { fr:"Faites une capture d'écran de la confirmation", en:"Take a screenshot of the confirmation", de:"Machen Sie einen Screenshot der Bestätigung" },
+        step2_sub: { fr:"Depuis votre application Twint ou Revolut", en:"From your Twint or Revolut app", de:"In Ihrer Twint- oder Revolut-App" },
+        step3_title: { fr:"Joignez la capture ci-dessous, puis confirmez", en:"Attach the screenshot below, then confirm", de:"Laden Sie den Screenshot unten hoch und bestätigen Sie" },
+        step3_sub: { fr:"Le bouton s'activera automatiquement", en:"The button will unlock automatically", de:"Die Schaltfläche wird automatisch aktiviert" },
+        btn_twint: { fr:"Payer via Twint · +41 77 949 65 04", en:"Pay via Twint · +41 77 949 65 04", de:"Mit Twint bezahlen · +41 77 949 65 04" },
+        btn_revolut: { fr:"Payer via Revolut · revolut.me/jameskoff", en:"Pay via Revolut · revolut.me/jameskoff", de:"Mit Revolut bezahlen · revolut.me/jameskoff" },
+        proof_label: { fr:"Capture d'écran de votre confirmation de paiement", en:"Screenshot of your payment confirmation", de:"Screenshot Ihrer Zahlungsbestätigung" },
+        upload_cta: { fr:"Cliquez pour joindre votre preuve de paiement", en:"Click to attach your proof of payment", de:"Klicken Sie, um Ihren Zahlungsbeleg anzuhängen" },
+        upload_formats: { fr:"JPG, PNG ou PDF — max 10 MB", en:"JPG, PNG or PDF — max 10 MB", de:"JPG, PNG oder PDF — max. 10 MB" },
+        warning_mandatory: { fr:"<strong>⚠️ Étape obligatoire :</strong> Si vous ne joignez pas votre capture d'écran de paiement, votre achat sera ignoré et aucune expédition ne sera effectuée.", en:"<strong>⚠️ Required step:</strong> If you do not attach your payment screenshot, your order will be ignored and nothing will be shipped.", de:"<strong>⚠️ Pflichtschritt:</strong> Ohne Screenshot Ihrer Zahlung wird Ihre Bestellung nicht berücksichtigt und es erfolgt kein Versand." },
+        form_note_label: { fr:"Note <span style=\"color:var(--outline);font-size:0.75rem;\">(optionnel)</span>", en:"Note <span style=\"color:var(--outline);font-size:0.75rem;\">(optional)</span>", de:"Notiz <span style=\"color:var(--outline);font-size:0.75rem;\">(optional)</span>" },
+        lock_default: { fr:"Remplissez tous les champs et joignez votre preuve pour débloquer", en:"Fill in all fields and attach your proof to unlock", de:"Füllen Sie alle Felder aus und laden Sie Ihren Beleg hoch, um fortzufahren" },
+        lock_ready: { fr:"Prêt", en:"Ready", de:"Bereit" },
+        btn_confirm: { fr:"Confirmer ma commande · CHF ", en:"Confirm my order · CHF ", de:"Bestellung bestätigen · CHF " },
+        secure_note: { fr:"<strong>Paiement Twint ou Revolut</strong> · Données protégées selon la LPD suisse", en:"<strong>Twint or Revolut payment</strong> · Data protected under the Swiss FADP", de:"<strong>Zahlung per Twint oder Revolut</strong> · Daten geschützt nach Schweizer DSG" },
+        summary_title: { fr:"Votre panier", en:"Your cart", de:"Ihr Warenkorb" },
+        upsell_label: { fr:"Complétez votre rituel", en:"Complete your ritual", de:"Vervollständigen Sie Ihr Ritual" },
+        btn_promo: { fr:"Appliquer", en:"Apply", de:"Anwenden" },
+        summary_subtotal: { fr:"Sous-total", en:"Subtotal", de:"Zwischensumme" },
+        summary_volume: { fr:"Offre groupée (Quantité)", en:"Bundle offer (quantity)", de:"Mengenrabatt" },
+        summary_promo: { fr:"Code promo (Étui offert)", en:"Promo code (free case)", de:"Promo-Code (Etui gratis)" },
+        summary_total: { fr:"Total", en:"Total", de:"Total" },
+        promo_ok: { fr:"✅ Code appliqué : Étui offert !", en:"✅ Code applied: free case!", de:"✅ Code angewendet: Etui gratis!" },
+        promo_toast: { fr:"🎁 Étui ajouté en cadeau", en:"🎁 Case added as a gift", de:"🎁 Etui als Geschenk hinzugefügt" },
+        promo_invalid: { fr:"Code invalide", en:"Invalid code", de:"Ungültiger Code" },
+        trust_post: { fr:"Swiss Post 48h", en:"Swiss Post 48h", de:"Swiss Post 48 Std." },
+        trust_secure: { fr:"Paiement sécurisé", en:"Secure payment", de:"Sichere Zahlung" },
+        trust_return: { fr:"Retour 14 jours", en:"14-day returns", de:"14 Tage Rückgabe" },
+        trust_natural: { fr:"100% Naturel", en:"100% natural", de:"100 % natürlich" },
+        footer_brand: { fr:"L'excellence suisse au service d'un rituel millénaire.", en:"Swiss excellence in the service of an age-old ritual.", de:"Schweizer Exzellenz im Dienst eines jahrtausendealten Rituals." },
+        footer_products: { fr:"Produits", en:"Products", de:"Produkte" },
+        footer_info: { fr:"Informations", en:"Information", de:"Informationen" },
+        nav_journal: { fr:"Journal", en:"Journal", de:"Journal" },
+        nav_contact: { fr:"Contact", en:"Contact", de:"Kontakt" },
+        footer_legal: { fr:"Légal", en:"Legal", de:"Rechtliches" },
+        footer_cgv: { fr:"CGV", en:"Terms", de:"AGB" },
+        footer_privacy: { fr:"Confidentialité", en:"Privacy", de:"Datenschutz" },
+        footer_returns: { fr:"Retours", en:"Returns", de:"Rückgabe" },
+    };
+
+    let LANG = 'fr';
+    const CHECKOUT_LANGS = ['fr', 'en', 'de'];
+
+    // Appelée par i18n.js à chaque changement de langue (sélecteur de l'en-tête)
+    function applyCheckoutLanguage(lang) {
+        if (!CHECKOUT_LANGS.includes(lang)) return;
+        LANG = lang;
+        document.querySelectorAll('.lang-opt').forEach(el => el.classList.toggle('active', el.dataset.lang === lang));
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (T[key] && T[key][lang] !== undefined) el.innerHTML = T[key][lang];
+        });
+        document.getElementById('pays').value = T.country_value[lang];
+        refreshBtnConfirm(currentTotal);
+        updateShippingLabel();
+        checkFormLock();
+        document.documentElement.lang = lang;
+    }
+
+    function setSiwakThickness(value) {
+        try { localStorage.setItem('sivaa_siwak_thickness', value); } catch (e) {}
+    }
+
+    function setAllotogoThickness(value) {
+        try { localStorage.setItem('sivaa_allotogo_thickness', value); } catch (e) {}
+    }
+
+    function initThicknessPickers() {
+        [
+            { storageKey: 'sivaa_siwak_thickness', inputName: 'thickness-checkout' },
+            { storageKey: 'sivaa_allotogo_thickness', inputName: 'thickness-checkout-allotogo' }
+        ].forEach(function (group) {
+            var value = null;
+            try { value = localStorage.getItem(group.storageKey); } catch (e) {}
+            if (!value) value = 'peu-importe';
+            var input = document.querySelector('input[name="' + group.inputName + '"][value="' + value + '"]');
+            if (input) input.checked = true;
+        });
+    }
+
+    const PRICE = { allotogo: 6, siwak: 6, upsell: 6, girofle: 10, charbon: 10 };
+    const SHIPPING_FEE = 10;
+    const MIN_ORDER = 15; // montant minimum d'articles (hors frais de livraison)
+    let deliveryMode = 'livraison';
+    let itemsTotal = 0;
+
+    function setDeliveryMode(mode) {
+        deliveryMode = mode;
+        const pickup = mode === 'retrait';
+        document.getElementById('shipping-block').style.display = pickup ? 'none' : '';
+        document.getElementById('pickup-note').style.display = pickup ? 'block' : 'none';
+        document.getElementById('pickup-pay-note').style.display = pickup ? 'block' : 'none';
+        document.getElementById('payment-warning').style.display = pickup ? 'none' : '';
+        document.getElementById('proof-required-star').style.display = pickup ? 'none' : '';
+        updateShippingLabel();
+        recalc();
+    }
+
+    function updateShippingLabel() {
+        const pickup = deliveryMode === 'retrait';
+        const key = pickup ? 'pickup_label' : 'shipping_label';
+        document.getElementById('shipping-label').innerHTML = T[key][LANG] || T[key].fr;
+        document.getElementById('shipping-amount').textContent = pickup ? 'CHF 0.00' : 'CHF ' + SHIPPING_FEE.toFixed(2);
+    }
+    const QTY   = { allotogo: 1, siwak: 1, upsell: 0, girofle: 0, charbon: 0 };
+    
+    let isPromoActive = false;
+    let currentTotal = 0; 
+    let currentDiscountForEmail = 0; 
+
+    function updateQty(item, delta) {
+        QTY[item] = Math.max(0, QTY[item] + delta);
+        document.getElementById('qty-' + item).textContent = QTY[item];
+        document.getElementById('price-' + item).textContent = 'CHF ' + (PRICE[item] * QTY[item]).toFixed(2);
+        recalc();
+    }
+
+    function toggleUpsell() {
+        const on = document.getElementById('upsellCheck').checked;
+        QTY.upsell = on ? 1 : 0;
+        document.getElementById('upsellToggle').classList.toggle('active', on);
+        recalc(); 
+    }
+
+    function applyPromo() {
+        const code = document.getElementById('promo-code').value.trim().toUpperCase();
+        const fb = document.getElementById('promo-feedback');
+        
+        if (code === 'SIVAASIWAK') {
+            isPromoActive = true;
+            
+            document.getElementById('upsellCheck').checked = true;
+            QTY.upsell = 1;
+            document.getElementById('upsellToggle').classList.add('active');
+            
+            document.getElementById('upsellPriceDisplay').textContent = 'CHF 0.00';
+            document.getElementById('upsellOrigPrice').style.display = 'inline';
+            
+            fb.style.display = 'block'; 
+            fb.style.color = 'var(--primary)';
+            fb.textContent = T.promo_ok[LANG];
+            showToast(T.promo_toast[LANG], 'success');
+        } else {
+            isPromoActive = false;
+            
+            document.getElementById('upsellPriceDisplay').textContent = 'CHF ' + PRICE.upsell.toFixed(2);
+            document.getElementById('upsellOrigPrice').style.display = 'none';
+            
+            fb.style.display = 'block'; 
+            fb.style.color = 'var(--danger)';
+            fb.textContent = code ? T.promo_invalid[LANG] : '';
+            if (code) showToast('❌ ' + T.promo_invalid[LANG], 'error');
+        }
+        recalc();
+    }
+
+    function getTieredPrice(qty) {
+        const groupsOf3 = Math.floor(qty / 3);
+        const remainder3 = qty % 3;
+        const groupsOf2 = Math.floor(remainder3 / 2);
+        const remainder1 = remainder3 % 2;
+        return (groupsOf3 * 15) + (groupsOf2 * 11) + (remainder1 * 6);
+    }
+
+    function recalc() {
+        const stickQty = QTY.allotogo + QTY.siwak;
+        const rawSub = (stickQty * 6) + (QTY.upsell * PRICE.upsell);
+
+        const finalItemsPrice = getTieredPrice(stickQty);
+
+        const volumeDiscount = (stickQty * 6) - finalItemsPrice;
+
+        let isUpsellFree = (isPromoActive && QTY.upsell > 0);
+        const upsellPrice = isUpsellFree ? 0 : (QTY.upsell * PRICE.upsell);
+        const promoValue = isUpsellFree ? PRICE.upsell : 0;
+
+        currentDiscountForEmail = volumeDiscount + promoValue;
+
+        const dentifriceSub = (QTY.girofle * PRICE.girofle) + (QTY.charbon * PRICE.charbon);
+
+        itemsTotal = finalItemsPrice + upsellPrice + dentifriceSub;
+        currentTotal = itemsTotal + (deliveryMode === 'retrait' ? 0 : SHIPPING_FEE);
+
+        document.getElementById('subtotal').textContent = 'CHF ' + (rawSub + dentifriceSub).toFixed(2);
+
+        const volLine = document.getElementById('volume-line');
+        if (volumeDiscount > 0) {
+            volLine.style.display = 'flex';
+            document.getElementById('volume-amount').textContent = '− CHF ' + volumeDiscount.toFixed(2);
+        } else {
+            volLine.style.display = 'none';
+        }
+
+        const promoLine = document.getElementById('promo-line');
+        if (isUpsellFree) {
+            promoLine.style.display = 'flex';
+            document.getElementById('promo-amount').textContent = '− CHF 6.00';
+        } else {
+            promoLine.style.display = 'none';
+        }
+
+        document.getElementById('total-display').textContent = 'CHF ' + currentTotal.toFixed(2);
+        refreshBtnConfirm(currentTotal);
+        checkFormLock();
+    }
+
+    function refreshBtnConfirm(totalVal = currentTotal) {
+        document.getElementById('btnLabel').innerHTML = T.btn_confirm ? T.btn_confirm[LANG] : 'Confirmer ma commande · CHF ';
+        document.getElementById('btnTotal').textContent = totalVal.toFixed(2);
+    }
+
+    const REQUIRED_BASE = ['prenom','nom'];
+    const REQUIRED_ADDRESS = ['adresse','npa','ville'];
+    const requiredFields = () => deliveryMode === 'retrait' ? REQUIRED_BASE : REQUIRED_BASE.concat(REQUIRED_ADDRESS);
+    const proofRequired = () => deliveryMode !== 'retrait';
+    let fileReady = false;
+
+    function isValidSwissNpa(value) {
+        return /^[1-9]\d{3}$/.test(value.trim());
+    }
+
+    function isValidPhoneNumber(value) {
+        const digits = value.replace(/[^\d]/g, '');
+        return digits.length === 9;
+    }
+
+    function handleFileUpload(input) {
+        const zone = document.getElementById('uploadZone');
+        const fn = document.getElementById('uploadFilename');
+        if (input.files && input.files.length > 0) {
+            const f = input.files[0];
+            if (f.size > 10 * 1024 * 1024) {
+                showToast('❌ Fichier trop lourd (max 10 MB)', 'error');
+                input.value = ''; fileReady = false; zone.classList.remove('has-file'); fn.textContent = '';
+            } else {
+                fileReady = true; zone.classList.add('has-file');
+                fn.textContent = '📎 ' + f.name + ' (' + (f.size / 1024).toFixed(0) + ' KB)';
+                showToast('📎 Fichier joint', 'success');
+            }
+        } else {
+            fileReady = false; zone.classList.remove('has-file'); fn.textContent = '';
+        }
+        checkFormLock();
+    }
+    
+    function checkFormLock() {
+        const allFilled = requiredFields().every(id => { const el = document.getElementById(id); return el && el.value.trim().length > 0; });
+
+        const npaEl = document.getElementById('npa');
+        const npaFilled = npaEl.value.trim().length > 0;
+        const npaValid = deliveryMode === 'retrait' || !npaFilled || isValidSwissNpa(npaEl.value);
+        npaEl.classList.toggle('input-invalid', npaFilled && !npaValid);
+        document.getElementById('npa-error').classList.toggle('show', npaFilled && !npaValid);
+
+        const phoneEl = document.getElementById('phone');
+        const phoneFilled = phoneEl.value.trim().length > 0;
+        const phoneValid = !phoneFilled || isValidPhoneNumber(phoneEl.value);
+        phoneEl.classList.toggle('input-invalid', phoneFilled && !phoneValid);
+        document.getElementById('phone-error').classList.toggle('show', phoneFilled && !phoneValid);
+
+        const meetsMinimum = itemsTotal >= MIN_ORDER;
+        const ready = allFilled && (fileReady || !proofRequired()) && meetsMinimum && npaValid && phoneValid;
+        const btn = document.getElementById('btnConfirm');
+        const icon = document.getElementById('lockIcon');
+        const msg = document.getElementById('lockMsg');
+        btn.disabled = !ready;
+        if (ready) {
+            icon.textContent = '🔓'; msg.innerHTML = T.lock_ready ? T.lock_ready[LANG] : 'Prêt'; msg.style.color = 'var(--primary)';
+        } else if (!meetsMinimum) {
+            icon.textContent = '🔒';
+            const tpl = T.lock_min ? T.lock_min[LANG] : 'Montant minimum de commande : CHF {min}';
+            msg.innerHTML = (tpl || 'Montant minimum de commande : CHF {min}').replace('{min}', MIN_ORDER.toFixed(2));
+            msg.style.color = 'var(--danger)';
+        } else if (npaFilled && !npaValid) {
+            icon.textContent = '🔒'; msg.innerHTML = T.error_npa ? T.error_npa[LANG] : 'Code postal suisse invalide'; msg.style.color = 'var(--danger)';
+        } else if (phoneFilled && !phoneValid) {
+            icon.textContent = '🔒'; msg.innerHTML = T.error_phone ? T.error_phone[LANG] : 'Numéro de téléphone invalide'; msg.style.color = 'var(--danger)';
+        } else {
+            icon.textContent = '🔒'; msg.innerHTML = T.lock_default ? T.lock_default[LANG] : 'Remplissez les champs'; msg.style.color = 'var(--text-variant)';
+        }
+    }
+
+    let chosenPayment = '';
+    function markPayment(method) { chosenPayment = method; }
+
+
+    function submitOrder() {
+        const btn = document.getElementById('btnConfirm');
+        if (btn.disabled) return;
+        if (!fileReady && proofRequired()) { showToast('Remplissez tous les champs', 'error'); return; }
+        if (itemsTotal < MIN_ORDER) { showToast("❌ Montant minimum : CHF " + MIN_ORDER.toFixed(2) + " d'articles", 'error'); return; }
+
+        const prenom = document.getElementById('prenom').value.trim();
+        const nom = document.getElementById('nom').value.trim();
+        const prefix = document.getElementById('phone-prefix').value;
+        const phoneInput = document.getElementById('phone').value.trim();
+        const phone = phoneInput ? prefix + ' ' + phoneInput : 'N/A';
+        const adresse = document.getElementById('adresse').value.trim();
+        const npa = document.getElementById('npa').value.trim();
+        const ville = document.getElementById('ville').value.trim();
+        const pays = T.country_value.fr; // message au vendeur : toujours en français
+
+        if (deliveryMode !== 'retrait' && !isValidSwissNpa(document.getElementById('npa').value)) { showToast('❌ Code postal suisse invalide', 'error'); return; }
+        const phoneCheckVal = document.getElementById('phone').value.trim();
+        if (phoneCheckVal && !isValidPhoneNumber(phoneCheckVal)) { showToast('❌ Numéro de téléphone invalide', 'error'); return; }
+
+        const orderId = 'SIVAA-' + new Date().getFullYear() + '-' + Math.floor(10000 + Math.random() * 90000);
+        
+        let isUpsellFree = (isPromoActive && QTY.upsell > 0);
+        const items = [
+            QTY.allotogo > 0 ? `Allo Togo ×${QTY.allotogo}` : null,
+            QTY.siwak > 0 ? `Bâton Siwak Premium ×${QTY.siwak}` : null,
+            QTY.upsell > 0 ? `Étui de Siwak ×1 ${isUpsellFree ? '(OFFERT)' : ''}` : null,
+            QTY.girofle > 0 ? `Dentifrice Siwak Clou de Girofle ×${QTY.girofle}` : null,
+            QTY.charbon > 0 ? `Dentifrice Siwak Charbon Actif ×${QTY.charbon}` : null,
+        ].filter(Boolean).join('\n');
+
+        const reception = deliveryMode === 'retrait'
+            ? '🤝 Retrait en main propre aux Acacias (à fixer sur WhatsApp)'
+            : `📍 Livraison Swiss Post : ${adresse}, ${npa} ${ville}, ${pays}`;
+        const paymentLine = fileReady ? '💳 Paiement : capture jointe' : '💳 Paiement : sur place (Twint)';
+        const dateStr = new Date().toLocaleString('fr-CH');
+
+        const thicknessMap = { fin: 'Fin', epais: 'Épais', 'peu-importe': 'Peu importe' };
+        const siwakThicknessInput = document.querySelector('input[name="thickness-checkout"]:checked');
+        const allotogoThicknessInput = document.querySelector('input[name="thickness-checkout-allotogo"]:checked');
+        const thicknessLine =
+            (QTY.siwak > 0 && siwakThicknessInput ? `\n🌿 Épaisseur Siwak : ${thicknessMap[siwakThicknessInput.value] || siwakThicknessInput.value}` : '') +
+            (QTY.allotogo > 0 && allotogoThicknessInput ? `\n🌿 Épaisseur Allo Togo : ${thicknessMap[allotogoThicknessInput.value] || allotogoThicknessInput.value}` : '');
+
+        const message =
+`🌿 Nouvelle commande SIVÀA — ${orderId}
+
+Prénom : ${prenom}
+Nom : ${nom}
+Téléphone : ${phone}
+
+📦 Articles :
+${items}${thicknessLine}
+
+${reception}
+
+💳 TOTAL : CHF ${currentTotal.toFixed(2)}
+${paymentLine}
+
+${dateStr}`;
+
+        btn.disabled = true; document.getElementById('btnSpinner').style.display = 'inline-block'; document.getElementById('btnArrow').style.display = 'none';
+        showToast(T.t_sending ? T.t_sending[LANG] : 'Envoi...', 'info');
+
+        const waUrl = 'https://wa.me/41779496504?text=' + encodeURIComponent(message);
+        window.open(waUrl, '_blank', 'noopener');
+
+        const waLink = document.getElementById('orderSuccessWaLink');
+        if (waLink) waLink.href = waUrl;
+        document.getElementById('orderSuccessPanel').style.display = 'block';
+        document.getElementById('orderSuccessPanel').scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+        showToast(T.t_success ? T.t_success[LANG] : 'Succès', 'success');
+        btn.disabled = false; document.getElementById('btnSpinner').style.display = 'none'; document.getElementById('btnArrow').style.display = 'inline-block';
+    }
+
+    let toastTimer; function showToast(msg, type = 'info') { const el = document.getElementById('toast'); document.getElementById('toastMsg').textContent = msg; el.className = 'toast ' + type + ' show'; clearTimeout(toastTimer); toastTimer = setTimeout(() => el.classList.remove('show'), 4200); }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        recalc(); checkFormLock();
+        initThicknessPickers();
+        // La langue (choix mémorisé ou langue du navigateur) est appliquée par i18n.js
+        const zone = document.getElementById('uploadZone');
+        zone.addEventListener('dragover', e => { e.preventDefault(); zone.style.borderColor = 'var(--primary)'; });
+        zone.addEventListener('dragleave', () => { zone.style.borderColor = ''; });
+        zone.addEventListener('drop', e => { e.preventDefault(); zone.style.borderColor = ''; const fi = document.getElementById('paymentProof'); const dt = new DataTransfer(); Array.from(e.dataTransfer.files).slice(0,1).forEach(f => dt.items.add(f)); fi.files = dt.files; handleFileUpload(fi); });
+    });
+</script>
+<script>window.onSivaaLanguageChange = applyCheckoutLanguage;</script>
+<script src="/i18n.js?v=4fdbac3b1d"></script>
+
+
+</body></html>

@@ -1,0 +1,4 @@
+#blocks 5
+[2] <a href="checkout.html">Bestellen</a>
+[3] <a href="index.html">Über uns</a>
+[4] <a href="mentions-legales.html">AGB</a><a href="politique-confidentialite.html">Datenschutz</a>

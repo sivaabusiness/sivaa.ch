@@ -26,18 +26,18 @@ const translations = {
         "offer.hand": "🤝 Main propre dès 3 pces",
 
         /* ── INDEX : HERO ── */
-        "hero.badge": "Racine de Salvadora Persica · Certifié Suisse",
+        "hero.badge": "Racine de Salvadora persica · Genève",
         "hero.title.part1": "L'Art du",
         "hero.title.part2": "Siwak",
         "hero.title.part3": "à",
         "hero.title.part4": "Genève",
-        "hero.subtitle": "La brosse à dents naturelle utilisée traditionnellement depuis des siècles. Ce bâton de bois se mâche pour former une brosse et laisse une sensation de propreté et d'haleine fraîche. Livraison dans toute la Suisse : expédition sous 48h + 2–3 jours.",
+        "hero.subtitle": "Le siwak, aussi appelé miswak, est la brosse à dents naturelle utilisée traditionnellement depuis des siècles. Ce bâton de bois se mâche pour former une brosse et laisse une sensation de propreté et d'haleine fraîche. Livraison dans toute la Suisse : expédition sous 48h + 2–3 jours.",
         "hero.cta.order": "Commander maintenant →",
         "hero.cta.discover": "Découvrir le Siwak",
         "hero.trust.shipping": "🚚 Expédition sous 48h + 2–3 jours",
         "hero.trust.natural": "🌿 100 % Naturel",
         "hero.trust.ssl": "🔒 Paiement Twint ou Revolut",
-        "hero.badge.float": "🌿 Un usage encouragé par l'<a href=\"https://iris.who.int/bitstreams/1f64ff17-718e-44d0-9935-26501fa61991/download\" target=\"_blank\" rel=\"noopener\" style=\"color:#9dd75a;\">OMS</a>",
+        "hero.badge.float": "🌿 Un usage traditionnel depuis des siècles",
         "hero.image.alt": "Bâtons de siwak bruts éparpillés sur une planche en bois clair",
 
         /* ── INDEX : PRODUITS ── */
@@ -94,7 +94,7 @@ const translations = {
         "modal5.buy": "🛍 Acheter maintenant",
 
         /* ── INDEX : POPUP PRODUIT 1 ── */
-        "modal1.desc": "Bâton de siwak taillé dans la racine de Salvadora persica, récolté à la main au Pakistan. Il s'utilise sans eau ni dentifrice, où que vous soyez.",
+        "modal1.desc": "Bâton de siwak (ou miswak) taillé dans la racine de Salvadora persica, récolté à la main au Pakistan. Il s'utilise sans eau ni dentifrice, où que vous soyez.",
         "modal1.shipping": "🚚 Frais de livraison Swiss Post · CHF 10.00 · expédition sous 48h + 2–3 jours",
         "modal1.priceLabel": "Prix",
         "modal1.buy": "🛍 Acheter maintenant",
@@ -143,7 +143,7 @@ const translations = {
         "faq.q3": "Le siwak blanchit-il les dents ?",
         "faq.a3": "Le siwak est utilisé traditionnellement pour nettoyer les dents et laisse une sensation de propreté. Ce n'est pas un traitement blanchissant : pour toute question sur la couleur de vos dents, demandez conseil à votre dentiste.",
         "faq.q4": "Le siwak est-il utile pour l'hygiène bucco-dentaire ?",
-        "faq.a4": "Le siwak est utilisé depuis des siècles pour le soin des dents, et son usage a été encouragé par l'<a href=\"https://iris.who.int/bitstreams/1f64ff17-718e-44d0-9935-26501fa61991/download\" target=\"_blank\" rel=\"noopener\" style=\"color:#9dd75a;\">OMS</a>. Il s'utilise de préférence en complément d'une bonne routine : brossage avec un dentifrice et contrôles réguliers chez le dentiste.",
+        "faq.a4": "Le siwak est utilisé depuis des siècles pour le soin des dents. Il s'utilise de préférence en complément d'une bonne routine : brossage avec un dentifrice et contrôles réguliers chez le dentiste.",
         "faq.q5": "Dois-je utiliser du dentifrice en plus du siwak ?",
         "faq.a5": "Oui, je vous conseille de garder votre brossage habituel avec un dentifrice, matin et soir, et d'utiliser le siwak en complément dans la journée.",
         "faq.q6": "Où trouver du siwak de qualité en Suisse (Migros, Coop, Manor) ?",
@@ -226,10 +226,10 @@ const translations = {
         "pp.p1.k1": "🌿 Riche en composés naturels : la sève contient des minéraux, dont de la silice et du fluor naturel, utilisés depuis des siècles pour le soin des dents",
         "pp.p1.k2": "🌿 Fibres qui s'ouvrent en pinceau et vont nettoyer entre les dents et le long des gencives",
         "pp.p1.k3": "🌿 Sensation de propreté immédiate et haleine fraîche, même sans dentifrice",
-        "pp.p1.k4": "🌿 Rituel millénaire, encouragé par l'OMS",
+        "pp.p1.k4": "🌿 Un rituel transmis depuis des siècles, d'une génération à l'autre",
         "pp.p1.origin.title": "D'où vient votre bâton",
         "pp.p1.origin.1": "Salvadora persica est un arbuste des régions arides, d'Afrique de l'Est jusqu'au sous-continent indien, que l'on surnomme « l'arbre à brosse à dents ». Ce sont ses racines, souples et fibreuses, qui donnent le bâton.",
-        "pp.p1.origin.2": "Nos bâtons sont récoltés à la main au Pakistan, puis coupés à la bonne longueur. Leur usage pour l'hygiène bucco-dentaire est très ancien, et l'<a href=\"https://iris.who.int/bitstreams/1f64ff17-718e-44d0-9935-26501fa61991/download\" target=\"_blank\" rel=\"noopener\" style=\"color:#9dd75a;\">OMS</a> l'a encouragé dans ses travaux sur les pratiques traditionnelles.",
+        "pp.p1.origin.2": "Nos bâtons sont récoltés à la main au Pakistan, puis coupés à la bonne longueur. Leur usage pour l'hygiène bucco-dentaire est très ancien et se transmet encore aujourd'hui dans de nombreux pays.",
         "pp.p1.use.title": "Comment l'utiliser",
         "pp.p1.use.1": "<strong>Préparer :</strong> retirez l'écorce sur environ 1 cm à une extrémité.",
         "pp.p1.use.2": "<strong>Mâcher :</strong> mâchonnez doucement cette extrémité avec les molaires, jusqu'à ce que les fibres s'écartent en petits poils.",
@@ -377,6 +377,10 @@ const translations = {
         "pp.p4.subtitle": "Dentifrice au siwak et au clou de girofle, pour un brossage aux notes épicées.",
         "pp.p5.subtitle": "Dentifrice noir au charbon actif et au siwak, pour une routine originale.",
         "nav.close": "Fermer",
+        "modal2.priceLabel": "Prix",
+        "blog.vs.date": "02 Nov 2026",
+        "blog.vs.title": "Faut-il remplacer sa brosse à dents par le Siwak ?",
+        "blog.vs.excerpt": "Analyse neutre et sourcée : efficacité sur la plaque dentaire, teneur réelle en fluor, risque de récession gingivale et avis des autorités de santé.",
         "footer.info.shipping": "Livraison & retrait",
         "pp.crumb.home": "Accueil",
         "pp.crumb.products": "Produits",
@@ -497,7 +501,7 @@ const translations = {
         "article.toc.3": "III. Analyse Scientifique",
         "article.toc.4": "IV. Art d'Emploi",
         "article.sidebar.cta.title": "Siwak Premium SIVÀA",
-        "article.sidebar.cta.desc": "Sélectionné à la main au Pakistan, certifié par mes soins à Genève. La quintessence du bâton de Siwak.",
+        "article.sidebar.cta.desc": "Récolté à la main au Pakistan, choisi avec soin à Genève. La quintessence du bâton de Siwak.",
         "article.sidebar.cta.btn": "Commander · CHF 6.00 →",
         "article.sidebar.delivery": "Livraison Swiss Post · expédition sous 48h + 2–3 jours",
         "article.sidebar.langs.title": "Cet article en d'autres langues",
@@ -594,18 +598,18 @@ const translations = {
         "offer.hand": "🤝 Hand delivery from 3 pcs",
 
         /* ── INDEX : HERO ── */
-        "hero.badge": "Hand-harvested · Pakistan · Swiss Certified",
+        "hero.badge": "Salvadora persica root · Geneva",
         "hero.title.part1": "The Art of",
         "hero.title.part2": "Siwak",
         "hero.title.part3": "in",
         "hero.title.part4": "Geneva",
-        "hero.subtitle": "The natural toothbrush used traditionally for centuries. You chew the wooden stick until it forms a brush, for a feeling of cleanliness and fresh breath. Delivery across Switzerland: dispatched within 48h + 2–3 days.",
+        "hero.subtitle": "Siwak, also called miswak, is the natural toothbrush used traditionally for centuries. You chew the wooden stick until it forms a brush, for a feeling of cleanliness and fresh breath. Delivery across Switzerland: dispatched within 48h + 2–3 days.",
         "hero.cta.order": "Order now →",
         "hero.cta.discover": "Discover Siwak",
         "hero.trust.shipping": "🚚 Shipped within 48h + 2–3 days",
         "hero.trust.natural": "🌿 100% Natural",
         "hero.trust.ssl": "🔒 Twint or Revolut payment",
-        "hero.badge.float": "🌿 A practice encouraged by the <a href=\"https://iris.who.int/bitstreams/1f64ff17-718e-44d0-9935-26501fa61991/download\" target=\"_blank\" rel=\"noopener\" style=\"color:#9dd75a;\">WHO</a>",
+        "hero.badge.float": "🌿 A traditional practice for centuries",
         "hero.image.alt": "Raw siwak sticks scattered across a light wooden board",
 
         /* ── INDEX : PRODUCTS ── */
@@ -662,7 +666,7 @@ const translations = {
         "modal3.image.alt": "Green travel case for a siwak stick, easy to open and close",
 
         /* ── INDEX : POPUP 1 ── */
-        "modal1.desc": "A siwak stick cut from the root of Salvadora persica, hand-harvested in Pakistan. It is used without water or toothpaste, wherever you are.",
+        "modal1.desc": "A siwak (or miswak) stick cut from the root of Salvadora persica, hand-harvested in Pakistan. It is used without water or toothpaste, wherever you are.",
         "modal1.shipping": "🚚 Swiss Post shipping fee · CHF 10.00 · shipped within 48h + 2–3 days",
         "modal1.priceLabel": "Price",
         "modal1.buy": "🛍 Buy now",
@@ -712,7 +716,7 @@ const translations = {
         "faq.q3": "Does siwak whiten teeth?",
         "faq.a3": "Siwak is used traditionally to clean teeth and leaves a feeling of cleanliness. It is not a whitening treatment: for any question about the colour of your teeth, ask your dentist.",
         "faq.q4": "Is siwak useful for oral hygiene?",
-        "faq.a4": "Siwak has been used for centuries to care for teeth, and its use has been encouraged by the <a href=\"https://iris.who.int/bitstreams/1f64ff17-718e-44d0-9935-26501fa61991/download\" target=\"_blank\" rel=\"noopener\" style=\"color:#9dd75a;\">WHO</a>. It is best used alongside a good routine: brushing with toothpaste and regular dental check-ups.",
+        "faq.a4": "Siwak has been used for centuries to care for teeth. It is best used alongside a good routine: brushing with toothpaste and regular dental check-ups.",
         "faq.q5": "Should I use toothpaste as well as siwak?",
         "faq.a5": "Yes, I recommend keeping your usual brushing with toothpaste, morning and evening, and using siwak during the day as well.",
         "faq.q6": "Where can I find quality siwak in Switzerland (Migros, Coop, Manor)?",
@@ -795,10 +799,10 @@ const translations = {
         "pp.p1.k1": "🌿 Rich in natural compounds: the sap contains minerals, including silica and natural fluoride, used for centuries to care for teeth",
         "pp.p1.k2": "🌿 Fibres that open into a brush and clean between the teeth and along the gums",
         "pp.p1.k3": "🌿 An instant feeling of cleanliness and fresh breath, even without toothpaste",
-        "pp.p1.k4": "🌿 A centuries-old ritual, encouraged by the WHO",
+        "pp.p1.k4": "🌿 A ritual handed down for centuries, from one generation to the next",
         "pp.p1.origin.title": "Where your stick comes from",
         "pp.p1.origin.1": "Salvadora persica is a shrub of arid regions, from East Africa to the Indian subcontinent, nicknamed \"the toothbrush tree\". Its supple, fibrous roots are what the stick is made from.",
-        "pp.p1.origin.2": "Our sticks are hand-harvested in Pakistan, then cut to length. Their use for oral hygiene is very old, and the <a href=\"https://iris.who.int/bitstreams/1f64ff17-718e-44d0-9935-26501fa61991/download\" target=\"_blank\" rel=\"noopener\" style=\"color:#9dd75a;\">WHO</a> has encouraged it in its work on traditional practices.",
+        "pp.p1.origin.2": "Our sticks are hand-harvested in Pakistan, then cut to length. Their use for oral hygiene is very old and is still handed down today in many countries.",
         "pp.p1.use.title": "How to use it",
         "pp.p1.use.1": "<strong>Prepare:</strong> peel the bark back about 1 cm at one end.",
         "pp.p1.use.2": "<strong>Chew:</strong> gently chew that end with your molars until the fibres spread into small bristles.",
@@ -946,6 +950,10 @@ const translations = {
         "pp.p4.subtitle": "Siwak and clove toothpaste, for brushing with spicy notes.",
         "pp.p5.subtitle": "Black toothpaste with activated charcoal and siwak, for an original routine.",
         "nav.close": "Close",
+        "modal2.priceLabel": "Price",
+        "blog.vs.date": "Nov 2, 2026",
+        "blog.vs.title": "Should you replace your toothbrush with siwak?",
+        "blog.vs.excerpt": "A neutral, sourced look at plaque, the real fluoride content, the risk of gum recession and what health authorities say.",
         "footer.info.shipping": "Delivery & pickup",
         "pp.crumb.home": "Home",
         "pp.crumb.products": "Products",
@@ -1145,18 +1153,18 @@ const translations = {
         "offer.hand": "🤝 Persönliche Übergabe ab 3 Stk.",
 
         /* ── INDEX : HERO ── */
-        "hero.badge": "Handgeerntet · Pakistan · Schweizer Zertifiziert",
+        "hero.badge": "Salvadora-persica-Wurzel · Genf",
         "hero.title.part1": "Die Kunst des",
         "hero.title.part2": "Siwak",
         "hero.title.part3": "in",
         "hero.title.part4": "Genf",
-        "hero.subtitle": "Die natürliche Zahnbürste, die seit Jahrhunderten traditionell verwendet wird. Der Holzstab wird gekaut, bis eine Bürste entsteht, und hinterlässt ein sauberes Gefühl und frischen Atem. Lieferung in die ganze Schweiz: Versand innerhalb von 48 Std. + 2–3 Tage.",
+        "hero.subtitle": "Siwak, auch Miswak genannt, ist die natürliche Zahnbürste, die seit Jahrhunderten traditionell verwendet wird. Der Holzstab wird gekaut, bis eine Bürste entsteht, und hinterlässt ein sauberes Gefühl und frischen Atem. Lieferung in die ganze Schweiz: Versand innerhalb von 48 Std. + 2–3 Tage.",
         "hero.cta.order": "Jetzt bestellen →",
         "hero.cta.discover": "Siwak entdecken",
         "hero.trust.shipping": "🚚 Versand innerhalb von 48 Std. + 2–3 Tage",
         "hero.trust.natural": "🌿 100 % Natürlich",
         "hero.trust.ssl": "🔒 Zahlung per Twint oder Revolut",
-        "hero.badge.float": "🌿 Eine von der <a href=\"https://iris.who.int/bitstreams/1f64ff17-718e-44d0-9935-26501fa61991/download\" target=\"_blank\" rel=\"noopener\" style=\"color:#9dd75a;\">WHO</a> geförderte Praxis",
+        "hero.badge.float": "🌿 Seit Jahrhunderten traditionell verwendet",
         "hero.image.alt": "Unbehandelte Siwak-Stäbe, verstreut auf einem hellen Holzbrett",
 
         /* ── INDEX : PRODUKTE ── */
@@ -1213,7 +1221,7 @@ const translations = {
         "modal3.image.alt": "Grünes Reiseetui für den Siwak-Stab, leicht zu öffnen und zu schliessen",
 
         /* ── POPUP 1 ── */
-        "modal1.desc": "Ein Siwak-Stab aus der Wurzel von Salvadora persica, von Hand in Pakistan geerntet. Er wird ohne Wasser und Zahnpasta verwendet, wo immer Sie sind.",
+        "modal1.desc": "Ein Siwak-Stab (auch Miswak genannt) aus der Wurzel von Salvadora persica, von Hand in Pakistan geerntet. Er wird ohne Wasser und Zahnpasta verwendet, wo immer Sie sind.",
         "modal1.shipping": "🚚 Versandkosten Swiss Post · CHF 10.00 · Versand innerhalb von 48 Std. + 2–3 Tage",
         "modal1.priceLabel": "Preis",
         "modal1.buy": "🛍 Jetzt kaufen",
@@ -1237,7 +1245,7 @@ const translations = {
         "reviews.title.part2": "Kunden",
         "reviews.title.suffix": "sagen",
         "reviews.subtitle": "Bewertungen aus Genf und der ganzen Schweiz",
-        "review1.text": "\"Eine außergewöhnliche Entdeckung! Die minzigen Noten von Allo sorgen für eine intensive und lang anhaltende Frische. Seine leichte, natürliche betäubende Wirkung hat mein empfindliches Zahnfleisch sofort beruhigt. Ein wahres Vergnügen.\"",
+        "review1.text": "\"Eine aussergewöhnliche Entdeckung! Die minzigen Noten von Allo sorgen für eine intensive und lang anhaltende Frische. Seine leichte, natürliche betäubende Wirkung hat mein empfindliches Zahnfleisch sofort beruhigt. Ein wahres Vergnügen.\"",
         "review1.name": "Sophie",
         "review1.location": "Genf · März 2026",
         "review1.tag": "Allo Togo",
@@ -1263,7 +1271,7 @@ const translations = {
         "faq.q3": "Hellt Siwak die Zähne auf?",
         "faq.a3": "Siwak wird traditionell zur Zahnreinigung verwendet und hinterlässt ein sauberes Gefühl. Es ist keine Aufhellungsbehandlung: Bei Fragen zur Zahnfarbe wenden Sie sich an Ihre Zahnärztin oder Ihren Zahnarzt.",
         "faq.q4": "Ist Siwak für die Mundhygiene sinnvoll?",
-        "faq.a4": "Siwak wird seit Jahrhunderten zur Zahnpflege verwendet, und seine Nutzung wurde von der <a href=\"https://iris.who.int/bitstreams/1f64ff17-718e-44d0-9935-26501fa61991/download\" target=\"_blank\" rel=\"noopener\" style=\"color:#9dd75a;\">WHO</a> gefördert. Am besten ergänzt er eine gute Routine: Zähneputzen mit Zahnpasta und regelmässige Kontrollen beim Zahnarzt.",
+        "faq.a4": "Siwak wird seit Jahrhunderten zur Zahnpflege verwendet. Am besten ergänzt er eine gute Routine: Zähneputzen mit Zahnpasta und regelmässige Kontrollen beim Zahnarzt.",
         "faq.q5": "Soll ich zusätzlich zum Siwak Zahnpasta verwenden?",
         "faq.a5": "Ja, ich empfehle, Ihr gewohntes Zähneputzen mit Zahnpasta morgens und abends beizubehalten und Siwak tagsüber ergänzend zu verwenden.",
         "faq.q6": "Wo finde ich hochwertigen Siwak in der Schweiz (Migros, Coop, Manor)?",
@@ -1311,9 +1319,9 @@ const translations = {
         "prestige.min.title": "Versand ab CHF 15",
         "prestige.min.text": "Bestellungen ab <strong>CHF 15.00 Warenwert</strong> möglich, für Versand und Abholung.",
         "prestige.pickup.title": "Persönliche Übergabe — Acacias, Genf",
-        "prestige.pickup.text": "Kostenlose Abholung in Acacias (Quai des Vernets 11, Genf). <a href=\"/contact.html\" style=\"color:#9dd75a;\">Kontaktieren Sie mich</a>, um die Abholung zu vereinbaren.",
+        "prestige.pickup.text": "Kostenlose Abholung in Acacias (Quai des Vernets 11, Genf). <a href=\"/de/kontakt.html\" style=\"color:#9dd75a;\">Kontaktieren Sie mich</a>, um die Abholung zu vereinbaren.",
         "prestige.post.title": "Versand mit Swiss Post",
-        "prestige.post.text": "Versand innerhalb von 48 Std. nach Zahlungseingang. Lieferung in <strong>die ganze Schweiz</strong> in 2–3 Werktagen. <a href=\"/de/versand-abholung.html\" style=\"color:#9dd75a;\">Alle Details</a>",
+        "prestige.post.text": "Versand innerhalb von 48 Std. nach Zahlungseingang. Lieferung in <strong>die ganze Schweiz</strong> in 2–3 Werktagen, ob nach Zürich, Basel, Bern, Luzern oder anderswohin. <a href=\"/de/versand-abholung.html\" style=\"color:#9dd75a;\">Alle Details</a>",
         "toothpaste.eyebrow": "Das komplette Ritual",
         "toothpaste.title.part1": "Unsere",
         "toothpaste.title.part2": "Siwak-",
@@ -1346,10 +1354,10 @@ const translations = {
         "pp.p1.k1": "🌿 Reich an natürlichen Stoffen: Der Saft enthält Mineralien, darunter Kieselsäure und natürliches Fluorid, die seit Jahrhunderten zur Zahnpflege genutzt werden",
         "pp.p1.k2": "🌿 Fasern, die sich zu einem Pinsel öffnen und zwischen den Zähnen und entlang des Zahnfleischs reinigen",
         "pp.p1.k3": "🌿 Sofort ein sauberes Gefühl und frischer Atem, auch ohne Zahnpasta",
-        "pp.p1.k4": "🌿 Ein jahrhundertealtes Ritual, von der WHO gefördert",
+        "pp.p1.k4": "🌿 Ein Ritual, das seit Jahrhunderten von Generation zu Generation weitergegeben wird",
         "pp.p1.origin.title": "Woher Ihr Stab kommt",
         "pp.p1.origin.1": "Salvadora persica ist ein Strauch trockener Regionen, von Ostafrika bis zum indischen Subkontinent, auch „Zahnbürstenbaum“ genannt. Aus seinen biegsamen, faserigen Wurzeln entsteht der Stab.",
-        "pp.p1.origin.2": "Unsere Stäbe werden in Pakistan von Hand geerntet und auf die richtige Länge zugeschnitten. Ihre Verwendung zur Mundhygiene ist sehr alt, und die <a href=\"https://iris.who.int/bitstreams/1f64ff17-718e-44d0-9935-26501fa61991/download\" target=\"_blank\" rel=\"noopener\" style=\"color:#9dd75a;\">WHO</a> hat sie in ihren Arbeiten zu traditionellen Praktiken gefördert.",
+        "pp.p1.origin.2": "Unsere Stäbe werden in Pakistan von Hand geerntet und auf die richtige Länge zugeschnitten. Ihre Verwendung zur Mundhygiene ist sehr alt und wird in vielen Ländern bis heute weitergegeben.",
         "pp.p1.use.title": "So wird er verwendet",
         "pp.p1.use.1": "<strong>Vorbereiten:</strong> Schälen Sie an einem Ende etwa 1 cm Rinde ab.",
         "pp.p1.use.2": "<strong>Kauen:</strong> Kauen Sie dieses Ende sanft mit den Backenzähnen, bis sich die Fasern zu kleinen Borsten auffächern.",
@@ -1497,6 +1505,12 @@ const translations = {
         "pp.p4.subtitle": "Zahnpasta mit Siwak und Gewürznelke, für ein Putzen mit würziger Note.",
         "pp.p5.subtitle": "Schwarze Zahnpasta mit Aktivkohle und Siwak, für eine originelle Routine.",
         "nav.close": "Schliessen",
+        "modal2.priceLabel": "Preis",
+        "blog.vs.date": "02. Nov. 2026",
+        "blog.vs.title": "Sollte man die Zahnbürste durch Siwak ersetzen?",
+        "blog.vs.excerpt": "Eine neutrale, belegte Analyse: Wirkung auf Zahnbelag, tatsächlicher Fluoridgehalt, Risiko von Zahnfleischrückgang und was Gesundheitsbehörden sagen.",
+        "article.breadcrumb": "Siwak: Herkunft und Sunna",
+        "article.hero.title": "Was ist Siwak? <em class=\"accent\">Herkunft</em>, Anwendung und <em class=\"accent\">Sunna</em>",
         "footer.info.shipping": "Versand & Abholung",
         "pp.crumb.home": "Startseite",
         "pp.crumb.products": "Produkte",
@@ -1522,7 +1536,7 @@ const translations = {
         "ship.abroad.title": "Versand ins Ausland",
         "ship.abroad.text": "Derzeit werden Bestellungen <strong>nur innerhalb der Schweiz</strong> geliefert.",
         "ship.returns.title": "Rücksendungen",
-        "ship.returns.text": "Sie haben ab Erhalt 14 Tage Zeit, um Ihr Widerrufsrecht auszuüben. Die vollständigen Bedingungen finden Sie im <a href=\"/mentions-legales.html\" style=\"color:#9dd75a;\">Impressum</a>.",
+        "ship.returns.text": "Sie haben ab Erhalt 14 Tage Zeit, um Ihr Widerrufsrecht auszuüben. Die vollständigen Bedingungen finden Sie im <a href=\"/de/impressum.html\" style=\"color:#9dd75a;\">Impressum</a>.",
         "ship.cta": "Jetzt bestellen →",
         "ship.contact": "Eine Frage zur Lieferung? Schreiben Sie mir auf WhatsApp",
         "footer.col.legal": "Rechtliches",
@@ -1694,6 +1708,10 @@ const LANG_META = {
 // Langue imposée par la page (pages /de/ générées : <html data-page-lang="de">)
 const PAGE_LANG = document.documentElement.getAttribute('data-page-lang');
 const HOME_URL = PAGE_LANG === 'de' ? '/de/' : '/';
+// Liens du menu injecté : pages allemandes sur les pages /de/
+const NAV_URL = PAGE_LANG === 'de'
+    ? { blog: '/de/journal/', contact: '/de/kontakt.html', checkout: '/de/kasse.html' }
+    : { blog: '/blog.html', contact: '/contact.html', checkout: '/checkout.html' };
 
 function getStoredLang() {
     if (PAGE_LANG && translations[PAGE_LANG]) return PAGE_LANG;
@@ -1724,6 +1742,7 @@ function switchLanguage(lang) {
         location.href = target + location.hash;
         return;
     }
+    try { localStorage.setItem('sivaa_lang', lang); } catch (e) {}
     applyLanguage(lang);
 }
 
@@ -1752,8 +1771,6 @@ function applyLanguage(lang) {
     });
 
     document.documentElement.setAttribute('lang', lang);
-
-    try { localStorage.setItem('sivaa_lang', lang); } catch (e) {}
 
     // Update desktop switcher display
     const current = document.querySelector('.sivaa-lang-current');
@@ -1945,7 +1962,7 @@ function injectBurgerMenu() {
     overlay.innerHTML = `
     <div class="sivaa-bh">
       <a href="${HOME_URL}" class="sivaa-bh-logo" onclick="closeBurger()">SIVÀA <span>Geneva</span></a>
-      <button id="sivaa-burger-close" onclick="closeBurger()" aria-label="Fermer le menu">
+      <button id="sivaa-burger-close" onclick="closeBurger()" aria-label="${PAGE_LANG === 'de' ? 'Menü schliessen' : 'Fermer le menu'}">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
         </svg>
@@ -1953,10 +1970,10 @@ function injectBurgerMenu() {
     </div>
     <div class="sivaa-bnav" role="navigation">
       <a href="${HOME_URL}" class="sivaa-bnav-link" onclick="closeBurger()"><span data-i18n="nav.home">Accueil</span></a>
-      <a href="/blog.html"    class="sivaa-bnav-link" onclick="closeBurger()"><span data-i18n="nav.journal">Journal</span></a>
-      <a href="/contact.html" class="sivaa-bnav-link" onclick="closeBurger()"><span data-i18n="nav.contact">Contact</span></a>
+      <a href="${NAV_URL.blog}" class="sivaa-bnav-link" onclick="closeBurger()"><span data-i18n="nav.journal">Journal</span></a>
+      <a href="${NAV_URL.contact}" class="sivaa-bnav-link" onclick="closeBurger()"><span data-i18n="nav.contact">Contact</span></a>
     </div>
-    <a href="/checkout.html" class="sivaa-bcta" onclick="closeBurger()" data-i18n="nav.order">Commander</a>
+    <a href="${NAV_URL.checkout}" class="sivaa-bcta" onclick="closeBurger()" data-i18n="nav.order">Commander</a>
     <div class="sivaa-blang">
       <p class="sivaa-blang-label">Langue / Language / Sprache</p>
       <div class="sivaa-blang-row">
@@ -1995,8 +2012,8 @@ function injectBurgerMenu() {
         const mobileGroup = document.createElement('div');
         mobileGroup.className = 'sivaa-mobile-right';
         mobileGroup.innerHTML = `
-      <a href="/checkout.html" class="sivaa-mobile-cta" data-i18n="nav.order">Commander</a>
-      <button id="burger-btn" onclick="toggleBurger()" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="burger-overlay">
+      <a href="${NAV_URL.checkout}" class="sivaa-mobile-cta" data-i18n="nav.order">Commander</a>
+      <button id="burger-btn" onclick="toggleBurger()" aria-label="${PAGE_LANG === 'de' ? 'Menü öffnen' : 'Ouvrir le menu'}" aria-expanded="false" aria-controls="burger-overlay">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="3" y1="6" x2="21" y2="6"/>
           <line x1="3" y1="12" x2="21" y2="12"/>
@@ -2073,7 +2090,13 @@ document.addEventListener('DOMContentLoaded', () => {
     injectBurgerMenu();
     injectLanguageSelector();        // desktop
     injectLanguageSelectorMobile();  // mobile
-    applyLanguage(getStoredLang());
+    const lang = getStoredLang();
+    if (!PAGE_LANG && lang !== (document.documentElement.getAttribute('lang') || 'fr').slice(0, 2)) {
+        const alt = document.querySelector('link[rel="alternate"][hreflang="' + lang + '"]');
+        const target = alt && new URL(alt.getAttribute('href'), location.href).pathname;
+        if (target && target !== location.pathname) { location.replace(target + location.search + location.hash); return; }
+    }
+    applyLanguage(lang);
 });
 
 /* ────────────────────────────────────────────────────────────────

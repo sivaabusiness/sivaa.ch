@@ -4,9 +4,16 @@
    Génère, à partir des textes de i18n.js :
      • les fiches produits FR (racine) et DE (/de/)
      • la page « Livraison & retrait » FR et DE
-     • la page d'accueil allemande /de/index.html (traduction de index.html)
-     • le balisage FAQPage de index.html (à partir de la FAQ visible)
-     • sitemap.xml (avec les correspondances FR/DE)
+     • les versions allemandes des pages écrites à la main : /de/ (accueil), /de/kontakt.html,
+       /de/kasse.html, /de/impressum.html, /de/datenschutz.html, /de/journal/ et les 6 articles
+       (/de/journal/…) — textes propres à chaque page dans _build/de/<page>.de.txt
+     • dans les pages FR écrites à la main : liens hreflang FR/DE, version de i18n.js (empreinte
+       du fichier, contre le cache de Hostinger) et balisage FAQPage de l'accueil
+     • sitemap.xml (chaque page FR avec son équivalent DE)
+
+   Si une page FR change de structure, le générateur s'arrête : relancer
+   « node extract.mjs <page>.html » pour voir les blocs et mettre à jour _build/de/<page>.de.txt.
+   Contrôle du français restant dans /de/ : « node check-de.mjs ».
 
    Usage :  cd _build && npm install && node build-pages.mjs
    À relancer après toute modification de index.html ou de i18n.js.
@@ -17,10 +24,14 @@ import fs from 'node:fs';
 import path from 'node:path';
 import vm from 'node:vm';
 import { JSDOM } from 'jsdom';
+import crypto from 'node:crypto';
+import { blocks, protect, restore, attrs } from './segments.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const SITE = 'https://sivaa.ch';
-const I18N_SRC = '/i18n.js?v=20261125';
+/* Version de i18n.js = empreinte de son contenu : le CDN de Hostinger garde sinon l'ancienne copie compressée */
+const I18N_VER = crypto.createHash('sha1').update(fs.readFileSync(path.join(ROOT, 'i18n.js'))).digest('hex').slice(0, 10);
+const I18N_SRC = '/i18n.js?v=' + I18N_VER;
 const TODAY = new Date().toISOString().slice(0, 10);
 const WA = '41779496504';
 const GENERATED = '<!-- Généré par _build/build-pages.mjs — ne pas modifier à la main -->';
@@ -47,7 +58,19 @@ const URLS = {
     p3: { fr: '/etui-siwak.html', de: '/de/siwak-etui.html' },
     p4: { fr: '/dentifrice-siwak-clou-de-girofle.html', de: '/de/siwak-zahnpasta-gewuerznelke.html' },
     p5: { fr: '/dentifrice-siwak-charbon-actif.html', de: '/de/siwak-zahnpasta-aktivkohle.html' },
+    contact: { fr: '/contact.html', de: '/de/kontakt.html' },
+    checkout: { fr: '/checkout.html', de: '/de/kasse.html' },
+    legal: { fr: '/mentions-legales.html', de: '/de/impressum.html' },
+    privacy: { fr: '/politique-confidentialite.html', de: '/de/datenschutz.html' },
+    blog: { fr: '/blog.html', de: '/de/journal/' },
+    a1: { fr: '/article-siwak.html', de: '/de/journal/was-ist-siwak.html' },
+    a2: { fr: '/siwak-epais-vs-fin.html', de: '/de/journal/siwak-dick-oder-duenn.html' },
+    a3: { fr: '/siwak-ou-allo-togo.html', de: '/de/journal/siwak-oder-allo-togo.html' },
+    a4: { fr: '/siwak-vs-brosse-a-dents.html', de: '/de/journal/siwak-oder-zahnbuerste.html' },
+    a5: { fr: '/xylitol-bienfaits.html', de: '/de/journal/xylitol-vorteile.html' },
+    a6: { fr: '/xylitol-siwak-bienfaits.html', de: '/de/journal/xylitol-und-siwak.html' },
 };
+const urlKeyOfFr = (file) => Object.keys(URLS).find((k) => URLS[k].fr === '/' + file.replace(/^\//, ''));
 
 const steps = (id, n) => Array.from({ length: n }, (_, i) => `pp.${id}.use.${i + 1}`);
 const faqs = (id, n) => Array.from({ length: n }, (_, i) => `pp.${id}.faq.${i + 1}`);
@@ -147,7 +170,8 @@ function picture(src, alt, altKey, sizes, { eager = false, cls = '' } = {}) {
 }
 
 /* Titres des articles du journal (lus dans les pages) */
-const articleTitle = (file) => {
+const articleTitle = (file, lang = 'fr') => {
+    if (lang === 'de') return ARTICLE_TITLE_DE[file];
     const html = fs.readFileSync(path.join(ROOT, file), 'utf8');
     const h1 = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/);
     return strip(h1 ? h1[1] : file);
@@ -379,9 +403,9 @@ function navHtml(lang) {
         <a href="${home}" class="logo">SIVÀA <span>Geneva</span></a>
         <div class="nav-links">
             <a href="${home}#produits" data-i18n="nav.products">${tr(lang, 'nav.products')}</a>
-            <a href="/blog.html" data-i18n="nav.journal">${tr(lang, 'nav.journal')}</a>
-            <a href="/contact.html" data-i18n="nav.contact">${tr(lang, 'nav.contact')}</a>
-            <a href="/checkout.html" class="nav-cta" data-i18n="nav.order">${tr(lang, 'nav.order')}</a>
+            <a href="${URLS.blog[lang]}" data-i18n="nav.journal">${tr(lang, 'nav.journal')}</a>
+            <a href="${URLS.contact[lang]}" data-i18n="nav.contact">${tr(lang, 'nav.contact')}</a>
+            <a href="${URLS.checkout[lang]}" class="nav-cta" data-i18n="nav.order">${tr(lang, 'nav.order')}</a>
         </div>
     </div>
 </nav>`;
@@ -410,15 +434,15 @@ function footerHtml(lang) {
                 <h4 ${L('footer.col.info')}</h4>
                 <ul>
                     <li><a href="${URLS.ship[lang]}" ${L('footer.info.shipping')}</a></li>
-                    <li><a href="/blog.html" ${L('footer.info.journal')}</a></li>
-                    <li><a href="/contact.html" ${L('footer.info.contact')}</a></li>
+                    <li><a href="${URLS.blog[lang]}" ${L('footer.info.journal')}</a></li>
+                    <li><a href="${URLS.contact[lang]}" ${L('footer.info.contact')}</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4 ${L('footer.col.legal')}</h4>
                 <ul>
-                    <li><a href="/mentions-legales.html" ${L('footer.legal.cgv')}</a></li>
-                    <li><a href="/politique-confidentialite.html" ${L('footer.legal.privacy')}</a></li>
+                    <li><a href="${URLS.legal[lang]}" ${L('footer.legal.cgv')}</a></li>
+                    <li><a href="${URLS.privacy[lang]}" ${L('footer.legal.privacy')}</a></li>
                 </ul>
             </div>
         </div>
@@ -443,7 +467,10 @@ const FAB_FR = `<div class="whatsapp-fab">
         </button>
     </a>
 </div>`;
-const fabHtml = (lang) => (lang === 'de' ? FAB_FR.replace('text=Bonjour%20', 'text=Hallo%20') : FAB_FR);
+const FAB_DE = FAB_FR
+    .replace(/text=[^"]+/, 'text=' + encodeURIComponent('Hallo SIVÀA Geneva, ich habe eine Frage zum Siwak 🌿'))
+    .replace('aria-label="Contacter SIVÀA Geneva sur WhatsApp"', 'aria-label="SIVÀA Geneva über WhatsApp kontaktieren"');
+const fabHtml = (lang) => (lang === 'de' ? FAB_DE : FAB_FR);
 
 const tail = `<script src="${I18N_SRC}"></script>
 </body>
@@ -535,7 +562,7 @@ function sectionHtml(lang, sec, p) {
     }
     if (sec.type === 'compare') {
         const rows = ['taste', 'texture', 'use', 'format'];
-        const link = lang === 'fr' ? `\n        <p class="cmp-link"><a href="/siwak-ou-allo-togo.html" data-i18n="cmp.link">${t('cmp.link')}</a></p>` : '';
+        const link = `\n        <p class="cmp-link"><a href="${URLS.a3[lang]}" data-i18n="cmp.link">${t('cmp.link')}</a></p>`;
         return `
     <section class="pp-section">
         ${h2}${sec.intro ? `\n        <p class="cmp-intro" data-i18n="${sec.intro}">${t(sec.intro)}</p>` : ''}
@@ -612,10 +639,10 @@ function renderProduct(p, lang) {
                 <p class="thickness-sizes" data-i18n="thickness.sizes">${t('thickness.sizes')}</p>
             </div>` : '';
 
-    const reads = lang === 'fr' && p.reads.length ? `
+    const reads = p.reads.length ? `
     <section class="pp-section">
         <h2 data-i18n="pp.read.title">${t('pp.read.title')}</h2>
-        <ul class="reads">${p.reads.map((f) => `<li><a href="/${f}">${articleTitle(f)} →</a></li>`).join('')}</ul>
+        <ul class="reads">${p.reads.map((f) => `<li><a href="${URLS[urlKeyOfFr(f)][lang]}">${articleTitle(f, lang)} →</a></li>`).join('')}</ul>
     </section>` : '';
 
     // « Vous aimerez aussi » : toujours les 4 autres produits
@@ -670,7 +697,7 @@ ${navHtml(lang)}
         <div class="pp-buy">
             ${i(p.price, 'p', 'pp-price')}${bundle}${thickness}
             <div class="pp-actions">
-                <a href="/checkout.html" class="btn-primary" data-i18n="${p.buy}">${t(p.buy)}</a>
+                <a href="${URLS.checkout[lang]}" class="btn-primary" data-i18n="${p.buy}">${t(p.buy)}</a>
                 <a href="https://wa.me/${WA}?text=${encodeURIComponent(waText)}" class="btn-ghost" target="_blank" rel="noopener noreferrer" data-i18n="pp.whatsapp">${t('pp.whatsapp')}</a>
             </div>
         </div>
@@ -737,7 +764,7 @@ ${navHtml(lang)}
         ${['post', 'pickup', 'min', 'pay', 'abroad', 'returns'].map(card).join('\n        ')}
     </div>${mapHtml(lang)}
     <div class="ship-actions">
-        <a href="/checkout.html" class="btn-primary" data-i18n="ship.cta">${t('ship.cta')}</a>
+        <a href="${URLS.checkout[lang]}" class="btn-primary" data-i18n="ship.cta">${t('ship.cta')}</a>
         <a href="https://wa.me/${WA}?text=${encodeURIComponent(waText)}" class="btn-ghost" target="_blank" rel="noopener noreferrer" data-i18n="ship.contact">${t('ship.contact')}</a>
     </div>
 </div>
@@ -765,112 +792,246 @@ function faqLd(doc) {
 }
 const FAQ_RE = /<script type="application\/ld\+json">\s*\{\s*"@context": "https:\/\/schema\.org",\s*"@type": "FAQPage"[\s\S]*?<\/script>/;
 
-/* ── Accueil FR : FAQPage à jour ────────────────────────────── */
-let indexFr = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
-{
-    const dom = new JSDOM(indexFr);
-    applyDict(dom.window.document, 'fr');
-    const block = `<script type="application/ld+json">\n${JSON.stringify(faqLd(dom.window.document), null, 2)}\n</script>`;
-    if (!FAQ_RE.test(indexFr)) throw new Error('Bloc FAQPage introuvable dans index.html');
-    indexFr = indexFr.replace(FAQ_RE, block);
-    fs.writeFileSync(path.join(ROOT, 'index.html'), indexFr);
+const read = (rel) => fs.readFileSync(path.join(ROOT, rel), 'utf8');
+const outFile = (url) => path.join(ROOT, url.endsWith('/') ? url + 'index.html' : url);
+const write = (url, html) => { const f = outFile(url); fs.mkdirSync(path.dirname(f), { recursive: true }); fs.writeFileSync(f, html); };
+
+/* ── Pages FR écrites à la main : version de i18n.js, liens de langue, FAQPage ── */
+const HAND = ['home', 'contact', 'checkout', 'blog', 'legal', 'privacy', 'a1', 'a2', 'a3', 'a4', 'a5', 'a6'];
+const frFile = (key) => (URLS[key].fr === '/' ? 'index.html' : URLS[key].fr.slice(1));
+const altLinks = (key) => ['fr', 'de'].map((l) => `<link rel="alternate" hreflang="${l}" href="${SITE + URLS[key][l]}"/>`).join('\n    ') + `\n    <link rel="alternate" hreflang="x-default" href="${SITE + URLS[key].fr}"/>`;
+const srcFr = {};
+for (const key of HAND) {
+    const file = frFile(key);
+    let html = read(file);
+    const before = html;
+    html = html.replace(/(<script[^>]+src=")(\/?i18n\.js)(?:\?v=[^"]*)?"/g, `$1$2?v=${I18N_VER}"`);
+    html = html.replace(/\n[ \t]*<!-- ═+\s*\n\s*SEO Multilingue[\s\S]*?-->/, '');
+    html = html.replace(/\n[ \t]*<link rel="alternate" hreflang="[^"]*" href="[^"]*"\s*\/?>/g, '');
+    const canon = `<link rel="canonical" href="${SITE + URLS[key].fr}"/>`;
+    if (/<link rel="canonical"[^>]*>/.test(html)) html = html.replace(/<link rel="canonical"[^>]*>/, canon + '\n    ' + altLinks(key));
+    else html = html.replace(/(<title>[\s\S]*?<\/title>)/, `$1\n    ${canon}\n    ${altLinks(key)}`);
+    if (key === 'home') {
+        const dom = new JSDOM(html);
+        applyDict(dom.window.document, 'fr');
+        if (!FAQ_RE.test(html)) throw new Error('Bloc FAQPage introuvable dans index.html');
+        html = html.replace(FAQ_RE, `<script type="application/ld+json">\n${JSON.stringify(faqLd(dom.window.document), null, 2)}\n</script>`);
+    }
+    if (html !== before) fs.writeFileSync(path.join(ROOT, file), html);
+    srcFr[key] = html;
+}
+
+/* ── Outils communs aux pages DE ────────────────────────────── */
+const toDe = { 'index.html': URLS.home.de, '/': URLS.home.de, '/index.html': URLS.home.de };
+for (const k of Object.keys(URLS)) { toDe[URLS[k].fr] = URLS[k].de; toDe[URLS[k].fr.slice(1)] = URLS[k].de; }
+const deLink = (v) => {
+    if (!v || /^(https?:|\/\/|#|mailto:|tel:|data:|javascript:)/.test(v)) return v;
+    const [p, h] = v.split('#');
+    const abs = p.startsWith('/') ? p : '/' + p;
+    return (toDe[p] ?? toDe[abs] ?? abs) + (h !== undefined ? '#' + h : '');
+};
+const WA_DE = new Map([
+    ["Bonjour SIVÀA Geneva, j'ai une question sur le Siwak 🌿", 'Hallo SIVÀA Geneva, ich habe eine Frage zum Siwak 🌿'],
+    ["Bonjour SIVÀA, j'ai une question 🌿", 'Hallo SIVÀA, ich habe eine Frage 🌿'],
+    ["Bonjour SIVÀA, j'ai une question sur ma commande 🌿", 'Hallo SIVÀA, ich habe eine Frage zu meiner Bestellung 🌿'],
+    ['Bonjour SIVÀA Geneva', 'Hallo SIVÀA Geneva'],
+]);
+const waDe = (href) => {
+    const i = href.indexOf('?text=');
+    if (i < 0) return href;
+    const msg = decodeURIComponent(href.slice(i + 6)).normalize('NFC');
+    const de = WA_DE.get(msg);
+    if (!de) throw new Error('Message WhatsApp sans traduction allemande : ' + msg);
+    return href.slice(0, i) + '?text=' + encodeURIComponent(de);
+};
+const ARIA_DE = {
+    'Contacter SIVÀA Geneva sur WhatsApp': 'SIVÀA Geneva über WhatsApp kontaktieren',
+    'Contacter sur WhatsApp': 'Über WhatsApp kontaktieren',
+    "Fil d'Ariane": 'Brotkrümelnavigation',
+    'Temps de lecture estimé': 'Geschätzte Lesezeit',
+    'Fermer': 'Schliessen',
+    'Menu': 'Menü',
+};
+function localize(doc) {
+    doc.querySelectorAll('[href]').forEach((el) => { if (el.tagName !== 'LINK' || el.getAttribute('rel') === 'icon') el.setAttribute('href', deLink(el.getAttribute('href'))); });
+    doc.querySelectorAll('[src]').forEach((el) => el.setAttribute('src', deLink(el.getAttribute('src'))));
+    doc.querySelectorAll('[srcset]').forEach((el) => el.setAttribute('srcset', el.getAttribute('srcset').split(',').map((x) => { const [u, w] = x.trim().split(/\s+/); return deLink(u) + (w ? ' ' + w : ''); }).join(', ')));
+    doc.querySelectorAll('[style*="url("]').forEach((el) => el.setAttribute('style', el.getAttribute('style').replace(/url\((['"]?)(?!https?:|data:|\/)/g, 'url($1/')));
+    doc.querySelectorAll('style').forEach((el) => { el.textContent = el.textContent.replace(/url\((['"]?)(?!https?:|data:|\/)/g, 'url($1/'); });
+    doc.querySelectorAll('a[href^="https://wa.me/"]').forEach((a) => a.setAttribute('href', waDe(a.getAttribute('href'))));
+    doc.querySelectorAll('[aria-label]').forEach((el) => { const v = ARIA_DE[el.getAttribute('aria-label')]; if (v) el.setAttribute('aria-label', v); });
+    doc.querySelectorAll('[onclick*=".html"]').forEach((el) => el.setAttribute('onclick', el.getAttribute('onclick').replace(/(['"])([\w-]+\.html)(['"#])/g, (m, a, f, b) => a + deLink(f) + b)));
+}
+function setHeadDe(doc, key, meta = {}) {
+    const html = doc.documentElement;
+    html.setAttribute('lang', 'de');
+    html.setAttribute('data-page-lang', 'de');
+    if (meta.title) doc.title = meta.title;
+    const setMeta = (sel, attr, name, val) => {
+        if (val === undefined) return;
+        let m = doc.querySelector(sel);
+        if (!m) { m = doc.createElement('meta'); m.setAttribute(attr, name); doc.head.appendChild(m); }
+        m.setAttribute('content', val);
+    };
+    setMeta('meta[name="description"]', 'name', 'description', meta.description);
+    setMeta('meta[name="keywords"]', 'name', 'keywords', meta.keywords);
+    for (const p of ['og:title', 'og:description']) if (doc.querySelector(`meta[property="${p}"]`) || meta[p]) setMeta(`meta[property="${p}"]`, 'property', p, meta[p] ?? (p === 'og:title' ? meta.title : meta.description));
+    if (doc.querySelector('meta[property^="og:"]')) { setMeta('meta[property="og:url"]', 'property', 'og:url', SITE + URLS[key].de); setMeta('meta[property="og:locale"]', 'property', 'og:locale', 'de_CH'); }
+    for (const [k, v] of Object.entries(meta)) {
+        if (['title', 'description', 'keywords', 'og:title', 'og:description'].includes(k)) continue;
+        const m = doc.querySelector(`meta[property="${k}"], meta[name="${k}"]`);
+        if (!m) throw new Error('Balise meta introuvable : ' + k);
+        m.setAttribute('content', v);
+    }
+    doc.querySelector('meta[name="geo.placename"]')?.setAttribute('content', 'Genf');
+    doc.querySelector('link[rel="canonical"]').setAttribute('href', SITE + URLS[key].de);
+    doc.head.insertAdjacentHTML('afterbegin', `\n    ${GENERATED}\n`);
+}
+function inlineDict(html, name) {
+    const m = html.match(new RegExp(`const ${name} = (\\{[\\s\\S]*?\\n\\s*\\});`));
+    if (!m) throw new Error(`Dictionnaire ${name} introuvable`);
+    return vm.runInNewContext('(' + m[1] + ')');
+}
+
+/* Fichier de traduction d'une page : _build/de/<page>.de.txt
+   #blocks N · #title · #meta <nom> · #ld <champ> · #attr <i> · #remove <sélecteur>
+   [i] contenu allemand du bloc i  ·  [i~] texte FR ⇒ texte DE (remplacement dans le bloc) */
+function parseDe(file) {
+    const d = { meta: {}, ld: {}, attr: {}, remove: [], blocks: {}, partial: {} };
+    for (const raw of fs.readFileSync(file, 'utf8').split('\n')) {
+        const line = raw.trimEnd();
+        let m;
+        if (!line.trim() || line.startsWith('//')) continue;
+        if ((m = line.match(/^#blocks (\d+)$/))) d.count = +m[1];
+        else if ((m = line.match(/^#title (.+)$/))) d.meta.title = m[1];
+        else if ((m = line.match(/^#name (.+)$/))) d.name = m[1];
+        else if ((m = line.match(/^#meta (\S+) (.+)$/))) d.meta[m[1]] = m[2];
+        else if ((m = line.match(/^#ld (\S+) (.+)$/))) d.ld[m[1]] = m[2];
+        else if ((m = line.match(/^#attr (\d+) (.+)$/))) d.attr[+m[1]] = m[2];
+        else if ((m = line.match(/^#remove (.+)$/))) d.remove.push(m[1]);
+        else if ((m = line.match(/^\[(\d+)~\] (.+?) ⇒ (.+)$/))) (d.partial[+m[1]] ||= []).push([m[2], m[3]]);
+        else if ((m = line.match(/^\[(\d+)\] (.*)$/))) d.blocks[+m[1]] = m[2];
+        else throw new Error(`${path.basename(file)} : ligne non comprise : ${line.slice(0, 80)}`);
+    }
+    return d;
+}
+function applyDe(doc, d, label) {
+    const bs = blocks(doc);
+    if (d.count !== undefined && d.count !== bs.length) throw new Error(`${label} : ${bs.length} blocs dans la page FR, ${d.count} attendus — la page FR a changé, mettre à jour la traduction (node extract.mjs)`);
+    const as = attrs(doc);
+    const saved = bs.map((b) => protect(b.innerHTML));
+    const norm = (x) => x.replace(/\s+/g, ' ');
+    const order = [...bs.keys()].sort((a, b) => (bs[a].__outer ? 1 : 0) - (bs[b].__outer ? 1 : 0));
+    for (const i of order) {
+        if (d.partial[i]) for (const [a, b] of d.partial[i]) {
+            const h = norm(bs[i].innerHTML);
+            if (!h.includes(a)) throw new Error(`${label} [${i}~] introuvable : ${a}`);
+            bs[i].innerHTML = h.replace(a, b);
+        }
+        if (d.blocks[i] !== undefined) bs[i].innerHTML = restore(d.blocks[i], saved[i].svgs);
+    }
+    for (const [i, v] of Object.entries(d.attr)) as[+i].el.setAttribute(as[+i].a, v);
+    doc.querySelectorAll('script[type="application/ld+json"]').forEach((s) => {
+        const data = JSON.parse(s.textContent);
+        if (data['@type'] !== 'Article') return;
+        Object.assign(data, d.ld, { inLanguage: 'de-CH' });
+        s.textContent = '\n' + JSON.stringify(data, null, 2) + '\n';
+    });
+    for (const sel of d.remove) doc.querySelectorAll(sel).forEach((el) => el.remove());
 }
 
 /* ── Accueil DE : /de/index.html ────────────────────────────── */
 const HOME_DE = {
     title: 'SIVÀA Geneva — Siwak kaufen in der Schweiz | Natürliche Zahnpflege aus Genf',
-    desc: 'Premium-Siwak (Miswak) aus Genf: natürliche Zahnbürste aus Salvadora persica, Allo Togo und Siwak-Zahnpasta. Versand mit Swiss Post in die ganze Schweiz in 2–3 Tagen.',
+    description: 'Premium-Siwak (Miswak) aus Genf: natürliche Zahnbürste aus Salvadora persica, Allo Togo und Siwak-Zahnpasta. Versand mit Swiss Post in die ganze Schweiz in 2–3 Tagen.',
     keywords: 'Siwak kaufen, Miswak kaufen Schweiz, Siwak Schweiz, natürliche Zahnbürste, Salvadora persica, Allo Togo, Siwak Zahnpasta',
 };
-{
-    const dom = new JSDOM(indexFr);
+/* Autres pages écrites à la main (les articles ont leurs titres dans _build/de/*.de.txt) */
+const PAGE_DE = {
+    contact: { title: 'Kontakt | SIVÀA Geneva — Siwak in Genf', description: 'Kontaktieren Sie SIVÀA Geneva: Fragen zum Siwak, zu Ihrer Bestellung oder zu unseren Produkten. Antwort per WhatsApp.' },
+    checkout: { title: 'Bestellen | SIVÀA Geneva — Siwak mit Versand in die ganze Schweiz', description: 'Bestellen Sie Siwak, Allo Togo oder Siwak-Zahnpasta bei SIVÀA Geneva. Versand mit Swiss Post innerhalb von 48 Std. + 2–3 Tage oder kostenlose Abholung in Genf.' },
+    legal: { title: 'Impressum & AGB | SIVÀA Geneva — Genf, Schweiz', description: 'Impressum und Allgemeine Geschäftsbedingungen von SIVÀA Geneva, Verkauf von Siwak, Quai des Vernets 11, 1227 Genf, Schweiz.' },
+    privacy: { title: 'Datenschutzerklärung | SIVÀA Geneva', description: 'Datenschutzerklärung von SIVÀA Geneva: Schutz Ihrer Personendaten gemäss Schweizer Datenschutzgesetz (DSG) und DSGVO.' },
+    blog: { title: 'Journal | SIVÀA Geneva — Wissen rund um Siwak', description: 'Das Journal von SIVÀA Geneva: Artikel über Siwak (Miswak), Allo Togo, Xylitol und natürliche Zahnpflege.' },
+};
+const DE_TXT = { blog: 'blog', contact: 'contact', checkout: 'checkout', legal: 'mentions-legales', privacy: 'politique-confidentialite', a1: 'article-siwak', a2: 'siwak-epais-vs-fin', a3: 'siwak-ou-allo-togo', a4: 'siwak-vs-brosse-a-dents', a5: 'xylitol-bienfaits', a6: 'xylitol-siwak-bienfaits' };
+const ARTICLE_TITLE_DE = {};
+for (const k of ['a1', 'a2', 'a3', 'a4', 'a5', 'a6']) ARTICLE_TITLE_DE[frFile(k)] = parseDe(path.join(import.meta.dirname, 'de', DE_TXT[k] + '.de.txt')).name;
+
+const written = [];
+for (const key of HAND) {
+    const dom = new JSDOM(srcFr[key]);
     const doc = dom.window.document;
-    const html = doc.documentElement;
-    html.setAttribute('lang', 'de');
-    html.setAttribute('data-page-lang', 'de');
+    let meta = key === 'home' ? HOME_DE : PAGE_DE[key];
+    if (DE_TXT[key]) {
+        const d = parseDe(path.join(import.meta.dirname, 'de', DE_TXT[key] + '.de.txt'));
+        applyDe(doc, d, DE_TXT[key]);
+        meta = { ...meta, ...d.meta };
+    }
     applyDict(doc, 'de');
-
-    doc.title = HOME_DE.title;
-    doc.querySelector('meta[name="description"]').setAttribute('content', HOME_DE.desc);
-    doc.querySelectorAll('meta[name="keywords"]').forEach((m, n) => (n === 0 ? m.setAttribute('content', HOME_DE.keywords) : m.remove()));
-    const og = (prop, val) => { const m = doc.querySelector(`meta[property="${prop}"]`); if (m) m.setAttribute('content', val); };
-    og('og:title', HOME_DE.title);
-    og('og:description', HOME_DE.desc);
-    og('og:url', SITE + '/de/');
-    doc.querySelector('link[rel="canonical"]').setAttribute('href', SITE + '/de/');
-    doc.querySelector('meta[name="geo.placename"]')?.setAttribute('content', 'Genf');
-    doc.head.insertAdjacentHTML('afterbegin', `\n    ${GENERATED}\n`);
-
-    // Balisage : description du commerce en allemand, FAQ à partir du texte visible
-    doc.querySelectorAll('script[type="application/ld+json"]').forEach((s) => {
-        const data = JSON.parse(s.textContent);
-        if (data['@type'] === 'FAQPage') s.textContent = '\n' + JSON.stringify(faqLd(doc), null, 2) + '\n';
-        else if (data['@type'] === 'Store') {
-            data.description = 'Premium-Siwak und natürliche Zahnpflege in Genf, Versand in die ganze Schweiz';
-            data.url = SITE + '/de/';
-            s.textContent = '\n' + JSON.stringify(data, null, 2) + '\n';
-        }
-    });
-
-    // Liens : chemins absolus, pages allemandes quand elles existent
-    const toDe = { 'index.html': URLS.home.de, '/': URLS.home.de };
-    for (const k of Object.keys(URLS)) toDe[URLS[k].fr] = URLS[k].de, toDe[URLS[k].fr.slice(1)] = URLS[k].de;
-    const fix = (v) => {
-        if (!v || /^(https?:|\/\/|#|mailto:|tel:|data:|javascript:)/.test(v)) return v;
-        const [p, h] = v.split('#');
-        const abs = p.startsWith('/') ? p : '/' + p;
-        const mapped = toDe[p] ?? toDe[abs] ?? abs;
-        return mapped + (h !== undefined ? '#' + h : '');
-    };
-    doc.querySelectorAll('[href]').forEach((el) => { if (el.tagName !== 'LINK' || el.getAttribute('rel') === 'icon') el.setAttribute('href', fix(el.getAttribute('href'))); });
-    doc.querySelectorAll('[src]').forEach((el) => el.setAttribute('src', fix(el.getAttribute('src'))));
-    doc.querySelectorAll('[style*="url("]').forEach((el) => el.setAttribute('style', el.getAttribute('style').replace(/url\((['"]?)(?!https?:|data:|\/)/g, 'url($1/')));
-    doc.querySelectorAll('style').forEach((el) => { el.textContent = el.textContent.replace(/url\((['"]?)(?!https?:|data:|\/)/g, 'url($1/'); });
-    doc.querySelectorAll('a[href^="https://wa.me/"]').forEach((a) => a.setAttribute('href', a.getAttribute('href').replace(/Bonjour(%20|\s)/, 'Hallo$1')));
-
-    fs.mkdirSync(path.join(ROOT, 'de'), { recursive: true });
-    fs.writeFileSync(path.join(ROOT, 'de', 'index.html'), '<!DOCTYPE html>\n' + html.outerHTML + '\n');
+    if (key === 'checkout') {
+        const CT = inlineDict(srcFr[key], 'T');
+        doc.querySelectorAll('[data-i18n]').forEach((el) => { const v = CT[el.getAttribute('data-i18n')]; if (v && v.de !== undefined) el.innerHTML = v.de; });
+        const pays = doc.getElementById('pays'); if (pays && CT.country_value) pays.setAttribute('value', CT.country_value.de);
+    }
+    if (key === 'legal') {
+        const D = inlineDict(srcFr[key], 'ML_T');
+        doc.querySelectorAll('[data-ml]').forEach((el) => { const v = D[el.getAttribute('data-ml')]; if (v && v.de) el.innerHTML = v.de; });
+    }
+    if (key === 'privacy') {
+        const D = inlineDict(srcFr[key], 'PC_T');
+        doc.querySelectorAll('[data-pc]').forEach((el) => {
+            const v = D[el.getAttribute('data-pc')]; if (!v || !v.de) return;
+            const links = [...el.querySelectorAll('a')].map((a) => a.outerHTML);
+            const parts = v.de.split('{a}');
+            el.innerHTML = parts.map((part, n) => part + (n < parts.length - 1 ? (links[n] || '') : '')).join('');
+        });
+    }
+    if (key === 'home') {
+        doc.querySelectorAll('meta[name="keywords"]').forEach((m, n) => n > 0 && m.remove());
+        doc.querySelectorAll('[itemprop="addressLocality"]').forEach((e) => { e.textContent = 'Genf'; });
+        doc.querySelectorAll('iframe[title]').forEach((e) => e.setAttribute('title', e.getAttribute('title').replace('Genève', 'Genf')));
+        doc.querySelectorAll('script[type="application/ld+json"]').forEach((s) => {
+            const data = JSON.parse(s.textContent);
+            if (data['@type'] === 'FAQPage') s.textContent = '\n' + JSON.stringify(faqLd(doc), null, 2) + '\n';
+            else if (data['@type'] === 'Store') {
+                data.description = 'Premium-Siwak und natürliche Zahnpflege in Genf, Versand in die ganze Schweiz';
+                data.url = SITE + '/de/';
+                s.textContent = '\n' + JSON.stringify(data, null, 2) + '\n';
+            }
+        });
+    }
+    setHeadDe(doc, key, meta);
+    localize(doc);
+    write(URLS[key].de, '<!DOCTYPE html>\n' + doc.documentElement.outerHTML + '\n');
+    written.push(URLS[key].de);
 }
 
-/* ── Écriture des pages ─────────────────────────────────────── */
-const written = [];
+/* ── Fiches produits et page livraison ──────────────────────── */
 for (const p of PRODUCTS) {
     for (const lang of ['fr', 'de']) {
-        const file = path.join(ROOT, URLS[p.id][lang]);
-        fs.mkdirSync(path.dirname(file), { recursive: true });
-        fs.writeFileSync(file, renderProduct(p, lang));
+        write(URLS[p.id][lang], renderProduct(p, lang));
         written.push(URLS[p.id][lang]);
     }
 }
 for (const lang of ['fr', 'de']) {
-    fs.writeFileSync(path.join(ROOT, URLS.ship[lang]), renderShip(lang));
+    write(URLS.ship[lang], renderShip(lang));
     written.push(URLS.ship[lang]);
 }
 
-/* ── Sitemap ────────────────────────────────────────────────── */
-const old = fs.readFileSync(path.join(ROOT, 'sitemap.xml'), 'utf8');
-const oldEntries = [...old.matchAll(/<url>\s*<loc>([^<]+)<\/loc>\s*<lastmod>([^<]+)<\/lastmod>(?:\s*<changefreq>([^<]+)<\/changefreq>)?(?:\s*<priority>([^<]+)<\/priority>)?/g)]
-    .map((m) => ({ loc: m[1], lastmod: m[2], changefreq: m[3] || 'monthly', priority: m[4] || '0.5' }))
-    .filter((e) => !e.loc.startsWith(SITE + '/de/') && !Object.values(URLS).some((u) => SITE + u.fr === e.loc && u.fr !== '/'));
-const altOf = {};
-for (const u of Object.values(URLS)) { altOf[SITE + u.fr] = u; altOf[SITE + u.de] = u; }
-const entries = [...oldEntries];
-const touched = new Set([SITE + '/', SITE + '/checkout.html', SITE + '/mentions-legales.html']);
-for (const e of entries) if (touched.has(e.loc)) e.lastmod = TODAY;
-entries.push({ loc: SITE + '/de/', lastmod: TODAY, changefreq: 'weekly', priority: '0.9' });
-for (const k of ['p1', 'p2', 'p3', 'p4', 'p5', 'ship']) {
-    for (const lang of ['fr', 'de']) entries.push({ loc: SITE + URLS[k][lang], lastmod: TODAY, changefreq: 'monthly', priority: k === 'ship' ? '0.7' : '0.9' });
+/* ── Sitemap : chaque page FR avec son équivalent DE ────────── */
+const PRIO = { home: ['weekly', '1.0'], checkout: ['weekly', '0.9'], blog: ['weekly', '0.8'], contact: ['monthly', '0.6'], ship: ['monthly', '0.7'], legal: ['yearly', '0.3'], privacy: ['yearly', '0.3'] };
+const entries = [];
+for (const k of Object.keys(URLS)) for (const lang of ['fr', 'de']) {
+    const [changefreq, priority] = PRIO[k] || (k.startsWith('a') ? ['monthly', '0.7'] : ['monthly', '0.9']);
+    entries.push({ loc: SITE + URLS[k][lang], key: k, changefreq, priority: lang === 'de' && k === 'home' ? '0.9' : priority });
 }
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-${entries.map((e) => {
-    const a = altOf[e.loc];
-    const alts = a ? `\n    <xhtml:link rel="alternate" hreflang="fr" href="${SITE + a.fr}"/>\n    <xhtml:link rel="alternate" hreflang="de" href="${SITE + a.de}"/>\n    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE + a.fr}"/>` : '';
-    return `  <url>\n    <loc>${e.loc}</loc>\n    <lastmod>${e.lastmod}</lastmod>\n    <changefreq>${e.changefreq}</changefreq>\n    <priority>${e.priority}</priority>${alts}\n  </url>`;
-}).join('\n')}
+${entries.map((e) => `  <url>\n    <loc>${e.loc}</loc>\n    <lastmod>${TODAY}</lastmod>\n    <changefreq>${e.changefreq}</changefreq>\n    <priority>${e.priority}</priority>\n    <xhtml:link rel="alternate" hreflang="fr" href="${SITE + URLS[e.key].fr}"/>\n    <xhtml:link rel="alternate" hreflang="de" href="${SITE + URLS[e.key].de}"/>\n    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE + URLS[e.key].fr}"/>\n  </url>`).join('\n')}
 </urlset>
 `;
 fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), xml);
 
-console.log('Pages générées :\n  ' + ['/de/', ...written].join('\n  '));
-console.log('index.html : FAQPage mis à jour · sitemap.xml : ' + entries.length + ' URL');
+console.log('i18n.js?v=' + I18N_VER + '\nPages générées :\n  ' + written.join('\n  '));
+console.log('sitemap.xml : ' + entries.length + ' URL');

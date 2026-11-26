@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="de" class="dark" data-page-lang="de"><head>
+    <!-- Généré par _build/build-pages.mjs — ne pas modifier à la main -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datenschutzerklärung | SIVÀA Geneva</title>
+    <link rel="canonical" href="https://sivaa.ch/de/datenschutz.html">
+    <link rel="alternate" hreflang="fr" href="https://sivaa.ch/politique-confidentialite.html">
+    <link rel="alternate" hreflang="de" href="https://sivaa.ch/de/datenschutz.html">
+    <link rel="alternate" hreflang="x-default" href="https://sivaa.ch/politique-confidentialite.html">
+    <meta name="description" content="Datenschutzerklärung von SIVÀA Geneva: Schutz Ihrer Personendaten gemäss Schweizer Datenschutzgesetz (DSG) und DSGVO.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Inter:wght@100;300;400;500;600;700;900&amp;display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg:#09160b;--surface-lowest:#0d1c0f;--surface-low:#111f13;--surface-mid:#162518;
+            --primary:#9dd75a;--primary-fixed:#b5e87a;--primary-dim:#2a3d1a;--secondary-container:#182d12;
+            --text:#d7e7d4;--text-variant:#8c9e89;--outline:#424939;--outline-variant:#2e3a2c;--dark-green:#0a1f0c;
+            color-scheme:dark;
+        }
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+        html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;}
+        body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:0.875rem;min-height:100vh;}
+        h1,h2,h3,h4{font-family:'Newsreader',serif;color:var(--text);}
+        a{text-decoration:none;color:inherit;}
+        ::selection{background:#9dd75a33;color:#d7e7d4;}
+        ::-webkit-scrollbar{width:6px;}::-webkit-scrollbar-track{background:#09160b;}::-webkit-scrollbar-thumb{background:#424939;border-radius:3px;}
+
+        .container{max-width:800px;margin:0 auto;padding:0 1.5rem;}
+
+        nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(9,22,11,0.7);backdrop-filter:blur(20px);border-bottom:1px solid rgba(66,73,57,0.3);}
+        .nav-inner{max-width:1280px;margin:0 auto;padding:0 1.5rem;height:64px;display:flex;align-items:center;justify-content:space-between;}
+        .nav-logo{font-family:'Newsreader',serif;font-size:1.25rem;font-weight:300;letter-spacing:0.08em;color:var(--text);}
+        .nav-logo span{color:var(--primary);}
+        .nav-links{display:flex;align-items:center;gap:2rem;}
+        .nav-links a{font-size:0.8rem;color:var(--text-variant);transition:color 0.2s;}
+        .nav-links a:hover{color:var(--text);}
+        .nav-cta{background:var(--primary);color:var(--dark-green)!important;font-weight:600;padding:0.45rem 1.1rem;border-radius:0.4rem;}
+        @media(max-width:640px){.nav-links a:not(.nav-cta){display:none;}}
+
+        .page-header{padding:7rem 0 3rem;border-bottom:1px solid rgba(66,73,57,0.2);margin-bottom:3rem;}
+        .label-sm{font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--primary);display:block;margin-bottom:0.75rem;}
+
+        /* Commitment banner */
+        .commitment-banner{background:linear-gradient(135deg,var(--primary-dim),rgba(39,80,10,0.3));border:1px solid rgba(157,215,90,0.2);border-radius:1rem;padding:2rem;margin-bottom:3rem;position:relative;overflow:hidden;}
+        .commitment-banner::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#9dd75a,transparent);}
+        .commitment-banner h3{font-size:1.25rem;font-weight:300;margin-bottom:0.75rem;color:var(--text);}
+        .commitment-banner p{color:var(--secondary);font-size:0.875rem;line-height:1.7;}
+
+        .legal-section{margin-bottom:3rem;}
+        .legal-section h2{font-size:1.4rem;font-weight:300;margin-bottom:1.25rem;padding-bottom:0.75rem;border-bottom:1px solid rgba(66,73,57,0.2);}
+        .legal-section h3{color:var(--primary);margin-bottom:0.75rem;margin-top:1.5rem;font-family:'Inter',sans-serif;letter-spacing:0.05em;text-transform:uppercase;font-size:0.72rem;}
+        .legal-section p{color:var(--text-variant);line-height:1.8;margin-bottom:0.75rem;font-size:0.875rem;}
+        .legal-section a{color:var(--primary);transition:opacity 0.2s;}
+        .legal-section a:hover{opacity:0.8;}
+        .legal-section strong{color:var(--text);}
+        .legal-section ul{list-style:none;padding:0;margin-bottom:0.75rem;}
+        .legal-section ul li{display:flex;gap:0.75rem;color:var(--text-variant);font-size:0.875rem;line-height:1.7;padding:0.25rem 0;}
+        .legal-section ul li::before{content:'✦';color:var(--primary);font-size:0.6rem;margin-top:0.4rem;flex-shrink:0;}
+
+        .rights-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.25rem;}
+        @media(max-width:640px){.rights-grid{grid-template-columns:1fr;}}
+        .right-card{background:var(--surface-low);border-radius:0.5rem;padding:1rem;border:1px solid rgba(66,73,57,0.2);}
+        .right-card h4{font-size:0.8rem;font-weight:600;color:var(--text);margin-bottom:0.35rem;font-family:'Inter',sans-serif;}
+        .right-card p{font-size:0.75rem;color:var(--text-variant);line-height:1.5;margin:0;}
+
+        .info-block{background:var(--surface-low);border-radius:0.75rem;padding:1.5rem;margin-bottom:1.5rem;border-left:2px solid var(--primary);}
+        .info-block p{margin:0;color:var(--text-variant);font-size:0.875rem;line-height:1.7;}
+        .info-block strong{color:var(--text);}
+
+        footer{background:var(--surface-lowest);border-top:1px solid rgba(66,73,57,0.2);padding:2rem 0;margin-top:5rem;}
+        .footer-inner{max-width:1280px;margin:0 auto;padding:0 1.5rem;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem;}
+        .footer-inner p{font-size:0.72rem;color:var(--outline);}
+        .footer-inner a{font-size:0.72rem;color:var(--outline);transition:color 0.2s;}
+        .footer-inner a:hover{color:var(--primary);}
+            .whatsapp-fab { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 50; }
+        .whatsapp-btn {
+            width: 3.5rem; height: 3.5rem; border-radius: 50%;
+            background: #25D366; border: none; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.4); transition: transform 0.2s;
+        }
+        .whatsapp-btn:hover { transform: scale(1.1); }
+        .whatsapp-btn svg { width: 1.75rem; height: 1.75rem; fill: white; }
+    </style>
+<style id="sivaa-mobile-scale">
+    /* Mobile (≤ 480 px) : interface légèrement réduite. Les champs restent à 16 px (pas de zoom iOS), les boutons à 44 px minimum. */
+    @media (max-width: 480px) {
+        html { font-size: 15px; }
+        .section-pad { padding-top: 3.75rem; padding-bottom: 3.75rem; }
+        .form-group input, .form-group select, .form-group textarea { padding: 0.6rem 0.9rem; line-height: 1.3; }
+        .btn-primary, .btn-ghost, .btn-more { min-height: 44px; }
+        .modal-close { width: 44px; height: 44px; }
+    }
+</style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a href="/de/" class="nav-logo">SIVÀA <span style="color:var(--text-variant);font-size:0.8rem;letter-spacing:0.06em;">geneva</span></a>
+        <div class="nav-links">
+            <a href="/de/" data-i18n="nav.home">Startseite</a>
+            <a href="/de/journal/" data-i18n="nav.journal">Journal</a>
+            <a href="/de/kontakt.html" data-i18n="nav.contact">Kontakt</a>
+            <a href="/de/kasse.html" class="nav-cta" data-i18n="nav.order">Bestellen</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="page-header">
+        <span class="label-sm" data-pc="pc0">Schutz &amp; Transparenz</span>
+        <h1 style="font-size:2.5rem;font-weight:300;" data-pc="pc1">Datenschutz<em style="font-style:normal;color:var(--primary);">erklärung</em></h1>
+        <p style="color:var(--text-variant);margin-top:0.75rem;font-size:0.875rem;" data-pc="pc2">Letzte Aktualisierung: April 2026 · Konform mit dem Schweizer DSG &amp; der DSGVO</p>
+    </div>
+
+    <!-- Engagement -->
+    <div class="commitment-banner">
+        <h3 data-pc="pc3">🛡️ Unser Versprechen für Ihre Privatsphäre</h3>
+        <p data-pc="pc4">Bei SIVÀA Geneva hat der Schutz Ihrer persönlichen Daten höchste Priorität. Wir erheben nur das absolut Notwendige zur Bearbeitung Ihrer Bestellungen, verkaufen Ihre Daten niemals an Dritte und wenden höchste Sicherheitsstandards an. Ihr Vertrauen ist unser wertvollstes Gut.</p>
+    </div>
+
+    <!-- Responsable -->
+    <div class="legal-section">
+        <h2 data-pc="pc5">1. Verantwortliche Stelle</h2>
+        <div class="info-block">
+            <p data-pc="pc6">
+                <strong>SIVÀA Geneva</strong><br>
+                Quai des Vernets 11, 1227 Genf, Schweiz<br>
+                Telefon: +41 77 949 65 04
+            </p>
+        </div>
+        <p data-pc="pc7">SIVÀA Geneva ist verantwortlich für die Bearbeitung Ihrer Personendaten im Sinne des Schweizer Bundesgesetzes über den Datenschutz (DSG) und, soweit anwendbar, der EU-Datenschutz-Grundverordnung (DSGVO).</p>
+    </div>
+
+    <!-- Données collectées -->
+    <div class="legal-section">
+        <h2 data-pc="pc8">2. Erhobene Daten</h2>
+        <p data-pc="pc9">Wir erheben ausschliesslich die Daten, die für die Erbringung unserer Leistungen unbedingt erforderlich sind:</p>
+
+        <h3 data-pc="pc10">Bei einer Bestellung</h3>
+        <ul>
+            <li data-pc="pc11">Vor- und Nachname</li>
+            <li data-pc="pc12">E-Mail-Adresse</li>
+            <li data-pc="pc13">Lieferadresse (Strasse, PLZ, Ort, Land)</li>
+            <li data-pc="pc14">Telefonnummer (optional)</li>
+            <li data-pc="pc15">Bestellnotizen (falls angegeben)</li>
+        </ul>
+
+        <h3 data-pc="pc16">Nutzungsdaten</h3>
+        <ul>
+            <li data-pc="pc17">IP-Adresse (nach 24 Std. anonymisiert)</li>
+            <li data-pc="pc18">Browser- und Gerätetyp</li>
+            <li data-pc="pc19">Besuchte Seiten und Besuchsdauer (nur anonyme Statistik)</li>
+        </ul>
+
+        <h3 data-pc="pc20">Was wir NIE erheben</h3>
+        <ul>
+            <li data-pc="pc21">Bank- oder Kreditkartendaten (direkt von Twint und Revolut verarbeitet)</li>
+            <li data-pc="pc22">Besonders schützenswerte Daten (Gesundheit, ethnische Herkunft, politische Meinungen)</li>
+            <li data-pc="pc23">Standortdaten in Echtzeit</li>
+        </ul>
+    </div>
+
+    <!-- Utilisation -->
+    <div class="legal-section">
+        <h2 data-pc="pc24">3. Zwecke der Bearbeitung</h2>
+        <p data-pc="pc25">Ihre Daten werden ausschliesslich für folgende Zwecke bearbeitet:</p>
+        <ul>
+            <li data-pc="pc26">Bearbeitung und Versand Ihrer Bestellungen</li>
+            <li data-pc="pc27">Kommunikation zu Ihrer Bestellung (Bestätigung, Sendungsverfolgung, Rücksendungen)</li>
+            <li data-pc="pc28">Kundenservice und Beantwortung Ihrer Anfragen</li>
+            <li data-pc="pc29">Verbesserung unserer Website und Leistungen (aggregierte und anonymisierte Daten)</li>
+            <li data-pc="pc30">Erfüllung unserer gesetzlichen und buchhalterischen Pflichten</li>
+        </ul>
+        <p data-pc="pc31">Wir verwenden Ihre Daten niemals für Werbung Dritter, verkaufen sie nicht und geben sie ohne Ihre ausdrückliche Einwilligung nicht an Geschäftspartner weiter.</p>
+    </div>
+
+    <!-- Base légale -->
+    <div class="legal-section">
+        <h2 data-pc="pc32">4. Rechtsgrundlage der Bearbeitung</h2>
+        <p data-pc="pc33">Die Bearbeitung Ihrer Daten stützt sich auf folgende Rechtsgrundlagen:</p>
+        <ul>
+            <li data-pc="pc34"><strong>Vertragserfüllung</strong>: Bearbeitung Ihrer Bestellungen und Lieferungen</li>
+            <li data-pc="pc35"><strong>Gesetzliche Pflicht</strong>: Aufbewahrung von Buchhaltungs- und Steuerdaten gemäss Schweizer Recht</li>
+            <li data-pc="pc36"><strong>Berechtigtes Interesse</strong>: Verbesserung unserer Leistungen und IT-Sicherheit</li>
+            <li data-pc="pc37"><strong>Einwilligung</strong>: für Marketing-Mitteilungen (Newsletter), nur mit Ihrer ausdrücklichen Zustimmung</li>
+        </ul>
+    </div>
+
+    <!-- Conservation -->
+    <div class="legal-section">
+        <h2 data-pc="pc38">5. Aufbewahrungsdauer</h2>
+        <p data-pc="pc39">Wir bewahren Ihre Daten so lange wie nötig auf, nach folgenden Grundsätzen:</p>
+        <ul>
+            <li data-pc="pc40">Bestelldaten: 10 Jahre (gemäss Schweizer Buchführungspflichten)</li>
+            <li data-pc="pc41">Kundenkommunikation: 3 Jahre nach dem letzten Kontakt</li>
+            <li data-pc="pc42">Nutzungsdaten: maximal 30 Tage (unmittelbar nach der Auswertung anonymisiert)</li>
+            <li data-pc="pc43">Marketingdaten (Newsletter): bis zur Abmeldung</li>
+        </ul>
+        <p data-pc="pc44">Nach Ablauf dieser Fristen werden Ihre Daten sicher und endgültig gelöscht.</p>
+    </div>
+
+    <!-- Partage -->
+    <div class="legal-section">
+        <h2 data-pc="pc45">6. Weitergabe von Daten</h2>
+        <p data-pc="pc46">SIVÀA Geneva gibt Ihre Daten nur an Dienstleister weiter, die für die Ausführung Ihrer Bestellungen unbedingt erforderlich sind:</p>
+        <ul>
+            <li data-pc="pc47"><strong>Swiss Post</strong>: Lieferadresse für den Versand Ihrer Bestellungen</li>
+            <li data-pc="pc48"><strong>Twint / Revolut</strong>: Transaktionsdaten (diese Anbieter haben eigene Datenschutzerklärungen)</li>
+        </ul>
+        <p data-pc="pc49">Ihre Daten werden unter keinen Umständen zu kommerziellen oder Werbezwecken an Dritte verkauft, vermietet oder abgetreten.</p>
+    </div>
+
+    <!-- Sécurité -->
+    <div class="legal-section">
+        <h2 data-pc="pc50">7. Sicherheit Ihrer Daten</h2>
+        <p data-pc="pc51">SIVÀA Geneva trifft geeignete technische und organisatorische Sicherheitsmassnahmen, um Ihre Daten vor unbefugtem Zugriff, Änderung, Offenlegung oder Zerstörung zu schützen:</p>
+        <ul>
+            <li data-pc="pc52">SSL/TLS-Verschlüsselung aller Verbindungen</li>
+            <li data-pc="pc53">Zahlungen über durchgehend verschlüsselte Protokolle (Twint, Revolut)</li>
+            <li data-pc="pc54">Zugriff auf Daten nur für berechtigte Personen</li>
+            <li data-pc="pc55">Keine Finanzdaten auf unseren Servern gespeichert</li>
+        </ul>
+    </div>
+
+    <!-- Droits -->
+    <div class="legal-section">
+        <h2 data-pc="pc56">8. Ihre Rechte</h2>
+        <p data-pc="pc57">Gemäss Schweizer DSG und DSGVO haben Sie folgende Rechte an Ihren Personendaten:</p>
+        <div class="rights-grid">
+            <div class="right-card">
+                <h4 data-pc="pc58">🔍 Auskunftsrecht</h4>
+                <p data-pc="pc59">Eine Kopie aller Daten erhalten, die wir über Sie speichern.</p>
+            </div>
+            <div class="right-card">
+                <h4 data-pc="pc60">✏️ Recht auf Berichtigung</h4>
+                <p data-pc="pc61">Unrichtige oder unvollständige Daten über Sie berichtigen lassen.</p>
+            </div>
+            <div class="right-card">
+                <h4 data-pc="pc62">🗑️ Recht auf Löschung</h4>
+                <p data-pc="pc63">Die Löschung Ihrer Personendaten verlangen (vorbehaltlich gesetzlicher Pflichten).</p>
+            </div>
+            <div class="right-card">
+                <h4 data-pc="pc64">⏸️ Widerspruchsrecht</h4>
+                <p data-pc="pc65">Bestimmten Bearbeitungen widersprechen, insbesondere zu Marketingzwecken.</p>
+            </div>
+            <div class="right-card">
+                <h4 data-pc="pc66">📦 Recht auf Datenübertragbarkeit</h4>
+                <p data-pc="pc67">Ihre Daten in einem strukturierten, maschinenlesbaren Format erhalten.</p>
+            </div>
+            <div class="right-card">
+                <h4 data-pc="pc68">🔒 Recht auf Einschränkung</h4>
+                <p data-pc="pc69">In bestimmten Fällen die Einschränkung der Bearbeitung Ihrer Daten verlangen.</p>
+            </div>
+        </div>
+        <p style="margin-top:1.25rem;" data-pc="pc70">Um eines dieser Rechte auszuüben, kontaktieren Sie uns telefonisch oder per WhatsApp unter +41 77 949 65 04. Wir antworten innerhalb von höchstens 30 Tagen.</p>
+    </div>
+
+    <!-- Cookies -->
+    <div class="legal-section">
+        <h2 data-pc="pc71">9. Cookies &amp; Tracker</h2>
+        <p data-pc="pc72">Unsere Website verwendet nur eine minimale Anzahl von Cookies, die für das Funktionieren der Website unbedingt erforderlich sind (Sitzung, Warenkorb). Ohne Ihre Einwilligung verwenden wir keine Werbe-, Tracking- oder Social-Media-Cookies.</p>
+        <p data-pc="pc73">Sie können Ihre Browsereinstellungen jederzeit ändern, um Cookies abzulehnen oder zu löschen. Dies kann einige Funktionen der Website beeinträchtigen.</p>
+    </div>
+
+    <!-- Réclamations -->
+    <div class="legal-section">
+        <h2 data-pc="pc74">10. Beschwerden &amp; Aufsichtsbehörde</h2>
+        <p data-pc="pc75">Wenn Sie der Ansicht sind, dass die Bearbeitung Ihrer Personendaten nicht dem geltenden Recht entspricht, können Sie beim <strong>Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB)</strong>, der zuständigen Aufsichtsbehörde in der Schweiz, Beschwerde einreichen.</p>
+        <p data-pc="pc76">Wir empfehlen Ihnen jedoch, sich zuerst an uns zu wenden, damit wir eine gütliche Lösung finden können.</p>
+    </div>
+
+    <!-- Contact -->
+    <div class="legal-section">
+        <h2 data-pc="pc77">11. Kontakt</h2>
+        <div class="info-block">
+            <p data-pc="pc78">
+                Bei Fragen zu dieser Erklärung oder zu Ihren Daten:<br><br>
+                <strong>SIVÀA Geneva — Datenschutzbeauftragter</strong><br>
+                Quai des Vernets 11, 1227 Genf, Schweiz<br>
+                Telefon: +41 77 949 65 04
+            </p>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-inner">
+        <p data-pc="pc79">© 2026 SIVÀA Geneva · Luxus-Siwak &amp; natürliche Zahnpflege · Genf, Schweiz</p>
+        <div style="display:flex;gap:1.25rem;">
+            <a href="/de/versand-abholung.html" data-i18n="footer.info.shipping">Versand &amp; Abholung</a>
+            <a href="/de/impressum.html" data-pc="pc80">Rechtliche Hinweise</a>
+            <a href="/de/datenschutz.html" data-pc="pc81">Datenschutz</a>
+            <a href="/de/" data-pc="pc82">Zurück</a>
+        </div>
+    </div>
+</footer>
+
+<div class="whatsapp-fab">
+    <a href="https://wa.me/41779496504?text=Hallo%20SIV%C3%80A%20Geneva%2C%20ich%20habe%20eine%20Frage%20zum%20Siwak%20%F0%9F%8C%BF" target="_blank" rel="noopener noreferrer" aria-label="SIVÀA Geneva über WhatsApp kontaktieren">
+        <button class="whatsapp-btn" type="button" aria-hidden="true">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path></svg>
+        </button>
+    </a>
+</div>
+
+<script>
+/* Traductions EN/DE de la page (le français d'origine reste dans le HTML et fait foi).
+   {a} = lien e-mail d'origine, conservé tel quel. */
+const PC_T = {
+ "pc0": {
+  "en": "Protection & Transparency",
+  "de": "Schutz & Transparenz"
+ },
+ "pc1": {
+  "en": "Privacy <em style=\"font-style:normal;color:var(--primary);\">Policy</em>",
+  "de": "Datenschutz<em style=\"font-style:normal;color:var(--primary);\">erklärung</em>"
+ },
+ "pc2": {
+  "en": "Last updated: April 2026 · Compliant with the Swiss FADP & GDPR",
+  "de": "Letzte Aktualisierung: April 2026 · Konform mit dem Schweizer DSG & der DSGVO"
+ },
+ "pc3": {
+  "en": "🛡️ Our commitment to your privacy",
+  "de": "🛡️ Unser Versprechen für Ihre Privatsphäre"
+ },
+ "pc4": {
+  "en": "At SIVÀA Geneva, protecting your personal data is an absolute priority. We collect only the bare minimum needed to process your orders, we never sell your data to third parties, and we apply the highest security standards. Your trust is our most precious asset.",
+  "de": "Bei SIVÀA Geneva hat der Schutz Ihrer persönlichen Daten höchste Priorität. Wir erheben nur das absolut Notwendige zur Bearbeitung Ihrer Bestellungen, verkaufen Ihre Daten niemals an Dritte und wenden höchste Sicherheitsstandards an. Ihr Vertrauen ist unser wertvollstes Gut."
+ },
+ "pc5": {
+  "en": "1. Data controller",
+  "de": "1. Verantwortliche Stelle"
+ },
+ "pc6": {
+  "en": "\n                <strong>SIVÀA Geneva</strong><br/>\n                Quai des Vernets 11, 1227 Geneva, Switzerland<br/>\n                Phone: +41 77 949 65 04\n            ",
+  "de": "\n                <strong>SIVÀA Geneva</strong><br/>\n                Quai des Vernets 11, 1227 Genf, Schweiz<br/>\n                Telefon: +41 77 949 65 04\n            "
+ },
+ "pc7": {
+  "en": "SIVÀA Geneva is responsible for processing your personal data within the meaning of the Swiss Federal Act on Data Protection (FADP) and, where applicable, the EU General Data Protection Regulation (GDPR).",
+  "de": "SIVÀA Geneva ist verantwortlich für die Bearbeitung Ihrer Personendaten im Sinne des Schweizer Bundesgesetzes über den Datenschutz (DSG) und, soweit anwendbar, der EU-Datenschutz-Grundverordnung (DSGVO)."
+ },
+ "pc8": {
+  "en": "2. Data collected",
+  "de": "2. Erhobene Daten"
+ },
+ "pc9": {
+  "en": "We collect only the data strictly necessary to provide our services:",
+  "de": "Wir erheben ausschliesslich die Daten, die für die Erbringung unserer Leistungen unbedingt erforderlich sind:"
+ },
+ "pc10": {
+  "en": "When you place an order",
+  "de": "Bei einer Bestellung"
+ },
+ "pc11": {
+  "en": "First and last name",
+  "de": "Vor- und Nachname"
+ },
+ "pc12": {
+  "en": "Email address",
+  "de": "E-Mail-Adresse"
+ },
+ "pc13": {
+  "en": "Delivery address (street, postcode, city, country)",
+  "de": "Lieferadresse (Strasse, PLZ, Ort, Land)"
+ },
+ "pc14": {
+  "en": "Phone number (optional)",
+  "de": "Telefonnummer (optional)"
+ },
+ "pc15": {
+  "en": "Order notes (if provided)",
+  "de": "Bestellnotizen (falls angegeben)"
+ },
+ "pc16": {
+  "en": "Browsing data",
+  "de": "Nutzungsdaten"
+ },
+ "pc17": {
+  "en": "IP address (anonymised after 24 hours)",
+  "de": "IP-Adresse (nach 24 Std. anonymisiert)"
+ },
+ "pc18": {
+  "en": "Browser and device type",
+  "de": "Browser- und Gerätetyp"
+ },
+ "pc19": {
+  "en": "Pages visited and visit duration (anonymous analytics only)",
+  "de": "Besuchte Seiten und Besuchsdauer (nur anonyme Statistik)"
+ },
+ "pc20": {
+  "en": "What we NEVER collect",
+  "de": "Was wir NIE erheben"
+ },
+ "pc21": {
+  "en": "Banking or credit card data (processed directly by Twint and Revolut)",
+  "de": "Bank- oder Kreditkartendaten (direkt von Twint und Revolut verarbeitet)"
+ },
+ "pc22": {
+  "en": "Sensitive data (health, ethnic origin, political opinions)",
+  "de": "Besonders schützenswerte Daten (Gesundheit, ethnische Herkunft, politische Meinungen)"
+ },
+ "pc23": {
+  "en": "Real-time location data",
+  "de": "Standortdaten in Echtzeit"
+ },
+ "pc24": {
+  "en": "3. Purposes of processing",
+  "de": "3. Zwecke der Bearbeitung"
+ },
+ "pc25": {
+  "en": "Your data is processed exclusively for the following purposes:",
+  "de": "Ihre Daten werden ausschliesslich für folgende Zwecke bearbeitet:"
+ },
+ "pc26": {
+  "en": "Processing and shipping your orders",
+  "de": "Bearbeitung und Versand Ihrer Bestellungen"
+ },
+ "pc27": {
+  "en": "Communication about your order (confirmation, tracking, returns)",
+  "de": "Kommunikation zu Ihrer Bestellung (Bestätigung, Sendungsverfolgung, Rücksendungen)"
+ },
+ "pc28": {
+  "en": "Customer service and answering your requests",
+  "de": "Kundenservice und Beantwortung Ihrer Anfragen"
+ },
+ "pc29": {
+  "en": "Improving our website and services (aggregated and anonymised data)",
+  "de": "Verbesserung unserer Website und Leistungen (aggregierte und anonymisierte Daten)"
+ },
+ "pc30": {
+  "en": "Compliance with our legal and accounting obligations",
+  "de": "Erfüllung unserer gesetzlichen und buchhalterischen Pflichten"
+ },
+ "pc31": {
+  "en": "We never use your data for third-party advertising, never sell it, and never share it with business partners without your explicit consent.",
+  "de": "Wir verwenden Ihre Daten niemals für Werbung Dritter, verkaufen sie nicht und geben sie ohne Ihre ausdrückliche Einwilligung nicht an Geschäftspartner weiter."
+ },
+ "pc32": {
+  "en": "4. Legal basis for processing",
+  "de": "4. Rechtsgrundlage der Bearbeitung"
+ },
+ "pc33": {
+  "en": "The processing of your data is based on the following legal grounds:",
+  "de": "Die Bearbeitung Ihrer Daten stützt sich auf folgende Rechtsgrundlagen:"
+ },
+ "pc34": {
+  "en": "<strong>Performance of a contract</strong>: processing your orders and deliveries",
+  "de": "<strong>Vertragserfüllung</strong>: Bearbeitung Ihrer Bestellungen und Lieferungen"
+ },
+ "pc35": {
+  "en": "<strong>Legal obligation</strong>: retention of accounting and tax records in accordance with Swiss law",
+  "de": "<strong>Gesetzliche Pflicht</strong>: Aufbewahrung von Buchhaltungs- und Steuerdaten gemäss Schweizer Recht"
+ },
+ "pc36": {
+  "en": "<strong>Legitimate interest</strong>: improving our services and IT security",
+  "de": "<strong>Berechtigtes Interesse</strong>: Verbesserung unserer Leistungen und IT-Sicherheit"
+ },
+ "pc37": {
+  "en": "<strong>Consent</strong>: for any marketing communication (newsletter), only if you have expressly agreed",
+  "de": "<strong>Einwilligung</strong>: für Marketing-Mitteilungen (Newsletter), nur mit Ihrer ausdrücklichen Zustimmung"
+ },
+ "pc38": {
+  "en": "5. Retention period",
+  "de": "5. Aufbewahrungsdauer"
+ },
+ "pc39": {
+  "en": "We keep your data for as long as necessary, according to the following principles:",
+  "de": "Wir bewahren Ihre Daten so lange wie nötig auf, nach folgenden Grundsätzen:"
+ },
+ "pc40": {
+  "en": "Order data: 10 years (in accordance with Swiss accounting obligations)",
+  "de": "Bestelldaten: 10 Jahre (gemäss Schweizer Buchführungspflichten)"
+ },
+ "pc41": {
+  "en": "Customer communication data: 3 years after last contact",
+  "de": "Kundenkommunikation: 3 Jahre nach dem letzten Kontakt"
+ },
+ "pc42": {
+  "en": "Browsing data: 30 days maximum (anonymised immediately after analysis)",
+  "de": "Nutzungsdaten: maximal 30 Tage (unmittelbar nach der Auswertung anonymisiert)"
+ },
+ "pc43": {
+  "en": "Marketing data (newsletter): until you unsubscribe",
+  "de": "Marketingdaten (Newsletter): bis zur Abmeldung"
+ },
+ "pc44": {
+  "en": "When these periods expire, your data is deleted securely and permanently.",
+  "de": "Nach Ablauf dieser Fristen werden Ihre Daten sicher und endgültig gelöscht."
+ },
+ "pc45": {
+  "en": "6. Data sharing",
+  "de": "6. Weitergabe von Daten"
+ },
+ "pc46": {
+  "en": "SIVÀA Geneva shares your data only with the service providers strictly necessary to fulfil your orders:",
+  "de": "SIVÀA Geneva gibt Ihre Daten nur an Dienstleister weiter, die für die Ausführung Ihrer Bestellungen unbedingt erforderlich sind:"
+ },
+ "pc47": {
+  "en": "<strong>Swiss Post</strong>: delivery address for shipping your orders",
+  "de": "<strong>Swiss Post</strong>: Lieferadresse für den Versand Ihrer Bestellungen"
+ },
+ "pc48": {
+  "en": "<strong>Twint / Revolut</strong>: transaction data (these providers have their own privacy policies)",
+  "de": "<strong>Twint / Revolut</strong>: Transaktionsdaten (diese Anbieter haben eigene Datenschutzerklärungen)"
+ },
+ "pc49": {
+  "en": "Under no circumstances is your data sold, rented or transferred to third parties for commercial or advertising purposes.",
+  "de": "Ihre Daten werden unter keinen Umständen zu kommerziellen oder Werbezwecken an Dritte verkauft, vermietet oder abgetreten."
+ },
+ "pc50": {
+  "en": "7. Security of your data",
+  "de": "7. Sicherheit Ihrer Daten"
+ },
+ "pc51": {
+  "en": "SIVÀA Geneva implements the most appropriate technical and organisational security measures to protect your data against unauthorised access, modification, disclosure or destruction:",
+  "de": "SIVÀA Geneva trifft geeignete technische und organisatorische Sicherheitsmassnahmen, um Ihre Daten vor unbefugtem Zugriff, Änderung, Offenlegung oder Zerstörung zu schützen:"
+ },
+ "pc52": {
+  "en": "SSL/TLS encryption of all communications",
+  "de": "SSL/TLS-Verschlüsselung aller Verbindungen"
+ },
+ "pc53": {
+  "en": "Payments processed via end-to-end encrypted protocols (Twint, Revolut)",
+  "de": "Zahlungen über durchgehend verschlüsselte Protokolle (Twint, Revolut)"
+ },
+ "pc54": {
+  "en": "Access to data restricted to authorised persons only",
+  "de": "Zugriff auf Daten nur für berechtigte Personen"
+ },
+ "pc55": {
+  "en": "No financial data stored on our servers",
+  "de": "Keine Finanzdaten auf unseren Servern gespeichert"
+ },
+ "pc56": {
+  "en": "8. Your rights",
+  "de": "8. Ihre Rechte"
+ },
+ "pc57": {
+  "en": "Under the Swiss FADP and the GDPR, you have the following rights over your personal data:",
+  "de": "Gemäss Schweizer DSG und DSGVO haben Sie folgende Rechte an Ihren Personendaten:"
+ },
+ "pc58": {
+  "en": "🔍 Right of access",
+  "de": "🔍 Auskunftsrecht"
+ },
+ "pc59": {
+  "en": "Obtain a copy of all the data we hold about you.",
+  "de": "Eine Kopie aller Daten erhalten, die wir über Sie speichern."
+ },
+ "pc60": {
+  "en": "✏️ Right to rectification",
+  "de": "✏️ Recht auf Berichtigung"
+ },
+ "pc61": {
+  "en": "Correct any inaccurate or incomplete data about you.",
+  "de": "Unrichtige oder unvollständige Daten über Sie berichtigen lassen."
+ },
+ "pc62": {
+  "en": "🗑️ Right to erasure",
+  "de": "🗑️ Recht auf Löschung"
+ },
+ "pc63": {
+  "en": "Request the deletion of your personal data (subject to legal obligations).",
+  "de": "Die Löschung Ihrer Personendaten verlangen (vorbehaltlich gesetzlicher Pflichten)."
+ },
+ "pc64": {
+  "en": "⏸️ Right to object",
+  "de": "⏸️ Widerspruchsrecht"
+ },
+ "pc65": {
+  "en": "Object to certain processing, in particular for marketing purposes.",
+  "de": "Bestimmten Bearbeitungen widersprechen, insbesondere zu Marketingzwecken."
+ },
+ "pc66": {
+  "en": "📦 Right to data portability",
+  "de": "📦 Recht auf Datenübertragbarkeit"
+ },
+ "pc67": {
+  "en": "Receive your data in a structured, machine-readable format.",
+  "de": "Ihre Daten in einem strukturierten, maschinenlesbaren Format erhalten."
+ },
+ "pc68": {
+  "en": "🔒 Right to restriction",
+  "de": "🔒 Recht auf Einschränkung"
+ },
+ "pc69": {
+  "en": "Request that the processing of your data be restricted in certain cases.",
+  "de": "In bestimmten Fällen die Einschränkung der Bearbeitung Ihrer Daten verlangen."
+ },
+ "pc70": {
+  "en": "To exercise any of these rights, contact us by phone or WhatsApp at +41 77 949 65 04. We undertake to reply within 30 days at most.",
+  "de": "Um eines dieser Rechte auszuüben, kontaktieren Sie uns telefonisch oder per WhatsApp unter +41 77 949 65 04. Wir antworten innerhalb von höchstens 30 Tagen."
+ },
+ "pc71": {
+  "en": "9. Cookies & Trackers",
+  "de": "9. Cookies & Tracker"
+ },
+ "pc72": {
+  "en": "Our website uses a minimal number of cookies that are strictly necessary for browsing to work properly (session, cart). We do not use advertising, behavioural tracking or social media sharing cookies without your consent.",
+  "de": "Unsere Website verwendet nur eine minimale Anzahl von Cookies, die für das Funktionieren der Website unbedingt erforderlich sind (Sitzung, Warenkorb). Ohne Ihre Einwilligung verwenden wir keine Werbe-, Tracking- oder Social-Media-Cookies."
+ },
+ "pc73": {
+  "en": "You can change your browser settings at any time to refuse or delete cookies. This may affect some features of the website.",
+  "de": "Sie können Ihre Browsereinstellungen jederzeit ändern, um Cookies abzulehnen oder zu löschen. Dies kann einige Funktionen der Website beeinträchtigen."
+ },
+ "pc74": {
+  "en": "10. Complaints & Supervisory authority",
+  "de": "10. Beschwerden & Aufsichtsbehörde"
+ },
+ "pc75": {
+  "en": "If you believe that the processing of your personal data does not comply with applicable law, you have the right to lodge a complaint with the <strong>Federal Data Protection and Information Commissioner (FDPIC)</strong>, the competent supervisory authority in Switzerland.",
+  "de": "Wenn Sie der Ansicht sind, dass die Bearbeitung Ihrer Personendaten nicht dem geltenden Recht entspricht, können Sie beim <strong>Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB)</strong>, der zuständigen Aufsichtsbehörde in der Schweiz, Beschwerde einreichen."
+ },
+ "pc76": {
+  "en": "We nevertheless encourage you to contact us first so that we can find an amicable solution.",
+  "de": "Wir empfehlen Ihnen jedoch, sich zuerst an uns zu wenden, damit wir eine gütliche Lösung finden können."
+ },
+ "pc77": {
+  "en": "11. Contact us",
+  "de": "11. Kontakt"
+ },
+ "pc78": {
+  "en": "\n                For any question about this policy or your data:<br/><br/>\n                <strong>SIVÀA Geneva — Data Protection Officer</strong><br/>\n                Quai des Vernets 11, 1227 Geneva, Switzerland<br/>\n                Phone: +41 77 949 65 04\n            ",
+  "de": "\n                Bei Fragen zu dieser Erklärung oder zu Ihren Daten:<br/><br/>\n                <strong>SIVÀA Geneva — Datenschutzbeauftragter</strong><br/>\n                Quai des Vernets 11, 1227 Genf, Schweiz<br/>\n                Telefon: +41 77 949 65 04\n            "
+ },
+ "pc79": {
+  "en": "© 2026 SIVÀA Geneva · Luxury Siwak & natural dental hygiene · Geneva, Switzerland",
+  "de": "© 2026 SIVÀA Geneva · Luxus-Siwak & natürliche Zahnpflege · Genf, Schweiz"
+ },
+ "pc80": {
+  "en": "Legal notice",
+  "de": "Rechtliche Hinweise"
+ },
+ "pc81": {
+  "en": "Privacy",
+  "de": "Datenschutz"
+ },
+ "pc82": {
+  "en": "Back",
+  "de": "Zurück"
+ }
+};
+(function () {
+    const fr = {};
+    window.onSivaaLanguageChange = function (lang) {
+        document.querySelectorAll('[data-pc]').forEach(el => {
+            const k = el.dataset.pc;
+            const links = [...el.querySelectorAll('a')];
+            if (!(k in fr)) {
+                const c = el.cloneNode(true);
+                c.querySelectorAll('a').forEach(a => a.replaceWith('{a}'));
+                fr[k] = c.innerHTML;
+            }
+            const tpl = (lang !== 'fr' && PC_T[k] && PC_T[k][lang]) || fr[k];
+            const parts = tpl.split('{a}');
+            el.innerHTML = parts.map((part, n) => part + (n < parts.length - 1 ? '<span data-a="' + n + '"></span>' : '')).join('');
+            el.querySelectorAll('[data-a]').forEach(ph => { const a = links[+ph.dataset.a]; a ? ph.replaceWith(a) : ph.remove(); });
+        });
+    };
+})();
+</script>
+<script src="/i18n.js?v=4fdbac3b1d"></script>
+
+
+</body></html>
