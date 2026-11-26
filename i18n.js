@@ -2273,6 +2273,17 @@ function initScrollReveal() {
         });
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0.01 });
     items.forEach((el) => { el.classList.add('sv-reveal'); io.observe(el); });
+    // Sécurité : un bloc déjà dépassé (défilement très rapide, ancre, bas de page) s'affiche tout de suite
+    let ticking = false;
+    const sweep = () => {
+        ticking = false;
+        const left = document.querySelectorAll('.sv-reveal:not(.sv-in)');
+        if (!left.length) { window.removeEventListener('scroll', onScroll); return; }
+        const limit = window.innerHeight;
+        left.forEach((el) => { if (el.getBoundingClientRect().top < limit) { el.classList.add('sv-in'); io.unobserve(el); el.addEventListener('transitionend', () => { el.classList.remove('sv-reveal', 'sv-in'); el.style.transitionDelay = ''; }, { once: true }); } });
+    };
+    const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(sweep); } };
+    window.addEventListener('scroll', onScroll, { passive: true });
 }
 
 document.addEventListener('DOMContentLoaded', () => {

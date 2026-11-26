@@ -425,7 +425,7 @@ function footerHtml(lang) {
                 <p class="footer-tagline" ${L('footer.tagline')}</p>
             </div>
             <div class="footer-col">
-                <h4 ${L('footer.col.products')}</h4>
+                <h4 aria-level="3" ${L('footer.col.products')}</h4>
                 <ul>
                     <li><a href="${URLS.p1[lang]}" ${L('footer.product.siwak')}</a></li>
                     <li><a href="${URLS.p2[lang]}" ${L('footer.product.togo')}</a></li>
@@ -435,7 +435,7 @@ function footerHtml(lang) {
                 </ul>
             </div>
             <div class="footer-col">
-                <h4 ${L('footer.col.info')}</h4>
+                <h4 aria-level="3" ${L('footer.col.info')}</h4>
                 <ul>
                     <li><a href="${URLS.ship[lang]}" ${L('footer.info.shipping')}</a></li>
                     <li><a href="${URLS.blog[lang]}" ${L('footer.info.journal')}</a></li>
@@ -443,7 +443,7 @@ function footerHtml(lang) {
                 </ul>
             </div>
             <div class="footer-col">
-                <h4 ${L('footer.col.legal')}</h4>
+                <h4 aria-level="3" ${L('footer.col.legal')}</h4>
                 <ul>
                     <li><a href="${URLS.legal[lang]}" ${L('footer.legal.cgv')}</a></li>
                     <li><a href="${URLS.privacy[lang]}" ${L('footer.legal.privacy')}</a></li>
@@ -476,7 +476,7 @@ const FAB_DE = FAB_FR
     .replace('aria-label="Contacter SIVÀA Geneva sur WhatsApp"', 'aria-label="SIVÀA Geneva über WhatsApp kontaktieren"');
 const fabHtml = (lang) => (lang === 'de' ? FAB_DE : FAB_FR);
 
-const tail = `<script src="${I18N_SRC}"></script>
+const tail = `<script src="${I18N_SRC}" defer></script>
 </body>
 </html>
 `;
@@ -809,7 +809,7 @@ for (const key of HAND) {
     const file = frFile(key);
     let html = read(file);
     const before = html;
-    html = html.replace(/(<script[^>]+src=")(\/?i18n\.js)(?:\?v=[^"]*)?"/g, `$1$2?v=${I18N_VER}"`);
+    html = html.replace(/(<script[^>]+src=")(\/?i18n\.js)(?:\?v=[^"]*)?"(?: defer)?/g, `$1$2?v=${I18N_VER}" defer`);
     // Polices : Google Fonts → fichiers du site (jeu choisi selon la feuille Google d'origine)
     {
         const gf = html.match(/<link[^>]*href="https:\/\/fonts\.googleapis\.com\/css2([^"]*)"[^>]*>/);
@@ -868,6 +868,9 @@ const ARIA_DE = {
     'Temps de lecture estimé': 'Geschätzte Lesezeit',
     'Fermer': 'Schliessen',
     'Menu': 'Menü',
+    'Indicatif téléphonique': 'Ländervorwahl',
+    'Capture de la confirmation de paiement': 'Screenshot der Zahlungsbestätigung',
+    'Code promo': 'Rabattcode',
 };
 function localize(doc) {
     doc.querySelectorAll('[href]').forEach((el) => { if (el.tagName !== 'LINK' || el.getAttribute('rel') === 'icon') el.setAttribute('href', deLink(el.getAttribute('href'))); });
