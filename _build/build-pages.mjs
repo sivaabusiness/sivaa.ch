@@ -289,6 +289,7 @@ footer{background:var(--surface-lowest);border-top:1px solid rgba(46,58,44,.3);p
 .pp-actions a{min-height:48px}
 @media(max-width:767px){.pp-actions a{flex:1 1 100%}}
 .pp-col{max-width:44rem;margin:0 auto}
+@media(min-width:1024px){.pp-col{max-width:62rem}.pp-col>.pp-section{max-width:46rem;margin-left:0;margin-right:auto;text-align:left}}
 .pp-section{margin-top:3.5rem}
 .pp-section h2{font-size:clamp(1.45rem,3vw,2rem);font-weight:300;line-height:1.25;margin-bottom:1.1rem}
 .pp-keys .pp-text{max-width:68ch}
