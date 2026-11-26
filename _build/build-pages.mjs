@@ -128,7 +128,7 @@ const PRODUCTS = [
         },
     },
     {
-        id: 'p4', img: '/dentifrice-siwak-clou-de-girofle.jpg', alt: 'product4.image.alt', badge: 'product4.badge', name: 'product4.name',
+        id: 'p4', stack: true, img: '/dentifrice-siwak-clou-de-girofle.jpg', alt: 'product4.image.alt', badge: 'product4.badge', name: 'product4.name',
         intro: 'pp.p4.intro', keypoints: keys('p4'), price: 'product4.price', buy: 'modal4.buy', offerPrice: '10.00',
         sections: [
             { type: 'text', title: 'pp.p4.inside.title', paras: ['pp.p4.inside.1'] },
@@ -143,7 +143,7 @@ const PRODUCTS = [
         },
     },
     {
-        id: 'p5', img: '/dentifrice-siwak-charbon-actif.jpg', alt: 'product5.image.alt', badge: 'product5.badge', name: 'product5.name',
+        id: 'p5', stack: true, img: '/dentifrice-siwak-charbon-actif.jpg', alt: 'product5.image.alt', badge: 'product5.badge', name: 'product5.name',
         intro: 'pp.p5.intro', keypoints: keys('p5'), price: 'product5.price', buy: 'modal5.buy', offerPrice: '10.00',
         sections: [
             { type: 'text', title: 'pp.p5.inside.title', paras: ['pp.p5.inside.1'] },
@@ -299,7 +299,7 @@ footer{background:var(--surface-lowest);border-top:1px solid rgba(46,58,44,.3);p
 .pp-head h1{font-size:clamp(2rem,4.2vw,3rem);font-weight:300;line-height:1.15;margin:.5rem 0 .5rem}
 .pp-sub{font-size:1.05rem;line-height:1.6;color:#c2c9b4;max-width:40rem}
 .pp-top{display:grid;gap:1.5rem;max-width:62rem;margin:0 auto}
-@media(min-width:900px){.pp-top{grid-template-columns:minmax(0,460px) minmax(0,1fr);gap:3rem;align-items:start}}
+@media(min-width:900px){.pp-top{grid-template-columns:minmax(0,460px) minmax(0,1fr);gap:3rem;align-items:start}.pp-top--stack{grid-template-columns:minmax(0,460px);gap:1.25rem}}
 .pp-media{width:100%;max-width:460px;aspect-ratio:1/1;margin:0 auto;background:#fff;border-radius:1rem;overflow:hidden;display:flex;align-items:center;justify-content:center}
 .pp-media img{width:100%;height:100%;object-fit:contain;padding:1rem}
 @media(max-width:899px){.pp-media{max-width:none;aspect-ratio:auto;height:min(calc(100vw - 3rem),40vh)}}
@@ -690,7 +690,7 @@ ${navHtml(lang)}
         ${i(p.name, 'h1')}
         ${i(`pp.${p.id}.subtitle`, 'p', 'pp-sub')}
     </header>
-    <div class="pp-top">
+    <div class="pp-top${p.stack ? ' pp-top--stack' : ''}">
         <div class="pp-media">
             ${picture(p.img, strip(t(p.alt)), p.alt, '(max-width: 767px) 100vw, 460px', { eager: true })}
         </div>

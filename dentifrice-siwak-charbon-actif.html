@@ -267,7 +267,7 @@ footer{background:var(--surface-lowest);border-top:1px solid rgba(46,58,44,.3);p
 .pp-head h1{font-size:clamp(2rem,4.2vw,3rem);font-weight:300;line-height:1.15;margin:.5rem 0 .5rem}
 .pp-sub{font-size:1.05rem;line-height:1.6;color:#c2c9b4;max-width:40rem}
 .pp-top{display:grid;gap:1.5rem;max-width:62rem;margin:0 auto}
-@media(min-width:900px){.pp-top{grid-template-columns:minmax(0,460px) minmax(0,1fr);gap:3rem;align-items:start}}
+@media(min-width:900px){.pp-top{grid-template-columns:minmax(0,460px) minmax(0,1fr);gap:3rem;align-items:start}.pp-top--stack{grid-template-columns:minmax(0,460px);gap:1.25rem}}
 .pp-media{width:100%;max-width:460px;aspect-ratio:1/1;margin:0 auto;background:#fff;border-radius:1rem;overflow:hidden;display:flex;align-items:center;justify-content:center}
 .pp-media img{width:100%;height:100%;object-fit:contain;padding:1rem}
 @media(max-width:899px){.pp-media{max-width:none;aspect-ratio:auto;height:min(calc(100vw - 3rem),40vh)}}
@@ -355,7 +355,7 @@ html{font-size:15px}
         <h1 data-i18n="product5.name">Dentifrice Siwak — Charbon Actif</h1>
         <p class="pp-sub" data-i18n="pp.p5.subtitle">Dentifrice noir au charbon actif et au siwak, pour une routine originale.</p>
     </header>
-    <div class="pp-top">
+    <div class="pp-top pp-top--stack">
         <div class="pp-media">
             <img src="/dentifrice-siwak-charbon-actif-790.webp" srcset="/dentifrice-siwak-charbon-actif-480.webp 480w, /dentifrice-siwak-charbon-actif-790.webp 790w" sizes="(max-width: 767px) 100vw, 460px" width="790" height="492" alt="Tube et boîte de dentifrice noir au siwak et au charbon actif" data-i18n-alt="product5.image.alt" fetchpriority="high" decoding="async"/>
         </div>
