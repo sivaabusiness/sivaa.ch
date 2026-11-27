@@ -185,6 +185,16 @@
         .modal-close { width: 44px; height: 44px; }
     }
 </style>
+<style id="sivaa-legible">
+    /* Mobile : textes du paiement à 12 px minimum (lisibilité) */
+    @media (max-width: 480px) {
+        [data-i18n^="offer."], .label-sm, [data-i18n$="_sub"], .form-group label, .form-group label span,
+        .step-num, .step-pay-content span, .upload-hint span, #lockIcon, #lockMsg, .cart-item-sub,
+        .thickness-picker-mini-label, .thickness-mini-pill span, [data-i18n="upsell_label"], .trust-chip span,
+        [data-i18n="info_note"], .footer-brand p, .footer-col h4, .footer-bottom p, .footer-bottom a,
+        p:has(> [data-i18n="secure_note"]), [data-i18n="secure_note"], [data-i18n="secure_note"] strong { font-size: 12px !important; }
+    }
+</style>
 <style id="sivaa-a11y">.footer-col li a,.footer-bottom a,.footer-inner a{display:inline-block;padding:.3rem 0}.footer-col li a{font-size:.82rem}.warning-mandatory strong{color:#ef8180!important}@media (max-width:480px){.blog-card p,[data-i18n="info_note"],.warning-mandatory p{font-size:12px}}</style>
 </head>
 <body>
@@ -979,7 +989,7 @@ ${dateStr}`;
     });
 </script>
 <script>window.onSivaaLanguageChange = applyCheckoutLanguage;</script>
-<script src="/i18n.js?v=c03f69211a" defer=""></script>
+<script src="/i18n.js?v=04da2c96f0" defer=""></script>
 
 
 </body></html>

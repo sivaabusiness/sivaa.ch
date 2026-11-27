@@ -2292,3 +2292,59 @@ document.addEventListener('DOMContentLoaded', () => {
     initRevealHandoff();
     initScrollReveal();
 });
+
+/* ════════════════════════════════════════════════════════════════
+   ÉPAISSEUR DU SIWAK ET DE L'ALLO TOGO (toutes les pages)
+   - Un choix fait n'importe où (fenêtre produit, fiche, paiement) est mémorisé et
+     réaffiché partout : au chargement, au retour arrière et dans les autres onglets.
+   - « Commander » sans choix : « Peu importe » est enregistré, sans jamais remplacer
+     un choix déjà fait.
+════════════════════════════════════════════════════════════════ */
+const SV_THICK_KEYS = {
+    'thickness-modal1': 'sivaa_siwak_thickness',
+    'thickness-checkout': 'sivaa_siwak_thickness',
+    'thickness-modal2': 'sivaa_allotogo_thickness',
+    'thickness-checkout-allotogo': 'sivaa_allotogo_thickness',
+};
+const SV_THICK_VALUES = ['fin', 'epais', 'peu-importe'];
+const svThickGet = (key) => { try { const v = localStorage.getItem(key); return SV_THICK_VALUES.includes(v) ? v : null; } catch (e) { return null; } };
+const svThickSet = (key, v) => { try { localStorage.setItem(key, v); } catch (e) {} };
+// Clé de stockage d'un bouton radio d'épaisseur (null si ce n'en est pas un)
+function svThickKeyOf(input) {
+    if (!input || input.type !== 'radio') return null;
+    if (SV_THICK_KEYS[input.name]) return SV_THICK_KEYS[input.name];
+    const box = input.closest('[data-storage-key]');
+    return box && input.name === 'thickness-page' ? box.getAttribute('data-storage-key') : null;
+}
+function svThickInputs(key) {
+    return [...document.querySelectorAll('input[type="radio"]')].filter((i) => svThickKeyOf(i) === key);
+}
+// Réaffiche le choix mémorisé (sans rien enregistrer)
+function svThickRefresh() {
+    ['sivaa_siwak_thickness', 'sivaa_allotogo_thickness'].forEach((key) => {
+        const v = svThickGet(key);
+        if (v) svThickInputs(key).forEach((i) => { i.checked = (i.value === v); });
+    });
+}
+function initThicknessSync() {
+    svThickRefresh();
+    // Choix du client : enregistré et répercuté sur les autres sélecteurs de la page
+    document.addEventListener('change', (e) => {
+        const key = svThickKeyOf(e.target);
+        if (!key || !e.target.checked) return;
+        svThickSet(key, e.target.value);
+        svThickInputs(key).forEach((i) => { i.checked = (i.value === e.target.value); });
+    });
+    // « Commander » / « Acheter » : sans choix enregistré, « Peu importe »
+    document.addEventListener('click', (e) => {
+        const link = e.target.closest && e.target.closest('a[href]');
+        if (!link || !/(checkout|kasse)\.html(\?|#|$)/.test(link.getAttribute('href'))) return;
+        const scope = link.closest('.modal-box, .pp-buy, .card-siv') || document;
+        const keys = new Set([...scope.querySelectorAll('input[type="radio"]')].map(svThickKeyOf).filter(Boolean));
+        keys.forEach((key) => { if (!svThickGet(key)) svThickSet(key, 'peu-importe'); });
+    }, true);
+    // Retour arrière (page restaurée depuis le cache) et autres onglets
+    window.addEventListener('pageshow', svThickRefresh);
+    window.addEventListener('storage', (e) => { if (e.key === 'sivaa_siwak_thickness' || e.key === 'sivaa_allotogo_thickness') svThickRefresh(); });
+}
+document.addEventListener('DOMContentLoaded', initThicknessSync);
