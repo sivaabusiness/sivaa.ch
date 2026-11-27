@@ -167,5 +167,22 @@
    1200,
    509
   ]
+ ],
+ "/batons-siwak-bruts.webp": [
+  [
+   "batons-siwak-bruts-480.webp",
+   480,
+   720
+  ],
+  [
+   "batons-siwak-bruts-736.webp",
+   736,
+   1104
+  ],
+  [
+   "batons-siwak-bruts-1024.webp",
+   1024,
+   1536
+  ]
  ]
 }

@@ -178,6 +178,7 @@ const articleTitle = (file, lang = 'fr') => {
 };
 
 /* ── Gabarit commun ─────────────────────────────────────────── */
+const A11Y_CSS = '.footer-col li a,.footer-bottom a,.footer-inner a{display:inline-block;padding:.3rem 0}.footer-col li a{font-size:.82rem}.warning-mandatory strong{color:#ef8180!important}';
 const CSS = `
 :root{--bg:#09160b;--surface-lowest:#0d1c0f;--surface-low:#111f13;--surface-mid:#162518;--primary:#9dd75a;--primary-fixed:#b5e87a;--primary-dim:#2a3d1a;--text:#d7e7d4;--text-variant:#8c9e89;--outline:#424939;--outline-variant:#2e3a2c;--dark-green:#0a1f0c;color-scheme:dark}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -203,9 +204,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(9,22,11,.7);b
 .btn-ghost{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;border:1px solid var(--outline);color:var(--text);padding:.85rem 1.25rem;border-radius:.5rem;font-size:.85rem;transition:border-color .2s}
 .btn-ghost:hover{border-color:var(--primary)}
 .page{padding:6.5rem 0 4rem}
-.breadcrumb{display:flex;flex-wrap:wrap;gap:.5rem;font-size:.72rem;color:var(--outline);margin-bottom:2rem}
+.breadcrumb{display:flex;flex-wrap:wrap;gap:.5rem;font-size:.72rem;color:#858f7c;margin-bottom:2rem}
 .breadcrumb a{color:var(--primary)}
-.pp-badge{display:inline-block;font-size:.7rem;color:#fff;background:rgba(127,153,90,.85);padding:.25rem .75rem;border-radius:9999px;margin-bottom:1rem}
+.pp-badge{display:inline-block;font-size:.7rem;color:#fff;background:#5f7743;padding:.25rem .75rem;border-radius:9999px;margin-bottom:1rem}
 .pp-price{font-family:'Newsreader',serif;font-size:1.6rem;color:var(--primary);margin-bottom:1.25rem}
 .pp-bundle{background:var(--surface-low);border:1px solid var(--outline-variant);border-radius:.75rem;padding:1rem 1.25rem;margin-bottom:1.5rem}
 .pp-bundle p{color:var(--primary);margin-bottom:.5rem}
@@ -291,7 +292,7 @@ footer{background:var(--surface-lowest);border-top:1px solid rgba(46,58,44,.3);p
 .footer-col li a:hover{color:var(--primary)}
 .footer-tagline{font-size:.78rem;color:#8c9e89;line-height:1.7;margin-top:.75rem;max-width:20rem}
 .footer-bottom{border-top:1px solid rgba(46,58,44,.2);padding-top:1.5rem;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem}
-.footer-bottom p,.footer-bottom a{font-size:.72rem;color:var(--outline)}
+.footer-bottom p,.footer-bottom a{font-size:.72rem;color:#858f7c}
 .footer-bottom a:hover{color:var(--primary)}
 /* ── Fiche produit : mise en page ── */
 .page{padding:6rem 0 4rem}
@@ -361,6 +362,8 @@ html{font-size:15px}
 .whatsapp-fab{transition:opacity .2s,transform .2s}
 .whatsapp-fab.fab-hidden{opacity:0;transform:translateY(12px);pointer-events:none}
 
+
+${A11Y_CSS}
 `;
 
 /* Polices Inter et Newsreader (licence OFL) hébergées sur le site : mêmes fichiers et mêmes
@@ -825,6 +828,8 @@ for (const key of HAND) {
     }
     html = html.replace(/\n[ \t]*<!-- ═+\s*\n\s*SEO Multilingue[\s\S]*?-->/, '');
     html = html.replace(/\n[ \t]*<link rel="alternate" hreflang="[^"]*" href="[^"]*"\s*\/?>/g, '');
+    // Accessibilité : liens du pied de page plus grands au toucher, contraste de l'avertissement du paiement
+    html = html.replace(/<style id="sivaa-a11y">[\s\S]*?<\/style>\n?/, '').replace('</head>', `<style id="sivaa-a11y">${A11Y_CSS}</style>\n</head>`);
     const canon = `<link rel="canonical" href="${SITE + URLS[key].fr}"/>`;
     if (/<link rel="canonical"[^>]*>/.test(html)) html = html.replace(/<link rel="canonical"[^>]*>/, canon + '\n    ' + altLinks(key));
     else html = html.replace(/(<title>[\s\S]*?<\/title>)/, `$1\n    ${canon}\n    ${altLinks(key)}`);
