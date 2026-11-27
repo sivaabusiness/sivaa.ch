@@ -178,7 +178,7 @@ const articleTitle = (file, lang = 'fr') => {
 };
 
 /* ── Gabarit commun ─────────────────────────────────────────── */
-const A11Y_CSS = '.footer-col li a,.footer-bottom a,.footer-inner a{display:inline-block;padding:.3rem 0}.footer-col li a{font-size:.82rem}.warning-mandatory strong{color:#ef8180!important}';
+const A11Y_CSS = '.footer-col li a,.footer-bottom a,.footer-inner a{display:inline-block;padding:.3rem 0}.footer-col li a{font-size:.82rem}.warning-mandatory strong{color:#ef8180!important}@media (max-width:480px){.blog-card p,[data-i18n="info_note"],.warning-mandatory p{font-size:12px}}';
 const CSS = `
 :root{--bg:#09160b;--surface-lowest:#0d1c0f;--surface-low:#111f13;--surface-mid:#162518;--primary:#9dd75a;--primary-fixed:#b5e87a;--primary-dim:#2a3d1a;--text:#d7e7d4;--text-variant:#8c9e89;--outline:#424939;--outline-variant:#2e3a2c;--dark-green:#0a1f0c;color-scheme:dark}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
